@@ -2,25 +2,18 @@
 
 set -ue
 
-. ~/CuPy_Team/rocm/profile_v2
+WORKDIR=$1
+
 echo "Host: $(hostname)"
-
-WORKDIR="$(mktemp -d)"
-trap _clean_workdir EXIT
-_clean_workdir() {
-  echo "Cleaning up the work dir: ${WORKDIR}"
-  rm -rf "${WORKDIR}"
-}
-
 echo "Using work dir: ${WORKDIR}"
 cd "${WORKDIR}"
 
+echo "Sourcing env vars"
+. ~/CuPy_Team/rocm/profile_v2
+
+echo "Setting up Python env"
 pyenv local rocm-ci
-# TODO: use latest numpy
-pip install 'numpy<1.20' cython fastrlock pytest pytest-html
-# TODO: use master branch
-#git clone --recursive https://github.com/cupy/cupy.git
-git clone --recursive --branch fix-rocm-test-import https://github.com/kmaehashi/cupy.git
+pip install numpy cython fastrlock pytest pytest-html
 
 pushd cupy
 COMMIT_INFO="$(git show --no-patch --oneline)"
@@ -33,7 +26,6 @@ TEST_SUMMARY="$(cat _output/output_test.log | tail -n 1)"
 popd
 
 echo "Publishing results..."
-git clone --branch gh-pages git@github.com:kmaehashi/cupy-rocm-ci-report.git
 pushd cupy-rocm-ci-report/docs
 rm -rf *
 cp -a ../../cupy/_output/* .
@@ -41,7 +33,6 @@ git add -A .
 git commit -m "Test results for: ${COMMIT_INFO}
 
 ${TEST_SUMMARY}"
-git push
 popd
 
 echo "Done!"
