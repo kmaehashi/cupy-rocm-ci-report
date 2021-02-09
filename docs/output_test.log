@@ -1,6 +1,6 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.EnktmKAolP/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.7FzzOnedH6/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
 collected 86617 items / 56 deselected / 86561 selected
 
@@ -143,7 +143,7 @@ tests/cupy_tests/core_tests/test_ndarray_scatter.py .................... [  8%]
 ........................................................................ [  8%]
 ...............................................................          [  8%]
 tests/cupy_tests/core_tests/test_ndarray_ufunc.py .......                [  8%]
-tests/cupy_tests/core_tests/test_ndarray_unary_op.py ..................s [  8%]
+tests/cupy_tests/core_tests/test_ndarray_unary_op.py .......F..........s [  8%]
 ...                                                                      [  8%]
 tests/cupy_tests/core_tests/test_raw.py .ss.........sss..s.s.s........ss [  8%]
 .........sss..s.s.s........ss.........sss..s.s.s......ssssssssssssssssss [  8%]
@@ -203,7 +203,7 @@ tests/cupy_tests/cuda_tests/test_profile.py ..                           [ 10%]
 tests/cupy_tests/cuda_tests/test_runtime.py .                            [ 10%]
 tests/cupy_tests/cuda_tests/test_stream.py ..Fatal Python error: Segmentation fault
 
-Current thread 0x00007fe64f8bb100 (most recent call first):
+Current thread 0x00007f0d1baf3100 (most recent call first):
   File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/case.py", line 633 in _callTestMethod
   File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/case.py", line 676 in run
   File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/case.py", line 736 in __call__
