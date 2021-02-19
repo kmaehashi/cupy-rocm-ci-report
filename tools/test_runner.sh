@@ -2,11 +2,8 @@
 
 set -ue
 
-WORKDIR=$1
-
 echo "Host: $(hostname)"
-echo "Using work dir: ${WORKDIR}"
-cd "${WORKDIR}"
+echo "Workdir: $(pwd)"
 
 echo "Sourcing env vars"
 . ~/CuPy_Team/rocm/profile_v2

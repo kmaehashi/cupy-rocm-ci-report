@@ -1,11 +1,11 @@
 #!/bin/bash
 
+set -u
 
 CURRENT_DIR="$(cd $(dirname "$0"); pwd)"
 
 _run_test() {
-
-    WORKDIR="$(mktemp -d --tmpdir "${CURRENT_DIR}")"
+    WORKDIR="$(mktemp -d -p "${CURRENT_DIR}")"
     trap _clean_workdir EXIT
     _clean_workdir() {
       echo "Cleaning up the work dir: ${WORKDIR}"
@@ -15,9 +15,8 @@ _run_test() {
     pushd "${WORKDIR}"
     git clone --recursive https://github.com/cupy/cupy.git
     git clone --branch gh-pages git@github.com:kmaehashi/cupy-rocm-ci-report.git
+    srun "${CURRENT_DIR}/test_runner.sh"
     popd
-
-    srun "$(dirname "$0")/test_runner.sh" "${WORKDIR}"
 
     pushd "${WORKDIR}/cupy-rocm-ci-report"
     git push
@@ -26,10 +25,17 @@ _run_test() {
     _clean_workdir
 }
 
+
+_trim_cache() {
+    ${CURRENT_DIR}/trim_cupy_kernel_cache.py --max-size $((5*1024*1024*1024)) --rm
+}
+
 main() {
     while :; do
         echo "<<< $(date) >>> Starting..."
+        _trim_cache
         _run_test
+        _trim_cache
         echo "<<< $(date) >>> Finished..."
         sleep $((3600))
     done
