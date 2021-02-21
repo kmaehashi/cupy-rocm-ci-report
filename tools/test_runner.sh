@@ -29,9 +29,7 @@ pushd cupy-rocm-ci-report/docs
 rm -rf *
 cp -a ../../cupy/_output/* .
 git add -A .
-git commit -m "Test results for: ${COMMIT_INFO}
-
-${TEST_SUMMARY}"
+git commit -m "Test results for: https://github.com/cupy/cupy/commit/${COMMIT_INFO} - ${TEST_SUMMARY}"
 popd
 
 echo "Done!"
