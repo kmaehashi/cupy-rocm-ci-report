@@ -3,6 +3,7 @@
 set -u
 
 CURRENT_DIR="$(cd $(dirname "$0"); pwd)"
+LAST_TESTED_COMMIT=""
 
 _run_test() {
     WORKDIR="$(mktemp -d -p "${CURRENT_DIR}")"
@@ -14,6 +15,16 @@ _run_test() {
 
     pushd "${WORKDIR}"
     git clone --recursive https://github.com/cupy/cupy.git
+    CURRENT_COMMIT="$(git -C cupy rev-parse HEAD)"
+    popd
+
+    if [ "${CURRENT_COMMIT}" == "${LAST_TESTED_COMMIT}" ]; then
+        echo "skipping as already tested: ${CURRENT_COMMIT}"
+        _clean_workdir
+        return
+    fi
+
+    pushd "${WORKDIR}"
     git clone --branch gh-pages git@github.com:kmaehashi/cupy-rocm-ci-report.git
     srun "${CURRENT_DIR}/test_runner.sh"
     popd
@@ -22,6 +33,7 @@ _run_test() {
     git push
     popd
 
+    LAST_TESTED_COMMIT="${CURRENT_COMMIT}"
     _clean_workdir
 }
 
@@ -37,7 +49,7 @@ main() {
         _run_test
         _trim_cache
         echo "<<< $(date) >>> Finished..."
-        sleep $((3600))
+        sleep $((300))
     done
 }
 
