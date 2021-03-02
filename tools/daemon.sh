@@ -14,18 +14,20 @@ _run_test() {
     }
 
     pushd "${WORKDIR}"
-    git clone --recursive https://github.com/cupy/cupy.git
+    git clone --depth 1 --recursive https://github.com/cupy/cupy.git
     CURRENT_COMMIT="$(git -C cupy rev-parse HEAD)"
     popd
 
     if [ "${CURRENT_COMMIT}" == "${LAST_TESTED_COMMIT}" ]; then
-        echo "skipping as already tested: ${CURRENT_COMMIT}"
+        echo "-> Skipping as already tested: ${CURRENT_COMMIT}"
         _clean_workdir
         return
+    else
+        echo "-> Testing commit: ${CURRENT_COMMIT}"
     fi
 
     pushd "${WORKDIR}"
-    git clone --branch gh-pages git@github.com:kmaehashi/cupy-rocm-ci-report.git
+    git clone --depth 1 --branch gh-pages git@github.com:kmaehashi/cupy-rocm-ci-report.git
     srun "${CURRENT_DIR}/test_runner.sh"
     popd
 
