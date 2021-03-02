@@ -1,8 +1,8 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
-collected 63767 items / 56 deselected / 12 skipped / 63699 selected
+collected 63769 items / 56 deselected / 12 skipped / 63701 selected
 
 tests/cupy_tests/test_cublas.py ........................................ [  0%]
 ........................................................................ [  0%]
@@ -116,7 +116,7 @@ tests/cupy_tests/core_tests/test_ndarray_elementwise_op.py ............. [  9%]
 ........................................................................ [  9%]
 .................................................................        [  9%]
 tests/cupy_tests/core_tests/test_ndarray_get.py ............             [  9%]
-tests/cupy_tests/core_tests/test_ndarray_indexing.py FFFF............... [  9%]
+tests/cupy_tests/core_tests/test_ndarray_indexing.py FFFF..........F.... [  9%]
 ........F..........F.............................                        [  9%]
 tests/cupy_tests/core_tests/test_ndarray_math.py ......................s [  9%]
 sssssssssss                                                              [  9%]
@@ -259,7 +259,7 @@ tests/cupy_tests/linalg_tests/test_norms.py ............................ [ 17%]
 tests/cupy_tests/linalg_tests/test_product.py .......................... [ 17%]
 ........................................................................ [ 17%]
 ........................................................................ [ 17%]
-..........................................                               [ 17%]
+.................................F........                               [ 17%]
 tests/cupy_tests/linalg_tests/test_solve.py ............................ [ 17%]
 ....                                                                     [ 17%]
 tests/cupy_tests/logic_tests/test_comparison.py ........................ [ 18%]
@@ -284,7 +284,7 @@ tests/cupy_tests/manipulation_tests/test_add_remove.py ................. [ 19%]
 tests/cupy_tests/manipulation_tests/test_basic.py ...................... [ 19%]
 .......................................................                  [ 19%]
 tests/cupy_tests/manipulation_tests/test_dims.py .....F.F............... [ 19%]
-..........F.....................................                         [ 19%]
+................................................                         [ 19%]
 tests/cupy_tests/manipulation_tests/test_join.py ....................... [ 19%]
 ...........................                                              [ 19%]
 tests/cupy_tests/manipulation_tests/test_kind.py ...........             [ 19%]
@@ -470,8 +470,8 @@ tests/cupy_tests/random_tests/test_distributions.py .................... [ 34%]
 tests/cupy_tests/random_tests/test_generator.py ........................ [ 36%]
 ........................................................................ [ 36%]
 ........................................................................ [ 37%]
-.................................................................F...... [ 37%]
-......................x...............................                   [ 37%]
+...................................................................F.... [ 37%]
+........................x...............................                 [ 37%]
 tests/cupy_tests/random_tests/test_generator_api.py sssssssssssssssss    [ 37%]
 tests/cupy_tests/random_tests/test_init.py .                             [ 37%]
 tests/cupy_tests/random_tests/test_permutations.py ..Fx..Fx............. [ 37%]
@@ -826,7 +826,7 @@ ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 72%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 72%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 72%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 72%]
-ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 72%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 73%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 73%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 73%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 73%]
@@ -1220,7 +1220,7 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array(15, dtype=int16), y = 15, err_msg = '', verbose = True
+x = array(15, dtype=int64), y = 15, err_msg = '', verbose = True
 strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -1244,14 +1244,14 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 15
-E       Max relative difference: 1.
-E        x: array(0, dtype=int16)
-E        y: array(15, dtype=int16)
+E       Max absolute difference: 4624633867356078065
+E       Max relative difference: 3.08308924e+17
+E        x: array(4624633867356078080, dtype=int64)
+E        y: array(15, dtype=int64)
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.int16'>
+dtype is <class 'numpy.longlong'>
 _ TestArrayIndexingParameterized_param_2_{indexes=(1, 0, 2), shape=(2, 3, 4), transpose=(2, 0, 1)}.test_getitem _
 cupy/testing/helper.py:825: in test_func
     impl(self, *args, **kw)
@@ -1261,7 +1261,7 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array(10, dtype=int8), y = 10, err_msg = '', verbose = True
+x = array(10., dtype=float16), y = 10.0, err_msg = '', verbose = True
 strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -1285,14 +1285,14 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 10
+E       Max absolute difference: 10.
 E       Max relative difference: 1.
-E        x: array(0, dtype=int8)
-E        y: array(10, dtype=int8)
+E        x: array(0., dtype=float16)
+E        y: array(10., dtype=float16)
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.int8'>
+dtype is <class 'numpy.float16'>
 _ TestArrayIndexingParameterized_param_3_{indexes=(-1, 0, -2), shape=(2, 3, 4), transpose=(2, 0, 1)}.test_getitem _
 cupy/testing/helper.py:825: in test_func
     impl(self, *args, **kw)
@@ -1302,7 +1302,7 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array(8., dtype=float16), y = 8.0, err_msg = '', verbose = True
+x = array(8., dtype=float32), y = 8.0, err_msg = '', verbose = True
 strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -1326,14 +1326,60 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 6.
-E       Max relative difference: 0.75
-E        x: array(2., dtype=float16)
-E        y: array(8., dtype=float16)
+E       Max absolute difference: 5.75
+E       Max relative difference: 0.71875
+E        x: array(2.25, dtype=float32)
+E        y: array(8., dtype=float32)
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float16'>
+dtype is <class 'numpy.float32'>
+_ TestArrayIndexingParameterized_param_14_{indexes=(slice(None, None, None), None), shape=(2,), transpose=None}.test_getitem _
+cupy/testing/helper.py:825: in test_func
+    impl(self, *args, **kw)
+cupy/testing/helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/helper.py:648: in check_func
+    array.assert_array_equal(x, y, err_msg, verbose, strides_check)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = array([[1],
+       [2]], dtype=int8)
+y = array([[1],
+       [2]], dtype=int8), err_msg = '', verbose = True
+strides_check = False
+
+    def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
+        """Raises an AssertionError if two array_like objects are not equal.
+    
+        Args:
+             x(numpy.ndarray or cupy.ndarray): The actual object to check.
+             y(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             strides_check(bool): If ``True``, consistency of strides is also
+                 checked.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting values
+                 are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_array_equal`
+        """
+>       numpy.testing.assert_array_equal(
+            cupy.asnumpy(x), cupy.asnumpy(y), err_msg=err_msg,
+            verbose=verbose)
+E       AssertionError: 
+E       Arrays are not equal
+E       
+E       Mismatched elements: 2 / 2 (100%)
+E       Max absolute difference: 2
+E       Max relative difference: 1.
+E        x: array([[0],
+E              [0]], dtype=int8)
+E        y: array([[1],
+E              [2]], dtype=int8)
+
+cupy/testing/array.py:91: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.int8'>
 _ TestArrayIndexingParameterized_param_27_{indexes=(slice(-4, -5, -1),), shape=(10,), transpose=None}.test_getitem _
 cupy/testing/helper.py:825: in test_func
     impl(self, *args, **kw)
@@ -1384,7 +1430,7 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array([6], dtype=int8), y = array([6], dtype=int8), err_msg = ''
+x = array([6.], dtype=float32), y = array([6.], dtype=float32), err_msg = ''
 verbose = True, strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -1408,30 +1454,30 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 6
-E       Max relative difference: 1.
-E        x: array([0], dtype=int8)
-E        y: array([6], dtype=int8)
+E       Max absolute difference: 3.875
+E       Max relative difference: 0.6458333
+E        x: array([2.125], dtype=float32)
+E        y: array([6.], dtype=float32)
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.int8'>
+dtype is <class 'numpy.float32'>
 ____________________ TestArrayBoolOp.test_bool_one_element _____________________
 
 self = <cupy_tests.core_tests.test_ndarray_unary_op.TestArrayBoolOp testMethod=test_bool_one_element>
-dtype = <class 'numpy.int16'>
+dtype = <class 'numpy.float32'>
 
     @testing.for_all_dtypes()
     def test_bool_one_element(self, dtype):
 >       assert bool(cupy.array([1], dtype=dtype))
 E       AssertionError: assert False
-E        +  where False = bool(array([1], dtype=int16))
-E        +    where array([1], dtype=int16) = <function array at 0x7f8fafe6b280>([1], dtype=<class 'numpy.int16'>)
-E        +      where <function array at 0x7f8fafe6b280> = cupy.array
+E        +  where False = bool(array([1.], dtype=float32))
+E        +    where array([1.], dtype=float32) = <function array at 0x7f5acbfd5310>([1], dtype=<class 'numpy.float32'>)
+E        +      where <function array at 0x7f5acbfd5310> = cupy.array
 
 tests/cupy_tests/core_tests/test_ndarray_unary_op.py:34: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.int16'>
+dtype is <class 'numpy.float32'>
 ______________ TestFromData.test_array_from_list_of_numpy_scalar _______________
 cupy/testing/helper.py:1175: in test_func
     impl(self, *args, **kw)
@@ -1443,8 +1489,8 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array([0, 1], dtype=int16), y = array([0, 1], dtype=int16), err_msg = ''
-verbose = True, strides_check = True
+x = array([0, 1]), y = array([0, 1]), err_msg = '', verbose = True
+strides_check = True
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
         """Raises an AssertionError if two array_like objects are not equal.
@@ -1467,14 +1513,14 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 1 / 2 (50%)
-E       Max absolute difference: 1
-E       Max relative difference: 1.
-E        x: array([0, 0], dtype=int16)
-E        y: array([0, 1], dtype=int16)
+E       Max absolute difference: 4575657221408423936
+E       Max relative difference: 0.
+E        x: array([4575657221408423936,                   1])
+E        y: array([0, 1])
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.int16'>
+dtype is <class 'numpy.int64'>
 order is C
 ____________________ TestDeviceHandles.test_cusparse_handle ____________________
 
@@ -1501,7 +1547,7 @@ func = <built-in function get_cusparse_handle>
         t.join()
         assert handles[0] is not None
 >       assert handles[0] != handles[1]
-E       AssertionError: assert 140256180672976 != 140256180672976
+E       AssertionError: assert 140029022640592 != 140029022640592
 
 tests/cupy_tests/cuda_tests/test_device.py:136: AssertionError
 _______ TestPoly1dInit_param_0_{variable=None}.test_poly1d_numpy_poly1d ________
@@ -3664,7 +3710,7 @@ dtype is <class 'numpy.float64'>
 __________ TestRootsReal_param_0_{input=[2, -1, -2]}.test_roots_array __________
 
 self = <<cupy_tests.lib_tests.test_polynomial.TestRootsReal_param_0_{input=[2, -1, -2]} testMethod=test_roots_array>  parameter: {'input': [2, -1, -2]}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.int8'>
 
     @testing.for_signed_dtypes()
@@ -3691,15 +3737,15 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 E   AssertionError: Only cupy raises error
 E   
 E   Traceback (most recent call last):
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E       result = impl(self, *args, **kw)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 767, in test_roots_array
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 767, in test_roots_array
 E       out = xp.roots(a)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/lib/_routines_poly.py", line 326, in roots
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/lib/_routines_poly.py", line 326, in roots
 E       out = cupy.linalg.eigvalsh(cmatrix)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
 E       return _syevd(a, UPLO, False)[0]
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
 E       work_size = buffer_size(
 E     File "cupy_backends/cuda/libs/cusolver.pyx", line 3087, in cupy_backends.cuda.libs.cusolver.dsyevd_bufferSize
 E       cpdef int dsyevd_bufferSize(intptr_t handle, int jobz, int uplo, int n,
@@ -3715,7 +3761,7 @@ dtype is <class 'numpy.int8'>
 _________ TestRootsReal_param_0_{input=[2, -1, -2]}.test_roots_poly1d __________
 
 self = <<cupy_tests.lib_tests.test_polynomial.TestRootsReal_param_0_{input=[2, -1, -2]} testMethod=test_roots_poly1d>  parameter: {'input': [2, -1, -2]}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.int8'>
 
     @testing.for_signed_dtypes()
@@ -3742,15 +3788,15 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 E   AssertionError: Only cupy raises error
 E   
 E   Traceback (most recent call last):
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E       result = impl(self, *args, **kw)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 774, in test_roots_poly1d
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 774, in test_roots_poly1d
 E       out = xp.roots(xp.poly1d(a))
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/lib/_routines_poly.py", line 326, in roots
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/lib/_routines_poly.py", line 326, in roots
 E       out = cupy.linalg.eigvalsh(cmatrix)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
 E       return _syevd(a, UPLO, False)[0]
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
 E       work_size = buffer_size(
 E     File "cupy_backends/cuda/libs/cusolver.pyx", line 3087, in cupy_backends.cuda.libs.cusolver.dsyevd_bufferSize
 E       cpdef int dsyevd_bufferSize(intptr_t handle, int jobz, int uplo, int n,
@@ -3766,7 +3812,7 @@ dtype is <class 'numpy.int8'>
 __________ TestRootsReal_param_1_{input=[-4, 10, 4]}.test_roots_array __________
 
 self = <<cupy_tests.lib_tests.test_polynomial.TestRootsReal_param_1_{input=[-4, 10, 4]} testMethod=test_roots_array>  parameter: {'input': [-4, 10, 4]}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.int8'>
 
     @testing.for_signed_dtypes()
@@ -3793,15 +3839,15 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 E   AssertionError: Only cupy raises error
 E   
 E   Traceback (most recent call last):
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E       result = impl(self, *args, **kw)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 767, in test_roots_array
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 767, in test_roots_array
 E       out = xp.roots(a)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/lib/_routines_poly.py", line 326, in roots
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/lib/_routines_poly.py", line 326, in roots
 E       out = cupy.linalg.eigvalsh(cmatrix)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
 E       return _syevd(a, UPLO, False)[0]
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
 E       work_size = buffer_size(
 E     File "cupy_backends/cuda/libs/cusolver.pyx", line 3087, in cupy_backends.cuda.libs.cusolver.dsyevd_bufferSize
 E       cpdef int dsyevd_bufferSize(intptr_t handle, int jobz, int uplo, int n,
@@ -3817,7 +3863,7 @@ dtype is <class 'numpy.int8'>
 _________ TestRootsReal_param_1_{input=[-4, 10, 4]}.test_roots_poly1d __________
 
 self = <<cupy_tests.lib_tests.test_polynomial.TestRootsReal_param_1_{input=[-4, 10, 4]} testMethod=test_roots_poly1d>  parameter: {'input': [-4, 10, 4]}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.int8'>
 
     @testing.for_signed_dtypes()
@@ -3844,15 +3890,15 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 E   AssertionError: Only cupy raises error
 E   
 E   Traceback (most recent call last):
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E       result = impl(self, *args, **kw)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 774, in test_roots_poly1d
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 774, in test_roots_poly1d
 E       out = xp.roots(xp.poly1d(a))
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/lib/_routines_poly.py", line 326, in roots
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/lib/_routines_poly.py", line 326, in roots
 E       out = cupy.linalg.eigvalsh(cmatrix)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
 E       return _syevd(a, UPLO, False)[0]
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
 E       work_size = buffer_size(
 E     File "cupy_backends/cuda/libs/cusolver.pyx", line 3087, in cupy_backends.cuda.libs.cusolver.dsyevd_bufferSize
 E       cpdef int dsyevd_bufferSize(intptr_t handle, int jobz, int uplo, int n,
@@ -3868,7 +3914,7 @@ dtype is <class 'numpy.int8'>
 ____ TestRootsComplex_param_0_{input=[3j, 1.5j, (-0-3j)]}.test_roots_array _____
 
 self = <<cupy_tests.lib_tests.test_polynomial.TestRootsComplex_param_0_{input=[3j, 1.5j, (-0-3j)]} testMethod=test_roots_array>  parameter: {'input': [3j, 1.5j, (-0-3j)]}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.complex64'>
 
     @testing.for_complex_dtypes()
@@ -3895,15 +3941,15 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 E   AssertionError: Only cupy raises error
 E   
 E   Traceback (most recent call last):
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E       result = impl(self, *args, **kw)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 788, in test_roots_array
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 788, in test_roots_array
 E       out = xp.roots(a)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/lib/_routines_poly.py", line 326, in roots
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/lib/_routines_poly.py", line 326, in roots
 E       out = cupy.linalg.eigvalsh(cmatrix)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
 E       return _syevd(a, UPLO, False)[0]
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
 E       work_size = buffer_size(
 E     File "cupy_backends/cuda/libs/cusolver.pyx", line 3099, in cupy_backends.cuda.libs.cusolver.cheevd_bufferSize
 E       cpdef int cheevd_bufferSize(intptr_t handle, int jobz, int uplo, int n,
@@ -3919,7 +3965,7 @@ dtype is <class 'numpy.complex64'>
 ____ TestRootsComplex_param_0_{input=[3j, 1.5j, (-0-3j)]}.test_roots_poly1d ____
 
 self = <<cupy_tests.lib_tests.test_polynomial.TestRootsComplex_param_0_{input=[3j, 1.5j, (-0-3j)]} testMethod=test_roots_poly1d>  parameter: {'input': [3j, 1.5j, (-0-3j)]}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.complex64'>
 
     @testing.for_complex_dtypes()
@@ -3946,15 +3992,15 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 E   AssertionError: Only cupy raises error
 E   
 E   Traceback (most recent call last):
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E       result = impl(self, *args, **kw)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 795, in test_roots_poly1d
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 795, in test_roots_poly1d
 E       out = xp.roots(xp.poly1d(a))
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/lib/_routines_poly.py", line 326, in roots
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/lib/_routines_poly.py", line 326, in roots
 E       out = cupy.linalg.eigvalsh(cmatrix)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
 E       return _syevd(a, UPLO, False)[0]
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
 E       work_size = buffer_size(
 E     File "cupy_backends/cuda/libs/cusolver.pyx", line 3099, in cupy_backends.cuda.libs.cusolver.cheevd_bufferSize
 E       cpdef int cheevd_bufferSize(intptr_t handle, int jobz, int uplo, int n,
@@ -3970,7 +4016,7 @@ dtype is <class 'numpy.complex64'>
 _________________________ TestPoly1d.test_poly1d_roots _________________________
 
 self = <cupy_tests.lib_tests.test_polynomial.TestPoly1d testMethod=test_poly1d_roots>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.int8'>
 
     @testing.for_signed_dtypes()
@@ -3999,17 +4045,17 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 E   AssertionError: Only cupy raises error
 E   
 E   Traceback (most recent call last):
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E       result = impl(self, *args, **kw)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 134, in test_poly1d_roots
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/lib_tests/test_polynomial.py", line 134, in test_poly1d_roots
 E       out = xp.poly1d(a).roots
 E     File "cupy/lib/_polynomial.pyx", line 63, in cupy.lib._polynomial.poly1d.roots.__get__
 E       return _routines_poly.roots(self._coeffs)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/lib/_routines_poly.py", line 326, in roots
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/lib/_routines_poly.py", line 326, in roots
 E       out = cupy.linalg.eigvalsh(cmatrix)
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 176, in eigvalsh
 E       return _syevd(a, UPLO, False)[0]
-E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
+E     File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/linalg/_eigenvalue.py", line 79, in _syevd
 E       work_size = buffer_size(
 E     File "cupy_backends/cuda/libs/cusolver.pyx", line 3087, in cupy_backends.cuda.libs.cusolver.dsyevd_bufferSize
 E       cpdef int dsyevd_bufferSize(intptr_t handle, int jobz, int uplo, int n,
@@ -4022,6 +4068,58 @@ E   cupy_backends.cuda.libs.cusolver.CUSOLVERError: rocblas_status_not_implement
 cupy_backends/cuda/libs/cusolver.pyx:1052: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 dtype is <class 'numpy.int8'>
+_____________________ TestMatrixPower.test_matrix_power_1 ______________________
+cupy/testing/helper.py:825: in test_func
+    impl(self, *args, **kw)
+cupy/testing/helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/helper.py:495: in check_func
+    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[1., 2., 3.],
+       [4., 5., 6.],
+       [7., 8., 9.]], dtype=float16)
+desired = array([[1., 2., 3.],
+       [4., 5., 6.],
+       [7., 8., 9.]], dtype=float16)
+rtol = 1e-07, atol = 0, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=0
+E       
+E       Mismatched elements: 4 / 9 (44.4%)
+E       Max absolute difference: 3.
+E       Max relative difference: 1.
+E        x: array([[0.   , 1.875, 0.   ],
+E              [2.   , 5.   , 6.   ],
+E              [7.   , 8.   , 9.   ]], dtype=float16)
+E        y: array([[1., 2., 3.],
+E              [4., 5., 6.],
+E              [7., 8., 9.]], dtype=float16)
+
+cupy/testing/array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float16'>
 ______ TestBroadcast_param_2_{shapes=[(1,), (1,)]}.test_broadcast_arrays _______
 cupy/testing/helper.py:825: in test_func
     impl(self, *args, **kw)
@@ -4031,7 +4129,7 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array([1.], dtype=float16), y = array([1.], dtype=float16), err_msg = ''
+x = array([1.], dtype=float32), y = array([1.], dtype=float32), err_msg = ''
 verbose = True, strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -4057,12 +4155,12 @@ E
 E       Mismatched elements: 1 / 1 (100%)
 E       Max absolute difference: 1.
 E       Max relative difference: 1.
-E        x: array([0.], dtype=float16)
-E        y: array([1.], dtype=float16)
+E        x: array([0.], dtype=float32)
+E        y: array([1.], dtype=float32)
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float16'>
+dtype is <class 'numpy.float32'>
 ______ TestBroadcast_param_3_{shapes=[(2,), (2,)]}.test_broadcast_arrays _______
 cupy/testing/helper.py:825: in test_func
     impl(self, *args, **kw)
@@ -4072,51 +4170,7 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array([1, 2], dtype=int16), y = array([1, 2], dtype=int16), err_msg = ''
-verbose = True, strides_check = False
-
-    def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
-        """Raises an AssertionError if two array_like objects are not equal.
-    
-        Args:
-             x(numpy.ndarray or cupy.ndarray): The actual object to check.
-             y(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             strides_check(bool): If ``True``, consistency of strides is also
-                 checked.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting values
-                 are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_array_equal`
-        """
->       numpy.testing.assert_array_equal(
-            cupy.asnumpy(x), cupy.asnumpy(y), err_msg=err_msg,
-            verbose=verbose)
-E       AssertionError: 
-E       Arrays are not equal
-E       
-E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 16254
-E       Max relative difference: 8127.
-E        x: array([    0, 16256], dtype=int16)
-E        y: array([1, 2], dtype=int16)
-
-cupy/testing/array.py:91: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.int16'>
-__________________________ TestDims.test_atleast_2d2 ___________________________
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:648: in check_func
-    array.assert_array_equal(x, y, err_msg, verbose, strides_check)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-x = array([[[1., 2.],
-        [3., 4.],
-        [5., 6.]]], dtype=float32)
-y = array([[[1., 2.],
-        [3., 4.],
-        [5., 6.]]], dtype=float32)
+x = array([1., 2.], dtype=float16), y = array([1., 2.], dtype=float16)
 err_msg = '', verbose = True, strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -4139,17 +4193,15 @@ err_msg = '', verbose = True, strides_check = False
 E       AssertionError: 
 E       Arrays are not equal
 E       
-E       Mismatched elements: 2 / 6 (33.3%)
-E       Max absolute difference: 2.
+E       Mismatched elements: 2 / 2 (100%)
+E       Max absolute difference: 1.
 E       Max relative difference: 1.
-E        x: array([[[1.e-45, 0.e+00],
-E               [3.e+00, 4.e+00],
-E               [5.e+00, 6.e+00]]], dtype=float32)
-E        y: array([[[1., 2.],
-E               [3., 4.],
-E               [5., 6.]]], dtype=float32)
+E        x: array([0.   , 1.875], dtype=float16)
+E        y: array([1., 2.], dtype=float16)
 
 cupy/testing/array.py:91: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float16'>
 _________________________ TestRandomState.test_methods _________________________
 
 self = <cupy_tests.random_tests.test_generator.TestRandomState testMethod=test_methods>
@@ -5040,7 +5092,7 @@ cupy/testing/array.py:91: AssertionError
 __ TestPartition_param_0_{external=False, length=10}.test_partition_multi_dim __
 
 self = <<cupy_tests.sorting_tests.test_sort.TestPartition_param_0_{external=False, length=10} testMethod=test_partition_multi_dim>  parameter: {'external': False, 'length': 10}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.float64'>
 
     @testing.for_all_dtypes()
@@ -5053,13 +5105,13 @@ dtype = <class 'numpy.float64'>
 E       AssertionError: Only cupy raises error
 E       
 E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 488, in test_partition_multi_dim
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 488, in test_partition_multi_dim
 E           assert xp.all(x[:, :, 0:kth] <= x[:, :, kth:kth + 1])
 E       AssertionError: assert array(False)
-E        +  where array(False) = <function all at 0x7f8faf98fe50>(array([[[5.48813504e+00, 7.15189366e+00],\n        [7.91725038e+00, 5.28894920e+00],\n        [9.78618342e+00, 7.9915856...[7.34813775e+00, 1.76499389e+00],\n        [9.21719067e+00, 8.05263856e+00],\n        [1.21711569e-01, 3.22829538e+00]]]) <= array([[[6.02763376],\n        [5.68044561],\n        [4.61479362],\n        [4.56150332],\n        [6.97631196],\n        ...51964],\n        [1.62357948],\n        [1.11496057],\n        [9.39160909],\n        [7.23941399],\n        [2.29567445]]]))
-E        +    where <function all at 0x7f8faf98fe50> = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>.all
+E        +  where array(False) = <function all at 0x7f5acbec6e50>(array([[[5.48813504e+00, 7.15189366e+00],\n        [7.91725038e+00, 5.28894920e+00],\n        [9.78618342e+00, 7.9915856...[7.34813775e+00, 1.76499389e+00],\n        [9.21719067e+00, 8.05263856e+00],\n        [1.21711569e-01, 3.22829538e+00]]]) <= array([[[6.02763376],\n        [5.68044561],\n        [4.61479362],\n        [4.56150332],\n        [6.97631196],\n        ...51964],\n        [1.62357948],\n        [1.11496057],\n        [9.39160909],\n        [7.23941399],\n        [2.29567445]]]))
+E        +    where <function all at 0x7f5acbec6e50> = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>.all
 
 tests/cupy_tests/sorting_tests/test_sort.py:488: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -5115,7 +5167,7 @@ cupy/testing/array.py:91: AssertionError
 ___ TestPartition_param_0_{external=False, length=10}.test_partition_one_dim ___
 
 self = <<cupy_tests.sorting_tests.test_sort.TestPartition_param_0_{external=False, length=10} testMethod=test_partition_one_dim>  parameter: {'external': False, 'length': 10}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.float16'>
 
     @testing.for_all_dtypes()
@@ -5128,13 +5180,13 @@ dtype = <class 'numpy.float16'>
 E       AssertionError: Only cupy raises error
 E       
 E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 478, in test_partition_one_dim
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 478, in test_partition_one_dim
 E           assert xp.all(x[0:kth] <= x[kth:kth + 1])
 E       AssertionError: assert array(False)
-E        +  where array(False) = <function all at 0x7f8faf98fe50>(array([5.49 , 7.152], dtype=float16) <= array([6.027], dtype=float16))
-E        +    where <function all at 0x7f8faf98fe50> = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>.all
+E        +  where array(False) = <function all at 0x7f5acbec6e50>(array([5.49 , 7.152], dtype=float16) <= array([6.027], dtype=float16))
+E        +    where <function all at 0x7f5acbec6e50> = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>.all
 
 tests/cupy_tests/sorting_tests/test_sort.py:478: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -5190,7 +5242,7 @@ cupy/testing/array.py:91: AssertionError
 __ TestPartition_param_2_{external=True, length=10}.test_partition_multi_dim ___
 
 self = <<cupy_tests.sorting_tests.test_sort.TestPartition_param_2_{external=True, length=10} testMethod=test_partition_multi_dim>  parameter: {'external': True, 'length': 10}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.float64'>
 
     @testing.for_all_dtypes()
@@ -5203,13 +5255,13 @@ dtype = <class 'numpy.float64'>
 E       AssertionError: Only cupy raises error
 E       
 E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 488, in test_partition_multi_dim
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 488, in test_partition_multi_dim
 E           assert xp.all(x[:, :, 0:kth] <= x[:, :, kth:kth + 1])
 E       AssertionError: assert array(False)
-E        +  where array(False) = <function all at 0x7f8faf98fe50>(array([[[5.48813504e+00, 7.15189366e+00],\n        [7.91725038e+00, 5.28894920e+00],\n        [9.78618342e+00, 7.9915856...[7.34813775e+00, 1.76499389e+00],\n        [9.21719067e+00, 8.05263856e+00],\n        [1.21711569e-01, 3.22829538e+00]]]) <= array([[[6.02763376],\n        [5.68044561],\n        [4.61479362],\n        [4.56150332],\n        [6.97631196],\n        ...51964],\n        [1.62357948],\n        [1.11496057],\n        [9.39160909],\n        [7.23941399],\n        [2.29567445]]]))
-E        +    where <function all at 0x7f8faf98fe50> = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>.all
+E        +  where array(False) = <function all at 0x7f5acbec6e50>(array([[[5.48813504e+00, 7.15189366e+00],\n        [7.91725038e+00, 5.28894920e+00],\n        [9.78618342e+00, 7.9915856...[7.34813775e+00, 1.76499389e+00],\n        [9.21719067e+00, 8.05263856e+00],\n        [1.21711569e-01, 3.22829538e+00]]]) <= array([[[6.02763376],\n        [5.68044561],\n        [4.61479362],\n        [4.56150332],\n        [6.97631196],\n        ...51964],\n        [1.62357948],\n        [1.11496057],\n        [9.39160909],\n        [7.23941399],\n        [2.29567445]]]))
+E        +    where <function all at 0x7f5acbec6e50> = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>.all
 
 tests/cupy_tests/sorting_tests/test_sort.py:488: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -5265,7 +5317,7 @@ cupy/testing/array.py:91: AssertionError
 ___ TestPartition_param_2_{external=True, length=10}.test_partition_one_dim ____
 
 self = <<cupy_tests.sorting_tests.test_sort.TestPartition_param_2_{external=True, length=10} testMethod=test_partition_one_dim>  parameter: {'external': True, 'length': 10}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.float16'>
 
     @testing.for_all_dtypes()
@@ -5278,13 +5330,13 @@ dtype = <class 'numpy.float16'>
 E       AssertionError: Only cupy raises error
 E       
 E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 478, in test_partition_one_dim
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 478, in test_partition_one_dim
 E           assert xp.all(x[0:kth] <= x[kth:kth + 1])
 E       AssertionError: assert array(False)
-E        +  where array(False) = <function all at 0x7f8faf98fe50>(array([5.49 , 7.152], dtype=float16) <= array([6.027], dtype=float16))
-E        +    where <function all at 0x7f8faf98fe50> = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>.all
+E        +  where array(False) = <function all at 0x7f5acbec6e50>(array([5.49 , 7.152], dtype=float16) <= array([6.027], dtype=float16))
+E        +    where <function all at 0x7f5acbec6e50> = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>.all
 
 tests/cupy_tests/sorting_tests/test_sort.py:478: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -5292,7 +5344,7 @@ dtype is <class 'numpy.float16'>
 _______ TestArgpartition_param_0_{external=False}.test_argpartition_axis _______
 
 self = <<cupy_tests.sorting_tests.test_sort.TestArgpartition_param_0_{external=False} testMethod=test_argpartition_axis>  parameter: {'external': False}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 
     @testing.numpy_cupy_array_equal()
     def test_argpartition_axis(self, xp):
@@ -5307,19 +5359,19 @@ xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.
 E       AssertionError: Only cupy raises error
 E       
 E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 703, in test_argpartition_axis
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 703, in test_argpartition_axis
 E           assert (a[idx[:kth, :, :], rows, cols] <
 E       AssertionError: assert array(False)
-E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f86a2f5d0d0>()
-E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f86a2f5d0d0> = array([[[54.88135  , 71.518936 , 60.276337 ],\n        [54.48832  , 42.36548  , 64.58941  ],\n        [43.75872  , 89.17....889492 ],\n        [56.804455 , 92.55966  ,  7.1036057],\n        [ 8.71293  ,  2.0218399, 83.261986 ]]], dtype=float32) < array([[[77.815674, 87.00121 , 97.86183 ],\n        [79.915855, 46.147938, 78.05292 ],\n        [11.827442, 63.992104, 14.335329]]], dtype=float32).all
+E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f524968f160>()
+E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f524968f160> = array([[[54.88135  , 71.518936 , 60.276337 ],\n        [54.48832  , 42.36548  , 64.58941  ],\n        [43.75872  , 89.17....889492 ],\n        [56.804455 , 92.55966  ,  7.1036057],\n        [ 8.71293  ,  2.0218399, 83.261986 ]]], dtype=float32) < array([[[77.815674, 87.00121 , 97.86183 ],\n        [79.915855, 46.147938, 78.05292 ],\n        [11.827442, 63.992104, 14.335329]]], dtype=float32).all
 
 tests/cupy_tests/sorting_tests/test_sort.py:703: AssertionError
 ____ TestArgpartition_param_0_{external=False}.test_argpartition_multi_dim _____
 
 self = <<cupy_tests.sorting_tests.test_sort.TestArgpartition_param_0_{external=False} testMethod=test_argpartition_multi_dim>  parameter: {'external': False}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.float64'>
 
     @testing.for_all_dtypes(no_bool=True)
@@ -5335,13 +5387,13 @@ dtype = <class 'numpy.float64'>
 E       AssertionError: Only cupy raises error
 E       
 E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 641, in test_argpartition_multi_dim
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 641, in test_argpartition_multi_dim
 E           assert (a[rows, cols, idx[:, :, :kth]] <
 E       AssertionError: assert array(False)
-E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f86a2ff34c0>()
-E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f86a2ff34c0> = array([[[54.88135039, 71.51893664],\n        [79.17250381, 52.88949198],\n        [97.86183422, 79.91585642]],\n\n       [...15135]],\n\n       [[15.89695836, 11.03751412],\n        [97.6459465 , 46.86512016],\n        [31.79831794, 41.42629945]]]) < array([[[60.27633761],\n        [56.80445611],\n        [46.14793623]],\n\n       [[45.61503322],\n        [69.76311959],\n        [98.83738381]],\n\n       [[65.63295895],\n        [97.67610882],\n        [ 6.41474963]]]).all
+E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f524968f790>()
+E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f524968f790> = array([[[54.88135039, 71.51893664],\n        [79.17250381, 52.88949198],\n        [97.86183422, 79.91585642]],\n\n       [...15135]],\n\n       [[15.89695836, 11.03751412],\n        [97.6459465 , 46.86512016],\n        [31.79831794, 41.42629945]]]) < array([[[60.27633761],\n        [56.80445611],\n        [46.14793623]],\n\n       [[45.61503322],\n        [69.76311959],\n        [98.83738381]],\n\n       [[65.63295895],\n        [97.67610882],\n        [ 6.41474963]]]).all
 
 tests/cupy_tests/sorting_tests/test_sort.py:641: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -5349,7 +5401,7 @@ dtype is <class 'numpy.float64'>
 __ TestArgpartition_param_0_{external=False}.test_argpartition_negative_axis ___
 
 self = <<cupy_tests.sorting_tests.test_sort.TestArgpartition_param_0_{external=False} testMethod=test_argpartition_negative_axis>  parameter: {'external': False}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 
     @testing.numpy_cupy_array_equal()
     def test_argpartition_negative_axis(self, xp):
@@ -5364,19 +5416,19 @@ xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.
 E       AssertionError: Only cupy raises error
 E       
 E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 717, in test_argpartition_negative_axis
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 717, in test_argpartition_negative_axis
 E           assert (a[rows, cols, idx[:, :, :kth]] <
 E       AssertionError: assert array(False)
-E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f86a2ff3d30>()
-E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f86a2ff3d30> = array([[[54.88135 , 71.518936],\n        [79.1725  , 52.889492],\n        [97.86183 , 79.915855]],\n\n       [[26.45556 , ...53]],\n\n       [[15.896958, 11.037514],\n        [97.64594 , 46.86512 ],\n        [31.798319, 41.4263  ]]], dtype=float32) < array([[[60.276337 ],\n        [56.804455 ],\n        [46.147938 ]],\n\n       [[45.615032 ],\n        [69.76312  ],\n        [98.83739  ]],\n\n       [[65.63296  ],\n        [97.67611  ],\n        [ 6.4147496]]], dtype=float32).all
+E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f524968ff70>()
+E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f524968ff70> = array([[[54.88135 , 71.518936],\n        [79.1725  , 52.889492],\n        [97.86183 , 79.915855]],\n\n       [[26.45556 , ...53]],\n\n       [[15.896958, 11.037514],\n        [97.64594 , 46.86512 ],\n        [31.798319, 41.4263  ]]], dtype=float32) < array([[[60.276337 ],\n        [56.804455 ],\n        [46.147938 ]],\n\n       [[45.615032 ],\n        [69.76312  ],\n        [98.83739  ]],\n\n       [[65.63296  ],\n        [97.67611  ],\n        [ 6.4147496]]], dtype=float32).all
 
 tests/cupy_tests/sorting_tests/test_sort.py:717: AssertionError
 _____ TestArgpartition_param_0_{external=False}.test_argpartition_one_dim ______
 
 self = <<cupy_tests.sorting_tests.test_sort.TestArgpartition_param_0_{external=False} testMethod=test_argpartition_one_dim>  parameter: {'external': False}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.float16'>
 
     @testing.for_all_dtypes()
@@ -5389,13 +5441,13 @@ dtype = <class 'numpy.float16'>
 E       AssertionError: Only cupy raises error
 E       
 E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 627, in test_argpartition_one_dim
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 627, in test_argpartition_one_dim
 E           assert (a[idx[:kth]] <= a[idx[kth]]).all()
 E       AssertionError: assert array(False)
-E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f86a2ff38b0>()
-E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f86a2ff38b0> = array([54.88, 71.5 ], dtype=float16) <= array(60.28, dtype=float16).all
+E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f5249685160>()
+E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f5249685160> = array([54.88, 71.5 ], dtype=float16) <= array(60.28, dtype=float16).all
 
 tests/cupy_tests/sorting_tests/test_sort.py:627: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -5403,7 +5455,7 @@ dtype is <class 'numpy.float16'>
 _______ TestArgpartition_param_1_{external=True}.test_argpartition_axis ________
 
 self = <<cupy_tests.sorting_tests.test_sort.TestArgpartition_param_1_{external=True} testMethod=test_argpartition_axis>  parameter: {'external': True}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 
     @testing.numpy_cupy_array_equal()
     def test_argpartition_axis(self, xp):
@@ -5418,19 +5470,19 @@ xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.
 E       AssertionError: Only cupy raises error
 E       
 E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 703, in test_argpartition_axis
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 703, in test_argpartition_axis
 E           assert (a[idx[:kth, :, :], rows, cols] <
 E       AssertionError: assert array(False)
-E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f86a2fe50d0>()
-E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f86a2fe50d0> = array([[[54.88135  , 71.518936 , 60.276337 ],\n        [54.48832  , 42.36548  , 64.58941  ],\n        [43.75872  , 89.17....889492 ],\n        [56.804455 , 92.55966  ,  7.1036057],\n        [ 8.71293  ,  2.0218399, 83.261986 ]]], dtype=float32) < array([[[77.815674, 87.00121 , 97.86183 ],\n        [79.915855, 46.147938, 78.05292 ],\n        [11.827442, 63.992104, 14.335329]]], dtype=float32).all
+E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f5249dba820>()
+E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f5249dba820> = array([[[54.88135  , 71.518936 , 60.276337 ],\n        [54.48832  , 42.36548  , 64.58941  ],\n        [43.75872  , 89.17....889492 ],\n        [56.804455 , 92.55966  ,  7.1036057],\n        [ 8.71293  ,  2.0218399, 83.261986 ]]], dtype=float32) < array([[[77.815674, 87.00121 , 97.86183 ],\n        [79.915855, 46.147938, 78.05292 ],\n        [11.827442, 63.992104, 14.335329]]], dtype=float32).all
 
 tests/cupy_tests/sorting_tests/test_sort.py:703: AssertionError
 _____ TestArgpartition_param_1_{external=True}.test_argpartition_multi_dim _____
 
 self = <<cupy_tests.sorting_tests.test_sort.TestArgpartition_param_1_{external=True} testMethod=test_argpartition_multi_dim>  parameter: {'external': True}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.float64'>
 
     @testing.for_all_dtypes(no_bool=True)
@@ -5446,13 +5498,13 @@ dtype = <class 'numpy.float64'>
 E       AssertionError: Only cupy raises error
 E       
 E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 641, in test_argpartition_multi_dim
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 641, in test_argpartition_multi_dim
 E           assert (a[rows, cols, idx[:, :, :kth]] <
 E       AssertionError: assert array(False)
-E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f86a2fe5790>()
-E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f86a2fe5790> = array([[[54.88135039, 71.51893664],\n        [79.17250381, 52.88949198],\n        [97.86183422, 79.91585642]],\n\n       [...15135]],\n\n       [[15.89695836, 11.03751412],\n        [97.6459465 , 46.86512016],\n        [31.79831794, 41.42629945]]]) < array([[[60.27633761],\n        [56.80445611],\n        [46.14793623]],\n\n       [[45.61503322],\n        [69.76311959],\n        [98.83738381]],\n\n       [[65.63295895],\n        [97.67610882],\n        [ 6.41474963]]]).all
+E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f51f5874040>()
+E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f51f5874040> = array([[[54.88135039, 71.51893664],\n        [79.17250381, 52.88949198],\n        [97.86183422, 79.91585642]],\n\n       [...15135]],\n\n       [[15.89695836, 11.03751412],\n        [97.6459465 , 46.86512016],\n        [31.79831794, 41.42629945]]]) < array([[[60.27633761],\n        [56.80445611],\n        [46.14793623]],\n\n       [[45.61503322],\n        [69.76311959],\n        [98.83738381]],\n\n       [[65.63295895],\n        [97.67610882],\n        [ 6.41474963]]]).all
 
 tests/cupy_tests/sorting_tests/test_sort.py:641: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -5460,7 +5512,7 @@ dtype is <class 'numpy.float64'>
 ___ TestArgpartition_param_1_{external=True}.test_argpartition_negative_axis ___
 
 self = <<cupy_tests.sorting_tests.test_sort.TestArgpartition_param_1_{external=True} testMethod=test_argpartition_negative_axis>  parameter: {'external': True}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 
     @testing.numpy_cupy_array_equal()
     def test_argpartition_negative_axis(self, xp):
@@ -5475,19 +5527,19 @@ xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.
 E       AssertionError: Only cupy raises error
 E       
 E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 717, in test_argpartition_negative_axis
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 717, in test_argpartition_negative_axis
 E           assert (a[rows, cols, idx[:, :, :kth]] <
 E       AssertionError: assert array(False)
-E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f86a2fe5ee0>()
-E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f86a2fe5ee0> = array([[[54.88135 , 71.518936],\n        [79.1725  , 52.889492],\n        [97.86183 , 79.915855]],\n\n       [[26.45556 , ...53]],\n\n       [[15.896958, 11.037514],\n        [97.64594 , 46.86512 ],\n        [31.798319, 41.4263  ]]], dtype=float32) < array([[[60.276337 ],\n        [56.804455 ],\n        [46.147938 ]],\n\n       [[45.615032 ],\n        [69.76312  ],\n        [98.83739  ]],\n\n       [[65.63296  ],\n        [97.67611  ],\n        [ 6.4147496]]], dtype=float32).all
+E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f5249d05940>()
+E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f5249d05940> = array([[[54.88135 , 71.518936],\n        [79.1725  , 52.889492],\n        [97.86183 , 79.915855]],\n\n       [[26.45556 , ...53]],\n\n       [[15.896958, 11.037514],\n        [97.64594 , 46.86512 ],\n        [31.798319, 41.4263  ]]], dtype=float32) < array([[[60.276337 ],\n        [56.804455 ],\n        [46.147938 ]],\n\n       [[45.615032 ],\n        [69.76312  ],\n        [98.83739  ]],\n\n       [[65.63296  ],\n        [97.67611  ],\n        [ 6.4147496]]], dtype=float32).all
 
 tests/cupy_tests/sorting_tests/test_sort.py:717: AssertionError
 ______ TestArgpartition_param_1_{external=True}.test_argpartition_one_dim ______
 
 self = <<cupy_tests.sorting_tests.test_sort.TestArgpartition_param_1_{external=True} testMethod=test_argpartition_one_dim>  parameter: {'external': True}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>
 dtype = <class 'numpy.float16'>
 
     @testing.for_all_dtypes()
@@ -5500,13 +5552,13 @@ dtype = <class 'numpy.float16'>
 E       AssertionError: Only cupy raises error
 E       
 E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/testing/helper.py", line 47, in _call_func
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/testing/helper.py", line 47, in _call_func
 E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 627, in test_argpartition_one_dim
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/sorting_tests/test_sort.py", line 627, in test_argpartition_one_dim
 E           assert (a[idx[:kth]] <= a[idx[kth]]).all()
 E       AssertionError: assert array(False)
-E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f86d84dd040>()
-E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f86d84dd040> = array([54.88, 71.5 ], dtype=float16) <= array(60.28, dtype=float16).all
+E        +  where array(False) = <built-in method all of cupy.core.core.ndarray object at 0x7f5249d05820>()
+E        +    where <built-in method all of cupy.core.core.ndarray object at 0x7f5249d05820> = array([54.88, 71.5 ], dtype=float16) <= array(60.28, dtype=float16).all
 
 tests/cupy_tests/sorting_tests/test_sort.py:627: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -8935,7 +8987,7 @@ dtype is <class 'numpy.float64'>
 interpolation is lower
 _ TestGenerateMatrix_param_5_{dtype=float16, x_s_shapes=((2, 3), (2,)), xp=cupy}.test_generate_matrix _
 
-self = <<cupy_tests.testing_tests.test_helper.TestGenerateMatrix_param_5_{dtype=float16, x_s_shapes=((2, 3), (2,)), xp=cupy} ..., 'xp': <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/__init__.py'>}>
+self = <<cupy_tests.testing_tests.test_helper.TestGenerateMatrix_param_5_{dtype=float16, x_s_shapes=((2, 3), (2,)), xp=cupy} ..., 'xp': <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/__init__.py'>}>
 
     def test_generate_matrix(self):
         dtype = self.dtype
@@ -9013,9 +9065,9 @@ tests/example_tests/example_test.py:12: in run_example
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 input = None, capture_output = False, timeout = None, check = True
-popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/...tests/example_tests/../../examples/finance/monte_carlo.py', '--n-options', '10', '--n-samples-per-thread', '10', ...),)
+popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/...tests/example_tests/../../examples/finance/monte_carlo.py', '--n-options', '10', '--n-samples-per-thread', '10', ...),)
 kwargs = {'stderr': -2, 'stdout': -1}
-process = <subprocess.Popen object at 0x7f875d159790>
+process = <subprocess.Popen object at 0x7f51997fb520>
 stdout = b'initializing...\nstart computation\n    # of options: 10\n    # of samples per option: 100\nTraceback (most recent c...r generated when compiling for gfx906.\nError: Failed to compile opencl source (from CL or HIP source to LLVM IR).\n\n'
 stderr = None, retcode = 1
 
@@ -9085,7 +9137,7 @@ stderr = None, retcode = 1
             if check and retcode:
 >               raise CalledProcessError(retcode, process.args,
                                          output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/example_tests/../../examples/finance/monte_carlo.py', '--n-options', '10', '--n-samples-per-thread', '10', '--n-threads-per-option', '10')' returned non-zero exit status 1.
+E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/example_tests/../../examples/finance/monte_carlo.py', '--n-options', '10', '--n-samples-per-thread', '10', '--n-threads-per-option', '10')' returned non-zero exit status 1.
 
 /home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:512: CalledProcessError
 ----------------------------- Captured stdout call -----------------------------
@@ -9095,7 +9147,7 @@ start computation
     # of options: 10
     # of samples per option: 100
 Traceback (most recent call last):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/cuda/compiler.py", line 625, in compile
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/cuda/compiler.py", line 625, in compile
     nvrtc.compileProgram(self.ptr, options)
   File "cupy_backends/cuda/libs/nvrtc.pyx", line 116, in cupy_backends.cuda.libs.nvrtc.compileProgram
     cpdef compileProgram(intptr_t prog, options):
@@ -9108,11 +9160,11 @@ cupy_backends.cuda.libs.nvrtc.NVRTCError: HIPRTC_ERROR_COMPILATION (6)
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/example_tests/../../examples/finance/monte_carlo.py", line 159, in <module>
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/example_tests/../../examples/finance/monte_carlo.py", line 159, in <module>
     sys.exit(main())
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/example_tests/../../examples/finance/monte_carlo.py", line 145, in main
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/example_tests/../../examples/finance/monte_carlo.py", line 145, in main
     call_mc = compute_option_prices(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/example_tests/../../examples/finance/monte_carlo.py", line 104, in compute_option_prices
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/example_tests/../../examples/finance/monte_carlo.py", line 104, in compute_option_prices
     monte_carlo_kernel(
   File "cupy/core/_kernel.pyx", line 840, in cupy.core._kernel.ElementwiseKernel.__call__
     kern = self._get_elementwise_kernel(dev_id, arginfos, type_map)
@@ -9128,23 +9180,23 @@ Traceback (most recent call last):
     module = compile_with_cache(module_code, options)
   File "cupy/core/core.pyx", line 2021, in cupy.core.core.compile_with_cache
     return cuda.compile_with_cache(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/cuda/compiler.py", line 430, in compile_with_cache
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/cuda/compiler.py", line 430, in compile_with_cache
     return _compile_with_cache_hip(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/cuda/compiler.py", line 814, in _compile_with_cache_hip
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/cuda/compiler.py", line 814, in _compile_with_cache_hip
     binary, mapping = compile_using_nvrtc(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/cuda/compiler.py", line 273, in compile_using_nvrtc
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/cuda/compiler.py", line 273, in compile_using_nvrtc
     return _compile(source, options, cu_path,
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/cuda/compiler.py", line 257, in _compile
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/cuda/compiler.py", line 257, in _compile
     ptx, mapping = prog.compile(options, log_stream)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/cuda/compiler.py", line 637, in compile
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/cuda/compiler.py", line 637, in compile
     raise CompileException(log, self.src, self.name, options,
-cupy.cuda.compiler.CompileException: /tmp/comgr-edb4e9/input/CompileSource:5358:32: error: typedef redefinition with different types ('unsigned long long' vs '__uint64_t' (aka 'unsigned long'))
+cupy.cuda.compiler.CompileException: /tmp/comgr-4bd1ab/input/CompileSource:5358:32: error: typedef redefinition with different types ('unsigned long long' vs '__uint64_t' (aka 'unsigned long'))
     typedef unsigned long long uint64_t;
                                ^
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:27:20: note: previous definition is here
 typedef __uint64_t uint64_t;
                    ^
-/tmp/comgr-edb4e9/input/CompileSource:5388:25: warning: integer literal is too large to be represented in a signed integer type, interpreting as unsigned [-Wimplicitly-unsigned-literal]
+/tmp/comgr-4bd1ab/input/CompileSource:5388:25: warning: integer literal is too large to be represented in a signed integer type, interpreting as unsigned [-Wimplicitly-unsigned-literal]
         return T(x) / T(18446744073709551615);
                         ^
 1 warning and 1 error generated when compiling for gfx906.
@@ -9172,9 +9224,9 @@ tests/example_tests/example_test.py:12: in run_example
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 input = None, capture_output = False, timeout = None, check = True
-popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/example_tests/../../examples/finance/monte_carlo_multigpu.py', '--gpus', '0', '1', '--n-options', ...),)
+popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/example_tests/../../examples/finance/monte_carlo_multigpu.py', '--gpus', '0', '1', '--n-options', ...),)
 kwargs = {'stderr': -2, 'stdout': -1}
-process = <subprocess.Popen object at 0x7f86942c0940>
+process = <subprocess.Popen object at 0x7f51bd935070>
 stdout = b'initializing...\nstart computation\n    # of gpus: 2\n    # of options: 10\n    # of samples per option: 200\nTraceb...r generated when compiling for gfx906.\nError: Failed to compile opencl source (from CL or HIP source to LLVM IR).\n\n'
 stderr = None, retcode = 1
 
@@ -9244,7 +9296,7 @@ stderr = None, retcode = 1
             if check and retcode:
 >               raise CalledProcessError(retcode, process.args,
                                          output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/example_tests/../../examples/finance/monte_carlo_multigpu.py', '--gpus', '0', '1', '--n-options', '10', '--n-samples-per-thread', '10', '--n-threads-per-option', '10')' returned non-zero exit status 1.
+E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/example_tests/../../examples/finance/monte_carlo_multigpu.py', '--gpus', '0', '1', '--n-options', '10', '--n-samples-per-thread', '10', '--n-threads-per-option', '10')' returned non-zero exit status 1.
 
 /home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:512: CalledProcessError
 ----------------------------- Captured stdout call -----------------------------
@@ -9255,7 +9307,7 @@ start computation
     # of options: 10
     # of samples per option: 200
 Traceback (most recent call last):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/cuda/compiler.py", line 625, in compile
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/cuda/compiler.py", line 625, in compile
     nvrtc.compileProgram(self.ptr, options)
   File "cupy_backends/cuda/libs/nvrtc.pyx", line 116, in cupy_backends.cuda.libs.nvrtc.compileProgram
     cpdef compileProgram(intptr_t prog, options):
@@ -9268,7 +9320,7 @@ cupy_backends.cuda.libs.nvrtc.NVRTCError: HIPRTC_ERROR_COMPILATION (6)
 During handling of the above exception, another exception occurred:
 
 Traceback (most recent call last):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/example_tests/../../examples/finance/monte_carlo_multigpu.py", line 74, in <module>
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/example_tests/../../examples/finance/monte_carlo_multigpu.py", line 74, in <module>
     monte_carlo_kernel(
   File "cupy/core/_kernel.pyx", line 840, in cupy.core._kernel.ElementwiseKernel.__call__
     kern = self._get_elementwise_kernel(dev_id, arginfos, type_map)
@@ -9284,23 +9336,23 @@ Traceback (most recent call last):
     module = compile_with_cache(module_code, options)
   File "cupy/core/core.pyx", line 2021, in cupy.core.core.compile_with_cache
     return cuda.compile_with_cache(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/cuda/compiler.py", line 430, in compile_with_cache
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/cuda/compiler.py", line 430, in compile_with_cache
     return _compile_with_cache_hip(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/cuda/compiler.py", line 814, in _compile_with_cache_hip
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/cuda/compiler.py", line 814, in _compile_with_cache_hip
     binary, mapping = compile_using_nvrtc(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/cuda/compiler.py", line 273, in compile_using_nvrtc
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/cuda/compiler.py", line 273, in compile_using_nvrtc
     return _compile(source, options, cu_path,
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/cuda/compiler.py", line 257, in _compile
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/cuda/compiler.py", line 257, in _compile
     ptx, mapping = prog.compile(options, log_stream)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/cupy/cuda/compiler.py", line 637, in compile
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/cupy/cuda/compiler.py", line 637, in compile
     raise CompileException(log, self.src, self.name, options,
-cupy.cuda.compiler.CompileException: /tmp/comgr-55adde/input/CompileSource:5358:32: error: typedef redefinition with different types ('unsigned long long' vs '__uint64_t' (aka 'unsigned long'))
+cupy.cuda.compiler.CompileException: /tmp/comgr-342a2b/input/CompileSource:5358:32: error: typedef redefinition with different types ('unsigned long long' vs '__uint64_t' (aka 'unsigned long'))
     typedef unsigned long long uint64_t;
                                ^
 /usr/include/x86_64-linux-gnu/bits/stdint-uintn.h:27:20: note: previous definition is here
 typedef __uint64_t uint64_t;
                    ^
-/tmp/comgr-55adde/input/CompileSource:5388:25: warning: integer literal is too large to be represented in a signed integer type, interpreting as unsigned [-Wimplicitly-unsigned-literal]
+/tmp/comgr-342a2b/input/CompileSource:5388:25: warning: integer literal is too large to be represented in a signed integer type, interpreting as unsigned [-Wimplicitly-unsigned-literal]
         return T(x) / T(18446744073709551615);
                         ^
 1 warning and 1 error generated when compiling for gfx906.
@@ -9318,10 +9370,10 @@ self = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_ver
 >       assert build.check_cuda_version(
             self.compiler, self.settings)
 E       AssertionError: assert False
-E        +  where False = <function check_cuda_version at 0x7f875cf18310>(<distutils.unixccompiler.UnixCCompiler object at 0x7f875d08cc70>, {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/install/../cupy/core/include'], 'language': 'c++', ...})
-E        +    where <function check_cuda_version at 0x7f875cf18310> = build.check_cuda_version
-E        +    and   <distutils.unixccompiler.UnixCCompiler object at 0x7f875d08cc70> = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.compiler
-E        +    and   {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/install/../cupy/core/include'], 'language': 'c++', ...} = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.settings
+E        +  where False = <function check_cuda_version at 0x7f527945c3a0>(<distutils.unixccompiler.UnixCCompiler object at 0x7f51997fbf70>, {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/install/../cupy/core/include'], 'language': 'c++', ...})
+E        +    where <function check_cuda_version at 0x7f527945c3a0> = build.check_cuda_version
+E        +    and   <distutils.unixccompiler.UnixCCompiler object at 0x7f51997fbf70> = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.compiler
+E        +    and   {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/install/../cupy/core/include'], 'language': 'c++', ...} = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.settings
 
 tests/install_tests/test_build.py:21: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -9330,7 +9382,7 @@ tests/install_tests/test_build.py:21: AssertionError
 *** WARNING: command 'gcc' failed with exit status 1
 **************************************************
 ----------------------------- Captured stderr call -----------------------------
-/tmp/tmp8ywvcbbh/a.cpp:2:18: fatal error: cuda.h: No such file or directory
+/tmp/tmprndjaja6/a.cpp:2:18: fatal error: cuda.h: No such file or directory
          #include <cuda.h>
                   ^~~~~~~~
 compilation terminated.
@@ -9346,10 +9398,10 @@ self = <install_tests.test_build.TestCheckVersion testMethod=test_check_cudnn_ve
 >       assert build.check_cudnn_version(
             self.compiler, self.settings)
 E       AssertionError: assert False
-E        +  where False = <function check_cudnn_version at 0x7f875cf18790>(<distutils.unixccompiler.UnixCCompiler object at 0x7f867d8106d0>, {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/install/../cupy/core/include'], 'language': 'c++', ...})
-E        +    where <function check_cudnn_version at 0x7f875cf18790> = build.check_cudnn_version
-E        +    and   <distutils.unixccompiler.UnixCCompiler object at 0x7f867d8106d0> = <install_tests.test_build.TestCheckVersion testMethod=test_check_cudnn_version>.compiler
-E        +    and   {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/install/../cupy/core/include'], 'language': 'c++', ...} = <install_tests.test_build.TestCheckVersion testMethod=test_check_cudnn_version>.settings
+E        +  where False = <function check_cudnn_version at 0x7f527945c820>(<distutils.unixccompiler.UnixCCompiler object at 0x7f52796b47f0>, {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/install/../cupy/core/include'], 'language': 'c++', ...})
+E        +    where <function check_cudnn_version at 0x7f527945c820> = build.check_cudnn_version
+E        +    and   <distutils.unixccompiler.UnixCCompiler object at 0x7f52796b47f0> = <install_tests.test_build.TestCheckVersion testMethod=test_check_cudnn_version>.compiler
+E        +    and   {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/install/../cupy/core/include'], 'language': 'c++', ...} = <install_tests.test_build.TestCheckVersion testMethod=test_check_cudnn_version>.settings
 
 tests/install_tests/test_build.py:31: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -9358,7 +9410,7 @@ tests/install_tests/test_build.py:31: AssertionError
 command 'gcc' failed with exit status 1
 **************************************************
 ----------------------------- Captured stderr call -----------------------------
-/tmp/tmpgpfhdgvl/a.cpp:2:18: fatal error: cudnn.h: No such file or directory
+/tmp/tmpyi3_v0he/a.cpp:2:18: fatal error: cudnn.h: No such file or directory
          #include <cudnn.h>
                   ^~~~~~~~~
 compilation terminated.
@@ -9377,11 +9429,11 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axi
     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 
 tests/cupy_tests/functional_tests/test_vectorize.py::TestVectorize::test_vectorize_arithmetic_ops
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/functional_tests/test_vectorize.py:556: RuntimeWarning: overflow encountered in byte_scalars
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/functional_tests/test_vectorize.py:556: RuntimeWarning: overflow encountered in byte_scalars
     y = x1 + x2 * x3 ** x1
 
 tests/cupy_tests/functional_tests/test_vectorize.py::TestVectorize::test_vectorize_arithmetic_ops
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/functional_tests/test_vectorize.py:556: RuntimeWarning: overflow encountered in ubyte_scalars
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/functional_tests/test_vectorize.py:556: RuntimeWarning: overflow encountered in ubyte_scalars
     y = x1 + x2 * x3 ** x1
 
 tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyval_param_0_{type_l='poly1d', type_r='ndarray'}::test_polyval
@@ -9445,7 +9497,7 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axi
     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 
 tests/cupy_tests/math_tests/test_sumprod.py: 32 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/math_tests/test_sumprod.py:799: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/math_tests/test_sumprod.py:799: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_all2
@@ -9457,7 +9509,7 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_axis_transpos
     return umr_sum(a, axis, dtype, out, keepdims, initial, where)
 
 tests/cupy_tests/statistics_tests/test_meanvar.py: 28 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.VCqQIQvtTz/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UeCNFYYING/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_4_{axis=0, keepdims=True, overwrite_input=True, shape=(3, 4, 5)}::test_nanmedian
@@ -9544,6 +9596,7 @@ FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingPa
 FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingParameterized_param_1_{indexes=(-1, 0, -2), shape=(2, 3, 4), transpose=None}::test_getitem
 FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingParameterized_param_2_{indexes=(1, 0, 2), shape=(2, 3, 4), transpose=(2, 0, 1)}::test_getitem
 FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingParameterized_param_3_{indexes=(-1, 0, -2), shape=(2, 3, 4), transpose=(2, 0, 1)}::test_getitem
+FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingParameterized_param_14_{indexes=(slice(None, None, None), None), shape=(2,), transpose=None}::test_getitem
 FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingParameterized_param_27_{indexes=(slice(-4, -5, -1),), shape=(10,), transpose=None}::test_getitem
 FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingParameterized_param_38_{indexes=(slice(-5, -6, -1),), shape=(10,), transpose=None}::test_getitem
 FAILED tests/cupy_tests/core_tests/test_ndarray_unary_op.py::TestArrayBoolOp::test_bool_one_element
@@ -9602,9 +9655,9 @@ FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestRootsReal_param_1_{inp
 FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestRootsComplex_param_0_{input=[3j, 1.5j, (-0-3j)]}::test_roots_array
 FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestRootsComplex_param_0_{input=[3j, 1.5j, (-0-3j)]}::test_roots_poly1d
 FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPoly1d::test_poly1d_roots
+FAILED tests/cupy_tests/linalg_tests/test_product.py::TestMatrixPower::test_matrix_power_1
 FAILED tests/cupy_tests/manipulation_tests/test_dims.py::TestBroadcast_param_2_{shapes=[(1,), (1,)]}::test_broadcast_arrays
 FAILED tests/cupy_tests/manipulation_tests/test_dims.py::TestBroadcast_param_3_{shapes=[(2,), (2,)]}::test_broadcast_arrays
-FAILED tests/cupy_tests/manipulation_tests/test_dims.py::TestDims::test_atleast_2d2
 FAILED tests/cupy_tests/random_tests/test_generator.py::TestRandomState::test_methods
 FAILED tests/cupy_tests/random_tests/test_permutations.py::TestPermutations_param_0_{seed=None}::test_permutation_sort_ndim
 FAILED tests/cupy_tests/random_tests/test_permutations.py::TestPermutations_param_1_{seed=0}::test_permutation_sort_ndim
@@ -9709,4 +9762,4 @@ FAILED tests/example_tests/test_finance.py::TestMonteCarloWithMultiGPU::test_mon
 FAILED tests/install_tests/test_build.py::TestCheckVersion::test_check_cuda_version
 FAILED tests/install_tests/test_build.py::TestCheckVersion::test_check_cudnn_version
 XPASS tests/cupy_tests/sorting_tests/test_sort.py::TestMsort::test_msort_zero_dim Explicit error types required
-= 170 failed, 24266 passed, 39217 skipped, 56 deselected, 69 xfailed, 1 xpassed, 205 warnings in 13314.42s (3:41:54) =
+= 171 failed, 24267 passed, 39217 skipped, 56 deselected, 69 xfailed, 1 xpassed, 205 warnings in 13301.57s (3:41:41) =
