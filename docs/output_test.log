@@ -1,6 +1,6 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UAmkBzZgQJ/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.5GH3NkVqgG/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
 collected 63773 items / 56 deselected / 12 skipped / 63705 selected
 
@@ -230,7 +230,7 @@ tests/cupy_tests/io_tests/test_npz.py .......                            [ 15%]
 tests/cupy_tests/lib_tests/test_polynomial.py .......ss.......ssssssssss [ 15%]
 sssssss........ssssssssssssssssssssssssssssssssssssxxxxxxxxxxxxxxxxxxxx. [ 15%]
 ..ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 15%]
-ssssssssssssssssssssssssss....FFFFFFFFFFFFFFFFFFFFFFFFFF................ [ 15%]
+ssssssssssssssssssssssssss....FFxxxxxxxxxxxxxxxxxxxxxxxx................ [ 15%]
 ........................................................................ [ 15%]
 ........xxxxxxxx........xxxxxxxx........................................ [ 15%]
 ...........xxxxxx............................x.......................... [ 15%]
@@ -242,7 +242,7 @@ tests/cupy_tests/linalg_tests/test_decomposition.py .................... [ 15%]
 tests/cupy_tests/linalg_tests/test_eigenvalue.py xxxxxxxx                [ 16%]
 tests/cupy_tests/linalg_tests/test_einsum.py ........................... [ 16%]
 ........................................................................ [ 16%]
-....F..F................................................................ [ 16%]
+........................................................................ [ 16%]
 ........................................................................ [ 16%]
 ........................................................................ [ 16%]
 ........................................................................ [ 16%]
@@ -442,7 +442,7 @@ tests/cupy_tests/math_tests/test_window.py ............................. [ 34%]
 .....                                                                    [ 34%]
 tests/cupy_tests/misc_tests/test_memory_ranges.py ................       [ 34%]
 tests/cupy_tests/misc_tests/test_who.py ......                           [ 34%]
-tests/cupy_tests/padding_tests/test_pad.py ......F...................... [ 34%]
+tests/cupy_tests/padding_tests/test_pad.py ............................. [ 34%]
 ..............................................                           [ 34%]
 tests/cupy_tests/polynomial_tests/test_polynomial.py ................... [ 34%]
                                                                          [ 34%]
@@ -1090,7 +1090,7 @@ tests/example_tests/test_finance.py ...                                  [ 99%]
 tests/example_tests/test_gemm.py .                                       [ 99%]
 tests/example_tests/test_gmm.py ss                                       [ 99%]
 tests/example_tests/test_kmeans.py sss                                   [ 99%]
-tests/install_tests/test_build.py FF                                     [ 99%]
+tests/install_tests/test_build.py Fx                                     [ 99%]
 tests/install_tests/test_utils.py ..                                     [100%]
 
 =================================== FAILURES ===================================
@@ -1303,8 +1303,7 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array(8., dtype=float16), y = 8.0, err_msg = '', verbose = True
-strides_check = False
+x = array(8), y = 8, err_msg = '', verbose = True, strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
         """Raises an AssertionError if two array_like objects are not equal.
@@ -1327,14 +1326,14 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 6.
-E       Max relative difference: 0.75
-E        x: array(2., dtype=float16)
-E        y: array(8., dtype=float16)
+E       Max absolute difference: 8
+E       Max relative difference: 1.
+E        x: array(0)
+E        y: array(8)
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float16'>
+dtype is <class 'numpy.int64'>
 _ TestArrayIndexingParameterized_param_27_{indexes=(slice(-4, -5, -1),), shape=(10,), transpose=None}.test_getitem _
 cupy/testing/helper.py:825: in test_func
     impl(self, *args, **kw)
@@ -1385,7 +1384,7 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array([6.], dtype=float32), y = array([6.], dtype=float32), err_msg = ''
+x = array([6.], dtype=float16), y = array([6.], dtype=float16), err_msg = ''
 verbose = True, strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -1409,30 +1408,30 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 3.875
-E       Max relative difference: 0.6458333
-E        x: array([2.125], dtype=float32)
-E        y: array([6.], dtype=float32)
+E       Max absolute difference: 6.
+E       Max relative difference: 1.
+E        x: array([0.], dtype=float16)
+E        y: array([6.], dtype=float16)
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float32'>
+dtype is <class 'numpy.float16'>
 ____________________ TestArrayBoolOp.test_bool_one_element _____________________
 
 self = <cupy_tests.core_tests.test_ndarray_unary_op.TestArrayBoolOp testMethod=test_bool_one_element>
-dtype = <class 'numpy.float32'>
+dtype = <class 'numpy.float16'>
 
     @testing.for_all_dtypes()
     def test_bool_one_element(self, dtype):
 >       assert bool(cupy.array([1], dtype=dtype))
 E       AssertionError: assert False
-E        +  where False = bool(array([1.], dtype=float32))
-E        +    where array([1.], dtype=float32) = <function array at 0x7f3cbd691160>([1], dtype=<class 'numpy.float32'>)
-E        +      where <function array at 0x7f3cbd691160> = cupy.array
+E        +  where False = bool(array([1.], dtype=float16))
+E        +    where array([1.], dtype=float16) = <function array at 0x7fc5a1e80160>([1], dtype=<class 'numpy.float16'>)
+E        +      where <function array at 0x7fc5a1e80160> = cupy.array
 
 tests/cupy_tests/core_tests/test_ndarray_unary_op.py:34: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float32'>
+dtype is <class 'numpy.float16'>
 ______________ TestFromData.test_array_from_list_of_numpy_scalar _______________
 cupy/testing/helper.py:1175: in test_func
     impl(self, *args, **kw)
@@ -1502,7 +1501,7 @@ func = <built-in function get_cusparse_handle>
         t.join()
         assert handles[0] is not None
 >       assert handles[0] != handles[1]
-E       AssertionError: assert 139899930806736 != 139899930806736
+E       AssertionError: assert 140487880079824 != 140487880079824
 
 tests/cupy_tests/cuda_tests/test_device.py:136: AssertionError
 _ TestPolyArithmeticDiffTypes_param_2_{fname='polymul'}.test_polyroutine_diff_types_array _
@@ -1611,1249 +1610,6 @@ E              0.+170.j, 0.+100.j], dtype=complex64)
 cupy/testing/array.py:24: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 {'dtype1': <class 'numpy.complex64'>, 'dtype2': <class 'numpy.complex64'>}
-_ TestPolyfitParametersCombinations_param_0_{deg=0, rcond=None, shape1=(3,), shape2=(3,), weighted=True}.test_polyfit_default _
-cupy/testing/helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([-2.57142857]), desired = array([2.57142857]), rtol = 1e-07
-atol = 1e-09, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 5.14285714
-E       Max relative difference: 2.
-E        x: array([-2.571429])
-E        y: array([2.571429])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_0_{deg=0, rcond=None, shape1=(3,), shape2=(3,), weighted=True}.test_polyfit_full _
-
-self = <<cupy_tests.lib_tests.test_polynomial.TestPolyfitParametersCombinations_param_0_{deg=0, rcond=None, shape1=(3,), shap... testMethod=test_polyfit_full>  parameter: {'deg': 0, 'rcond': None, 'shape1': (3,), 'shape2': (3,), 'weighted': True}>
-dtype = <class 'numpy.float64'>
-
-    @testing.for_all_dtypes(no_float16=True)
-    def test_polyfit_full(self, dtype):
-        cp_c, cp_resids, cp_rank, cp_s, cp_rcond = self._full_fit(cupy, dtype)
-        np_c, np_resids, np_rank, np_s, np_rcond = self._full_fit(numpy, dtype)
-    
->       testing.assert_allclose(cp_c, np_c, atol=1e-9)
-
-tests/cupy_tests/lib_tests/test_polynomial.py:498: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([-2.57142857]), desired = array([2.57142857]), rtol = 1e-07
-atol = 1e-09, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 5.14285714
-E       Max relative difference: 2.
-E        x: array([-2.571429])
-E        y: array([2.571429])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_1_{deg=0, rcond=None, shape1=(3,), shape2=(3,), weighted=False}.test_polyfit_default _
-cupy/testing/helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([-2.]), desired = array([2.]), rtol = 1e-07, atol = 1e-09
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 4.
-E       Max relative difference: 2.
-E        x: array([-2.])
-E        y: array([2.])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_1_{deg=0, rcond=None, shape1=(3,), shape2=(3,), weighted=False}.test_polyfit_full _
-
-self = <<cupy_tests.lib_tests.test_polynomial.TestPolyfitParametersCombinations_param_1_{deg=0, rcond=None, shape1=(3,), shap...testMethod=test_polyfit_full>  parameter: {'deg': 0, 'rcond': None, 'shape1': (3,), 'shape2': (3,), 'weighted': False}>
-dtype = <class 'numpy.float64'>
-
-    @testing.for_all_dtypes(no_float16=True)
-    def test_polyfit_full(self, dtype):
-        cp_c, cp_resids, cp_rank, cp_s, cp_rcond = self._full_fit(cupy, dtype)
-        np_c, np_resids, np_rank, np_s, np_rcond = self._full_fit(numpy, dtype)
-    
->       testing.assert_allclose(cp_c, np_c, atol=1e-9)
-
-tests/cupy_tests/lib_tests/test_polynomial.py:498: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([-2.]), desired = array([2.]), rtol = 1e-07, atol = 1e-09
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 4.
-E       Max relative difference: 2.
-E        x: array([-2.])
-E        y: array([2.])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_2_{deg=0, rcond=None, shape1=(3,), shape2=(3, 2), weighted=True}.test_polyfit_default _
-cupy/testing/helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[-4.14285714, -5.14285714]])
-desired = array([[4.14285714, 5.14285714]]), rtol = 1e-07, atol = 1e-09
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 10.28571429
-E       Max relative difference: 2.
-E        x: array([[-4.142857, -5.142857]])
-E        y: array([[4.142857, 5.142857]])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_2_{deg=0, rcond=None, shape1=(3,), shape2=(3, 2), weighted=True}.test_polyfit_full _
-
-self = <<cupy_tests.lib_tests.test_polynomial.TestPolyfitParametersCombinations_param_2_{deg=0, rcond=None, shape1=(3,), shap...estMethod=test_polyfit_full>  parameter: {'deg': 0, 'rcond': None, 'shape1': (3,), 'shape2': (3, 2), 'weighted': True}>
-dtype = <class 'numpy.float64'>
-
-    @testing.for_all_dtypes(no_float16=True)
-    def test_polyfit_full(self, dtype):
-        cp_c, cp_resids, cp_rank, cp_s, cp_rcond = self._full_fit(cupy, dtype)
-        np_c, np_resids, np_rank, np_s, np_rcond = self._full_fit(numpy, dtype)
-    
->       testing.assert_allclose(cp_c, np_c, atol=1e-9)
-
-tests/cupy_tests/lib_tests/test_polynomial.py:498: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[-4.14285714, -5.14285714]])
-desired = array([[4.14285714, 5.14285714]]), rtol = 1e-07, atol = 1e-09
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 10.28571429
-E       Max relative difference: 2.
-E        x: array([[-4.142857, -5.142857]])
-E        y: array([[4.142857, 5.142857]])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_3_{deg=0, rcond=None, shape1=(3,), shape2=(3, 2), weighted=False}.test_polyfit_default _
-cupy/testing/helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[-3., -4.]]), desired = array([[3., 4.]]), rtol = 1e-07
-atol = 1e-09, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 8.
-E       Max relative difference: 2.
-E        x: array([[-3., -4.]])
-E        y: array([[3., 4.]])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_3_{deg=0, rcond=None, shape1=(3,), shape2=(3, 2), weighted=False}.test_polyfit_full _
-
-self = <<cupy_tests.lib_tests.test_polynomial.TestPolyfitParametersCombinations_param_3_{deg=0, rcond=None, shape1=(3,), shap...stMethod=test_polyfit_full>  parameter: {'deg': 0, 'rcond': None, 'shape1': (3,), 'shape2': (3, 2), 'weighted': False}>
-dtype = <class 'numpy.float64'>
-
-    @testing.for_all_dtypes(no_float16=True)
-    def test_polyfit_full(self, dtype):
-        cp_c, cp_resids, cp_rank, cp_s, cp_rcond = self._full_fit(cupy, dtype)
-        np_c, np_resids, np_rank, np_s, np_rcond = self._full_fit(numpy, dtype)
-    
->       testing.assert_allclose(cp_c, np_c, atol=1e-9)
-
-tests/cupy_tests/lib_tests/test_polynomial.py:498: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[-3., -4.]]), desired = array([[3., 4.]]), rtol = 1e-07
-atol = 1e-09, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 8.
-E       Max relative difference: 2.
-E        x: array([[-3., -4.]])
-E        y: array([[3., 4.]])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_4_{deg=0, rcond=0.5, shape1=(3,), shape2=(3,), weighted=True}.test_polyfit_default _
-cupy/testing/helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([-2.57142857]), desired = array([2.57142857]), rtol = 1e-07
-atol = 1e-09, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 5.14285714
-E       Max relative difference: 2.
-E        x: array([-2.571429])
-E        y: array([2.571429])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_4_{deg=0, rcond=0.5, shape1=(3,), shape2=(3,), weighted=True}.test_polyfit_full _
-
-self = <<cupy_tests.lib_tests.test_polynomial.TestPolyfitParametersCombinations_param_4_{deg=0, rcond=0.5, shape1=(3,), shape...} testMethod=test_polyfit_full>  parameter: {'deg': 0, 'rcond': 0.5, 'shape1': (3,), 'shape2': (3,), 'weighted': True}>
-dtype = <class 'numpy.float64'>
-
-    @testing.for_all_dtypes(no_float16=True)
-    def test_polyfit_full(self, dtype):
-        cp_c, cp_resids, cp_rank, cp_s, cp_rcond = self._full_fit(cupy, dtype)
-        np_c, np_resids, np_rank, np_s, np_rcond = self._full_fit(numpy, dtype)
-    
->       testing.assert_allclose(cp_c, np_c, atol=1e-9)
-
-tests/cupy_tests/lib_tests/test_polynomial.py:498: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([-2.57142857]), desired = array([2.57142857]), rtol = 1e-07
-atol = 1e-09, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 5.14285714
-E       Max relative difference: 2.
-E        x: array([-2.571429])
-E        y: array([2.571429])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_5_{deg=0, rcond=0.5, shape1=(3,), shape2=(3,), weighted=False}.test_polyfit_default _
-cupy/testing/helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([-2.]), desired = array([2.]), rtol = 1e-07, atol = 1e-09
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 4.
-E       Max relative difference: 2.
-E        x: array([-2.])
-E        y: array([2.])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_5_{deg=0, rcond=0.5, shape1=(3,), shape2=(3,), weighted=False}.test_polyfit_full _
-
-self = <<cupy_tests.lib_tests.test_polynomial.TestPolyfitParametersCombinations_param_5_{deg=0, rcond=0.5, shape1=(3,), shape... testMethod=test_polyfit_full>  parameter: {'deg': 0, 'rcond': 0.5, 'shape1': (3,), 'shape2': (3,), 'weighted': False}>
-dtype = <class 'numpy.float64'>
-
-    @testing.for_all_dtypes(no_float16=True)
-    def test_polyfit_full(self, dtype):
-        cp_c, cp_resids, cp_rank, cp_s, cp_rcond = self._full_fit(cupy, dtype)
-        np_c, np_resids, np_rank, np_s, np_rcond = self._full_fit(numpy, dtype)
-    
->       testing.assert_allclose(cp_c, np_c, atol=1e-9)
-
-tests/cupy_tests/lib_tests/test_polynomial.py:498: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([-2.]), desired = array([2.]), rtol = 1e-07, atol = 1e-09
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 4.
-E       Max relative difference: 2.
-E        x: array([-2.])
-E        y: array([2.])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_6_{deg=0, rcond=0.5, shape1=(3,), shape2=(3, 2), weighted=True}.test_polyfit_default _
-cupy/testing/helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[-4.14285714, -5.14285714]])
-desired = array([[4.14285714, 5.14285714]]), rtol = 1e-07, atol = 1e-09
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 10.28571429
-E       Max relative difference: 2.
-E        x: array([[-4.142857, -5.142857]])
-E        y: array([[4.142857, 5.142857]])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_6_{deg=0, rcond=0.5, shape1=(3,), shape2=(3, 2), weighted=True}.test_polyfit_full _
-
-self = <<cupy_tests.lib_tests.test_polynomial.TestPolyfitParametersCombinations_param_6_{deg=0, rcond=0.5, shape1=(3,), shape...testMethod=test_polyfit_full>  parameter: {'deg': 0, 'rcond': 0.5, 'shape1': (3,), 'shape2': (3, 2), 'weighted': True}>
-dtype = <class 'numpy.float64'>
-
-    @testing.for_all_dtypes(no_float16=True)
-    def test_polyfit_full(self, dtype):
-        cp_c, cp_resids, cp_rank, cp_s, cp_rcond = self._full_fit(cupy, dtype)
-        np_c, np_resids, np_rank, np_s, np_rcond = self._full_fit(numpy, dtype)
-    
->       testing.assert_allclose(cp_c, np_c, atol=1e-9)
-
-tests/cupy_tests/lib_tests/test_polynomial.py:498: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[-4.14285714, -5.14285714]])
-desired = array([[4.14285714, 5.14285714]]), rtol = 1e-07, atol = 1e-09
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 10.28571429
-E       Max relative difference: 2.
-E        x: array([[-4.142857, -5.142857]])
-E        y: array([[4.142857, 5.142857]])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_7_{deg=0, rcond=0.5, shape1=(3,), shape2=(3, 2), weighted=False}.test_polyfit_default _
-cupy/testing/helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[-3., -4.]]), desired = array([[3., 4.]]), rtol = 1e-07
-atol = 1e-09, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 8.
-E       Max relative difference: 2.
-E        x: array([[-3., -4.]])
-E        y: array([[3., 4.]])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_7_{deg=0, rcond=0.5, shape1=(3,), shape2=(3, 2), weighted=False}.test_polyfit_full _
-
-self = <<cupy_tests.lib_tests.test_polynomial.TestPolyfitParametersCombinations_param_7_{deg=0, rcond=0.5, shape1=(3,), shape...estMethod=test_polyfit_full>  parameter: {'deg': 0, 'rcond': 0.5, 'shape1': (3,), 'shape2': (3, 2), 'weighted': False}>
-dtype = <class 'numpy.float64'>
-
-    @testing.for_all_dtypes(no_float16=True)
-    def test_polyfit_full(self, dtype):
-        cp_c, cp_resids, cp_rank, cp_s, cp_rcond = self._full_fit(cupy, dtype)
-        np_c, np_resids, np_rank, np_s, np_rcond = self._full_fit(numpy, dtype)
-    
->       testing.assert_allclose(cp_c, np_c, atol=1e-9)
-
-tests/cupy_tests/lib_tests/test_polynomial.py:498: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[-3., -4.]]), desired = array([[3., 4.]]), rtol = 1e-07
-atol = 1e-09, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 8.
-E       Max relative difference: 2.
-E        x: array([[-3., -4.]])
-E        y: array([[3., 4.]])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_8_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3,), weighted=True}.test_polyfit_default _
-cupy/testing/helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([-2.57142857]), desired = array([2.57142857]), rtol = 1e-07
-atol = 1e-09, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 5.14285714
-E       Max relative difference: 2.
-E        x: array([-2.571429])
-E        y: array([2.571429])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_8_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3,), weighted=True}.test_polyfit_full _
-
-self = <<cupy_tests.lib_tests.test_polynomial.TestPolyfitParametersCombinations_param_8_{deg=0, rcond=1e-15, shape1=(3,), sha...testMethod=test_polyfit_full>  parameter: {'deg': 0, 'rcond': 1e-15, 'shape1': (3,), 'shape2': (3,), 'weighted': True}>
-dtype = <class 'numpy.float64'>
-
-    @testing.for_all_dtypes(no_float16=True)
-    def test_polyfit_full(self, dtype):
-        cp_c, cp_resids, cp_rank, cp_s, cp_rcond = self._full_fit(cupy, dtype)
-        np_c, np_resids, np_rank, np_s, np_rcond = self._full_fit(numpy, dtype)
-    
->       testing.assert_allclose(cp_c, np_c, atol=1e-9)
-
-tests/cupy_tests/lib_tests/test_polynomial.py:498: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([-2.57142857]), desired = array([2.57142857]), rtol = 1e-07
-atol = 1e-09, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 5.14285714
-E       Max relative difference: 2.
-E        x: array([-2.571429])
-E        y: array([2.571429])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_9_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3,), weighted=False}.test_polyfit_default _
-cupy/testing/helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([-2.]), desired = array([2.]), rtol = 1e-07, atol = 1e-09
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 4.
-E       Max relative difference: 2.
-E        x: array([-2.])
-E        y: array([2.])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_9_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3,), weighted=False}.test_polyfit_full _
-
-self = <<cupy_tests.lib_tests.test_polynomial.TestPolyfitParametersCombinations_param_9_{deg=0, rcond=1e-15, shape1=(3,), sha...estMethod=test_polyfit_full>  parameter: {'deg': 0, 'rcond': 1e-15, 'shape1': (3,), 'shape2': (3,), 'weighted': False}>
-dtype = <class 'numpy.float64'>
-
-    @testing.for_all_dtypes(no_float16=True)
-    def test_polyfit_full(self, dtype):
-        cp_c, cp_resids, cp_rank, cp_s, cp_rcond = self._full_fit(cupy, dtype)
-        np_c, np_resids, np_rank, np_s, np_rcond = self._full_fit(numpy, dtype)
-    
->       testing.assert_allclose(cp_c, np_c, atol=1e-9)
-
-tests/cupy_tests/lib_tests/test_polynomial.py:498: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([-2.]), desired = array([2.]), rtol = 1e-07, atol = 1e-09
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 4.
-E       Max relative difference: 2.
-E        x: array([-2.])
-E        y: array([2.])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_10_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3, 2), weighted=True}.test_polyfit_default _
-cupy/testing/helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[-4.14285714, -5.14285714]])
-desired = array([[4.14285714, 5.14285714]]), rtol = 1e-07, atol = 1e-09
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 10.28571429
-E       Max relative difference: 2.
-E        x: array([[-4.142857, -5.142857]])
-E        y: array([[4.142857, 5.142857]])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_10_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3, 2), weighted=True}.test_polyfit_full _
-
-self = <<cupy_tests.lib_tests.test_polynomial.TestPolyfitParametersCombinations_param_10_{deg=0, rcond=1e-15, shape1=(3,), sh...stMethod=test_polyfit_full>  parameter: {'deg': 0, 'rcond': 1e-15, 'shape1': (3,), 'shape2': (3, 2), 'weighted': True}>
-dtype = <class 'numpy.float64'>
-
-    @testing.for_all_dtypes(no_float16=True)
-    def test_polyfit_full(self, dtype):
-        cp_c, cp_resids, cp_rank, cp_s, cp_rcond = self._full_fit(cupy, dtype)
-        np_c, np_resids, np_rank, np_s, np_rcond = self._full_fit(numpy, dtype)
-    
->       testing.assert_allclose(cp_c, np_c, atol=1e-9)
-
-tests/cupy_tests/lib_tests/test_polynomial.py:498: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[-4.14285714, -5.14285714]])
-desired = array([[4.14285714, 5.14285714]]), rtol = 1e-07, atol = 1e-09
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 10.28571429
-E       Max relative difference: 2.
-E        x: array([[-4.142857, -5.142857]])
-E        y: array([[4.142857, 5.142857]])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_11_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3, 2), weighted=False}.test_polyfit_default _
-cupy/testing/helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[-3., -4.]]), desired = array([[3., 4.]]), rtol = 1e-07
-atol = 1e-09, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 8.
-E       Max relative difference: 2.
-E        x: array([[-3., -4.]])
-E        y: array([[3., 4.]])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestPolyfitParametersCombinations_param_11_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3, 2), weighted=False}.test_polyfit_full _
-
-self = <<cupy_tests.lib_tests.test_polynomial.TestPolyfitParametersCombinations_param_11_{deg=0, rcond=1e-15, shape1=(3,), sh...tMethod=test_polyfit_full>  parameter: {'deg': 0, 'rcond': 1e-15, 'shape1': (3,), 'shape2': (3, 2), 'weighted': False}>
-dtype = <class 'numpy.float64'>
-
-    @testing.for_all_dtypes(no_float16=True)
-    def test_polyfit_full(self, dtype):
-        cp_c, cp_resids, cp_rank, cp_s, cp_rcond = self._full_fit(cupy, dtype)
-        np_c, np_resids, np_rank, np_s, np_rcond = self._full_fit(numpy, dtype)
-    
->       testing.assert_allclose(cp_c, np_c, atol=1e-9)
-
-tests/cupy_tests/lib_tests/test_polynomial.py:498: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[-3., -4.]]), desired = array([[3., 4.]]), rtol = 1e-07
-atol = 1e-09, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=1e-09
-E       
-E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 8.
-E       Max relative difference: 2.
-E        x: array([[-3., -4.]])
-E        y: array([[3., 4.]])
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float64'>
-_ TestEinSumUnaryOperation_param_34_{_raw_params={'orig': {'shape_a': (3, 3, 3), 'subscripts': 'iji->ij'}, 'dec': 0, 'drop': True}, shape_a=(1, 1, 1), subscripts='iji->ij'}.test_einsum_unary_dtype _
-cupy/testing/helper.py:1068: in test_func
-    impl(self, *args, **kw_copy)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[1]], dtype=int16), desired = array([[1]], dtype=int16)
-rtol = 1e-07, atol = 0, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=0
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 1
-E       Max relative difference: 1.
-E        x: array([[0]], dtype=int16)
-E        y: array([[1]], dtype=int16)
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-{'dtype_a': <class 'numpy.int16'>, 'dtype_out': <class 'numpy.int16'>}
-_ TestEinSumUnaryOperation_param_35_{_raw_params={'orig': {'shape_a': (3, 3, 3), 'subscripts': '...ii->...i'}, 'dec': 0, 'drop': True}, shape_a=(1, 1, 1), subscripts='...ii->...i'}.test_einsum_unary_dtype _
-cupy/testing/helper.py:1068: in test_func
-    impl(self, *args, **kw_copy)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:495: in check_func
-    array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[1]], dtype=int64), desired = array([[1]], dtype=int64)
-rtol = 1e-07, atol = 0, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=0
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 4607182418800017407
-E       Max relative difference: 4.60718242e+18
-E        x: array([[4607182418800017408]], dtype=int64)
-E        y: array([[1]], dtype=int64)
-
-cupy/testing/array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-{'dtype_a': <class 'numpy.longlong'>, 'dtype_out': <class 'numpy.longlong'>}
-_ TestPadDefault_param_6_{array=array([[0, 1, 2],
-       [3, 4, 5]]), mode='linear_ramp', pad_width=1}.test_pad_default _
-cupy/testing/helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/helper.py:648: in check_func
-    array.assert_array_equal(x, y, err_msg, verbose, strides_check)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-x = array([[0, 1, 2],
-       [3, 4, 5]], dtype=int8)
-y = array([[0, 1, 2],
-       [3, 4, 5]], dtype=int8), err_msg = ''
-verbose = True, strides_check = False
-
-    def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
-        """Raises an AssertionError if two array_like objects are not equal.
-    
-        Args:
-             x(numpy.ndarray or cupy.ndarray): The actual object to check.
-             y(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             strides_check(bool): If ``True``, consistency of strides is also
-                 checked.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting values
-                 are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_array_equal`
-        """
->       numpy.testing.assert_array_equal(
-            cupy.asnumpy(x), cupy.asnumpy(y), err_msg=err_msg,
-            verbose=verbose)
-E       AssertionError: 
-E       Arrays are not equal
-E       
-E       Mismatched elements: 1 / 6 (16.7%)
-E       Max absolute difference: 1
-E       Max relative difference: 1.
-E        x: array([[0, 0, 2],
-E              [3, 4, 5]], dtype=int8)
-E        y: array([[0, 1, 2],
-E              [3, 4, 5]], dtype=int8)
-
-cupy/testing/array.py:91: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.int8'>
 ________ TestCorrelate_param_0_{mode='valid'}.test_correlate_diff_types ________
 cupy/testing/helper.py:1068: in test_func
     impl(self, *args, **kw_copy)
@@ -3071,10 +1827,10 @@ self = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_ver
 >       assert build.check_cuda_version(
             self.compiler, self.settings)
 E       AssertionError: assert False
-E        +  where False = <function check_cuda_version at 0x7f346ad2a5e0>(<distutils.unixccompiler.UnixCCompiler object at 0x7f33902696a0>, {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UAmkBzZgQJ/cupy/install/../cupy/core/include'], 'language': 'c++', ...})
-E        +    where <function check_cuda_version at 0x7f346ad2a5e0> = build.check_cuda_version
-E        +    and   <distutils.unixccompiler.UnixCCompiler object at 0x7f33902696a0> = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.compiler
-E        +    and   {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UAmkBzZgQJ/cupy/install/../cupy/core/include'], 'language': 'c++', ...} = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.settings
+E        +  where False = <function check_cuda_version at 0x7fbd4f4eb700>(<distutils.unixccompiler.UnixCCompiler object at 0x7fbc7390f2e0>, {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.5GH3NkVqgG/cupy/install/../cupy/core/include'], 'language': 'c++', ...})
+E        +    where <function check_cuda_version at 0x7fbd4f4eb700> = build.check_cuda_version
+E        +    and   <distutils.unixccompiler.UnixCCompiler object at 0x7fbc7390f2e0> = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.compiler
+E        +    and   {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.5GH3NkVqgG/cupy/install/../cupy/core/include'], 'language': 'c++', ...} = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.settings
 
 tests/install_tests/test_build.py:21: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -3083,37 +1839,9 @@ tests/install_tests/test_build.py:21: AssertionError
 *** WARNING: command 'gcc' failed with exit status 1
 **************************************************
 ----------------------------- Captured stderr call -----------------------------
-/tmp/tmppodvye25/a.cpp:2:18: fatal error: cuda.h: No such file or directory
+/tmp/tmpgy8wpjsu/a.cpp:2:18: fatal error: cuda.h: No such file or directory
          #include <cuda.h>
                   ^~~~~~~~
-compilation terminated.
-__________________ TestCheckVersion.test_check_cudnn_version ___________________
-
-self = <install_tests.test_build.TestCheckVersion testMethod=test_check_cudnn_version>
-
-    @pytest.mark.gpu
-    @pytest.mark.cudnn
-    def test_check_cudnn_version(self):
-        with self.assertRaises(RuntimeError):
-            build.get_cudnn_version()
->       assert build.check_cudnn_version(
-            self.compiler, self.settings)
-E       AssertionError: assert False
-E        +  where False = <function check_cudnn_version at 0x7f346ad2aa60>(<distutils.unixccompiler.UnixCCompiler object at 0x7f33902c9610>, {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UAmkBzZgQJ/cupy/install/../cupy/core/include'], 'language': 'c++', ...})
-E        +    where <function check_cudnn_version at 0x7f346ad2aa60> = build.check_cudnn_version
-E        +    and   <distutils.unixccompiler.UnixCCompiler object at 0x7f33902c9610> = <install_tests.test_build.TestCheckVersion testMethod=test_check_cudnn_version>.compiler
-E        +    and   {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UAmkBzZgQJ/cupy/install/../cupy/core/include'], 'language': 'c++', ...} = <install_tests.test_build.TestCheckVersion testMethod=test_check_cudnn_version>.settings
-
-tests/install_tests/test_build.py:31: AssertionError
------------------------------ Captured stdout call -----------------------------
-**************************************************
-*** WARNING: Cannot check cuDNN version
-command 'gcc' failed with exit status 1
-**************************************************
------------------------------ Captured stderr call -----------------------------
-/tmp/tmpfex1spw8/a.cpp:2:18: fatal error: cudnn.h: No such file or directory
-         #include <cudnn.h>
-                  ^~~~~~~~~
 compilation terminated.
 =============================== warnings summary ===============================
 tests/cupy_tests/core_tests/fusion_tests/test_array.py: 1 warning
@@ -3190,7 +1918,7 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axi
     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 
 tests/cupy_tests/math_tests/test_sumprod.py: 32 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UAmkBzZgQJ/cupy/tests/cupy_tests/math_tests/test_sumprod.py:799: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.5GH3NkVqgG/cupy/tests/cupy_tests/math_tests/test_sumprod.py:799: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_all2
@@ -3202,7 +1930,7 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_axis_transpos
     return umr_sum(a, axis, dtype, out, keepdims, initial, where)
 
 tests/cupy_tests/statistics_tests/test_meanvar.py: 28 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.UAmkBzZgQJ/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.5GH3NkVqgG/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_4_{axis=0, keepdims=True, overwrite_input=True, shape=(3, 4, 5)}::test_nanmedian
@@ -3300,38 +2028,9 @@ FAILED tests/cupy_tests/creation_tests/test_from_data.py::TestFromData::test_arr
 FAILED tests/cupy_tests/cuda_tests/test_device.py::TestDeviceHandles::test_cusparse_handle
 FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyArithmeticDiffTypes_param_2_{fname='polymul'}::test_polyroutine_diff_types_array
 FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyArithmeticDiffTypes_param_2_{fname='polymul'}::test_polyroutine_diff_types_poly1d
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_0_{deg=0, rcond=None, shape1=(3,), shape2=(3,), weighted=True}::test_polyfit_default
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_0_{deg=0, rcond=None, shape1=(3,), shape2=(3,), weighted=True}::test_polyfit_full
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_1_{deg=0, rcond=None, shape1=(3,), shape2=(3,), weighted=False}::test_polyfit_default
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_1_{deg=0, rcond=None, shape1=(3,), shape2=(3,), weighted=False}::test_polyfit_full
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_2_{deg=0, rcond=None, shape1=(3,), shape2=(3, 2), weighted=True}::test_polyfit_default
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_2_{deg=0, rcond=None, shape1=(3,), shape2=(3, 2), weighted=True}::test_polyfit_full
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_3_{deg=0, rcond=None, shape1=(3,), shape2=(3, 2), weighted=False}::test_polyfit_default
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_3_{deg=0, rcond=None, shape1=(3,), shape2=(3, 2), weighted=False}::test_polyfit_full
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_4_{deg=0, rcond=0.5, shape1=(3,), shape2=(3,), weighted=True}::test_polyfit_default
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_4_{deg=0, rcond=0.5, shape1=(3,), shape2=(3,), weighted=True}::test_polyfit_full
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_5_{deg=0, rcond=0.5, shape1=(3,), shape2=(3,), weighted=False}::test_polyfit_default
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_5_{deg=0, rcond=0.5, shape1=(3,), shape2=(3,), weighted=False}::test_polyfit_full
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_6_{deg=0, rcond=0.5, shape1=(3,), shape2=(3, 2), weighted=True}::test_polyfit_default
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_6_{deg=0, rcond=0.5, shape1=(3,), shape2=(3, 2), weighted=True}::test_polyfit_full
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_7_{deg=0, rcond=0.5, shape1=(3,), shape2=(3, 2), weighted=False}::test_polyfit_default
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_7_{deg=0, rcond=0.5, shape1=(3,), shape2=(3, 2), weighted=False}::test_polyfit_full
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_8_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3,), weighted=True}::test_polyfit_default
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_8_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3,), weighted=True}::test_polyfit_full
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_9_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3,), weighted=False}::test_polyfit_default
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_9_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3,), weighted=False}::test_polyfit_full
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_10_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3, 2), weighted=True}::test_polyfit_default
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_10_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3, 2), weighted=True}::test_polyfit_full
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_11_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3, 2), weighted=False}::test_polyfit_default
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyfitParametersCombinations_param_11_{deg=0, rcond=1e-15, shape1=(3,), shape2=(3, 2), weighted=False}::test_polyfit_full
-FAILED tests/cupy_tests/linalg_tests/test_einsum.py::TestEinSumUnaryOperation_param_34_{_raw_params={'orig': {'shape_a': (3, 3, 3), 'subscripts': 'iji->ij'}, 'dec': 0, 'drop': True}, shape_a=(1, 1, 1), subscripts='iji->ij'}::test_einsum_unary_dtype
-FAILED tests/cupy_tests/linalg_tests/test_einsum.py::TestEinSumUnaryOperation_param_35_{_raw_params={'orig': {'shape_a': (3, 3, 3), 'subscripts': '...ii->...i'}, 'dec': 0, 'drop': True}, shape_a=(1, 1, 1), subscripts='...ii->...i'}::test_einsum_unary_dtype
-FAILED tests/cupy_tests/padding_tests/test_pad.py::TestPadDefault_param_6_{array=array([[0, 1, 2],
-       [3, 4, 5]]), mode='linear_ramp', pad_width=1}::test_pad_default - AssertionError: 
 FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_0_{mode='valid'}::test_correlate_diff_types
 FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_1_{mode='full'}::test_correlate_diff_types
 FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_1_{mode='full'}::test_correlate_non_contiguous
 FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_2_{mode='same'}::test_correlate_diff_types
 FAILED tests/install_tests/test_build.py::TestCheckVersion::test_check_cuda_version
-FAILED tests/install_tests/test_build.py::TestCheckVersion::test_check_cudnn_version
-= 46 failed, 24372 passed, 39217 skipped, 56 deselected, 94 xfailed, 207 warnings in 13469.65s (3:44:29) =
+= 18 failed, 24375 passed, 39217 skipped, 56 deselected, 119 xfailed, 207 warnings in 13403.30s (3:43:23) =
