@@ -1,6 +1,6 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.5GH3NkVqgG/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3sNDglvz8K/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
 collected 63773 items / 56 deselected / 12 skipped / 63705 selected
 
@@ -1303,7 +1303,8 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array(8), y = 8, err_msg = '', verbose = True, strides_check = False
+x = array(8, dtype=int32), y = 8, err_msg = '', verbose = True
+strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
         """Raises an AssertionError if two array_like objects are not equal.
@@ -1326,14 +1327,14 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 8
-E       Max relative difference: 1.
-E        x: array(0)
-E        y: array(8)
+E       Max absolute difference: 1074790392
+E       Max relative difference: 1.34348799e+08
+E        x: array(1074790400, dtype=int32)
+E        y: array(8, dtype=int32)
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.int64'>
+dtype is <class 'numpy.int32'>
 _ TestArrayIndexingParameterized_param_27_{indexes=(slice(-4, -5, -1),), shape=(10,), transpose=None}.test_getitem _
 cupy/testing/helper.py:825: in test_func
     impl(self, *args, **kw)
@@ -1384,7 +1385,7 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array([6.], dtype=float16), y = array([6.], dtype=float16), err_msg = ''
+x = array([6.], dtype=float32), y = array([6.], dtype=float32), err_msg = ''
 verbose = True, strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -1408,30 +1409,30 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 6.
-E       Max relative difference: 1.
-E        x: array([0.], dtype=float16)
-E        y: array([6.], dtype=float16)
+E       Max absolute difference: 3.875
+E       Max relative difference: 0.6458333
+E        x: array([2.125], dtype=float32)
+E        y: array([6.], dtype=float32)
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float16'>
+dtype is <class 'numpy.float32'>
 ____________________ TestArrayBoolOp.test_bool_one_element _____________________
 
 self = <cupy_tests.core_tests.test_ndarray_unary_op.TestArrayBoolOp testMethod=test_bool_one_element>
-dtype = <class 'numpy.float16'>
+dtype = <class 'numpy.int16'>
 
     @testing.for_all_dtypes()
     def test_bool_one_element(self, dtype):
 >       assert bool(cupy.array([1], dtype=dtype))
 E       AssertionError: assert False
-E        +  where False = bool(array([1.], dtype=float16))
-E        +    where array([1.], dtype=float16) = <function array at 0x7fc5a1e80160>([1], dtype=<class 'numpy.float16'>)
-E        +      where <function array at 0x7fc5a1e80160> = cupy.array
+E        +  where False = bool(array([1], dtype=int16))
+E        +    where array([1], dtype=int16) = <function array at 0x7f0965c04160>([1], dtype=<class 'numpy.int16'>)
+E        +      where <function array at 0x7f0965c04160> = cupy.array
 
 tests/cupy_tests/core_tests/test_ndarray_unary_op.py:34: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float16'>
+dtype is <class 'numpy.int16'>
 ______________ TestFromData.test_array_from_list_of_numpy_scalar _______________
 cupy/testing/helper.py:1175: in test_func
     impl(self, *args, **kw)
@@ -1443,7 +1444,7 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array([0, 1], dtype=int8), y = array([0, 1], dtype=int8), err_msg = ''
+x = array([0, 1], dtype=int16), y = array([0, 1], dtype=int16), err_msg = ''
 verbose = True, strides_check = True
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -1469,12 +1470,12 @@ E
 E       Mismatched elements: 1 / 2 (50%)
 E       Max absolute difference: 1
 E       Max relative difference: 1.
-E        x: array([0, 0], dtype=int8)
-E        y: array([0, 1], dtype=int8)
+E        x: array([0, 0], dtype=int16)
+E        y: array([0, 1], dtype=int16)
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.int8'>
+dtype is <class 'numpy.int16'>
 order is C
 ____________________ TestDeviceHandles.test_cusparse_handle ____________________
 
@@ -1501,7 +1502,7 @@ func = <built-in function get_cusparse_handle>
         t.join()
         assert handles[0] is not None
 >       assert handles[0] != handles[1]
-E       AssertionError: assert 140487880079824 != 140487880079824
+E       AssertionError: assert 139679410911696 != 139679410911696
 
 tests/cupy_tests/cuda_tests/test_device.py:136: AssertionError
 _ TestPolyArithmeticDiffTypes_param_2_{fname='polymul'}.test_polyroutine_diff_types_array _
@@ -1827,10 +1828,10 @@ self = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_ver
 >       assert build.check_cuda_version(
             self.compiler, self.settings)
 E       AssertionError: assert False
-E        +  where False = <function check_cuda_version at 0x7fbd4f4eb700>(<distutils.unixccompiler.UnixCCompiler object at 0x7fbc7390f2e0>, {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.5GH3NkVqgG/cupy/install/../cupy/core/include'], 'language': 'c++', ...})
-E        +    where <function check_cuda_version at 0x7fbd4f4eb700> = build.check_cuda_version
-E        +    and   <distutils.unixccompiler.UnixCCompiler object at 0x7fbc7390f2e0> = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.compiler
-E        +    and   {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.5GH3NkVqgG/cupy/install/../cupy/core/include'], 'language': 'c++', ...} = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.settings
+E        +  where False = <function check_cuda_version at 0x7f0112cac700>(<distutils.unixccompiler.UnixCCompiler object at 0x7f0112db02e0>, {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3sNDglvz8K/cupy/install/../cupy/core/include'], 'language': 'c++', ...})
+E        +    where <function check_cuda_version at 0x7f0112cac700> = build.check_cuda_version
+E        +    and   <distutils.unixccompiler.UnixCCompiler object at 0x7f0112db02e0> = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.compiler
+E        +    and   {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3sNDglvz8K/cupy/install/../cupy/core/include'], 'language': 'c++', ...} = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.settings
 
 tests/install_tests/test_build.py:21: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1839,7 +1840,7 @@ tests/install_tests/test_build.py:21: AssertionError
 *** WARNING: command 'gcc' failed with exit status 1
 **************************************************
 ----------------------------- Captured stderr call -----------------------------
-/tmp/tmpgy8wpjsu/a.cpp:2:18: fatal error: cuda.h: No such file or directory
+/tmp/tmpvobzhlsu/a.cpp:2:18: fatal error: cuda.h: No such file or directory
          #include <cuda.h>
                   ^~~~~~~~
 compilation terminated.
@@ -1918,7 +1919,7 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axi
     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 
 tests/cupy_tests/math_tests/test_sumprod.py: 32 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.5GH3NkVqgG/cupy/tests/cupy_tests/math_tests/test_sumprod.py:799: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3sNDglvz8K/cupy/tests/cupy_tests/math_tests/test_sumprod.py:799: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_all2
@@ -1930,7 +1931,7 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_axis_transpos
     return umr_sum(a, axis, dtype, out, keepdims, initial, where)
 
 tests/cupy_tests/statistics_tests/test_meanvar.py: 28 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.5GH3NkVqgG/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3sNDglvz8K/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_4_{axis=0, keepdims=True, overwrite_input=True, shape=(3, 4, 5)}::test_nanmedian
@@ -2033,4 +2034,4 @@ FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_para
 FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_1_{mode='full'}::test_correlate_non_contiguous
 FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_2_{mode='same'}::test_correlate_diff_types
 FAILED tests/install_tests/test_build.py::TestCheckVersion::test_check_cuda_version
-= 18 failed, 24375 passed, 39217 skipped, 56 deselected, 119 xfailed, 207 warnings in 13403.30s (3:43:23) =
+= 18 failed, 24375 passed, 39217 skipped, 56 deselected, 119 xfailed, 207 warnings in 13568.54s (3:46:08) =
