@@ -1,8 +1,8 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.RfLNeYv9fN/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.ttRPL9crsh/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
-collected 63769 items / 56 deselected / 12 skipped / 63701 selected
+collected 63763 items / 56 deselected / 12 skipped / 63695 selected
 
 tests/cupy_tests/test_cublas.py ........................................ [  0%]
 ........................................................................ [  0%]
@@ -89,7 +89,7 @@ tests/cupy_tests/core_tests/test_carray.py .....                         [  7%]
 tests/cupy_tests/core_tests/test_core.py ....                            [  7%]
 tests/cupy_tests/core_tests/test_cub_reduction.py ...................... [  7%]
 ...                                                                      [  7%]
-tests/cupy_tests/core_tests/test_dlpack.py ..............                [  8%]
+tests/cupy_tests/core_tests/test_dlpack.py ....                          [  7%]
 tests/cupy_tests/core_tests/test_elementwise.py ...............          [  8%]
 tests/cupy_tests/core_tests/test_flags.py .............................  [  8%]
 tests/cupy_tests/core_tests/test_function.py ..                          [  8%]
@@ -110,13 +110,13 @@ tests/cupy_tests/core_tests/test_ndarray_contiguity.py .                 [  8%]
 tests/cupy_tests/core_tests/test_ndarray_conversion.py .......FF..       [  8%]
 tests/cupy_tests/core_tests/test_ndarray_copy_and_view.py ss........s... [  8%]
 ....ssss.......                                                          [  8%]
-tests/cupy_tests/core_tests/test_ndarray_cuda_array_interface.py sssssss [  9%]
+tests/cupy_tests/core_tests/test_ndarray_cuda_array_interface.py sssssss [  8%]
 sssssssssssssssssssssssssssssssssssssssssssssssss                        [  9%]
 tests/cupy_tests/core_tests/test_ndarray_elementwise_op.py ............. [  9%]
 ........................................................................ [  9%]
 .................................................................        [  9%]
 tests/cupy_tests/core_tests/test_ndarray_get.py ............             [  9%]
-tests/cupy_tests/core_tests/test_ndarray_indexing.py FFFF............... [  9%]
+tests/cupy_tests/core_tests/test_ndarray_indexing.py FFFF..........F.... [  9%]
 ........F..........F.............................                        [  9%]
 tests/cupy_tests/core_tests/test_ndarray_math.py ......................s [  9%]
 sssssssssss                                                              [  9%]
@@ -150,7 +150,7 @@ tests/cupy_tests/core_tests/fusion_tests/test_misc.py .......s.......... [ 10%]
 tests/cupy_tests/core_tests/fusion_tests/test_optimization.py .......... [ 10%]
 ....                                                                     [ 10%]
 tests/cupy_tests/core_tests/fusion_tests/test_reduction.py ............. [ 10%]
-........................................................................ [ 11%]
+........................................................................ [ 10%]
 .........................................................s.s.s.s.s.s.s.s [ 11%]
 .s.ssssssssssssssssss.sss                                                [ 11%]
 tests/cupy_tests/core_tests/fusion_tests/test_routines.py .............. [ 11%]
@@ -196,7 +196,7 @@ ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 12%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 12%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 12%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 12%]
-ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 13%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 12%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 13%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 13%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssss                     [ 13%]
@@ -262,7 +262,7 @@ tests/cupy_tests/linalg_tests/test_product.py .......................... [ 17%]
 ..........................................                               [ 17%]
 tests/cupy_tests/linalg_tests/test_solve.py ............................ [ 17%]
                                                                          [ 17%]
-tests/cupy_tests/logic_tests/test_comparison.py ........................ [ 18%]
+tests/cupy_tests/logic_tests/test_comparison.py ........................ [ 17%]
 .....                                                                    [ 18%]
 tests/cupy_tests/logic_tests/test_content.py ...                         [ 18%]
 tests/cupy_tests/logic_tests/test_ops.py ....                            [ 18%]
@@ -333,7 +333,7 @@ tests/cupy_tests/math_tests/test_arithmetic.py ......................... [ 19%]
 ........................................................................ [ 23%]
 ........................................................................ [ 23%]
 ........................................................................ [ 23%]
-........................................................................ [ 24%]
+........................................................................ [ 23%]
 ........................................................................ [ 24%]
 ........................................................................ [ 24%]
 ........................................................................ [ 24%]
@@ -470,8 +470,8 @@ tests/cupy_tests/random_tests/test_distributions.py .................... [ 34%]
 tests/cupy_tests/random_tests/test_generator.py ........................ [ 36%]
 ........................................................................ [ 36%]
 ........................................................................ [ 37%]
-........................................................................ [ 37%]
-........................x...............................                 [ 37%]
+......................s.s............................................... [ 37%]
+............................x...............................             [ 37%]
 tests/cupy_tests/random_tests/test_generator_api.py sssssssssssssssss    [ 37%]
 tests/cupy_tests/random_tests/test_init.py .                             [ 37%]
 tests/cupy_tests/random_tests/test_permutations.py ...x...x............. [ 37%]
@@ -520,7 +520,7 @@ tests/cupyx_tests/test_runtime.py s.                                     [ 39%]
 tests/cupyx_tests/test_scatter.py ...                                    [ 39%]
 tests/cupyx_tests/test_time.py .........                                 [ 39%]
 tests/cupyx_tests/fallback_mode_tests/test_fallback.py ................. [ 39%]
-........................................................................ [ 40%]
+........................................................................ [ 39%]
 .........                                                                [ 40%]
 tests/cupyx_tests/fallback_mode_tests/test_notifications.py .........    [ 40%]
 tests/cupyx_tests/jit_tests/test_raw.py ....                             [ 40%]
@@ -827,7 +827,7 @@ ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 72%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 72%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 72%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 72%]
-ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 73%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 72%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 73%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 73%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 73%]
@@ -1100,9 +1100,9 @@ cupy/testing/helper.py:825: in test_func
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 self = <<cupy_tests.core_tests.test_ndarray_conversion.TestNdarrayToBytes_param_1_{shape=(1,)} testMethod=test_item>  parameter: {'shape': (1,)}>
-args = (), kw = {'dtype': <class 'numpy.float16'>}, cupy_result = b'\x00\x00'
-cupy_error = None, numpy_result = b'\x00<', numpy_error = None
-message = "Results are not equal:\ncupy: b'\\x00\\x00'\nnumpy: b'\\x00<'"
+args = (), kw = {'dtype': <class 'numpy.int8'>}, cupy_result = b'\x00'
+cupy_error = None, numpy_result = b'\x01', numpy_error = None
+message = "Results are not equal:\ncupy: b'\\x00'\nnumpy: b'\\x01'"
 
             @_wraps_partial_xp(impl, name, sp_name, scipy_name)
             def test_func(self, *args, **kw):
@@ -1125,12 +1125,12 @@ message = "Results are not equal:\ncupy: b'\\x00\\x00'\nnumpy: b'\\x00<'"
     numpy: %s''' % (str(cupy_result), str(numpy_result))
 >                   raise AssertionError(message)
 E                   AssertionError: Results are not equal:
-E                   cupy: b'\x00\x00'
-E                   numpy: b'\x00<'
+E                   cupy: b'\x00'
+E                   numpy: b'\x01'
 
 cupy/testing/helper.py:758: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float16'>
+dtype is <class 'numpy.int8'>
 _____________ TestNdarrayToBytes_param_2_{shape=(2, 3)}.test_item ______________
 cupy/testing/helper.py:825: in test_func
     impl(self, *args, **kw)
@@ -1138,11 +1138,11 @@ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _
 
 self = <<cupy_tests.core_tests.test_ndarray_conversion.TestNdarrayToBytes_param_2_{shape=(2, 3)} testMethod=test_item>  parameter: {'shape': (2, 3)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
-cupy_result = b'\x00\x00\x80?\x00\x00\xf0?\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x08@\x00\x00\x00\x00\x00\x00\x10@\x00\x00\x00\x00\x00\x00\x14@\x00\x00\x00\x00\x00\x00\x18@'
+cupy_result = b'\x00\x00\x80?\x00\x00\x80?\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x08@\x00\x00\x00\x00\x00\x00\x10@\x00\x00\x00\x00\x00\x00\x14@\x00\x00\x00\x00\x00\x00\x18@'
 cupy_error = None
 numpy_result = b'\x00\x00\x00\x00\x00\x00\xf0?\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x08@\x00\x00\x00\x00\x00\x00\x10@\x00\x00\x00\x00\x00\x00\x14@\x00\x00\x00\x00\x00\x00\x18@'
 numpy_error = None
-message = "Results are not equal:\ncupy: b'\\x00\\x00\\x80?\\x00\\x00\\xf0?\\x00\\x00\\x00\\x00\\x00\\x00\\x00@\\x00\\x00\\x00\\...x00\\x08@\\x00\\x00\\x00\\x00\\x00\\x00\\x10@\\x00\\x00\\x00\\x00\\x00\\x00\\x14@\\x00\\x00\\x00\\x00\\x00\\x00\\x18@'"
+message = "Results are not equal:\ncupy: b'\\x00\\x00\\x80?\\x00\\x00\\x80?\\x00\\x00\\x00\\x00\\x00\\x00\\x00@\\x00\\x00\\x00\\...x00\\x08@\\x00\\x00\\x00\\x00\\x00\\x00\\x10@\\x00\\x00\\x00\\x00\\x00\\x00\\x14@\\x00\\x00\\x00\\x00\\x00\\x00\\x18@'"
 
             @_wraps_partial_xp(impl, name, sp_name, scipy_name)
             def test_func(self, *args, **kw):
@@ -1165,7 +1165,7 @@ message = "Results are not equal:\ncupy: b'\\x00\\x00\\x80?\\x00\\x00\\xf0?\\x00
     numpy: %s''' % (str(cupy_result), str(numpy_result))
 >                   raise AssertionError(message)
 E                   AssertionError: Results are not equal:
-E                   cupy: b'\x00\x00\x80?\x00\x00\xf0?\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x08@\x00\x00\x00\x00\x00\x00\x10@\x00\x00\x00\x00\x00\x00\x14@\x00\x00\x00\x00\x00\x00\x18@'
+E                   cupy: b'\x00\x00\x80?\x00\x00\x80?\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x08@\x00\x00\x00\x00\x00\x00\x10@\x00\x00\x00\x00\x00\x00\x14@\x00\x00\x00\x00\x00\x00\x18@'
 E                   numpy: b'\x00\x00\x00\x00\x00\x00\xf0?\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x08@\x00\x00\x00\x00\x00\x00\x10@\x00\x00\x00\x00\x00\x00\x14@\x00\x00\x00\x00\x00\x00\x18@'
 
 cupy/testing/helper.py:758: AssertionError
@@ -1221,7 +1221,7 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array(15., dtype=float16), y = 15.0, err_msg = '', verbose = True
+x = array(15, dtype=int8), y = 15, err_msg = '', verbose = True
 strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -1245,14 +1245,14 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 15.
+E       Max absolute difference: 15
 E       Max relative difference: 1.
-E        x: array(0., dtype=float16)
-E        y: array(15., dtype=float16)
+E        x: array(0, dtype=int8)
+E        y: array(15, dtype=int8)
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float16'>
+dtype is <class 'numpy.int8'>
 _ TestArrayIndexingParameterized_param_2_{indexes=(1, 0, 2), shape=(2, 3, 4), transpose=(2, 0, 1)}.test_getitem _
 cupy/testing/helper.py:825: in test_func
     impl(self, *args, **kw)
@@ -1262,7 +1262,7 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array(10., dtype=float32), y = 10.0, err_msg = '', verbose = True
+x = array(10., dtype=float16), y = 10.0, err_msg = '', verbose = True
 strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -1286,14 +1286,14 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 7.6875
-E       Max relative difference: 0.76875
-E        x: array(2.3125, dtype=float32)
-E        y: array(10., dtype=float32)
+E       Max absolute difference: 10.
+E       Max relative difference: 1.
+E        x: array(0., dtype=float16)
+E        y: array(10., dtype=float16)
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float32'>
+dtype is <class 'numpy.float16'>
 _ TestArrayIndexingParameterized_param_3_{indexes=(-1, 0, -2), shape=(2, 3, 4), transpose=(2, 0, 1)}.test_getitem _
 cupy/testing/helper.py:825: in test_func
     impl(self, *args, **kw)
@@ -1303,7 +1303,7 @@ cupy/testing/helper.py:648: in check_func
     array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array(8., dtype=float16), y = 8.0, err_msg = '', verbose = True
+x = array(8., dtype=float32), y = 8.0, err_msg = '', verbose = True
 strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -1327,14 +1327,60 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 6.
-E       Max relative difference: 0.75
-E        x: array(2., dtype=float16)
-E        y: array(8., dtype=float16)
+E       Max absolute difference: 5.75
+E       Max relative difference: 0.71875
+E        x: array(2.25, dtype=float32)
+E        y: array(8., dtype=float32)
 
 cupy/testing/array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float16'>
+dtype is <class 'numpy.float32'>
+_ TestArrayIndexingParameterized_param_14_{indexes=(slice(None, None, None), None), shape=(2,), transpose=None}.test_getitem _
+cupy/testing/helper.py:825: in test_func
+    impl(self, *args, **kw)
+cupy/testing/helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/helper.py:648: in check_func
+    array.assert_array_equal(x, y, err_msg, verbose, strides_check)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = array([[1],
+       [2]], dtype=int8)
+y = array([[1],
+       [2]], dtype=int8), err_msg = '', verbose = True
+strides_check = False
+
+    def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
+        """Raises an AssertionError if two array_like objects are not equal.
+    
+        Args:
+             x(numpy.ndarray or cupy.ndarray): The actual object to check.
+             y(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             strides_check(bool): If ``True``, consistency of strides is also
+                 checked.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting values
+                 are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_array_equal`
+        """
+>       numpy.testing.assert_array_equal(
+            cupy.asnumpy(x), cupy.asnumpy(y), err_msg=err_msg,
+            verbose=verbose)
+E       AssertionError: 
+E       Arrays are not equal
+E       
+E       Mismatched elements: 2 / 2 (100%)
+E       Max absolute difference: 2
+E       Max relative difference: 1.
+E        x: array([[0],
+E              [0]], dtype=int8)
+E        y: array([[1],
+E              [2]], dtype=int8)
+
+cupy/testing/array.py:91: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.int8'>
 _ TestArrayIndexingParameterized_param_27_{indexes=(slice(-4, -5, -1),), shape=(10,), transpose=None}.test_getitem _
 cupy/testing/helper.py:825: in test_func
     impl(self, *args, **kw)
@@ -1427,8 +1473,8 @@ dtype = <class 'numpy.float16'>
 >       assert bool(cupy.array([1], dtype=dtype))
 E       AssertionError: assert False
 E        +  where False = bool(array([1.], dtype=float16))
-E        +    where array([1.], dtype=float16) = <function array at 0x7fbe2d3d8160>([1], dtype=<class 'numpy.float16'>)
-E        +      where <function array at 0x7fbe2d3d8160> = cupy.array
+E        +    where array([1.], dtype=float16) = <function array at 0x7f0b22b52160>([1], dtype=<class 'numpy.float16'>)
+E        +      where <function array at 0x7f0b22b52160> = cupy.array
 
 tests/cupy_tests/core_tests/test_ndarray_unary_op.py:34: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1502,7 +1548,7 @@ func = <built-in function get_cusparse_handle>
         t.join()
         assert handles[0] is not None
 >       assert handles[0] != handles[1]
-E       AssertionError: assert 140455857445328 != 140455857445328
+E       AssertionError: assert 139686881614288 != 139686881614288
 
 tests/cupy_tests/cuda_tests/test_device.py:136: AssertionError
 _______ TestPoly1dInit_param_0_{variable=None}.test_poly1d_numpy_poly1d ________
@@ -1684,10 +1730,10 @@ self = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_ver
 >       assert build.check_cuda_version(
             self.compiler, self.settings)
 E       AssertionError: assert False
-E        +  where False = <function check_cuda_version at 0x7fb5da990ee0>(<distutils.unixccompiler.UnixCCompiler object at 0x7fb5dac38f40>, {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.RfLNeYv9fN/cupy/install/../cupy/core/include'], 'language': 'c++', ...})
-E        +    where <function check_cuda_version at 0x7fb5da990ee0> = build.check_cuda_version
-E        +    and   <distutils.unixccompiler.UnixCCompiler object at 0x7fb5dac38f40> = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.compiler
-E        +    and   {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.RfLNeYv9fN/cupy/install/../cupy/core/include'], 'language': 'c++', ...} = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.settings
+E        +  where False = <function check_cuda_version at 0x7f02d0091c10>(<distutils.unixccompiler.UnixCCompiler object at 0x7f02d0392eb0>, {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.ttRPL9crsh/cupy/install/../cupy/core/include'], 'language': 'c++', ...})
+E        +    where <function check_cuda_version at 0x7f02d0091c10> = build.check_cuda_version
+E        +    and   <distutils.unixccompiler.UnixCCompiler object at 0x7f02d0392eb0> = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.compiler
+E        +    and   {'define_macros': [], 'extra_compile_args': [], 'include_dirs': ['/home/kmaeh/Development/cupy-rocm-ci-report/tools/tm...kmaeh/Development/cupy-rocm-ci-report/tools/tmp.ttRPL9crsh/cupy/install/../cupy/core/include'], 'language': 'c++', ...} = <install_tests.test_build.TestCheckVersion testMethod=test_check_cuda_version>.settings
 
 tests/install_tests/test_build.py:21: AssertionError
 ----------------------------- Captured stdout call -----------------------------
@@ -1696,7 +1742,7 @@ tests/install_tests/test_build.py:21: AssertionError
 *** WARNING: command 'gcc' failed with exit status 1
 **************************************************
 ----------------------------- Captured stderr call -----------------------------
-/tmp/tmp7ul_ypl4/a.cpp:2:18: fatal error: cuda.h: No such file or directory
+/tmp/tmpxbz4f8g9/a.cpp:2:18: fatal error: cuda.h: No such file or directory
          #include <cuda.h>
                   ^~~~~~~~
 compilation terminated.
@@ -1775,7 +1821,7 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axi
     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 
 tests/cupy_tests/math_tests/test_sumprod.py: 32 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.RfLNeYv9fN/cupy/tests/cupy_tests/math_tests/test_sumprod.py:799: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.ttRPL9crsh/cupy/tests/cupy_tests/math_tests/test_sumprod.py:799: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_all2
@@ -1787,7 +1833,7 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_axis_transpos
     return umr_sum(a, axis, dtype, out, keepdims, initial, where)
 
 tests/cupy_tests/statistics_tests/test_meanvar.py: 28 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.RfLNeYv9fN/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.ttRPL9crsh/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_4_{axis=0, keepdims=True, overwrite_input=True, shape=(3, 4, 5)}::test_nanmedian
@@ -1878,6 +1924,7 @@ FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingPa
 FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingParameterized_param_1_{indexes=(-1, 0, -2), shape=(2, 3, 4), transpose=None}::test_getitem
 FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingParameterized_param_2_{indexes=(1, 0, 2), shape=(2, 3, 4), transpose=(2, 0, 1)}::test_getitem
 FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingParameterized_param_3_{indexes=(-1, 0, -2), shape=(2, 3, 4), transpose=(2, 0, 1)}::test_getitem
+FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingParameterized_param_14_{indexes=(slice(None, None, None), None), shape=(2,), transpose=None}::test_getitem
 FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingParameterized_param_27_{indexes=(slice(-4, -5, -1),), shape=(10,), transpose=None}::test_getitem
 FAILED tests/cupy_tests/core_tests/test_ndarray_indexing.py::TestArrayIndexingParameterized_param_38_{indexes=(slice(-5, -6, -1),), shape=(10,), transpose=None}::test_getitem
 FAILED tests/cupy_tests/core_tests/test_ndarray_unary_op.py::TestArrayBoolOp::test_bool_one_element
@@ -1888,4 +1935,4 @@ FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPoly1dInit_param_0_{va
 FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPoly1dInit_param_1_{variable='y'}::test_poly1d_numpy_poly1d
 FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPoly1dInit_param_1_{variable='y'}::test_poly1d_numpy_poly1d_variable
 FAILED tests/install_tests/test_build.py::TestCheckVersion::test_check_cuda_version
-= 16 failed, 24369 passed, 39217 skipped, 56 deselected, 123 xfailed, 207 warnings in 13373.40s (3:42:53) =
+= 17 failed, 24360 passed, 39219 skipped, 56 deselected, 123 xfailed, 207 warnings in 13458.84s (3:44:18) =
