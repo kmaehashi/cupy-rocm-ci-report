@@ -18,9 +18,7 @@ mkdir _output
 echo "Building CuPy... ${COMMIT_INFO}"
 CUPY_NUM_BUILD_JOBS=64 python setup.py develop &> _output/output_build.log || echo "Build failed."
 echo "Running Test..."
-python -m pytest -m "not slow" -rfEX tests &> _output/output_test.log || echo "Test failed."
-# TODO: enable html report once stabilized
-#python -m pytest -m "not slow" -rfEX --html _output/report.html --self-contained-html tests &> _output/output_test.log || echo "Test failed."
+python -m pytest -m "not slow" -rfEX --html _output/report.html --self-contained-html tests &> _output/output_test.log || echo "Test failed."
 TEST_SUMMARY="$(cat _output/output_test.log | tail -n 1)"
 popd
 
