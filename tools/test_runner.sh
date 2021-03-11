@@ -10,7 +10,7 @@ echo "Sourcing env vars"
 
 echo "Setting up Python env"
 pyenv local rocm-ci
-pip install numpy cython fastrlock pytest pytest-html
+pip install numpy scipy cython fastrlock pytest pytest-html
 
 pushd cupy
 COMMIT_INFO="$(git show --no-patch --oneline)"
