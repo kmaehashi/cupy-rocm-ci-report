@@ -2,7 +2,9 @@
 
 set -ue
 
-echo "Host: $(hostname)"
+GPU_MODEL=$(~/CuPy_Team/rocm/detect-target)
+
+echo "Host: $(hostname) [${GPU_MODEL}]"
 echo "Workdir: $(pwd)"
 
 echo "Sourcing env vars"
@@ -27,7 +29,7 @@ pushd cupy-rocm-ci-report/docs
 rm -rf *
 cp -a ../../cupy/_output/* .
 git add -A .
-git commit -m "Test results for: https://github.com/cupy/cupy/commit/${COMMIT_INFO} - ${TEST_SUMMARY}"
+git commit -m "Test Result [${GPU_MODEL}]: https://github.com/cupy/cupy/commit/${COMMIT_INFO} - ${TEST_SUMMARY}"
 popd
 
 echo "Done!"

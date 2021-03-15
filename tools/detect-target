@@ -1,0 +1,3 @@
+#!/bin/bash -ue
+
+rocminfo | awk '/Name:\s+gfx[0-9]+/{print $2}' | sort | uniq
