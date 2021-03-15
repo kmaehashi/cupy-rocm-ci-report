@@ -28,7 +28,7 @@ _run_test() {
 
     pushd "${WORKDIR}"
     git clone --depth 1 --branch gh-pages git@github.com:kmaehashi/cupy-rocm-ci-report.git
-    srun "${CURRENT_DIR}/test_runner.sh"
+    srun -p MI100 "${CURRENT_DIR}/test_runner.sh"
     popd
 
     pushd "${WORKDIR}/cupy-rocm-ci-report"
