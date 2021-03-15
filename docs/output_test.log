@@ -1,6 +1,6 @@
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.9kXYfmTvHZ/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.LkqHzELtd6/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
 collected 65160 items / 57 deselected / 12 skipped / 65091 selected
 
@@ -107,7 +107,7 @@ tests/cupy_tests/core_tests/test_ndarray_adv_indexing.py ............... [  8%]
 tests/cupy_tests/core_tests/test_ndarray_complex_ops.py ................ [  8%]
 .....                                                                    [  8%]
 tests/cupy_tests/core_tests/test_ndarray_contiguity.py .                 [  8%]
-tests/cupy_tests/core_tests/test_ndarray_conversion.py .......FF..       [  8%]
+tests/cupy_tests/core_tests/test_ndarray_conversion.py .......xx..       [  8%]
 tests/cupy_tests/core_tests/test_ndarray_copy_and_view.py ss........s... [  8%]
 ....ssss.......                                                          [  8%]
 tests/cupy_tests/core_tests/test_ndarray_cuda_array_interface.py sssssss [  8%]
@@ -116,8 +116,8 @@ tests/cupy_tests/core_tests/test_ndarray_elementwise_op.py ............. [  8%]
 ........................................................................ [  9%]
 .................................................................        [  9%]
 tests/cupy_tests/core_tests/test_ndarray_get.py ............             [  9%]
-tests/cupy_tests/core_tests/test_ndarray_indexing.py FFFF..........F.... [  9%]
-........F..........F.............................                        [  9%]
+tests/cupy_tests/core_tests/test_ndarray_indexing.py xxxx..........x...x [  9%]
+........x..........x.............................                        [  9%]
 tests/cupy_tests/core_tests/test_ndarray_math.py ......................s [  9%]
 sssssssssss                                                              [  9%]
 tests/cupy_tests/core_tests/test_ndarray_owndata.py ...                  [  9%]
@@ -129,7 +129,7 @@ tests/cupy_tests/core_tests/test_ndarray_scatter.py .................... [  9%]
 ........................................................................ [  9%]
 ...............................................................          [  9%]
 tests/cupy_tests/core_tests/test_ndarray_ufunc.py .......                [  9%]
-tests/cupy_tests/core_tests/test_ndarray_unary_op.py ..................s [  9%]
+tests/cupy_tests/core_tests/test_ndarray_unary_op.py .......x..........s [  9%]
 ...                                                                      [  9%]
 tests/cupy_tests/core_tests/test_raw.py .ss.........sss..s.s.s........ss [  9%]
 .........sss..s.s.s........ss.........sss..s.s.s......ssssssssssssssssss [ 10%]
@@ -176,7 +176,7 @@ tests/cupy_tests/cuda_tests/test_curand.py .....                         [ 11%]
 tests/cupy_tests/cuda_tests/test_cusolver.py .                           [ 11%]
 tests/cupy_tests/cuda_tests/test_cusparse.py .                           [ 11%]
 tests/cupy_tests/cuda_tests/test_cutensor.py s                           [ 11%]
-tests/cupy_tests/cuda_tests/test_device.py .............F.               [ 11%]
+tests/cupy_tests/cuda_tests/test_device.py .............x.               [ 11%]
 tests/cupy_tests/cuda_tests/test_driver.py ss.                           [ 11%]
 tests/cupy_tests/cuda_tests/test_memory.py ....ssssssss..........sssssss [ 11%]
 sss.................................................ssssss               [ 12%]
@@ -278,7 +278,7 @@ tests/cupy_tests/linalg_tests/test_norms.py ............................ [ 19%]
 tests/cupy_tests/linalg_tests/test_product.py .......................... [ 19%]
 ........................................................................ [ 19%]
 ........................................................................ [ 19%]
-.................................F........                               [ 19%]
+..........................................                               [ 19%]
 tests/cupy_tests/linalg_tests/test_solve.py ............................ [ 19%]
                                                                          [ 19%]
 tests/cupy_tests/logic_tests/test_comparison.py ........................ [ 19%]
@@ -461,7 +461,7 @@ tests/cupy_tests/math_tests/test_window.py ............................. [ 36%]
 .....                                                                    [ 36%]
 tests/cupy_tests/misc_tests/test_memory_ranges.py ................       [ 36%]
 tests/cupy_tests/misc_tests/test_who.py ......                           [ 36%]
-tests/cupy_tests/padding_tests/test_pad.py ......F...................... [ 36%]
+tests/cupy_tests/padding_tests/test_pad.py ............................. [ 36%]
 ..............................................                           [ 36%]
 tests/cupy_tests/polynomial_tests/test_polynomial.py ................... [ 36%]
                                                                          [ 36%]
@@ -665,11 +665,11 @@ sss......sss......sss......sss......sss......sss........................ [ 53%]
 ........................................................................ [ 53%]
 Fatal Python error: Aborted
 
-Thread 0x00007f22293bd100 (most recent call first):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.9kXYfmTvHZ/cupy/cupy/__init__.py", line 774 in asnumpy
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.9kXYfmTvHZ/cupy/cupy/testing/_array.py", line 25 in assert_allclose
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.9kXYfmTvHZ/cupy/cupy/testing/_helper.py", line 495 in check_func
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.9kXYfmTvHZ/cupy/cupy/testing/_helper.py", line 343 in test_func
+Thread 0x00007f26cf7a6100 (most recent call first):
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.LkqHzELtd6/cupy/cupy/__init__.py", line 774 in asnumpy
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.LkqHzELtd6/cupy/cupy/testing/_array.py", line 25 in assert_allclose
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.LkqHzELtd6/cupy/cupy/testing/_helper.py", line 495 in check_func
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.LkqHzELtd6/cupy/cupy/testing/_helper.py", line 343 in test_func
   File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/python.py", line 183 in pytest_pyfunc_call
   File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/callers.py", line 187 in _multicall
   File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/manager.py", line 84 in <lambda>
