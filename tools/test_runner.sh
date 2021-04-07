@@ -8,7 +8,7 @@ echo "Host: $(hostname) [${GPU_MODEL}]"
 echo "Workdir: $(pwd)"
 
 echo "Sourcing env vars"
-. ~/CuPy_Team/rocm/profile_v2
+. ~/CuPy_Team/rocm-4.0.1/profile
 
 echo "Setting up Python env"
 pyenv local rocm-ci
