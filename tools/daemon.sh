@@ -35,6 +35,7 @@ _run_test() {
     popd
 
     pushd "${WORKDIR}/cupy-rocm-ci-report"
+    git pull
     git push
     popd
 
