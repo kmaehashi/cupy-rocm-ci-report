@@ -17,7 +17,8 @@ pip install numpy scipy cython fastrlock pytest pytest-html
 
 pushd cupy
 COMMIT_INFO="$(git show --no-patch --oneline)"
-mkdir _output
+OUTPUT_DIR="$PWD/_output"
+mkdir "${OUTPUT_DIR}"
 echo "Building CuPy... ${BRANCH} ${COMMIT_INFO}"
 CUPY_NUM_BUILD_JOBS=64 python setup.py develop &> _output/output_build.log || echo "Build failed."
 echo "Running Test..."
@@ -30,7 +31,7 @@ pushd cupy-rocm-ci-report/docs
 mkdir -p "${BRANCH}"
 pushd "${BRANCH}"
 rm -rf *
-cp -a ../../cupy/_output/* .
+cp -a ${OUTPUT_DIR}/* .
 git add -A .
 git commit -m "Test Result [${GPU_MODEL}]: ${BRANCH} - https://github.com/cupy/cupy/commit/${COMMIT_INFO} - ${TEST_SUMMARY}"
 popd
