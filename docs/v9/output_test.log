@@ -1,8 +1,9 @@
+v9: 8a0574d Merge pull request #5106 from chainer-ci/bp-4974-v9-fix_win_dll_load
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
-collected 71598 items / 65 deselected / 12 skipped / 71521 selected
+collected 71601 items / 65 deselected / 12 skipped / 71524 selected
 
 tests/cupy_tests/test_cublas.py ........................................ [  0%]
 ........................................................................ [  0%]
@@ -247,7 +248,7 @@ tests/cupy_tests/indexing_tests/test_iterate.py ........................ [ 15%]
 tests/cupy_tests/io_tests/test_base_n.py ............................    [ 15%]
 tests/cupy_tests/io_tests/test_formatting.py ..                          [ 15%]
 tests/cupy_tests/io_tests/test_npz.py .......                            [ 15%]
-tests/cupy_tests/lib_tests/test_polynomial.py .....F.ss.......ssssssssss [ 15%]
+tests/cupy_tests/lib_tests/test_polynomial.py .......ss.......ssssssssss [ 15%]
 sssssss........ssssssssssssssssssssssssssssssssssssxxxxxxxxxxxxxxxxxxxx. [ 15%]
 ..ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 15%]
 ssssssssssssssssssssssssss......xxxxxxxxxxxxxxxxxxxxxxxx................ [ 15%]
@@ -261,7 +262,7 @@ tests/cupy_tests/linalg_tests/test_decomposition.py .................... [ 16%]
 .......................                                                  [ 16%]
 tests/cupy_tests/linalg_tests/test_eigenvalue.py xxxxxxxx                [ 16%]
 tests/cupy_tests/linalg_tests/test_einsum.py ........................... [ 16%]
-.............................................................F.......... [ 16%]
+........................................................................ [ 16%]
 ........................................................................ [ 16%]
 ........................................................................ [ 16%]
 ........................................................................ [ 16%]
@@ -279,7 +280,7 @@ tests/cupy_tests/linalg_tests/test_norms.py ............................ [ 17%]
 tests/cupy_tests/linalg_tests/test_product.py .......................... [ 17%]
 ........................................................................ [ 17%]
 ........................................................................ [ 17%]
-.................................F........                               [ 17%]
+..........................................                               [ 17%]
 tests/cupy_tests/linalg_tests/test_solve.py ............................ [ 17%]
                                                                          [ 17%]
 tests/cupy_tests/logic_tests/test_comparison.py ........................ [ 18%]
@@ -491,8 +492,8 @@ F.F.F.F.F.F.F.F.F.F.F.F................................................. [ 33%]
 tests/cupy_tests/random_tests/test_generator.py ........................ [ 34%]
 ........................................................................ [ 34%]
 ........................................................................ [ 35%]
-......................s.s............................................... [ 35%]
-............................x...............................             [ 35%]
+.........................s.s............................................ [ 35%]
+...............................x...............................          [ 35%]
 tests/cupy_tests/random_tests/test_generator_api.py ssssssssssssssssssss [ 35%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss       [ 35%]
 tests/cupy_tests/random_tests/test_init.py .                             [ 35%]
@@ -570,7 +571,7 @@ tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py .................... [ 37%]
 ........................................................................ [ 39%]
 ........................................................................ [ 39%]
 ........................................................................ [ 39%]
-........................................................................ [ 39%]
+........................................................................ [ 40%]
 ........................................................................ [ 40%]
 ........................................................................ [ 40%]
 ........................................................................ [ 40%]
@@ -703,7 +704,7 @@ tests/cupyx_tests/scipy_tests/fftpack_tests/test_fftpack.py ............ [ 51%]
 ........................................................................ [ 52%]
 .........................                                                [ 52%]
 tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py ........... [ 52%]
-...................................................                      [ 52%]
+.............................................FFF.FF                      [ 52%]
 tests/cupyx_tests/scipy_tests/linalg_tests/test_solve_triangular.py .... [ 52%]
 ........................................................................ [ 53%]
 ........................................................................ [ 53%]
@@ -756,7 +757,7 @@ sss......sss......sss......sss......sss......sss........................ [ 57%]
 ........................................................................ [ 57%]
 xxx....sss......sss......sss......sss......sss......sss....x..x.sss.x..x [ 57%]
 .sss.x..x.sss......sss......sss......sss................................ [ 57%]
-.....................................................x..x.............x. [ 57%]
+.....................................................x..x.............x. [ 58%]
 ......................................x.....x....x.....x......x.....x... [ 58%]
 ........................................................................ [ 58%]
 ........................................................................ [ 58%]
@@ -1043,7 +1044,7 @@ tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py ....... [ 82%]
 ........................................................................ [ 86%]
 ........................................................................ [ 86%]
 ........................................................................ [ 86%]
-.....xx..........xx..........xx..........xx..........xx................. [ 86%]
+.....xx..........xx..........xx..........xx..........xx..........F...... [ 86%]
 .....xx..................................xx............................. [ 86%]
 .....xx..........xx..........xx..........xx..........xx................. [ 86%]
 .....xx..................................xx............................. [ 86%]
@@ -1174,7 +1175,7 @@ tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py ......... [ 98%]
 ........................................................................ [ 98%]
 ......................................................xxxxxxxxx......... [ 98%]
 ...........................xxxxxxxxxxxx................................. [ 99%]
-............xxx..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x.. [ 99%]
+...FF.......xxx..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x.. [ 99%]
 x.x..................................................................... [ 99%]
 ........................................................................ [ 99%]
 ........................................................................ [ 99%]
@@ -1233,7 +1234,7 @@ self = <cupy_tests.core_tests.test_ndarray.TestNdarrayCopy testMethod=test_copy_
 tests/cupy_tests/core_tests/test_ndarray.py:217: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array([              1, 633483929365599], dtype=uint64)
+x = array([              1, 633866170808763], dtype=uint64)
 y = array([0, 0], dtype=uint64), err_msg = '', verbose = True
 strides_check = False
 
@@ -1258,9 +1259,9 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 2 / 2 (100%)
-E       Max absolute difference: 633483929365599
+E       Max absolute difference: 633866170808763
 E       Max relative difference: inf
-E        x: array([              1, 633483929365599], dtype=uint64)
+E        x: array([              1, 633866170808763], dtype=uint64)
 E        y: array([0, 0], dtype=uint64)
 
 cupy/testing/_array.py:91: AssertionError
@@ -1275,7 +1276,7 @@ cupy/testing/_helper.py:648: in check_func
     _array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array([0, 1], dtype=int16), y = array([0, 1], dtype=int16), err_msg = ''
+x = array([0, 1], dtype=int32), y = array([0, 1], dtype=int32), err_msg = ''
 verbose = True, strides_check = True
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -1299,19 +1300,19 @@ E       AssertionError:
 E       Arrays are not equal
 E       
 E       Mismatched elements: 1 / 2 (50%)
-E       Max absolute difference: 1
-E       Max relative difference: 1.
-E        x: array([0, 0], dtype=int16)
-E        y: array([0, 1], dtype=int16)
+E       Max absolute difference: 1065353215
+E       Max relative difference: 1.06535322e+09
+E        x: array([         0, 1065353216], dtype=int32)
+E        y: array([0, 1], dtype=int32)
 
 cupy/testing/_array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.int16'>
+dtype is <class 'numpy.int32'>
 order is C
 _____________________ TestVectorizeStmts.test_return_tuple _____________________
 
 self = <cupy_tests.functional_tests.test_vectorize.TestVectorizeStmts testMethod=test_return_tuple>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/__init__.py'>
 
     @testing.numpy_cupy_array_equal()
     def test_return_tuple(self, xp):
@@ -1349,8 +1350,8 @@ cupy/cuda/compiler.py:255: in _compile
     ptx, mapping = prog.compile(options, log_stream)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <cupy.cuda.compiler._NVRTCProgram object at 0x7fb8e437ad60>
-options = ('-D CUPY_JIT_MODE', '-I/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/_core/include', '-I/home/kmaeh/CuPy_Team/rocm-4.0.1/opt/rocm-4.0.1/include', '-fcuda-flush-denormals-to-zero')
+self = <cupy.cuda.compiler._NVRTCProgram object at 0x7f10a86ff070>
+options = ('-D CUPY_JIT_MODE', '-I/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/_core/include', '-I/home/kmaeh/CuPy_Team/rocm-4.0.1/opt/rocm-4.0.1/include', '-fcuda-flush-denormals-to-zero')
 log_stream = None
 
     def compile(self, options=(), log_stream=None):
@@ -1375,7 +1376,7 @@ log_stream = None
 E           AssertionError: Only cupy raises error
 E           
 E           Traceback (most recent call last):
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/cuda/compiler.py", line 623, in compile
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/cuda/compiler.py", line 623, in compile
 E               nvrtc.compileProgram(self.ptr, options)
 E             File "cupy_backends/cuda/libs/nvrtc.pyx", line 133, in cupy_backends.cuda.libs.nvrtc.compileProgram
 E               cpdef compileProgram(intptr_t prog, options):
@@ -1388,11 +1389,11 @@ E
 E           During handling of the above exception, another exception occurred:
 E           
 E           Traceback (most recent call last):
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/testing/_helper.py", line 47, in _call_func
 E               result = impl(self, *args, **kw)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/tests/cupy_tests/functional_tests/test_vectorize.py", line 502, in test_return_tuple
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/tests/cupy_tests/functional_tests/test_vectorize.py", line 502, in test_return_tuple
 E               return f(x, y)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/_functional/vectorize.py", line 98, in __call__
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/_functional/vectorize.py", line 98, in __call__
 E               return kern(*args)
 E             File "cupy/_core/_kernel.pyx", line 841, in cupy._core._kernel.ElementwiseKernel.__call__
 E               kern = self._get_elementwise_kernel(dev_id, arginfos, type_map)
@@ -1406,31 +1407,31 @@ E             File "cupy/_core/_kernel.pyx", line 61, in cupy._core._kernel._get
 E               module = compile_with_cache(module_code, options)
 E             File "cupy/_core/core.pyx", line 1995, in cupy._core.core.compile_with_cache
 E               return cuda.compile_with_cache(
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
 E               return _compile_with_cache_hip(
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/cuda/compiler.py", line 820, in _compile_with_cache_hip
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/cuda/compiler.py", line 820, in _compile_with_cache_hip
 E               binary, mapping = compile_using_nvrtc(
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/cuda/compiler.py", line 271, in compile_using_nvrtc
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/cuda/compiler.py", line 271, in compile_using_nvrtc
 E               return _compile(source, options, cu_path,
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/cuda/compiler.py", line 255, in _compile
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/cuda/compiler.py", line 255, in _compile
 E               ptx, mapping = prog.compile(options, log_stream)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/cuda/compiler.py", line 635, in compile
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/cuda/compiler.py", line 635, in compile
 E               raise CompileException(log, self.src, self.name, options,
-E           cupy.cuda.compiler.CompileException: /tmp/comgr-e2d905/input/CompileSource:5400:12: error: no template named 'tuple' in namespace 'thrust'; did you mean 'std::tuple'?
+E           cupy.cuda.compiler.CompileException: /tmp/comgr-2199c7/input/CompileSource:5400:12: error: no template named 'tuple' in namespace 'thrust'; did you mean 'std::tuple'?
 E           __device__ thrust::tuple<long long, double> func_tuple(long long x, long long y) {
 E                      ^~~~~~~~~~~~~
 E                      std::tuple
 E           /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/tuple:556:11: note: 'std::tuple' declared here
 E               class tuple : public _Tuple_impl<0, _Elements...>
 E                     ^
-E           /tmp/comgr-e2d905/input/CompileSource:5401:10: error: no member named 'make_tuple' in namespace 'thrust'; did you mean 'std::make_tuple'?
+E           /tmp/comgr-2199c7/input/CompileSource:5401:10: error: no member named 'make_tuple' in namespace 'thrust'; did you mean 'std::make_tuple'?
 E             return thrust::make_tuple((x + y), ((double)x / (double)y));
 E                    ^~~~~~~~~~~~~~~~~~
 E                    std::make_tuple
 E           /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/tuple:1448:5: note: 'std::make_tuple' declared here
 E               make_tuple(_Elements&&... __args)
 E               ^
-E           /tmp/comgr-e2d905/input/CompileSource:5411:9: error: no member named 'tie' in namespace 'thrust'
+E           /tmp/comgr-2199c7/input/CompileSource:5411:9: error: no member named 'tie' in namespace 'thrust'
 E           thrust::tie(out0, out1) = func_tuple(in0, in1);
 E           ~~~~~~~~^
 E           3 errors generated when compiling for gfx906.
@@ -1440,7 +1441,7 @@ cupy/cuda/compiler.py:635: AssertionError
 ________________________ TestVectorizeStmts.test_tuple _________________________
 
 self = <cupy_tests.functional_tests.test_vectorize.TestVectorizeStmts testMethod=test_tuple>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/__init__.py'>
 
     @testing.numpy_cupy_array_equal()
     def test_tuple(self, xp):
@@ -1481,8 +1482,8 @@ cupy/cuda/compiler.py:255: in _compile
     ptx, mapping = prog.compile(options, log_stream)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <cupy.cuda.compiler._NVRTCProgram object at 0x7fb89167ad30>
-options = ('-D CUPY_JIT_MODE', '-I/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/_core/include', '-I/home/kmaeh/CuPy_Team/rocm-4.0.1/opt/rocm-4.0.1/include', '-fcuda-flush-denormals-to-zero')
+self = <cupy.cuda.compiler._NVRTCProgram object at 0x7f10a3e623d0>
+options = ('-D CUPY_JIT_MODE', '-I/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/_core/include', '-I/home/kmaeh/CuPy_Team/rocm-4.0.1/opt/rocm-4.0.1/include', '-fcuda-flush-denormals-to-zero')
 log_stream = None
 
     def compile(self, options=(), log_stream=None):
@@ -1507,7 +1508,7 @@ log_stream = None
 E           AssertionError: Only cupy raises error
 E           
 E           Traceback (most recent call last):
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/cuda/compiler.py", line 623, in compile
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/cuda/compiler.py", line 623, in compile
 E               nvrtc.compileProgram(self.ptr, options)
 E             File "cupy_backends/cuda/libs/nvrtc.pyx", line 133, in cupy_backends.cuda.libs.nvrtc.compileProgram
 E               cpdef compileProgram(intptr_t prog, options):
@@ -1520,11 +1521,11 @@ E
 E           During handling of the above exception, another exception occurred:
 E           
 E           Traceback (most recent call last):
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/testing/_helper.py", line 47, in _call_func
 E               result = impl(self, *args, **kw)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/tests/cupy_tests/functional_tests/test_vectorize.py", line 492, in test_tuple
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/tests/cupy_tests/functional_tests/test_vectorize.py", line 492, in test_tuple
 E               return f(x, y)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/_functional/vectorize.py", line 98, in __call__
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/_functional/vectorize.py", line 98, in __call__
 E               return kern(*args)
 E             File "cupy/_core/_kernel.pyx", line 841, in cupy._core._kernel.ElementwiseKernel.__call__
 E               kern = self._get_elementwise_kernel(dev_id, arginfos, type_map)
@@ -1538,185 +1539,43 @@ E             File "cupy/_core/_kernel.pyx", line 61, in cupy._core._kernel._get
 E               module = compile_with_cache(module_code, options)
 E             File "cupy/_core/core.pyx", line 1995, in cupy._core.core.compile_with_cache
 E               return cuda.compile_with_cache(
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
 E               return _compile_with_cache_hip(
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/cuda/compiler.py", line 820, in _compile_with_cache_hip
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/cuda/compiler.py", line 820, in _compile_with_cache_hip
 E               binary, mapping = compile_using_nvrtc(
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/cuda/compiler.py", line 271, in compile_using_nvrtc
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/cuda/compiler.py", line 271, in compile_using_nvrtc
 E               return _compile(source, options, cu_path,
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/cuda/compiler.py", line 255, in _compile
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/cuda/compiler.py", line 255, in _compile
 E               ptx, mapping = prog.compile(options, log_stream)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/cuda/compiler.py", line 635, in compile
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/cuda/compiler.py", line 635, in compile
 E               raise CompileException(log, self.src, self.name, options,
-E           cupy.cuda.compiler.CompileException: /tmp/comgr-33f897/input/CompileSource:5401:3: error: no template named 'tuple' in namespace 'thrust'; did you mean 'std::tuple'?
+E           cupy.cuda.compiler.CompileException: /tmp/comgr-83a5a5/input/CompileSource:5401:3: error: no template named 'tuple' in namespace 'thrust'; did you mean 'std::tuple'?
 E             thrust::tuple<long long, long long> z;
 E             ^~~~~~~~~~~~~
 E             std::tuple
 E           /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/tuple:556:11: note: 'std::tuple' declared here
 E               class tuple : public _Tuple_impl<0, _Elements...>
 E                     ^
-E           /tmp/comgr-33f897/input/CompileSource:5404:11: error: no member named 'tie' in namespace 'thrust'
+E           /tmp/comgr-83a5a5/input/CompileSource:5404:11: error: no member named 'tie' in namespace 'thrust'
 E             thrust::tie(x, y) = thrust::make_tuple(y, x);
 E             ~~~~~~~~^
-E           /tmp/comgr-33f897/input/CompileSource:5404:31: error: no member named 'make_tuple' in namespace 'thrust'
+E           /tmp/comgr-83a5a5/input/CompileSource:5404:31: error: no member named 'make_tuple' in namespace 'thrust'
 E             thrust::tie(x, y) = thrust::make_tuple(y, x);
 E                                 ~~~~~~~~^
-E           /tmp/comgr-33f897/input/CompileSource:5405:15: error: no member named 'make_tuple' in namespace 'thrust'
+E           /tmp/comgr-83a5a5/input/CompileSource:5405:15: error: no member named 'make_tuple' in namespace 'thrust'
 E             z = thrust::make_tuple(x, y);
 E                 ~~~~~~~~^
-E           /tmp/comgr-33f897/input/CompileSource:5406:11: error: no member named 'tie' in namespace 'thrust'
+E           /tmp/comgr-83a5a5/input/CompileSource:5406:11: error: no member named 'tie' in namespace 'thrust'
 E             thrust::tie(a, b) = z;
 E             ~~~~~~~~^
 E           5 errors generated when compiling for gfx906.
 E           Error: Failed to compile opencl source (from CL or HIP source to LLVM IR).
 
 cupy/cuda/compiler.py:635: AssertionError
-_______ TestPoly1dInit_param_0_{variable=None}.test_poly1d_numpy_poly1d ________
-cupy/testing/_helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/_helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/_helper.py:648: in check_func
-    _array.assert_array_equal(x, y, err_msg, verbose, strides_check)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-x = array([1., 2., 3., 4., 5.], dtype=float32)
-y = array([1., 2., 3., 4., 5.], dtype=float32), err_msg = '', verbose = True
-strides_check = False
-
-    def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
-        """Raises an AssertionError if two array_like objects are not equal.
-    
-        Args:
-             x(numpy.ndarray or cupy.ndarray): The actual object to check.
-             y(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             strides_check(bool): If ``True``, consistency of strides is also
-                 checked.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting values
-                 are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_array_equal`
-        """
->       numpy.testing.assert_array_equal(
-            cupy.asnumpy(x), cupy.asnumpy(y), err_msg=err_msg,
-            verbose=verbose)
-E       AssertionError: 
-E       Arrays are not equal
-E       
-E       Mismatched elements: 2 / 5 (40%)
-E       Max absolute difference: 1.
-E       Max relative difference: 1.
-E        x: array([0.   , 1.875, 3.   , 4.   , 5.   ], dtype=float32)
-E        y: array([1., 2., 3., 4., 5.], dtype=float32)
-
-cupy/testing/_array.py:91: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float32'>
-_ TestEinSumUnaryOperation_param_29_{_raw_params={'orig': {'shape_a': (2, 3), 'subscripts': 'ij'}, 'dec': 0, 'drop': True}, shape_a=(2, 1), subscripts='ij'}.test_einsum_unary_dtype _
-cupy/testing/_helper.py:1068: in test_func
-    impl(self, *args, **kw_copy)
-cupy/testing/_helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/_helper.py:495: in check_func
-    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[1.],
-       [2.]]), desired = array([[1.],
-       [2.]])
-rtol = 1e-07, atol = 0, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=0
-E       
-E       Mismatched elements: 1 / 2 (50%)
-E       Max absolute difference: 0.9921875
-E       Max relative difference: 0.9921875
-E        x: array([[0.007813],
-E              [2.      ]])
-E        y: array([[1.],
-E              [2.]])
-
-cupy/testing/_array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-skipped: dtype_a = <class 'numpy.float32'>, dtype_out = <class 'numpy.int32'> ()
-{'dtype_a': <class 'numpy.float64'>, 'dtype_out': <class 'numpy.float64'>}
-_____________________ TestMatrixPower.test_matrix_power_1 ______________________
-cupy/testing/_helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/_helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/_helper.py:495: in check_func
-    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[1, 2, 3],
-       [4, 5, 6],
-       [7, 8, 9]], dtype=uint8)
-desired = array([[1, 2, 3],
-       [4, 5, 6],
-       [7, 8, 9]], dtype=uint8)
-rtol = 1e-07, atol = 0, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=1e-07, atol=0
-E       
-E       Mismatched elements: 4 / 9 (44.4%)
-E       Max absolute difference: 254
-E       Max relative difference: 127.
-E        x: array([[1, 0, 0],
-E              [0, 2, 6],
-E              [7, 8, 9]], dtype=uint8)
-E        y: array([[1, 2, 3],
-E              [4, 5, 6],
-E              [7, 8, 9]], dtype=uint8)
-
-cupy/testing/_array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.uint8'>
 _ TestDistributionsGamma_param_0_{dtype=float64, scale_shape=(), shape=(4, 3, 2), shape_shape=()}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_0_{dtype=float64, scale_shape=(), shape=(4, ...ma_generator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (), 'shape': (4, 3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -1752,11 +1611,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_1_{dtype=float64, scale_shape=(), shape=(4, 3, 2), shape_shape=(3, 2)}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_1_{dtype=float64, scale_shape=(), shape=(4, ...enerator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (), 'shape': (4, 3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -1792,11 +1651,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_2_{dtype=float64, scale_shape=(), shape=(3, 2), shape_shape=()}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_2_{dtype=float64, scale_shape=(), shape=(3, ...gamma_generator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (), 'shape': (3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -1832,11 +1691,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_3_{dtype=float64, scale_shape=(), shape=(3, 2), shape_shape=(3, 2)}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_3_{dtype=float64, scale_shape=(), shape=(3, ...a_generator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (), 'shape': (3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -1872,11 +1731,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_4_{dtype=float64, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=()}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_4_{dtype=float64, scale_shape=(3, 2), shape=...enerator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (3, 2), 'shape': (4, 3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -1912,11 +1771,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_5_{dtype=float64, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=(3, 2)}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_5_{dtype=float64, scale_shape=(3, 2), shape=...ator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (3, 2), 'shape': (4, 3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -1952,11 +1811,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_6_{dtype=float64, scale_shape=(3, 2), shape=(3, 2), shape_shape=()}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_6_{dtype=float64, scale_shape=(3, 2), shape=...a_generator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (3, 2), 'shape': (3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -1992,11 +1851,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_7_{dtype=float64, scale_shape=(3, 2), shape=(3, 2), shape_shape=(3, 2)}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_7_{dtype=float64, scale_shape=(3, 2), shape=...nerator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (3, 2), 'shape': (3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2032,11 +1891,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_8_{dtype=float32, scale_shape=(), shape=(4, 3, 2), shape_shape=()}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_8_{dtype=float32, scale_shape=(), shape=(4, ...ma_generator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (), 'shape': (4, 3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2072,11 +1931,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_9_{dtype=float32, scale_shape=(), shape=(4, 3, 2), shape_shape=(3, 2)}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_9_{dtype=float32, scale_shape=(), shape=(4, ...enerator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (), 'shape': (4, 3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2112,11 +1971,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_10_{dtype=float32, scale_shape=(), shape=(3, 2), shape_shape=()}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_10_{dtype=float32, scale_shape=(), shape=(3,...gamma_generator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (), 'shape': (3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2152,11 +2011,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_11_{dtype=float32, scale_shape=(), shape=(3, 2), shape_shape=(3, 2)}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_11_{dtype=float32, scale_shape=(), shape=(3,...a_generator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (), 'shape': (3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2192,11 +2051,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_12_{dtype=float32, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=()}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_12_{dtype=float32, scale_shape=(3, 2), shape...enerator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (3, 2), 'shape': (4, 3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2232,11 +2091,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_13_{dtype=float32, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=(3, 2)}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_13_{dtype=float32, scale_shape=(3, 2), shape...ator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (3, 2), 'shape': (4, 3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2272,11 +2131,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_14_{dtype=float32, scale_shape=(3, 2), shape=(3, 2), shape_shape=()}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_14_{dtype=float32, scale_shape=(3, 2), shape...a_generator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (3, 2), 'shape': (3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2312,11 +2171,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_15_{dtype=float32, scale_shape=(3, 2), shape=(3, 2), shape_shape=(3, 2)}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_15_{dtype=float32, scale_shape=(3, 2), shape...nerator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (3, 2), 'shape': (3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2352,11 +2211,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_16_{dtype=float16, scale_shape=(), shape=(4, 3, 2), shape_shape=()}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_16_{dtype=float16, scale_shape=(), shape=(4,...ma_generator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (), 'shape': (4, 3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2392,11 +2251,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_17_{dtype=float16, scale_shape=(), shape=(4, 3, 2), shape_shape=(3, 2)}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_17_{dtype=float16, scale_shape=(), shape=(4,...enerator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (), 'shape': (4, 3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2432,11 +2291,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_18_{dtype=float16, scale_shape=(), shape=(3, 2), shape_shape=()}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_18_{dtype=float16, scale_shape=(), shape=(3,...gamma_generator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (), 'shape': (3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2472,11 +2331,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_19_{dtype=float16, scale_shape=(), shape=(3, 2), shape_shape=(3, 2)}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_19_{dtype=float16, scale_shape=(), shape=(3,...a_generator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (), 'shape': (3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2512,11 +2371,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_20_{dtype=float16, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=()}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_20_{dtype=float16, scale_shape=(3, 2), shape...enerator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (3, 2), 'shape': (4, 3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2552,11 +2411,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_21_{dtype=float16, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=(3, 2)}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_21_{dtype=float16, scale_shape=(3, 2), shape...ator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (3, 2), 'shape': (4, 3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2592,11 +2451,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_22_{dtype=float16, scale_shape=(3, 2), shape=(3, 2), shape_shape=()}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_22_{dtype=float16, scale_shape=(3, 2), shape...a_generator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (3, 2), 'shape': (3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2632,11 +2491,11 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsGamma_param_23_{dtype=float16, scale_shape=(3, 2), shape=(3, 2), shape_shape=(3, 2)}.test_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_23_{dtype=float16, scale_shape=(3, 2), shape...nerator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (3, 2), 'shape': (3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float16'>
+shape_dtype = <class 'numpy.float32'>, scale_dtype = <class 'numpy.float16'>
 
     @cupy.testing.for_dtypes_combination(
         _float_dtypes, names=['shape_dtype', 'scale_dtype'])
@@ -2672,7 +2531,7 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float16'>}
+{'shape_dtype': <class 'numpy.float32'>, 'scale_dtype': <class 'numpy.float16'>}
 _ TestDistributionsStandardGamma_param_0_{shape=(4, 3, 2), shape_shape=()}.test_standard_gamma_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsStandardGamma_param_0_{shape=(4, 3, 2), shape_shape=()} testMethod=test_standard_gamma_generator>  parameter: {'shape': (4, 3, 2), 'shape_shape': ()}>
@@ -2859,8 +2718,8 @@ shape_dtype is <class 'numpy.float64'>
 dtype is <class 'numpy.float64'>
 ___________________ TestRaw.test_raw_multidimensional_array ____________________
 
-self = <cupy.cuda.compiler._NVRTCProgram object at 0x7fb81763e6d0>
-options = ('-D CUPY_JIT_MODE', '-I/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/_core/include', '-I/home/kmaeh/CuPy_Team/rocm-4.0.1/opt/rocm-4.0.1/include', '-fcuda-flush-denormals-to-zero')
+self = <cupy.cuda.compiler._NVRTCProgram object at 0x7f109d646ca0>
+options = ('-D CUPY_JIT_MODE', '-I/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/_core/include', '-I/home/kmaeh/CuPy_Team/rocm-4.0.1/opt/rocm-4.0.1/include', '-fcuda-flush-denormals-to-zero')
 log_stream = None
 
     def compile(self, options=(), log_stream=None):
@@ -2926,8 +2785,8 @@ cupy/cuda/compiler.py:255: in _compile
     ptx, mapping = prog.compile(options, log_stream)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = <cupy.cuda.compiler._NVRTCProgram object at 0x7fb81763e6d0>
-options = ('-D CUPY_JIT_MODE', '-I/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/cupy/_core/include', '-I/home/kmaeh/CuPy_Team/rocm-4.0.1/opt/rocm-4.0.1/include', '-fcuda-flush-denormals-to-zero')
+self = <cupy.cuda.compiler._NVRTCProgram object at 0x7f109d646ca0>
+options = ('-D CUPY_JIT_MODE', '-I/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/_core/include', '-I/home/kmaeh/CuPy_Team/rocm-4.0.1/opt/rocm-4.0.1/include', '-fcuda-flush-denormals-to-zero')
 log_stream = None
 
     def compile(self, options=(), log_stream=None):
@@ -2949,20 +2808,20 @@ log_stream = None
             log = nvrtc.getProgramLog(self.ptr)
 >           raise CompileException(log, self.src, self.name, options,
                                    'nvrtc' if not runtime.is_hip else 'hiprtc')
-E           cupy.cuda.compiler.CompileException: /tmp/comgr-394f14/input/CompileSource:5417:7: error: no member named '_indexing' in 'CArray<int, 2, true, true>'
+E           cupy.cuda.compiler.CompileException: /tmp/comgr-a52fc2/input/CompileSource:5417:7: error: no member named '_indexing' in 'CArray<int, 2, true, true>'
 E               y._indexing(thrust::make_tuple(i_row, i_col)) = x._indexing(thrust::make_tuple(i_row, i_col));
 E               ~ ^
-E           /tmp/comgr-394f14/input/CompileSource:5417:55: error: no member named '_indexing' in 'CArray<int, 2, true, true>'
+E           /tmp/comgr-a52fc2/input/CompileSource:5417:55: error: no member named '_indexing' in 'CArray<int, 2, true, true>'
 E               y._indexing(thrust::make_tuple(i_row, i_col)) = x._indexing(thrust::make_tuple(i_row, i_col));
 E                                                               ~ ^
-E           /tmp/comgr-394f14/input/CompileSource:5417:17: error: no member named 'make_tuple' in namespace 'thrust'; did you mean 'std::make_tuple'?
+E           /tmp/comgr-a52fc2/input/CompileSource:5417:17: error: no member named 'make_tuple' in namespace 'thrust'; did you mean 'std::make_tuple'?
 E               y._indexing(thrust::make_tuple(i_row, i_col)) = x._indexing(thrust::make_tuple(i_row, i_col));
 E                           ^~~~~~~~~~~~~~~~~~
 E                           std::make_tuple
 E           /usr/lib/gcc/x86_64-linux-gnu/7.5.0/../../../../include/c++/7.5.0/tuple:1448:5: note: 'std::make_tuple' declared here
 E               make_tuple(_Elements&&... __args)
 E               ^
-E           /tmp/comgr-394f14/input/CompileSource:5417:65: error: no member named 'make_tuple' in namespace 'thrust'; did you mean 'std::make_tuple'?
+E           /tmp/comgr-a52fc2/input/CompileSource:5417:65: error: no member named 'make_tuple' in namespace 'thrust'; did you mean 'std::make_tuple'?
 E               y._indexing(thrust::make_tuple(i_row, i_col)) = x._indexing(thrust::make_tuple(i_row, i_col));
 E                                                                           ^~~~~~~~~~~~~~~~~~
 E                                                                           std::make_tuple
@@ -2973,9 +2832,680 @@ E           4 errors generated when compiling for gfx906.
 E           Error: Failed to compile opencl source (from CL or HIP source to LLVM IR).
 
 cupy/cuda/compiler.py:635: CompileException
-_ TestGenericFilter.test_filter[_param_156_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=3, mode='mirror', shape=(4, 5)}] _
+______ TestLUSolve_param_0_{shapes=((4, 4), (4,)), trans=0}.test_lu_solve ______
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fb7b85883a0>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fb8c488e8b0>}>
+self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_0_{shapes=((4, 4), (4,)), trans=0} testMethod=test_lu_solve>  parameter: {'shapes': ((4, 4), (4,)), 'trans': 0}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/__init__.py'>
+scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupyx/scipy/__init__.py'>
+dtype = <class 'numpy.complex128'>
+
+    @testing.for_dtypes('fdFD')
+    @testing.numpy_cupy_allclose(atol=1e-5, scipy_name='scp')
+    def test_lu_solve(self, xp, scp, dtype):
+        a_shape, b_shape = self.shapes
+        A = testing.shaped_random(a_shape, xp, dtype=dtype)
+        b = testing.shaped_random(b_shape, xp, dtype=dtype)
+        lu = scp.linalg.lu_factor(A)
+>       return scp.linalg.lu_solve(lu, b, trans=self.trans)
+
+tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py:133: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+lu_and_piv = (array([[  4.23654799 +9.78618342j,   6.45894113 +7.99158564j,
+          4.37587211 +4.61479362j,   8.91773001 +7.8052...243671 -0.24804042j,
+         -0.6066228  -0.41192323j, -10.51566175 +8.30910642j]]), array([1, 1, 2, 3], dtype=int32))
+b = array([ 0.33598809-0.05543445j,  0.16491818+0.38266951j,
+       -0.22301027-0.13307946j,  0.54701537-0.34111555j])
+trans = 0, overwrite_b = False, check_finite = True
+
+    def lu_solve(lu_and_piv, b, trans=0, overwrite_b=False, check_finite=True):
+        """Solve an equation system, ``a * x = b``, given the LU factorization of ``a``
+    
+        Args:
+            lu_and_piv (tuple): LU factorization of matrix ``a`` (``(M, M)``)
+                together with pivot indices.
+            b (cupy.ndarray): The matrix with dimension ``(M,)`` or
+                ``(M, N)``.
+            trans ({0, 1, 2}): Type of system to solve:
+    
+                ========  =========
+                trans     system
+                ========  =========
+                0         a x  = b
+                1         a^T x = b
+                2         a^H x = b
+                ========  =========
+            overwrite_b (bool): Allow overwriting data in b (may enhance
+                performance)
+            check_finite (bool): Whether to check that the input matrices contain
+                only finite numbers. Disabling may give a performance gain, but may
+                result in problems (crashes, non-termination) if the inputs do
+                contain infinities or NaNs.
+    
+        Returns:
+            cupy.ndarray:
+                The matrix with dimension ``(M,)`` or ``(M, N)``.
+    
+        .. seealso:: :func:`scipy.linalg.lu_solve`
+        """
+    
+        (lu, ipiv) = lu_and_piv
+    
+        _util._assert_cupy_array(lu)
+        _util._assert_rank2(lu)
+        _util._assert_nd_squareness(lu)
+    
+        m = lu.shape[0]
+        if m != b.shape[0]:
+            raise ValueError('incompatible dimensions.')
+    
+        dtype = lu.dtype
+        if dtype.char == 'f':
+            getrs = cusolver.sgetrs
+        elif dtype.char == 'd':
+            getrs = cusolver.dgetrs
+        elif dtype.char == 'F':
+            getrs = cusolver.cgetrs
+        elif dtype.char == 'D':
+            getrs = cusolver.zgetrs
+        else:
+            msg = 'Only float32, float64, complex64 and complex128 are supported.'
+            raise NotImplementedError(msg)
+    
+        if trans == 0:
+            trans = cublas.CUBLAS_OP_N
+        elif trans == 1:
+            trans = cublas.CUBLAS_OP_T
+        elif trans == 2:
+            trans = cublas.CUBLAS_OP_C
+        else:
+            raise ValueError('unknown trans')
+    
+        lu = lu.astype(dtype, order='F', copy=False)
+        ipiv = ipiv.astype(ipiv.dtype, order='F', copy=True)
+        # cuSolver uses 1-origin while SciPy uses 0-origin
+        ipiv += 1
+        b = b.astype(dtype, order='F', copy=(not overwrite_b))
+    
+        if check_finite:
+            if lu.dtype.kind == 'f' and not cupy.isfinite(lu).all():
+                raise ValueError(
+                    'array must not contain infs or NaNs.\n'
+                    'Note that when a singular matrix is given, unlike '
+                    'scipy.linalg.lu_factor, cupyx.scipy.linalg.lu_factor '
+                    'returns an array containing NaN.')
+            if b.dtype.kind == 'f' and not cupy.isfinite(b).all():
+                raise ValueError(
+                    'array must not contain infs or NaNs')
+    
+        n = 1 if b.ndim == 1 else b.shape[1]
+        cusolver_handle = device.get_cusolver_handle()
+        dev_info = cupy.empty(1, dtype=numpy.int32)
+    
+        # solve for the inverse
+        getrs(cusolver_handle,
+              trans,
+              m, n, lu.data.ptr, m, ipiv.data.ptr, b.data.ptr,
+              m, dev_info.data.ptr)
+    
+        if dev_info[0] < 0:
+>           raise ValueError('illegal value in %d-th argument of '
+                             'internal getrs (lu_solve)' % -dev_info[0])
+E           AssertionError: Only cupy raises error
+E           
+E           Traceback (most recent call last):
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E               result = impl(self, *args, **kw)
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
+E               return scp.linalg.lu_solve(lu, b, trans=self.trans)
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
+E               raise ValueError('illegal value in %d-th argument of '
+E           ValueError: illegal value in 1409886464-th argument of internal getrs (lu_solve)
+
+cupyx/scipy/linalg/decomp_lu.py:344: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is D
+______ TestLUSolve_param_1_{shapes=((4, 4), (4,)), trans=1}.test_lu_solve ______
+
+self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_1_{shapes=((4, 4), (4,)), trans=1} testMethod=test_lu_solve>  parameter: {'shapes': ((4, 4), (4,)), 'trans': 1}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/__init__.py'>
+scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupyx/scipy/__init__.py'>
+dtype = <class 'numpy.complex64'>
+
+    @testing.for_dtypes('fdFD')
+    @testing.numpy_cupy_allclose(atol=1e-5, scipy_name='scp')
+    def test_lu_solve(self, xp, scp, dtype):
+        a_shape, b_shape = self.shapes
+        A = testing.shaped_random(a_shape, xp, dtype=dtype)
+        b = testing.shaped_random(b_shape, xp, dtype=dtype)
+        lu = scp.linalg.lu_factor(A)
+>       return scp.linalg.lu_solve(lu, b, trans=self.trans)
+
+tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py:133: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+lu_and_piv = (array([[  4.236548   +9.786183j  ,   6.458941   +7.9915857j ,
+          4.375872   +4.614794j  ,   8.91773    +7.8052...       -0.6066229  -0.41192332j, -10.515662   +8.309107j  ]],
+      dtype=complex64), array([1, 1, 2, 3], dtype=int32))
+b = array([0.29021   -0.20248987j, 0.24618289+0.09046151j,
+       0.2534052 +0.1038311j , 0.23645516-0.0066023j ], dtype=complex64)
+trans = 1, overwrite_b = False, check_finite = True
+
+    def lu_solve(lu_and_piv, b, trans=0, overwrite_b=False, check_finite=True):
+        """Solve an equation system, ``a * x = b``, given the LU factorization of ``a``
+    
+        Args:
+            lu_and_piv (tuple): LU factorization of matrix ``a`` (``(M, M)``)
+                together with pivot indices.
+            b (cupy.ndarray): The matrix with dimension ``(M,)`` or
+                ``(M, N)``.
+            trans ({0, 1, 2}): Type of system to solve:
+    
+                ========  =========
+                trans     system
+                ========  =========
+                0         a x  = b
+                1         a^T x = b
+                2         a^H x = b
+                ========  =========
+            overwrite_b (bool): Allow overwriting data in b (may enhance
+                performance)
+            check_finite (bool): Whether to check that the input matrices contain
+                only finite numbers. Disabling may give a performance gain, but may
+                result in problems (crashes, non-termination) if the inputs do
+                contain infinities or NaNs.
+    
+        Returns:
+            cupy.ndarray:
+                The matrix with dimension ``(M,)`` or ``(M, N)``.
+    
+        .. seealso:: :func:`scipy.linalg.lu_solve`
+        """
+    
+        (lu, ipiv) = lu_and_piv
+    
+        _util._assert_cupy_array(lu)
+        _util._assert_rank2(lu)
+        _util._assert_nd_squareness(lu)
+    
+        m = lu.shape[0]
+        if m != b.shape[0]:
+            raise ValueError('incompatible dimensions.')
+    
+        dtype = lu.dtype
+        if dtype.char == 'f':
+            getrs = cusolver.sgetrs
+        elif dtype.char == 'd':
+            getrs = cusolver.dgetrs
+        elif dtype.char == 'F':
+            getrs = cusolver.cgetrs
+        elif dtype.char == 'D':
+            getrs = cusolver.zgetrs
+        else:
+            msg = 'Only float32, float64, complex64 and complex128 are supported.'
+            raise NotImplementedError(msg)
+    
+        if trans == 0:
+            trans = cublas.CUBLAS_OP_N
+        elif trans == 1:
+            trans = cublas.CUBLAS_OP_T
+        elif trans == 2:
+            trans = cublas.CUBLAS_OP_C
+        else:
+            raise ValueError('unknown trans')
+    
+        lu = lu.astype(dtype, order='F', copy=False)
+        ipiv = ipiv.astype(ipiv.dtype, order='F', copy=True)
+        # cuSolver uses 1-origin while SciPy uses 0-origin
+        ipiv += 1
+        b = b.astype(dtype, order='F', copy=(not overwrite_b))
+    
+        if check_finite:
+            if lu.dtype.kind == 'f' and not cupy.isfinite(lu).all():
+                raise ValueError(
+                    'array must not contain infs or NaNs.\n'
+                    'Note that when a singular matrix is given, unlike '
+                    'scipy.linalg.lu_factor, cupyx.scipy.linalg.lu_factor '
+                    'returns an array containing NaN.')
+            if b.dtype.kind == 'f' and not cupy.isfinite(b).all():
+                raise ValueError(
+                    'array must not contain infs or NaNs')
+    
+        n = 1 if b.ndim == 1 else b.shape[1]
+        cusolver_handle = device.get_cusolver_handle()
+        dev_info = cupy.empty(1, dtype=numpy.int32)
+    
+        # solve for the inverse
+        getrs(cusolver_handle,
+              trans,
+              m, n, lu.data.ptr, m, ipiv.data.ptr, b.data.ptr,
+              m, dev_info.data.ptr)
+    
+        if dev_info[0] < 0:
+>           raise ValueError('illegal value in %d-th argument of '
+                             'internal getrs (lu_solve)' % -dev_info[0])
+E           AssertionError: Only cupy raises error
+E           
+E           Traceback (most recent call last):
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E               result = impl(self, *args, **kw)
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
+E               return scp.linalg.lu_solve(lu, b, trans=self.trans)
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
+E               raise ValueError('illegal value in %d-th argument of '
+E           ValueError: illegal value in 1409886382-th argument of internal getrs (lu_solve)
+
+cupyx/scipy/linalg/decomp_lu.py:344: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is F
+______ TestLUSolve_param_2_{shapes=((4, 4), (4,)), trans=2}.test_lu_solve ______
+
+self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_2_{shapes=((4, 4), (4,)), trans=2} testMethod=test_lu_solve>  parameter: {'shapes': ((4, 4), (4,)), 'trans': 2}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/__init__.py'>
+scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupyx/scipy/__init__.py'>
+dtype = <class 'numpy.complex64'>
+
+    @testing.for_dtypes('fdFD')
+    @testing.numpy_cupy_allclose(atol=1e-5, scipy_name='scp')
+    def test_lu_solve(self, xp, scp, dtype):
+        a_shape, b_shape = self.shapes
+        A = testing.shaped_random(a_shape, xp, dtype=dtype)
+        b = testing.shaped_random(b_shape, xp, dtype=dtype)
+        lu = scp.linalg.lu_factor(A)
+>       return scp.linalg.lu_solve(lu, b, trans=self.trans)
+
+tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py:133: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+lu_and_piv = (array([[  4.236548   +9.786183j  ,   6.458941   +7.9915857j ,
+          4.375872   +4.614794j  ,   8.91773    +7.8052...       -0.6066229  -0.41192332j, -10.515662   +8.309107j  ]],
+      dtype=complex64), array([1, 1, 2, 3], dtype=int32))
+b = array([ 0.0982997 +0.49167597j, -0.14942522+0.7482696j ,
+       -0.04251101-0.22521439j, -0.02746395-0.19323082j], dtype=complex64)
+trans = 2, overwrite_b = False, check_finite = True
+
+    def lu_solve(lu_and_piv, b, trans=0, overwrite_b=False, check_finite=True):
+        """Solve an equation system, ``a * x = b``, given the LU factorization of ``a``
+    
+        Args:
+            lu_and_piv (tuple): LU factorization of matrix ``a`` (``(M, M)``)
+                together with pivot indices.
+            b (cupy.ndarray): The matrix with dimension ``(M,)`` or
+                ``(M, N)``.
+            trans ({0, 1, 2}): Type of system to solve:
+    
+                ========  =========
+                trans     system
+                ========  =========
+                0         a x  = b
+                1         a^T x = b
+                2         a^H x = b
+                ========  =========
+            overwrite_b (bool): Allow overwriting data in b (may enhance
+                performance)
+            check_finite (bool): Whether to check that the input matrices contain
+                only finite numbers. Disabling may give a performance gain, but may
+                result in problems (crashes, non-termination) if the inputs do
+                contain infinities or NaNs.
+    
+        Returns:
+            cupy.ndarray:
+                The matrix with dimension ``(M,)`` or ``(M, N)``.
+    
+        .. seealso:: :func:`scipy.linalg.lu_solve`
+        """
+    
+        (lu, ipiv) = lu_and_piv
+    
+        _util._assert_cupy_array(lu)
+        _util._assert_rank2(lu)
+        _util._assert_nd_squareness(lu)
+    
+        m = lu.shape[0]
+        if m != b.shape[0]:
+            raise ValueError('incompatible dimensions.')
+    
+        dtype = lu.dtype
+        if dtype.char == 'f':
+            getrs = cusolver.sgetrs
+        elif dtype.char == 'd':
+            getrs = cusolver.dgetrs
+        elif dtype.char == 'F':
+            getrs = cusolver.cgetrs
+        elif dtype.char == 'D':
+            getrs = cusolver.zgetrs
+        else:
+            msg = 'Only float32, float64, complex64 and complex128 are supported.'
+            raise NotImplementedError(msg)
+    
+        if trans == 0:
+            trans = cublas.CUBLAS_OP_N
+        elif trans == 1:
+            trans = cublas.CUBLAS_OP_T
+        elif trans == 2:
+            trans = cublas.CUBLAS_OP_C
+        else:
+            raise ValueError('unknown trans')
+    
+        lu = lu.astype(dtype, order='F', copy=False)
+        ipiv = ipiv.astype(ipiv.dtype, order='F', copy=True)
+        # cuSolver uses 1-origin while SciPy uses 0-origin
+        ipiv += 1
+        b = b.astype(dtype, order='F', copy=(not overwrite_b))
+    
+        if check_finite:
+            if lu.dtype.kind == 'f' and not cupy.isfinite(lu).all():
+                raise ValueError(
+                    'array must not contain infs or NaNs.\n'
+                    'Note that when a singular matrix is given, unlike '
+                    'scipy.linalg.lu_factor, cupyx.scipy.linalg.lu_factor '
+                    'returns an array containing NaN.')
+            if b.dtype.kind == 'f' and not cupy.isfinite(b).all():
+                raise ValueError(
+                    'array must not contain infs or NaNs')
+    
+        n = 1 if b.ndim == 1 else b.shape[1]
+        cusolver_handle = device.get_cusolver_handle()
+        dev_info = cupy.empty(1, dtype=numpy.int32)
+    
+        # solve for the inverse
+        getrs(cusolver_handle,
+              trans,
+              m, n, lu.data.ptr, m, ipiv.data.ptr, b.data.ptr,
+              m, dev_info.data.ptr)
+    
+        if dev_info[0] < 0:
+>           raise ValueError('illegal value in %d-th argument of '
+                             'internal getrs (lu_solve)' % -dev_info[0])
+E           AssertionError: Only cupy raises error
+E           
+E           Traceback (most recent call last):
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E               result = impl(self, *args, **kw)
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
+E               return scp.linalg.lu_solve(lu, b, trans=self.trans)
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
+E               raise ValueError('illegal value in %d-th argument of '
+E           ValueError: illegal value in 1409886382-th argument of internal getrs (lu_solve)
+
+cupyx/scipy/linalg/decomp_lu.py:344: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is F
+_____ TestLUSolve_param_4_{shapes=((5, 5), (5, 2)), trans=1}.test_lu_solve _____
+
+self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_4_{shapes=((5, 5), (5, 2)), trans=1} testMethod=test_lu_solve>  parameter: {'shapes': ((5, 5), (5, 2)), 'trans': 1}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/__init__.py'>
+scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupyx/scipy/__init__.py'>
+dtype = <class 'numpy.complex64'>
+
+    @testing.for_dtypes('fdFD')
+    @testing.numpy_cupy_allclose(atol=1e-5, scipy_name='scp')
+    def test_lu_solve(self, xp, scp, dtype):
+        a_shape, b_shape = self.shapes
+        A = testing.shaped_random(a_shape, xp, dtype=dtype)
+        b = testing.shaped_random(b_shape, xp, dtype=dtype)
+        lu = scp.linalg.lu_factor(A)
+>       return scp.linalg.lu_solve(lu, b, trans=self.trans)
+
+tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py:133: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+lu_and_piv = (array([[ 9.786183   +6.7063785j ,  7.9915857  +2.1038256j ,
+         4.614794   +1.289263j  ,  7.8052917  +3.1542835j... , -0.1953073  +0.38294038j,
+         1.4816577  +3.0051987j ]], dtype=complex64), array([4, 1, 4, 3, 4], dtype=int32))
+b = array([[-0.12906703+0.8393008j , -0.45564157+0.47542247j],
+       [-1.6380516 +0.2856012j , -1.3639437 -0.01759137j],
+...5160456j ,  0.17068663-1.26324j   ],
+       [-0.42293406-0.24016479j, -1.3451302 -0.06091486j]],
+      dtype=complex64)
+trans = 1, overwrite_b = False, check_finite = True
+
+    def lu_solve(lu_and_piv, b, trans=0, overwrite_b=False, check_finite=True):
+        """Solve an equation system, ``a * x = b``, given the LU factorization of ``a``
+    
+        Args:
+            lu_and_piv (tuple): LU factorization of matrix ``a`` (``(M, M)``)
+                together with pivot indices.
+            b (cupy.ndarray): The matrix with dimension ``(M,)`` or
+                ``(M, N)``.
+            trans ({0, 1, 2}): Type of system to solve:
+    
+                ========  =========
+                trans     system
+                ========  =========
+                0         a x  = b
+                1         a^T x = b
+                2         a^H x = b
+                ========  =========
+            overwrite_b (bool): Allow overwriting data in b (may enhance
+                performance)
+            check_finite (bool): Whether to check that the input matrices contain
+                only finite numbers. Disabling may give a performance gain, but may
+                result in problems (crashes, non-termination) if the inputs do
+                contain infinities or NaNs.
+    
+        Returns:
+            cupy.ndarray:
+                The matrix with dimension ``(M,)`` or ``(M, N)``.
+    
+        .. seealso:: :func:`scipy.linalg.lu_solve`
+        """
+    
+        (lu, ipiv) = lu_and_piv
+    
+        _util._assert_cupy_array(lu)
+        _util._assert_rank2(lu)
+        _util._assert_nd_squareness(lu)
+    
+        m = lu.shape[0]
+        if m != b.shape[0]:
+            raise ValueError('incompatible dimensions.')
+    
+        dtype = lu.dtype
+        if dtype.char == 'f':
+            getrs = cusolver.sgetrs
+        elif dtype.char == 'd':
+            getrs = cusolver.dgetrs
+        elif dtype.char == 'F':
+            getrs = cusolver.cgetrs
+        elif dtype.char == 'D':
+            getrs = cusolver.zgetrs
+        else:
+            msg = 'Only float32, float64, complex64 and complex128 are supported.'
+            raise NotImplementedError(msg)
+    
+        if trans == 0:
+            trans = cublas.CUBLAS_OP_N
+        elif trans == 1:
+            trans = cublas.CUBLAS_OP_T
+        elif trans == 2:
+            trans = cublas.CUBLAS_OP_C
+        else:
+            raise ValueError('unknown trans')
+    
+        lu = lu.astype(dtype, order='F', copy=False)
+        ipiv = ipiv.astype(ipiv.dtype, order='F', copy=True)
+        # cuSolver uses 1-origin while SciPy uses 0-origin
+        ipiv += 1
+        b = b.astype(dtype, order='F', copy=(not overwrite_b))
+    
+        if check_finite:
+            if lu.dtype.kind == 'f' and not cupy.isfinite(lu).all():
+                raise ValueError(
+                    'array must not contain infs or NaNs.\n'
+                    'Note that when a singular matrix is given, unlike '
+                    'scipy.linalg.lu_factor, cupyx.scipy.linalg.lu_factor '
+                    'returns an array containing NaN.')
+            if b.dtype.kind == 'f' and not cupy.isfinite(b).all():
+                raise ValueError(
+                    'array must not contain infs or NaNs')
+    
+        n = 1 if b.ndim == 1 else b.shape[1]
+        cusolver_handle = device.get_cusolver_handle()
+        dev_info = cupy.empty(1, dtype=numpy.int32)
+    
+        # solve for the inverse
+        getrs(cusolver_handle,
+              trans,
+              m, n, lu.data.ptr, m, ipiv.data.ptr, b.data.ptr,
+              m, dev_info.data.ptr)
+    
+        if dev_info[0] < 0:
+>           raise ValueError('illegal value in %d-th argument of '
+                             'internal getrs (lu_solve)' % -dev_info[0])
+E           AssertionError: Only cupy raises error
+E           
+E           Traceback (most recent call last):
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E               result = impl(self, *args, **kw)
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
+E               return scp.linalg.lu_solve(lu, b, trans=self.trans)
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
+E               raise ValueError('illegal value in %d-th argument of '
+E           ValueError: illegal value in 1857101312-th argument of internal getrs (lu_solve)
+
+cupyx/scipy/linalg/decomp_lu.py:344: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is F
+_____ TestLUSolve_param_5_{shapes=((5, 5), (5, 2)), trans=2}.test_lu_solve _____
+
+self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_5_{shapes=((5, 5), (5, 2)), trans=2} testMethod=test_lu_solve>  parameter: {'shapes': ((5, 5), (5, 2)), 'trans': 2}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/__init__.py'>
+scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupyx/scipy/__init__.py'>
+dtype = <class 'numpy.complex64'>
+
+    @testing.for_dtypes('fdFD')
+    @testing.numpy_cupy_allclose(atol=1e-5, scipy_name='scp')
+    def test_lu_solve(self, xp, scp, dtype):
+        a_shape, b_shape = self.shapes
+        A = testing.shaped_random(a_shape, xp, dtype=dtype)
+        b = testing.shaped_random(b_shape, xp, dtype=dtype)
+        lu = scp.linalg.lu_factor(A)
+>       return scp.linalg.lu_solve(lu, b, trans=self.trans)
+
+tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py:133: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+lu_and_piv = (array([[ 9.786183   +6.7063785j ,  7.9915857  +2.1038256j ,
+         4.614794   +1.289263j  ,  7.8052917  +3.1542835j... , -0.1953073  +0.38294038j,
+         1.4816577  +3.0051987j ]], dtype=complex64), array([4, 1, 4, 3, 4], dtype=int32))
+b = array([[ 1.3340688 +0.14706898j,  0.63873684+0.93013066j],
+       [-0.01678652-1.9822359j ,  2.2719014 -0.60252565j],
+...5935101j , -0.64952487-1.6660173j ],
+       [-1.6877674 -1.4271243j ,  2.1959105 -0.78355485j]],
+      dtype=complex64)
+trans = 2, overwrite_b = False, check_finite = True
+
+    def lu_solve(lu_and_piv, b, trans=0, overwrite_b=False, check_finite=True):
+        """Solve an equation system, ``a * x = b``, given the LU factorization of ``a``
+    
+        Args:
+            lu_and_piv (tuple): LU factorization of matrix ``a`` (``(M, M)``)
+                together with pivot indices.
+            b (cupy.ndarray): The matrix with dimension ``(M,)`` or
+                ``(M, N)``.
+            trans ({0, 1, 2}): Type of system to solve:
+    
+                ========  =========
+                trans     system
+                ========  =========
+                0         a x  = b
+                1         a^T x = b
+                2         a^H x = b
+                ========  =========
+            overwrite_b (bool): Allow overwriting data in b (may enhance
+                performance)
+            check_finite (bool): Whether to check that the input matrices contain
+                only finite numbers. Disabling may give a performance gain, but may
+                result in problems (crashes, non-termination) if the inputs do
+                contain infinities or NaNs.
+    
+        Returns:
+            cupy.ndarray:
+                The matrix with dimension ``(M,)`` or ``(M, N)``.
+    
+        .. seealso:: :func:`scipy.linalg.lu_solve`
+        """
+    
+        (lu, ipiv) = lu_and_piv
+    
+        _util._assert_cupy_array(lu)
+        _util._assert_rank2(lu)
+        _util._assert_nd_squareness(lu)
+    
+        m = lu.shape[0]
+        if m != b.shape[0]:
+            raise ValueError('incompatible dimensions.')
+    
+        dtype = lu.dtype
+        if dtype.char == 'f':
+            getrs = cusolver.sgetrs
+        elif dtype.char == 'd':
+            getrs = cusolver.dgetrs
+        elif dtype.char == 'F':
+            getrs = cusolver.cgetrs
+        elif dtype.char == 'D':
+            getrs = cusolver.zgetrs
+        else:
+            msg = 'Only float32, float64, complex64 and complex128 are supported.'
+            raise NotImplementedError(msg)
+    
+        if trans == 0:
+            trans = cublas.CUBLAS_OP_N
+        elif trans == 1:
+            trans = cublas.CUBLAS_OP_T
+        elif trans == 2:
+            trans = cublas.CUBLAS_OP_C
+        else:
+            raise ValueError('unknown trans')
+    
+        lu = lu.astype(dtype, order='F', copy=False)
+        ipiv = ipiv.astype(ipiv.dtype, order='F', copy=True)
+        # cuSolver uses 1-origin while SciPy uses 0-origin
+        ipiv += 1
+        b = b.astype(dtype, order='F', copy=(not overwrite_b))
+    
+        if check_finite:
+            if lu.dtype.kind == 'f' and not cupy.isfinite(lu).all():
+                raise ValueError(
+                    'array must not contain infs or NaNs.\n'
+                    'Note that when a singular matrix is given, unlike '
+                    'scipy.linalg.lu_factor, cupyx.scipy.linalg.lu_factor '
+                    'returns an array containing NaN.')
+            if b.dtype.kind == 'f' and not cupy.isfinite(b).all():
+                raise ValueError(
+                    'array must not contain infs or NaNs')
+    
+        n = 1 if b.ndim == 1 else b.shape[1]
+        cusolver_handle = device.get_cusolver_handle()
+        dev_info = cupy.empty(1, dtype=numpy.int32)
+    
+        # solve for the inverse
+        getrs(cusolver_handle,
+              trans,
+              m, n, lu.data.ptr, m, ipiv.data.ptr, b.data.ptr,
+              m, dev_info.data.ptr)
+    
+        if dev_info[0] < 0:
+>           raise ValueError('illegal value in %d-th argument of '
+                             'internal getrs (lu_solve)' % -dev_info[0])
+E           AssertionError: Only cupy raises error
+E           
+E           Traceback (most recent call last):
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E               result = impl(self, *args, **kw)
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
+E               return scp.linalg.lu_solve(lu, b, trans=self.trans)
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
+E               raise ValueError('illegal value in %d-th argument of '
+E           ValueError: illegal value in 1857101312-th argument of internal getrs (lu_solve)
+
+cupyx/scipy/linalg/decomp_lu.py:344: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is F
+_ TestGenericFilter.test_filter[_param_156_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=3, mode='mirror', shape=(4, 5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f0f761d5370>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f1081290670>}>
 args = (), kw = {}
 cupy_result = (array([[21, 31, 40, 31, 33],
        [27, 29, 28, 20, 27],
@@ -3142,9 +3672,9 @@ E              [18, 31, 45, 48, 55],
 E              [22, 29, 41, 43, 54]], dtype=uint8)
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_158_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=4, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_158_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=4, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fb7b8421d90>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fb8c488e8b0>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f0f75cfa430>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f1081290670>}>
 args = (), kw = {}
 cupy_result = (array([[28, 24, 32, 32, 39],
        [ 0,  0,  0,  0,  0],
@@ -3311,9 +3841,9 @@ E              [29, 29, 39, 37, 46],
 E              [27, 27, 41, 38, 52]], dtype=uint8)
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_160_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=3, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_160_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=3, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fb7b85889a0>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fb8c488e8b0>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f0f761ed160>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f1081290670>}>
 args = (), kw = {}
 cupy_result = (array([[30.36659675, 39.62975648, 53.45565341, 42.0701155 , 42.81412414],
        [33.36838531, 37.73390254, 33.011765...2, 44.03386405, 43.67148673, 48.63067102],
@@ -3470,11 +4000,11 @@ E              [22.164907, 37.049   , 51.930152, 56.789857, 63.231118],
 E              [26.455394, 35.108023, 46.860663, 49.162274, 60.055398]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_162_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=4, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_162_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=4, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fb7b81edc10>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fb8c488e8b0>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f0f761e1490>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f1081290670>}>
 args = (), kw = {}
-cupy_result = (array([[29.110215  , 29.71338479, 37.88097813, 33.96062662, 35.56823997],
+cupy_result = (array([[29.110215  , 29.71338479, 35.74860226, 26.78016204, 35.22786627],
        [ 0.        ,  0.        ,  0.      ... ,  0.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ]]),)
 cupy_error = None
@@ -3482,10 +4012,10 @@ numpy_result = (array([[39.92050807, 39.92050807, 51.40005714, 43.376314  , 54.8
        [39.92050807, 39.92050807, 51.400057...2, 44.98891502, 43.33693082, 53.99120362],
        [33.21871236, 33.21871236, 48.82046921, 44.04305038, 59.64480722]]),)
 numpy_error = None
-cupy_numpy_result_ndarrays = [(array([[29.110215  , 29.71338479, 37.88097813, 33.96062662, 35.56823997],
+cupy_numpy_result_ndarrays = [(array([[29.110215  , 29.71338479, 35.74860226, 26.78016204, 35.22786627],
        [ 0.        ,  0.        ,  0.     ...2, 44.98891502, 43.33693082, 53.99120362],
        [33.21871236, 33.21871236, 48.82046921, 44.04305038, 59.64480722]]))]
-cupy_r = array([[29.110215  , 29.71338479, 37.88097813, 33.96062662, 35.56823997],
+cupy_r = array([[29.110215  , 29.71338479, 35.74860226, 26.78016204, 35.22786627],
        [ 0.        ,  0.        ,  0.       ...   ,  0.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ]])
 numpy_r = array([[39.92050807, 39.92050807, 51.40005714, 43.376314  , 54.85586307],
@@ -3586,7 +4116,7 @@ cupy/testing/_helper.py:495: in check_func
     _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-actual = array([[29.110215  , 29.71338479, 37.88097813, 33.96062662, 35.56823997],
+actual = array([[29.110215  , 29.71338479, 35.74860226, 26.78016204, 35.22786627],
        [ 0.        ,  0.        ,  0.       ...   ,  0.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ]])
 desired = array([[39.92050807, 39.92050807, 51.40005714, 43.376314  , 54.85586307],
@@ -3619,7 +4149,7 @@ E
 E       Mismatched elements: 20 / 20 (100%)
 E       Max absolute difference: 59.64480722
 E       Max relative difference: 1.
-E        x: array([[29.110215, 29.713385, 37.880978, 33.960627, 35.56824 ],
+E        x: array([[29.110215, 29.713385, 35.748602, 26.780162, 35.227866],
 E              [ 0.      ,  0.      ,  0.      ,  0.      ,  0.      ],
 E              [ 0.      ,  0.      ,  0.      ,  0.      ,  0.      ],
 E              [ 0.      ,  0.      ,  0.      ,  0.      ,  0.      ]])
@@ -3629,9 +4159,9 @@ E              [34.334642, 34.334642, 44.988915, 43.336931, 53.991204],
 E              [33.218712, 33.218712, 48.820469, 44.04305 , 59.644807]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_324_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...35a0d50>, <function lt_pyfunc at 0x7fb8c363f1f0>), ksize=3, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_324_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...fe94670>, <function lt_pyfunc at 0x7f107fee2ee0>), ksize=3, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fb7b842a1f0>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7fb8c363f1f0>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f0f75c33eb0>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7f107fee2ee0>}>
 args = (), kw = {}
 cupy_result = (array([[4., 6., 3., 4., 3.],
        [5., 7., 7., 5., 3.],
@@ -3798,9 +4328,9 @@ E              [8., 3., 3., 7., 0.],
 E              [2., 0., 6., 4., 4.]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_326_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...35a0d50>, <function lt_pyfunc at 0x7fb8c363f1f0>), ksize=4, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_326_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...fe94670>, <function lt_pyfunc at 0x7f107fee2ee0>), ksize=4, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fb7b78e7340>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7fb8c363f1f0>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f0f754a7ca0>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7f107fee2ee0>}>
 args = (), kw = {}
 cupy_result = (array([[15.,  5., 13.,  8., 11.],
        [ 0.,  0.,  0.,  0.,  0.],
@@ -3967,9 +4497,9 @@ E              [ 8.,  5., 11.,  5.,  5.],
 E              [14.,  0.,  1.,  0.,  7.]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_484_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=3, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_484_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=3, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fb7b78c5340>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fb8c488e8b0>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f0f754b8100>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f1081290670>}>
 args = (), kw = {}
 cupy_result = (array([[21, 28, 45, 28, 29],
        [28, 24, 27, 19, 21],
@@ -4136,9 +4666,9 @@ E              [16, 36, 54, 41, 63],
 E              [24, 30, 40, 45, 48]], dtype=uint8)
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_486_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=4, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_486_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=4, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fb7b7581040>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fb8c488e8b0>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f0f74ccb400>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f1081290670>}>
 args = (), kw = {}
 cupy_result = (array([[23, 27, 36, 28, 53],
        [ 0,  0,  0,  0,  0],
@@ -4305,9 +4835,9 @@ E              [32, 30, 35, 33, 43],
 E              [26, 31, 44, 32, 61]], dtype=uint8)
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_488_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=3, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_488_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=3, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fb7b707eeb0>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fb8c488e8b0>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f0f75c4a250>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f1081290670>}>
 args = (), kw = {}
 cupy_result = (array([[32.00449826, 37.68575782, 60.8028936 , 38.48790895, 39.21631239],
        [34.60326543, 32.2532409 , 33.257219...9, 51.41878991, 42.0040045 , 51.31070106],
@@ -4464,11 +4994,11 @@ E              [19.537204, 43.529837, 62.151861, 50.872889, 72.574665],
 E              [29.909488, 36.178354, 46.34963 , 49.948601, 54.161936]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_490_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=4, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_490_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=4, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fb7b78c5d00>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fb8c488e8b0>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f0f75c434c0>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f1081290670>}>
 args = (), kw = {}
-cupy_result = (array([[21.27808861, 29.80163272, 37.25897052, 32.87956485, 40.18680146],
+cupy_result = (array([[24.21149428, 29.80534893, 37.32798429, 32.88328106, 46.48912698],
        [ 0.        ,  0.        ,  0.      ... ,  0.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ]]),)
 cupy_error = None
@@ -4476,10 +5006,10 @@ numpy_result = (array([[36.86077635, 42.87616583, 43.41972747, 39.82804323, 58.7
        [42.04291274, 39.49732697, 56.260026...8, 40.06613219, 37.53324325, 49.79207175],
        [31.44112421, 37.6867121 , 51.65417609, 39.59452747, 70.43768385]]),)
 numpy_error = None
-cupy_numpy_result_ndarrays = [(array([[21.27808861, 29.80163272, 37.25897052, 32.87956485, 40.18680146],
+cupy_numpy_result_ndarrays = [(array([[24.21149428, 29.80534893, 37.32798429, 32.88328106, 46.48912698],
        [ 0.        ,  0.        ,  0.     ...8, 40.06613219, 37.53324325, 49.79207175],
        [31.44112421, 37.6867121 , 51.65417609, 39.59452747, 70.43768385]]))]
-cupy_r = array([[21.27808861, 29.80163272, 37.25897052, 32.87956485, 40.18680146],
+cupy_r = array([[24.21149428, 29.80534893, 37.32798429, 32.88328106, 46.48912698],
        [ 0.        ,  0.        ,  0.       ...   ,  0.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ]])
 numpy_r = array([[36.86077635, 42.87616583, 43.41972747, 39.82804323, 58.74618737],
@@ -4580,7 +5110,7 @@ cupy/testing/_helper.py:495: in check_func
     _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-actual = array([[21.27808861, 29.80163272, 37.25897052, 32.87956485, 40.18680146],
+actual = array([[24.21149428, 29.80534893, 37.32798429, 32.88328106, 46.48912698],
        [ 0.        ,  0.        ,  0.       ...   ,  0.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ]])
 desired = array([[36.86077635, 42.87616583, 43.41972747, 39.82804323, 58.74618737],
@@ -4613,7 +5143,7 @@ E
 E       Mismatched elements: 20 / 20 (100%)
 E       Max absolute difference: 70.43768385
 E       Max relative difference: 1.
-E        x: array([[21.278089, 29.801633, 37.258971, 32.879565, 40.186801],
+E        x: array([[24.211494, 29.805349, 37.327984, 32.883281, 46.489127],
 E              [ 0.      ,  0.      ,  0.      ,  0.      ,  0.      ],
 E              [ 0.      ,  0.      ,  0.      ,  0.      ,  0.      ],
 E              [ 0.      ,  0.      ,  0.      ,  0.      ,  0.      ]])
@@ -4623,9 +5153,9 @@ E              [36.303403, 34.455314, 40.066132, 37.533243, 49.792072],
 E              [31.441124, 37.686712, 51.654176, 39.594527, 70.437684]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_652_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...35a0d50>, <function lt_pyfunc at 0x7fb8c363f1f0>), ksize=3, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_652_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...fe94670>, <function lt_pyfunc at 0x7f107fee2ee0>), ksize=3, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fb7b8006040>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7fb8c363f1f0>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f0f748cd6a0>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7f107fee2ee0>}>
 args = (), kw = {}
 cupy_result = (array([[5., 3., 2., 4., 3.],
        [1., 5., 1., 5., 6.],
@@ -4792,11 +5322,11 @@ E              [4., 4., 1., 2., 3.],
 E              [0., 0., 0., 3., 2.]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_654_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...35a0d50>, <function lt_pyfunc at 0x7fb8c363f1f0>), ksize=4, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_654_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...fe94670>, <function lt_pyfunc at 0x7f107fee2ee0>), ksize=4, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fb7b65f1190>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7fb8c363f1f0>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f0f741c8a90>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7f107fee2ee0>}>
 args = (), kw = {}
-cupy_result = (array([[ 5., 10., 10.,  3.,  9.],
+cupy_result = (array([[ 6., 10., 10.,  3.,  9.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.]]),)
@@ -4806,14 +5336,14 @@ numpy_result = (array([[ 0., 10., 10.,  1.,  8.],
        [ 1., 10., 10.,  2.,  9.],
        [ 4.,  5.,  9.,  1.,  6.]]),)
 numpy_error = None
-cupy_numpy_result_ndarrays = [(array([[ 5., 10., 10.,  3.,  9.],
+cupy_numpy_result_ndarrays = [(array([[ 6., 10., 10.,  3.,  9.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  ...0.,  1.,  8.],
        [ 7.,  6.,  2.,  2.,  2.],
        [ 1., 10., 10.,  2.,  9.],
        [ 4.,  5.,  9.,  1.,  6.]]))]
-cupy_r = array([[ 5., 10., 10.,  3.,  9.],
+cupy_r = array([[ 6., 10., 10.,  3.,  9.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.]])
@@ -4916,7 +5446,7 @@ cupy/testing/_helper.py:495: in check_func
     _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-actual = array([[ 5., 10., 10.,  3.,  9.],
+actual = array([[ 6., 10., 10.,  3.,  9.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.]])
@@ -4951,7 +5481,7 @@ E
 E       Mismatched elements: 18 / 20 (90%)
 E       Max absolute difference: 10.
 E       Max relative difference: 2.
-E        x: array([[ 5., 10., 10.,  3.,  9.],
+E        x: array([[ 6., 10., 10.,  3.,  9.],
 E              [ 0.,  0.,  0.,  0.,  0.],
 E              [ 0.,  0.,  0.,  0.,  0.],
 E              [ 0.,  0.,  0.,  0.,  0.]])
@@ -4961,6 +5491,169 @@ E              [ 1., 10., 10.,  2.,  9.],
 E              [ 4.,  5.,  9.,  1.,  6.]])
 
 cupy/testing/_array.py:24: AssertionError
+_ TestMeasurementsSelect.test_measurements_select[_param_70_{enable_cub=True, index=1, labels=50, op='extrema', shape=(512,)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_measurements.TestMeasurementsSelect object at 0x7f0f62feeb50>  parameter: {'enable_cub': True, 'index': 1, 'labels': 50, 'op': 'extrema', 'shape': (512,)}>
+args = (), kw = {'dtype': <class 'numpy.float64'>}
+dtype = <class 'numpy.float64'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([103]), desired = array([103]), rtol = 1e-07, atol = 0
+err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=0
+E       
+E       Mismatched elements: 1 / 1 (100%)
+E       Max absolute difference: 28
+E       Max relative difference: 0.27184466
+E        x: array([75])
+E        y: array([103])
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+_ TestFFTConvolve_param_44_{mode='valid', size1=(3, 4, 10), size2=3}.test_convolve_fft _
+cupy/testing/_helper.py:825: in test_func
+    impl(self, *args, **kw)
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[-41150. ,  20020. , -28220. , -13100. ,   5050. ,  22960. ,
+            950.5,   3010. ],
+        [  6140. ,  35800. , -17810. ,  36540. , -46620. , -20180. ,
+         -40000. ,  -5340. ]]], dtype=float16)
+desired = array([[[800.5, 863. , 683. , 644.5, 573.5, 715. , 729. , 808.5],
+        [880. , 920.5, 785.5, 689. , 587.5, 719.5, 816. , 851.5]]],
+      dtype=float16)
+rtol = 0.001, atol = 0.001, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=0.001, atol=0.001
+E       
+E       Mismatched elements: 16 / 16 (100%)
+E       Max absolute difference: 47200.
+E       Max relative difference: 80.3
+E        x: array([[[-41150. ,  20020. , -28220. , -13100. ,   5050. ,  22960. ,
+E                   950.5,   3010. ],
+E               [  6140. ,  35800. , -17810. ,  36540. , -46620. , -20180. ,
+E                -40000. ,  -5340. ]]], dtype=float16)
+E        y: array([[[800.5, 863. , 683. , 644.5, 573.5, 715. , 729. , 808.5],
+E               [880. , 920.5, 785.5, 689. , 587.5, 719.5, 816. , 851.5]]],
+E             dtype=float16)
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float16'>
+_ TestFFTConvolve_param_44_{mode='valid', size1=(3, 4, 10), size2=3}.test_correlate_fft _
+cupy/testing/_helper.py:825: in test_func
+    impl(self, *args, **kw)
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[ -4132.,  10136., -53280.,  34880.,  37730.,  -1627., -39260.,
+         -34400.],
+        [-22880.,  42900., -42500., -13736., -18160.,  42850., -23230.,
+          -9270.]]], dtype=float16)
+desired = array([[[769.5, 870.5, 690.5, 663.5, 617. , 616.5, 814. , 745.5],
+        [870. , 916.5, 682. , 597. , 541.5, 734. , 800.5, 863.5]]],
+      dtype=float16)
+rtol = 0.001, atol = 0.001, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=0.001, atol=0.001
+E       
+E       Mismatched elements: 16 / 16 (100%)
+E       Max absolute difference: 53980.
+E       Max relative difference: 78.2
+E        x: array([[[ -4132.,  10136., -53280.,  34880.,  37730.,  -1627., -39260.,
+E                -34400.],
+E               [-22880.,  42900., -42500., -13736., -18160.,  42850., -23230.,
+E                 -9270.]]], dtype=float16)
+E        y: array([[[769.5, 870.5, 690.5, 663.5, 617. , 616.5, 814. , 745.5],
+E               [870. , 916.5, 682. , 597. , 541.5, 734. , 800.5, 863.5]]],
+E             dtype=float16)
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float16'>
 =============================== warnings summary ===============================
 tests/cupy_tests/core_tests/fusion_tests/test_array.py: 1 warning
 tests/cupy_tests/math_tests/test_sumprod.py: 19 warnings
@@ -5036,7 +5729,7 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axi
     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 
 tests/cupy_tests/math_tests/test_sumprod.py: 32 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/tests/cupy_tests/math_tests/test_sumprod.py:800: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/tests/cupy_tests/math_tests/test_sumprod.py:800: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_all2
@@ -5050,7 +5743,7 @@ tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py::TestStats::tes
     return umr_sum(a, axis, dtype, out, keepdims, initial, where)
 
 tests/cupy_tests/statistics_tests/test_meanvar.py: 28 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_4_{axis=0, keepdims=True, overwrite_input=True, shape=(3, 4, 5)}::test_nanmedian
@@ -5142,7 +5835,7 @@ tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::te
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_235_{cval=-inf, mode='constant', order=0, output=float64, prefilter=True, shift=0.1}]
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_238_{cval=-inf, mode='constant', order=1, output=float64, prefilter=True, shift=0.1}]
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_241_{cval=-inf, mode='constant', order=3, output=float64, prefilter=True, shift=0.1}]
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py:533: RuntimeWarning: invalid value encountered in remainder
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py:533: RuntimeWarning: invalid value encountered in remainder
     float_out = self._shift(xp, scp, a.astype(xp.float64)) % 1
 
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py: 14 warnings
@@ -5172,15 +5865,12 @@ tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param
     res *= (1 - noise / lVar)
 
 -- Docs: https://docs.pytest.org/en/stable/warnings.html
-- generated html file: file:///home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.64YMDnjcci/cupy/_output/report.html -
+- generated html file: file:///home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.bz4SovkCKw/cupy/_output/report.html -
 =========================== short test summary info ============================
 FAILED tests/cupy_tests/core_tests/test_ndarray.py::TestNdarrayCopy::test_copy_multi_device_with_stream
 FAILED tests/cupy_tests/creation_tests/test_from_data.py::TestFromData::test_array_from_list_of_numpy_scalar
 FAILED tests/cupy_tests/functional_tests/test_vectorize.py::TestVectorizeStmts::test_return_tuple
 FAILED tests/cupy_tests/functional_tests/test_vectorize.py::TestVectorizeStmts::test_tuple
-FAILED tests/cupy_tests/lib_tests/test_polynomial.py::TestPoly1dInit_param_0_{variable=None}::test_poly1d_numpy_poly1d
-FAILED tests/cupy_tests/linalg_tests/test_einsum.py::TestEinSumUnaryOperation_param_29_{_raw_params={'orig': {'shape_a': (2, 3), 'subscripts': 'ij'}, 'dec': 0, 'drop': True}, shape_a=(2, 1), subscripts='ij'}::test_einsum_unary_dtype
-FAILED tests/cupy_tests/linalg_tests/test_product.py::TestMatrixPower::test_matrix_power_1
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_0_{dtype=float64, scale_shape=(), shape=(4, 3, 2), shape_shape=()}::test_gamma_generator
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_1_{dtype=float64, scale_shape=(), shape=(4, 3, 2), shape_shape=(3, 2)}::test_gamma_generator
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_2_{dtype=float64, scale_shape=(), shape=(3, 2), shape_shape=()}::test_gamma_generator
@@ -5210,16 +5900,24 @@ FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsSta
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsStandardGamma_param_2_{shape=(3, 2), shape_shape=()}::test_standard_gamma_generator
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsStandardGamma_param_3_{shape=(3, 2), shape_shape=(3, 2)}::test_standard_gamma_generator
 FAILED tests/cupyx_tests/jit_tests/test_raw.py::TestRaw::test_raw_multidimensional_array
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_156_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=3, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_158_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=4, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_160_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=3, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_162_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=4, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_324_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...35a0d50>, <function lt_pyfunc at 0x7fb8c363f1f0>), ksize=3, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_326_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...35a0d50>, <function lt_pyfunc at 0x7fb8c363f1f0>), ksize=4, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_484_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=3, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_486_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=4, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_488_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=3, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_490_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fb8c35dbbc0>, <function rms_pyfunc at 0x7fb8c488e8b0>), ksize=4, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_652_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...35a0d50>, <function lt_pyfunc at 0x7fb8c363f1f0>), ksize=3, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_654_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...35a0d50>, <function lt_pyfunc at 0x7fb8c363f1f0>), ksize=4, mode='mirror', shape=(4, 5)}]
-= 48 failed, 63743 passed, 7237 skipped, 65 deselected, 517 xfailed, 272 warnings in 26549.68s (7:22:29) =
+FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_0_{shapes=((4, 4), (4,)), trans=0}::test_lu_solve
+FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_1_{shapes=((4, 4), (4,)), trans=1}::test_lu_solve
+FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_2_{shapes=((4, 4), (4,)), trans=2}::test_lu_solve
+FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_4_{shapes=((5, 5), (5, 2)), trans=1}::test_lu_solve
+FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_5_{shapes=((5, 5), (5, 2)), trans=2}::test_lu_solve
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_156_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=3, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_158_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=4, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_160_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=3, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_162_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=4, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_324_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...fe94670>, <function lt_pyfunc at 0x7f107fee2ee0>), ksize=3, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_326_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...fe94670>, <function lt_pyfunc at 0x7f107fee2ee0>), ksize=4, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_484_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=3, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_486_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=4, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_488_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=3, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_490_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f108127dcc0>, <function rms_pyfunc at 0x7f1081290670>), ksize=4, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_652_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...fe94670>, <function lt_pyfunc at 0x7f107fee2ee0>), ksize=3, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_654_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...fe94670>, <function lt_pyfunc at 0x7f107fee2ee0>), ksize=4, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py::TestMeasurementsSelect::test_measurements_select[_param_70_{enable_cub=True, index=1, labels=50, op='extrema', shape=(512,)}]
+FAILED tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestFFTConvolve_param_44_{mode='valid', size1=(3, 4, 10), size2=3}::test_convolve_fft
+FAILED tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestFFTConvolve_param_44_{mode='valid', size1=(3, 4, 10), size2=3}::test_correlate_fft
+= 53 failed, 63741 passed, 7237 skipped, 65 deselected, 517 xfailed, 272 warnings in 26102.40s (7:15:02) =
