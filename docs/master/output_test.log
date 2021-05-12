@@ -1,9 +1,9 @@
-master: b67a4aa Merge pull request #5087 from emcastillo/fix-poisson
+master: 4d2ed12 Merge pull request #5177 from leofang/mempool_attr
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.EZ6GstZq31/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
-collected 72121 items / 65 deselected / 12 skipped / 72044 selected
+collected 72144 items / 65 deselected / 12 skipped / 72067 selected
 
 tests/cupy_tests/test_cublas.py ........................................ [  0%]
 ........................................................................ [  0%]
@@ -81,7 +81,7 @@ sssssssssssssssssssssssssssssssssssss                                    [  6%]
 tests/cupy_tests/test_init.py ..s.......                                 [  6%]
 tests/cupy_tests/test_ndim.py ............                               [  6%]
 tests/cupy_tests/test_numpy_interop.py ..x....                           [  6%]
-tests/cupy_tests/test_type_routines.py ................................. [  7%]
+tests/cupy_tests/test_type_routines.py ................................. [  6%]
 .                                                                        [  7%]
 tests/cupy_tests/binary_tests/test_elementwise.py ......                 [  7%]
 tests/cupy_tests/binary_tests/test_packing.py ...                        [  7%]
@@ -164,7 +164,7 @@ tests/cupy_tests/creation_tests/test_basic.py .......................... [ 10%]
 ....s.                                                                   [ 10%]
 tests/cupy_tests/creation_tests/test_from_data.py ssssssssssssssssssssss [ 10%]
 sssssssssssssssssssssssssssssssssssssssssssssssssssssssssss............. [ 10%]
-...................................................................      [ 10%]
+....................................F..............................      [ 10%]
 tests/cupy_tests/creation_tests/test_matrix.py ......................... [ 10%]
 .................................                                        [ 10%]
 tests/cupy_tests/creation_tests/test_ranges.py ......................... [ 10%]
@@ -180,8 +180,8 @@ tests/cupy_tests/cuda_tests/test_cutensor.py s                           [ 10%]
 tests/cupy_tests/cuda_tests/test_device.py .............x..              [ 10%]
 tests/cupy_tests/cuda_tests/test_driver.py ss.                           [ 10%]
 tests/cupy_tests/cuda_tests/test_memory.py ....ssssssss................. [ 10%]
-.ssssssssss.........................................s..........sssssssss [ 10%]
-                                                                         [ 10%]
+.ssssssssss......s....sssssssssss....................................... [ 10%]
+..sssssssssssssssssssss                                                  [ 10%]
 tests/cupy_tests/cuda_tests/test_memory_hook.py .                        [ 10%]
 tests/cupy_tests/cuda_tests/test_nccl.py ........                        [ 10%]
 tests/cupy_tests/cuda_tests/test_nvrtc.py .                              [ 10%]
@@ -190,9 +190,9 @@ tests/cupy_tests/cuda_tests/test_pinned_memory.py ............           [ 10%]
 tests/cupy_tests/cuda_tests/test_profile.py ..                           [ 10%]
 tests/cupy_tests/cuda_tests/test_runtime.py .                            [ 10%]
 tests/cupy_tests/cuda_tests/test_stream.py ..s..s..ssssssss.s            [ 10%]
-tests/cupy_tests/cuda_tests/memory_hooks_tests/test_debug_print.py .     [ 10%]
-tests/cupy_tests/cuda_tests/memory_hooks_tests/test_line_profile.py ..   [ 10%]
-tests/cupy_tests/fft_tests/test_cache.py ..sss.....s..                   [ 10%]
+tests/cupy_tests/cuda_tests/memory_hooks_tests/test_debug_print.py .     [ 11%]
+tests/cupy_tests/cuda_tests/memory_hooks_tests/test_line_profile.py ..   [ 11%]
+tests/cupy_tests/fft_tests/test_cache.py ..sss.....s..                   [ 11%]
 tests/cupy_tests/fft_tests/test_callback.py ssssssssssssssssssssssssssss [ 11%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 11%]
 ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 11%]
@@ -239,7 +239,7 @@ tests/cupy_tests/indexing_tests/test_generate.py .......x............... [ 14%]
 ...............                                                          [ 14%]
 tests/cupy_tests/indexing_tests/test_indexing.py ....................... [ 14%]
 .........................                                                [ 14%]
-tests/cupy_tests/indexing_tests/test_insert.py ......................... [ 14%]
+tests/cupy_tests/indexing_tests/test_insert.py ......................... [ 15%]
 ........................................................................ [ 15%]
 ........................................................................ [ 15%]
 .........................................................                [ 15%]
@@ -269,7 +269,7 @@ tests/cupy_tests/linalg_tests/test_einsum.py ........................... [ 16%]
 ........................................................................ [ 16%]
 ........................................................................ [ 16%]
 ........................................................................ [ 16%]
-........................................................................ [ 16%]
+........................................................................ [ 17%]
 ........................................................................ [ 17%]
 ........................................................................ [ 17%]
 ..........                                                               [ 17%]
@@ -300,7 +300,7 @@ tests/cupy_tests/logic_tests/test_truth.py ............................. [ 17%]
 ...........................................                              [ 18%]
 tests/cupy_tests/logic_tests/test_type_test.py ......................... [ 18%]
 .......                                                                  [ 18%]
-tests/cupy_tests/manipulation_tests/test_add_remove.py ................. [ 18%]
+tests/cupy_tests/manipulation_tests/test_add_remove.py ................. [ 19%]
 .........................                                                [ 19%]
 tests/cupy_tests/manipulation_tests/test_basic.py ...................... [ 19%]
 .......................................................                  [ 19%]
@@ -473,8 +473,8 @@ tests/cupy_tests/prof_tests/test_range.py ........                       [ 32%]
 tests/cupy_tests/random_tests/test_bit_generator.py ssssssssssss         [ 32%]
 tests/cupy_tests/random_tests/test_distributions.py .................... [ 32%]
 ........................................................................ [ 33%]
-................................................F.F.F.F.F.F.F.F.F.F.F.F. [ 33%]
-F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F......................... [ 33%]
+................................................x.x.x.x.x.x.x.x.x.x.x.x. [ 33%]
+x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x......................... [ 33%]
 ........................................................................ [ 33%]
 ........................................................................ [ 33%]
 ........................................................................ [ 33%]
@@ -486,7 +486,7 @@ F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F.F......................... [ 33%]
 ........................................................................ [ 34%]
 ........................................................................ [ 34%]
 ......................................................................F. [ 34%]
-F.F.F.F.F............................F.F.F.F.F.F........................ [ 34%]
+F.F.F.F.F............................x.x.x.x.x.x........................ [ 34%]
 ........................................................................ [ 34%]
 .........................................F.F.                            [ 34%]
 tests/cupy_tests/random_tests/test_generator.py ........................ [ 34%]
@@ -553,7 +553,6 @@ tests/cupyx_tests/linalg_tests/test_solve.py xxxxxxxxxxxxxxxx....ssss    [ 37%]
 tests/cupyx_tests/scipy_tests/test_get_array_module.py ..                [ 37%]
 tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py .................... [ 37%]
 ........................................................................ [ 37%]
-........................................................................ [ 37%]
 ........................................................................ [ 38%]
 ........................................................................ [ 38%]
 ........................................................................ [ 38%]
@@ -624,6 +623,7 @@ tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py .................... [ 37%]
 ........................................................................ [ 44%]
 ........................................................................ [ 44%]
 ........................................................................ [ 44%]
+........................................................................ [ 45%]
 ........................................................................ [ 45%]
 ........................................................................ [ 45%]
 ........................................................................ [ 45%]
@@ -691,11 +691,10 @@ tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py .................... [ 37%]
 ........................................................................ [ 51%]
 ........................................................................ [ 51%]
 ........................................................................ [ 51%]
-....F.................................................................   [ 51%]
+......................................................................   [ 51%]
 tests/cupyx_tests/scipy_tests/fft_tests/test_helper.py .                 [ 51%]
 tests/cupyx_tests/scipy_tests/fftpack_tests/test_fftpack.py ............ [ 51%]
 ........................................................................ [ 51%]
-........................................................................ [ 51%]
 ........................................................................ [ 52%]
 ........................................................................ [ 52%]
 ........................................................................ [ 52%]
@@ -706,9 +705,10 @@ tests/cupyx_tests/scipy_tests/fftpack_tests/test_fftpack.py ............ [ 51%]
 ........................................................................ [ 52%]
 ........................................................................ [ 52%]
 ........................................................................ [ 52%]
+........................................................................ [ 53%]
 .........................                                                [ 53%]
 tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py ........... [ 53%]
-.............................................F.....                      [ 53%]
+..............................................F....                      [ 53%]
 tests/cupyx_tests/scipy_tests/linalg_tests/test_solve_triangular.py .... [ 53%]
 ........................................................................ [ 53%]
 ........................................................................ [ 53%]
@@ -760,7 +760,7 @@ sss......sss......sss......sss......sss......sss........................ [ 57%]
 .....sss......sss......sss......sss......sss............................ [ 57%]
 ........................................................................ [ 57%]
 xxx....sss......sss......sss......sss......sss......sss....x..x.sss.x..x [ 57%]
-.sss.x..x.sss......sss......sss......sss................................ [ 57%]
+.sss.x..x.sss......sss......sss......sss................................ [ 58%]
 .....................................................x..x.............x. [ 58%]
 ......................................x.....x....x.....x......x.....x... [ 58%]
 ........................................................................ [ 58%]
@@ -770,7 +770,7 @@ xxx....sss......sss......sss......sss......sss......sss....x..x.sss.x..x [ 57%]
 ........................................................................ [ 58%]
 ........................................................................ [ 58%]
 ........................................................................ [ 58%]
-........................................................................ [ 58%]
+........................................................................ [ 59%]
 ........................................................................ [ 59%]
 ........................F.F.F.F......................................... [ 59%]
 ........................................................................ [ 59%]
@@ -780,7 +780,7 @@ xxx....sss......sss......sss......sss......sss......sss....x..x.sss.x..x [ 57%]
 ........................................................................ [ 59%]
 ........................................................................ [ 59%]
 ................F.F..................................................... [ 59%]
-........................................................................ [ 59%]
+........................................................................ [ 60%]
 ........................................................................ [ 60%]
 ........................................................................ [ 60%]
 ........................................................................ [ 60%]
@@ -790,17 +790,17 @@ xxx....sss......sss......sss......sss......sss......sss....x..x.sss.x..x [ 57%]
 ........................................................................ [ 60%]
 ........................................................................ [ 60%]
 ........................s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s............. [ 60%]
-........................................................................ [ 60%]
-.........................s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.ss.s.s.s.s.s. [ 61%]
-s.s.s.s.s.s.s.s.s.s.s.s................................................. [ 61%]
-.............................................................s.s.s.s.s.s [ 61%]
-.s.s.s.s.s.s.s.s.s.s.s.ss.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s............. [ 61%]
 ........................................................................ [ 61%]
 .........................s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.ss.s.s.s.s.s. [ 61%]
 s.s.s.s.s.s.s.s.s.s.s.s................................................. [ 61%]
 .............................................................s.s.s.s.s.s [ 61%]
 .s.s.s.s.s.s.s.s.s.s.s.ss.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s............. [ 61%]
 ........................................................................ [ 61%]
+.........................s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.ss.s.s.s.s.s. [ 61%]
+s.s.s.s.s.s.s.s.s.s.s.s................................................. [ 61%]
+.............................................................s.s.s.s.s.s [ 61%]
+.s.s.s.s.s.s.s.s.s.s.s.ss.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s............. [ 61%]
+........................................................................ [ 62%]
 .........................s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.s.ss.s.s.s.s.s. [ 62%]
 s.s.s.s.s.s.s.s.s.s.s.s................................................. [ 62%]
 .............................................................s.s.s.s.s.s [ 62%]
@@ -810,7 +810,7 @@ s.s.s.s.s.s.s.s.s.s.s.s................................................. [ 62%]
 s.s.s.s.s.s.s.s.s.s.s.s................................................. [ 62%]
 .............................................................s.s.s.s.s.s [ 62%]
 .s.s.s.s.s.s.s.s.s.s.s.ssss..sss..sss............sss..sss..sss.......... [ 62%]
-..sss..sss..sss............sss..sss..sss............sss..sss..sss....... [ 62%]
+..sss..sss..sss............sss..sss..sss............sss..sss..sss....... [ 63%]
 .....sss..sss..sss............sss..sss..sss............sss..sss..sss.... [ 63%]
 ........sss..sss..sss............sss..sss..sss............sss..sss..sss. [ 63%]
 ...........sss..sss..sss................................................ [ 63%]
@@ -1044,13 +1044,13 @@ tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py ....... [ 82%]
 ........................................................................ [ 85%]
 ........................................................................ [ 85%]
 ........................................................................ [ 85%]
-........................................................................ [ 85%]
+........................................................................ [ 86%]
 ........................................................................ [ 86%]
 ........................................................................ [ 86%]
 ........................................................................ [ 86%]
 .....xx..........xx..........xx..........xx..........xx..........F...... [ 86%]
 .....xx..................................xx............................. [ 86%]
-.....xx..........xx..........xx..........xx..........xx................. [ 86%]
+.....xx..........xx..........xx..........xx..........xx..........F...... [ 86%]
 .....xx..................................xx............................. [ 86%]
 ........................................................................ [ 86%]
 ........................................................................ [ 86%]
@@ -1177,7 +1177,7 @@ tests/cupyx_tests/scipy_tests/signal_tests/test_bsplines.py ............ [ 98%]
                                                                          [ 98%]
 tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py ......... [ 98%]
 ........................................................................ [ 98%]
-....................................................F.xxxxxxxxx......... [ 98%]
+......................................................xxxxxxxxx......... [ 98%]
 ...........................xxxxxxxxxxxx................................. [ 98%]
 ............xxx..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x.. [ 98%]
 x.x..................................................................... [ 99%]
@@ -1213,1446 +1213,50 @@ tests/install_tests/test_build.py sx.                                    [ 99%]
 tests/install_tests/test_utils.py ..                                     [100%]
 
 =================================== FAILURES ===================================
-_ TestDistributionsGamma_param_0_{dtype=float64, scale_shape=(), shape=(4, 3, 2), shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_0_{dtype=float64, scale_shape=(), shape=(4, ...ma_generator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (), 'shape': (4, 3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
+______________ TestFromData.test_array_from_list_of_numpy_scalar _______________
+cupy/testing/_helper.py:1175: in test_func
+    impl(self, *args, **kw)
+cupy/testing/_helper.py:825: in test_func
+    impl(self, *args, **kw)
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:648: in check_func
+    _array.assert_array_equal(x, y, err_msg, verbose, strides_check)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-seed = None
+x = array([0, 1]), y = array([0, 1]), err_msg = '', verbose = True
+strides_check = True
 
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
+    def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
+        """Raises an AssertionError if two array_like objects are not equal.
     
         Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
+             x(numpy.ndarray or cupy.ndarray): The actual object to check.
+             y(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             strides_check(bool): If ``True``, consistency of strides is also
+                 checked.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting values
+                 are appended to the error message.
     
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
+        .. seealso:: :func:`numpy.testing.assert_array_equal`
+        """
+>       numpy.testing.assert_array_equal(
+            cupy.asnumpy(x), cupy.asnumpy(y), err_msg=err_msg,
+            verbose=verbose)
+E       AssertionError: 
+E       Arrays are not equal
+E       
+E       Mismatched elements: 1 / 2 (50%)
+E       Max absolute difference: 4575657221408423936
+E       Max relative difference: 0.
+E        x: array([4575657221408423936,                   1])
+E        y: array([0, 1])
 
-cupy/random/__init__.py:36: RuntimeError
+cupy/testing/_array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_1_{dtype=float64, scale_shape=(), shape=(4, 3, 2), shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_1_{dtype=float64, scale_shape=(), shape=(4, ...enerator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (), 'shape': (4, 3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_2_{dtype=float64, scale_shape=(), shape=(3, 2), shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_2_{dtype=float64, scale_shape=(), shape=(3, ...gamma_generator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (), 'shape': (3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_3_{dtype=float64, scale_shape=(), shape=(3, 2), shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_3_{dtype=float64, scale_shape=(), shape=(3, ...a_generator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (), 'shape': (3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_4_{dtype=float64, scale_shape=(), shape=None, shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_4_{dtype=float64, scale_shape=(), shape=None...t_gamma_generator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (), 'shape': None, 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_5_{dtype=float64, scale_shape=(), shape=None, shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_5_{dtype=float64, scale_shape=(), shape=None...mma_generator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (), 'shape': None, 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_6_{dtype=float64, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_6_{dtype=float64, scale_shape=(3, 2), shape=...enerator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (3, 2), 'shape': (4, 3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_7_{dtype=float64, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_7_{dtype=float64, scale_shape=(3, 2), shape=...ator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (3, 2), 'shape': (4, 3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_8_{dtype=float64, scale_shape=(3, 2), shape=(3, 2), shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_8_{dtype=float64, scale_shape=(3, 2), shape=...a_generator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (3, 2), 'shape': (3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_9_{dtype=float64, scale_shape=(3, 2), shape=(3, 2), shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_9_{dtype=float64, scale_shape=(3, 2), shape=...nerator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (3, 2), 'shape': (3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_10_{dtype=float64, scale_shape=(3, 2), shape=None, shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_10_{dtype=float64, scale_shape=(3, 2), shape...mma_generator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (3, 2), 'shape': None, 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_11_{dtype=float64, scale_shape=(3, 2), shape=None, shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_11_{dtype=float64, scale_shape=(3, 2), shape...generator>  parameter: {'dtype': <class 'numpy.float64'>, 'scale_shape': (3, 2), 'shape': None, 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_12_{dtype=float32, scale_shape=(), shape=(4, 3, 2), shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_12_{dtype=float32, scale_shape=(), shape=(4,...ma_generator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (), 'shape': (4, 3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_13_{dtype=float32, scale_shape=(), shape=(4, 3, 2), shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_13_{dtype=float32, scale_shape=(), shape=(4,...enerator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (), 'shape': (4, 3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_14_{dtype=float32, scale_shape=(), shape=(3, 2), shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_14_{dtype=float32, scale_shape=(), shape=(3,...gamma_generator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (), 'shape': (3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_15_{dtype=float32, scale_shape=(), shape=(3, 2), shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_15_{dtype=float32, scale_shape=(), shape=(3,...a_generator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (), 'shape': (3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_16_{dtype=float32, scale_shape=(), shape=None, shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_16_{dtype=float32, scale_shape=(), shape=Non...t_gamma_generator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (), 'shape': None, 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_17_{dtype=float32, scale_shape=(), shape=None, shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_17_{dtype=float32, scale_shape=(), shape=Non...mma_generator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (), 'shape': None, 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_18_{dtype=float32, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_18_{dtype=float32, scale_shape=(3, 2), shape...enerator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (3, 2), 'shape': (4, 3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_19_{dtype=float32, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_19_{dtype=float32, scale_shape=(3, 2), shape...ator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (3, 2), 'shape': (4, 3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_20_{dtype=float32, scale_shape=(3, 2), shape=(3, 2), shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_20_{dtype=float32, scale_shape=(3, 2), shape...a_generator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (3, 2), 'shape': (3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_21_{dtype=float32, scale_shape=(3, 2), shape=(3, 2), shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_21_{dtype=float32, scale_shape=(3, 2), shape...nerator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (3, 2), 'shape': (3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_22_{dtype=float32, scale_shape=(3, 2), shape=None, shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_22_{dtype=float32, scale_shape=(3, 2), shape...mma_generator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (3, 2), 'shape': None, 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_23_{dtype=float32, scale_shape=(3, 2), shape=None, shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_23_{dtype=float32, scale_shape=(3, 2), shape...generator>  parameter: {'dtype': <class 'numpy.float32'>, 'scale_shape': (3, 2), 'shape': None, 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_24_{dtype=float16, scale_shape=(), shape=(4, 3, 2), shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_24_{dtype=float16, scale_shape=(), shape=(4,...ma_generator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (), 'shape': (4, 3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_25_{dtype=float16, scale_shape=(), shape=(4, 3, 2), shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_25_{dtype=float16, scale_shape=(), shape=(4,...enerator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (), 'shape': (4, 3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_26_{dtype=float16, scale_shape=(), shape=(3, 2), shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_26_{dtype=float16, scale_shape=(), shape=(3,...gamma_generator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (), 'shape': (3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_27_{dtype=float16, scale_shape=(), shape=(3, 2), shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_27_{dtype=float16, scale_shape=(), shape=(3,...a_generator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (), 'shape': (3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_28_{dtype=float16, scale_shape=(), shape=None, shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_28_{dtype=float16, scale_shape=(), shape=Non...t_gamma_generator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (), 'shape': None, 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_29_{dtype=float16, scale_shape=(), shape=None, shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_29_{dtype=float16, scale_shape=(), shape=Non...mma_generator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (), 'shape': None, 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_30_{dtype=float16, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_30_{dtype=float16, scale_shape=(3, 2), shape...enerator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (3, 2), 'shape': (4, 3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_31_{dtype=float16, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_31_{dtype=float16, scale_shape=(3, 2), shape...ator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (3, 2), 'shape': (4, 3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_32_{dtype=float16, scale_shape=(3, 2), shape=(3, 2), shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_32_{dtype=float16, scale_shape=(3, 2), shape...a_generator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (3, 2), 'shape': (3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_33_{dtype=float16, scale_shape=(3, 2), shape=(3, 2), shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_33_{dtype=float16, scale_shape=(3, 2), shape...nerator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (3, 2), 'shape': (3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_34_{dtype=float16, scale_shape=(3, 2), shape=None, shape_shape=()}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_34_{dtype=float16, scale_shape=(3, 2), shape...mma_generator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (3, 2), 'shape': None, 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
-_ TestDistributionsGamma_param_35_{dtype=float16, scale_shape=(3, 2), shape=None, shape_shape=(3, 2)}.test_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsGamma_param_35_{dtype=float16, scale_shape=(3, 2), shape...generator>  parameter: {'dtype': <class 'numpy.float16'>, 'scale_shape': (3, 2), 'shape': None, 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, scale_dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_dtypes_combination(
-        _float_dtypes, names=['shape_dtype', 'scale_dtype'])
-    def test_gamma_generator(self, shape_dtype, scale_dtype):
->       self.check_distribution(cupy.random.default_rng().gamma,
-                                shape_dtype, scale_dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:198: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = None
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-{'shape_dtype': <class 'numpy.float64'>, 'scale_dtype': <class 'numpy.float64'>}
+dtype is <class 'numpy.int64'>
+order is C
 _ TestDistributionsPoisson_param_0_{lam_shape=(), shape=(4, 3, 2)}.test_poisson_generator _
 
 self = <<cupy_tests.random_tests.test_distributions.TestDistributionsPoisson_param_0_{lam_shape=(), shape=(4, 3, 2)} testMethod=test_poisson_generator>  parameter: {'lam_shape': (), 'shape': (4, 3, 2)}>
@@ -2663,7 +1267,7 @@ lam_dtype = <class 'numpy.float64'>
 >       self.check_distribution(cupy.random.default_rng(0).poisson,
                                 lam_dtype)
 
-tests/cupy_tests/random_tests/test_distributions.py:551: 
+tests/cupy_tests/random_tests/test_distributions.py:555: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 seed = 0
@@ -2702,7 +1306,7 @@ lam_dtype = <class 'numpy.float64'>
 >       self.check_distribution(cupy.random.default_rng(0).poisson,
                                 lam_dtype)
 
-tests/cupy_tests/random_tests/test_distributions.py:551: 
+tests/cupy_tests/random_tests/test_distributions.py:555: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 seed = 0
@@ -2741,7 +1345,7 @@ lam_dtype = <class 'numpy.float64'>
 >       self.check_distribution(cupy.random.default_rng(0).poisson,
                                 lam_dtype)
 
-tests/cupy_tests/random_tests/test_distributions.py:551: 
+tests/cupy_tests/random_tests/test_distributions.py:555: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 seed = 0
@@ -2780,7 +1384,7 @@ lam_dtype = <class 'numpy.float64'>
 >       self.check_distribution(cupy.random.default_rng(0).poisson,
                                 lam_dtype)
 
-tests/cupy_tests/random_tests/test_distributions.py:551: 
+tests/cupy_tests/random_tests/test_distributions.py:555: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 seed = 0
@@ -2819,7 +1423,7 @@ lam_dtype = <class 'numpy.float64'>
 >       self.check_distribution(cupy.random.default_rng(0).poisson,
                                 lam_dtype)
 
-tests/cupy_tests/random_tests/test_distributions.py:551: 
+tests/cupy_tests/random_tests/test_distributions.py:555: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 seed = 0
@@ -2858,7 +1462,7 @@ lam_dtype = <class 'numpy.float64'>
 >       self.check_distribution(cupy.random.default_rng(0).poisson,
                                 lam_dtype)
 
-tests/cupy_tests/random_tests/test_distributions.py:551: 
+tests/cupy_tests/random_tests/test_distributions.py:555: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 seed = 0
@@ -2887,282 +1491,6 @@ E           RuntimeError: Generator API not supported in HIP, please use the leg
 cupy/random/__init__.py:36: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
 lam_dtype is <class 'numpy.float64'>
-_ TestDistributionsStandardGamma_param_0_{shape=(4, 3, 2), shape_shape=()}.test_standard_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsStandardGamma_param_0_{shape=(4, 3, 2), shape_shape=()} testMethod=test_standard_gamma_generator>  parameter: {'shape': (4, 3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_float_dtypes('dtype', no_float16=True)
-    @cupy.testing.for_float_dtypes('shape_dtype')
-    def test_standard_gamma_generator(self, shape_dtype, dtype):
-        shape = numpy.ones(self.shape_shape, dtype=shape_dtype)
->       self.check_generator_distribution('standard_gamma',
-                                          {'shape': shape},
-                                          dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:664: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-tests/cupy_tests/random_tests/test_distributions.py:31: in check_generator_distribution
-    cp_gen = cupy.random.default_rng(0)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = 0
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-shape_dtype is <class 'numpy.float64'>
-dtype is <class 'numpy.float64'>
-_ TestDistributionsStandardGamma_param_1_{shape=(4, 3, 2), shape_shape=(3, 2)}.test_standard_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsStandardGamma_param_1_{shape=(4, 3, 2), shape_shape=(3, 2)} testMethod=test_standard_gamma_generator>  parameter: {'shape': (4, 3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_float_dtypes('dtype', no_float16=True)
-    @cupy.testing.for_float_dtypes('shape_dtype')
-    def test_standard_gamma_generator(self, shape_dtype, dtype):
-        shape = numpy.ones(self.shape_shape, dtype=shape_dtype)
->       self.check_generator_distribution('standard_gamma',
-                                          {'shape': shape},
-                                          dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:664: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-tests/cupy_tests/random_tests/test_distributions.py:31: in check_generator_distribution
-    cp_gen = cupy.random.default_rng(0)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = 0
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-shape_dtype is <class 'numpy.float64'>
-dtype is <class 'numpy.float64'>
-_ TestDistributionsStandardGamma_param_2_{shape=(3, 2), shape_shape=()}.test_standard_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsStandardGamma_param_2_{shape=(3, 2), shape_shape=()} testMethod=test_standard_gamma_generator>  parameter: {'shape': (3, 2), 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_float_dtypes('dtype', no_float16=True)
-    @cupy.testing.for_float_dtypes('shape_dtype')
-    def test_standard_gamma_generator(self, shape_dtype, dtype):
-        shape = numpy.ones(self.shape_shape, dtype=shape_dtype)
->       self.check_generator_distribution('standard_gamma',
-                                          {'shape': shape},
-                                          dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:664: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-tests/cupy_tests/random_tests/test_distributions.py:31: in check_generator_distribution
-    cp_gen = cupy.random.default_rng(0)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = 0
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-shape_dtype is <class 'numpy.float64'>
-dtype is <class 'numpy.float64'>
-_ TestDistributionsStandardGamma_param_3_{shape=(3, 2), shape_shape=(3, 2)}.test_standard_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsStandardGamma_param_3_{shape=(3, 2), shape_shape=(3, 2)} testMethod=test_standard_gamma_generator>  parameter: {'shape': (3, 2), 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_float_dtypes('dtype', no_float16=True)
-    @cupy.testing.for_float_dtypes('shape_dtype')
-    def test_standard_gamma_generator(self, shape_dtype, dtype):
-        shape = numpy.ones(self.shape_shape, dtype=shape_dtype)
->       self.check_generator_distribution('standard_gamma',
-                                          {'shape': shape},
-                                          dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:664: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-tests/cupy_tests/random_tests/test_distributions.py:31: in check_generator_distribution
-    cp_gen = cupy.random.default_rng(0)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = 0
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-shape_dtype is <class 'numpy.float64'>
-dtype is <class 'numpy.float64'>
-_ TestDistributionsStandardGamma_param_4_{shape=None, shape_shape=()}.test_standard_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsStandardGamma_param_4_{shape=None, shape_shape=()} testMethod=test_standard_gamma_generator>  parameter: {'shape': None, 'shape_shape': ()}>
-shape_dtype = <class 'numpy.float64'>, dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_float_dtypes('dtype', no_float16=True)
-    @cupy.testing.for_float_dtypes('shape_dtype')
-    def test_standard_gamma_generator(self, shape_dtype, dtype):
-        shape = numpy.ones(self.shape_shape, dtype=shape_dtype)
->       self.check_generator_distribution('standard_gamma',
-                                          {'shape': shape},
-                                          dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:664: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-tests/cupy_tests/random_tests/test_distributions.py:31: in check_generator_distribution
-    cp_gen = cupy.random.default_rng(0)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = 0
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-shape_dtype is <class 'numpy.float64'>
-dtype is <class 'numpy.float64'>
-_ TestDistributionsStandardGamma_param_5_{shape=None, shape_shape=(3, 2)}.test_standard_gamma_generator _
-
-self = <<cupy_tests.random_tests.test_distributions.TestDistributionsStandardGamma_param_5_{shape=None, shape_shape=(3, 2)} testMethod=test_standard_gamma_generator>  parameter: {'shape': None, 'shape_shape': (3, 2)}>
-shape_dtype = <class 'numpy.float64'>, dtype = <class 'numpy.float64'>
-
-    @cupy.testing.for_float_dtypes('dtype', no_float16=True)
-    @cupy.testing.for_float_dtypes('shape_dtype')
-    def test_standard_gamma_generator(self, shape_dtype, dtype):
-        shape = numpy.ones(self.shape_shape, dtype=shape_dtype)
->       self.check_generator_distribution('standard_gamma',
-                                          {'shape': shape},
-                                          dtype)
-
-tests/cupy_tests/random_tests/test_distributions.py:664: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-tests/cupy_tests/random_tests/test_distributions.py:31: in check_generator_distribution
-    cp_gen = cupy.random.default_rng(0)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-seed = 0
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
------------------------------ Captured stdout call -----------------------------
-shape_dtype is <class 'numpy.float64'>
-dtype is <class 'numpy.float64'>
 ___________ TestDistributionsPoissonInvalid.test_none_lam_generator ____________
 
 self = <cupy_tests.random_tests.test_distributions.TestDistributionsPoissonInvalid testMethod=test_none_lam_generator>
@@ -3171,7 +1499,7 @@ self = <cupy_tests.random_tests.test_distributions.TestDistributionsPoissonInval
         with self.assertRaises(TypeError):
 >           cupy.random.default_rng(0).poisson(None)
 
-tests/cupy_tests/random_tests/test_distributions.py:559: 
+tests/cupy_tests/random_tests/test_distributions.py:563: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
     def default_rng(seed=None):  # NOQA  avoid redefinition of seed
@@ -3204,7 +1532,7 @@ self = <cupy_tests.random_tests.test_distributions.TestDistributionsStandardGamm
         with self.assertRaises(TypeError):
 >           cupy.random.default_rng(0).standard_gamma(None)
 
-tests/cupy_tests/random_tests/test_distributions.py:674: 
+tests/cupy_tests/random_tests/test_distributions.py:680: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
     def default_rng(seed=None):  # NOQA  avoid redefinition of seed
@@ -3306,7 +1634,7 @@ cupyx/jit/_compile.py:175: in _transpile_function
     exc.reraise(source)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = _JitCompileError(RuntimeError('float16 atomic operation is not supported this CUDA version.'), <_ast.Call object at 0x7fc5a6898130>)
+self = _JitCompileError(RuntimeError('float16 atomic operation is not supported this CUDA version.'), <_ast.Call object at 0x7f8c72b4e7f0>)
 pycode = '  @jit.rawkernel()\n  def f(x, index, out):\n      tid = jit.blockDim.x * jit.blockIdx.x + jit.threadIdx.x\n>     jit.atomic_add(out, index[tid], x[tid])\n'
 
     def reraise(self, pycode):
@@ -3326,86 +1654,12 @@ E       >     jit.atomic_add(out, index[tid], x[tid])
 cupyx/jit/_compile.py:42: RuntimeError
 ----------------------------- Captured stdout call -----------------------------
 dtype is e
-_ TestHfftn_param_25_{axes=(0, 1, 2), norm='backward', s=None, shape=(3, 5, 20)}.test_ihfftn _
+______ TestLUSolve_param_1_{shapes=((4, 4), (4,)), trans=1}.test_lu_solve ______
 
-self = <<cupyx_tests.scipy_tests.fft_tests.test_fft.TestHfftn_param_25_{axes=(0, 1, 2), norm='backward', s=None, shape=(3, 5, 20)} testMethod=test_ihfftn>  parameter: {'shape': (3, 5, 20), 's': None, 'axes': (0, 1, 2), 'norm': 'backward'}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy/cupy/__init__.py'>
-dtype = <class 'numpy.uint8'>
-
-    @testing.for_all_dtypes(no_complex=True)
-    @testing.numpy_cupy_allclose(rtol=1e-4, atol=1e-7, accept_error=ValueError,
-                                 contiguous_check=False)
-    def test_ihfftn(self, xp, dtype):
-        x = testing.shaped_random(self.shape, xp, dtype)
-        x_orig = x.copy()
-        out = _fft_module(xp).ihfftn(x, s=self.s, axes=self.axes,
-                                     norm=self.norm)
->       testing.assert_array_equal(x, x_orig)
-
-tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py:1756: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-x = array([[[5, 7, 6, 5, 4, 6, 4, 8, 9, 3, 7, 5, 5, 9, 0, 0, 0, 8, 7, 8],
-        [9, 7, 4, 7, 1, 6, 1, 9, 5, 4, 2, 7, 4, ... 8, 3, 9, 2, 9, 9, 7, 6, 8],
-        [2, 8, 6, 0, 3, 1, 9, 4, 4, 6, 3, 1, 8, 1, 5, 2, 0, 8, 9, 9]]],
-      dtype=uint8)
-y = array([[[153, 109, 233, 111, 196,  79,  64,  64, 100, 207, 242, 122,
-         226, 227,  60, 192, 223, 128,  24,  65],...  8,   6,   0,   3,   1,   9,   4,   4,   6,   3,   1,
-           8,   1,   5,   2,   0,   8,   9,   9]]], dtype=uint8)
-err_msg = '', verbose = True, strides_check = False
-
-    def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
-        """Raises an AssertionError if two array_like objects are not equal.
-    
-        Args:
-             x(numpy.ndarray or cupy.ndarray): The actual object to check.
-             y(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             strides_check(bool): If ``True``, consistency of strides is also
-                 checked.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting values
-                 are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_array_equal`
-        """
->       numpy.testing.assert_array_equal(
-            cupy.asnumpy(x), cupy.asnumpy(y), err_msg=err_msg,
-            verbose=verbose)
-E       AssertionError: Only cupy raises error
-E       
-E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy/cupy/testing/_helper.py", line 47, in _call_func
-E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy/tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py", line 1756, in test_ihfftn
-E           testing.assert_array_equal(x, x_orig)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy/cupy/testing/_array.py", line 91, in assert_array_equal
-E           numpy.testing.assert_array_equal(
-E         File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/testing/_private/utils.py", line 930, in assert_array_equal
-E           assert_array_compare(operator.__eq__, x, y, err_msg=err_msg,
-E         File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/testing/_private/utils.py", line 840, in assert_array_compare
-E           raise AssertionError(msg)
-E       AssertionError: 
-E       Arrays are not equal
-E       
-E       Mismatched elements: 80 / 300 (26.7%)
-E       Max absolute difference: 250
-E       Max relative difference: 35.71428571
-E        x: array([[[5, 7, 6, 5, 4, 6, 4, 8, 9, 3, 7, 5, 5, 9, 0, 0, 0, 8, 7, 8],
-E               [9, 7, 4, 7, 1, 6, 1, 9, 5, 4, 2, 7, 4, 5, 0, 6, 6, 6, 9, 6],
-E               [3, 4, 6, 0, 6, 6, 2, 1, 3, 3, 5, 4, 9, 1, 2, 1, 6, 2, 4, 2],...
-E        y: array([[[153, 109, 233, 111, 196,  79,  64,  64, 100, 207, 242, 122,
-E                226, 227,  60, 192, 223, 128,  24,  65],
-E               [174, 136,  68,  64, 139, 112,   7, 122,  91, 131,  50,  64,...
-
-cupy/testing/_array.py:91: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.uint8'>
-______ TestLUSolve_param_0_{shapes=((4, 4), (4,)), trans=0}.test_lu_solve ______
-
-self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_0_{shapes=((4, 4), (4,)), trans=0} testMethod=test_lu_solve>  parameter: {'shapes': ((4, 4), (4,)), 'trans': 0}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy/cupy/__init__.py'>
-scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy/cupyx/scipy/__init__.py'>
-dtype = <class 'numpy.float64'>
+self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_1_{shapes=((4, 4), (4,)), trans=1} testMethod=test_lu_solve>  parameter: {'shapes': ((4, 4), (4,)), 'trans': 1}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.EZ6GstZq31/cupy/cupy/__init__.py'>
+scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.EZ6GstZq31/cupy/cupyx/scipy/__init__.py'>
+dtype = <class 'numpy.complex64'>
 
     @testing.for_dtypes('fdFD')
     @testing.numpy_cupy_allclose(atol=1e-5, scipy_name='scp')
@@ -3419,11 +1673,12 @@ dtype = <class 'numpy.float64'>
 tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py:133: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-lu_and_piv = (array([[ 9.63662761,  3.83441519,  7.91725038,  5.2889492 ],
-       [ 0.58946406,  6.99571645, -3.95657395, -2.246352...2854682,  4.03203108],
-       [ 0.43962973,  0.68230584,  0.83048819,  4.77669593]]), array([2, 3, 2, 3], dtype=int32))
-b = array([ 0.50982836,  0.25080839, -0.34704723,  0.54841973]), trans = 0
-overwrite_b = False, check_finite = True
+lu_and_piv = (array([[  4.236548   +9.786183j  ,   6.458941   +7.9915857j ,
+          4.375872   +4.614794j  ,   8.91773    +7.8052...       -0.6066229  -0.41192332j, -10.515662   +8.309107j  ]],
+      dtype=complex64), array([1, 1, 2, 3], dtype=int32))
+b = array([0.29021   -0.20248987j, 0.24618289+0.09046151j,
+       0.2534052 +0.1038311j , 0.23645516-0.0066023j ], dtype=complex64)
+trans = 1, overwrite_b = False, check_finite = True
 
     def lu_solve(lu_and_piv, b, trans=0, overwrite_b=False, check_finite=True):
         """Solve an equation system, ``a * x = b``, given the LU factorization of ``a``
@@ -3521,20 +1776,20 @@ overwrite_b = False, check_finite = True
 E           AssertionError: Only cupy raises error
 E           
 E           Traceback (most recent call last):
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.EZ6GstZq31/cupy/cupy/testing/_helper.py", line 47, in _call_func
 E               result = impl(self, *args, **kw)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.EZ6GstZq31/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
 E               return scp.linalg.lu_solve(lu, b, trans=self.trans)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.EZ6GstZq31/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
 E               raise ValueError('illegal value in %d-th argument of '
-E           ValueError: illegal value in 2060444671-th argument of internal getrs (lu_solve)
+E           ValueError: illegal value in 1409886382-th argument of internal getrs (lu_solve)
 
 cupyx/scipy/linalg/decomp_lu.py:344: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is d
-_ TestGenericFilter.test_filter[_param_156_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=3, mode='mirror', shape=(4, 5)}] _
+dtype is F
+_ TestGenericFilter.test_filter[_param_156_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=3, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fc549083460>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fc654e25e50>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f8c146d30d0>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f8d20809dc0>}>
 args = (), kw = {}
 cupy_result = (array([[21, 31, 40, 31, 33],
        [27, 29, 28, 20, 27],
@@ -3701,9 +1956,9 @@ E              [18, 31, 45, 48, 55],
 E              [22, 29, 41, 43, 54]], dtype=uint8)
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_158_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=4, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_158_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=4, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fc548c8e130>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fc654e25e50>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f8c143cd3a0>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f8d20809dc0>}>
 args = (), kw = {}
 cupy_result = (array([[28, 24, 32, 32, 39],
        [ 0,  0,  0,  0,  0],
@@ -3870,9 +2125,9 @@ E              [29, 29, 39, 37, 46],
 E              [27, 27, 41, 38, 52]], dtype=uint8)
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_160_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=3, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_160_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=3, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fc548c89340>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fc654e25e50>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f8c14701490>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f8d20809dc0>}>
 args = (), kw = {}
 cupy_result = (array([[30.36659675, 39.62975648, 53.45565341, 42.0701155 , 42.81412414],
        [33.36838531, 37.73390254, 33.011765...2, 44.03386405, 43.67148673, 48.63067102],
@@ -4029,11 +2284,11 @@ E              [22.164907, 37.049   , 51.930152, 56.789857, 63.231118],
 E              [26.455394, 35.108023, 46.860663, 49.162274, 60.055398]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_162_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=4, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_162_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=4, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fc548ca9280>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fc654e25e50>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f8c146dd100>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f8d20809dc0>}>
 args = (), kw = {}
-cupy_result = (array([[29.110215  , 29.71338479, 34.75009068, 29.96601192, 38.44579918],
+cupy_result = (array([[29.110215  , 29.71338479, 34.67394898, 25.1796024 , 31.7265699 ],
        [ 0.        ,  0.        ,  0.      ... ,  0.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ]]),)
 cupy_error = None
@@ -4041,10 +2296,10 @@ numpy_result = (array([[39.92050807, 39.92050807, 51.40005714, 43.376314  , 54.8
        [39.92050807, 39.92050807, 51.400057...2, 44.98891502, 43.33693082, 53.99120362],
        [33.21871236, 33.21871236, 48.82046921, 44.04305038, 59.64480722]]),)
 numpy_error = None
-cupy_numpy_result_ndarrays = [(array([[29.110215  , 29.71338479, 34.75009068, 29.96601192, 38.44579918],
+cupy_numpy_result_ndarrays = [(array([[29.110215  , 29.71338479, 34.67394898, 25.1796024 , 31.7265699 ],
        [ 0.        ,  0.        ,  0.     ...2, 44.98891502, 43.33693082, 53.99120362],
        [33.21871236, 33.21871236, 48.82046921, 44.04305038, 59.64480722]]))]
-cupy_r = array([[29.110215  , 29.71338479, 34.75009068, 29.96601192, 38.44579918],
+cupy_r = array([[29.110215  , 29.71338479, 34.67394898, 25.1796024 , 31.7265699 ],
        [ 0.        ,  0.        ,  0.       ...   ,  0.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ]])
 numpy_r = array([[39.92050807, 39.92050807, 51.40005714, 43.376314  , 54.85586307],
@@ -4145,7 +2400,7 @@ cupy/testing/_helper.py:495: in check_func
     _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-actual = array([[29.110215  , 29.71338479, 34.75009068, 29.96601192, 38.44579918],
+actual = array([[29.110215  , 29.71338479, 34.67394898, 25.1796024 , 31.7265699 ],
        [ 0.        ,  0.        ,  0.       ...   ,  0.        ,  0.        ,  0.        ],
        [ 0.        ,  0.        ,  0.        ,  0.        ,  0.        ]])
 desired = array([[39.92050807, 39.92050807, 51.40005714, 43.376314  , 54.85586307],
@@ -4178,7 +2433,7 @@ E
 E       Mismatched elements: 20 / 20 (100%)
 E       Max absolute difference: 59.64480722
 E       Max relative difference: 1.
-E        x: array([[29.110215, 29.713385, 34.750091, 29.966012, 38.445799],
+E        x: array([[29.110215, 29.713385, 34.673949, 25.179602, 31.72657 ],
 E              [ 0.      ,  0.      ,  0.      ,  0.      ,  0.      ],
 E              [ 0.      ,  0.      ,  0.      ,  0.      ,  0.      ],
 E              [ 0.      ,  0.      ,  0.      ,  0.      ,  0.      ]])
@@ -4188,9 +2443,9 @@ E              [34.334642, 34.334642, 44.988915, 43.336931, 53.991204],
 E              [33.218712, 33.218712, 48.820469, 44.04305 , 59.644807]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_324_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...3b6a250>, <function lt_pyfunc at 0x7fc653c2d790>), ksize=3, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_324_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...f408300>, <function lt_pyfunc at 0x7f8d1f4cc700>), ksize=3, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fc548990460>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7fc653c2d790>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f8c143cf670>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7f8d1f4cc700>}>
 args = (), kw = {}
 cupy_result = (array([[4., 6., 3., 4., 3.],
        [5., 7., 7., 5., 3.],
@@ -4357,11 +2612,11 @@ E              [8., 3., 3., 7., 0.],
 E              [2., 0., 6., 4., 4.]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_326_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...3b6a250>, <function lt_pyfunc at 0x7fc653c2d790>), ksize=4, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_326_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...f408300>, <function lt_pyfunc at 0x7f8d1f4cc700>), ksize=4, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fc54806a700>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7fc653c2d790>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f8c13b5fb50>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7f8d1f4cc700>}>
 args = (), kw = {}
-cupy_result = (array([[15.,  5., 13.,  8., 10.],
+cupy_result = (array([[15.,  5., 13.,  8., 11.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.]]),)
@@ -4371,14 +2626,14 @@ numpy_result = (array([[ 8., 11.,  4., 10.,  7.],
        [ 8.,  5., 11.,  5.,  5.],
        [14.,  0.,  1.,  0.,  7.]]),)
 numpy_error = None
-cupy_numpy_result_ndarrays = [(array([[15.,  5., 13.,  8., 10.],
+cupy_numpy_result_ndarrays = [(array([[15.,  5., 13.,  8., 11.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  ...4., 10.,  7.],
        [14.,  0.,  7.,  4.,  8.],
        [ 8.,  5., 11.,  5.,  5.],
        [14.,  0.,  1.,  0.,  7.]]))]
-cupy_r = array([[15.,  5., 13.,  8., 10.],
+cupy_r = array([[15.,  5., 13.,  8., 11.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.]])
@@ -4481,7 +2736,7 @@ cupy/testing/_helper.py:495: in check_func
     _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-actual = array([[15.,  5., 13.,  8., 10.],
+actual = array([[15.,  5., 13.,  8., 11.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.],
        [ 0.,  0.,  0.,  0.,  0.]])
@@ -4516,7 +2771,7 @@ E
 E       Mismatched elements: 17 / 20 (85%)
 E       Max absolute difference: 14.
 E       Max relative difference: 2.25
-E        x: array([[15.,  5., 13.,  8., 10.],
+E        x: array([[15.,  5., 13.,  8., 11.],
 E              [ 0.,  0.,  0.,  0.,  0.],
 E              [ 0.,  0.,  0.,  0.,  0.],
 E              [ 0.,  0.,  0.,  0.,  0.]])
@@ -4526,9 +2781,9 @@ E              [ 8.,  5., 11.,  5.,  5.],
 E              [14.,  0.,  1.,  0.,  7.]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_484_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=3, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_484_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=3, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fc547dfa610>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fc654e25e50>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f8c13aa6310>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f8d20809dc0>}>
 args = (), kw = {}
 cupy_result = (array([[21, 28, 45, 28, 29],
        [28, 24, 27, 19, 21],
@@ -4695,9 +2950,9 @@ E              [16, 36, 54, 41, 63],
 E              [24, 30, 40, 45, 48]], dtype=uint8)
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_486_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=4, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_486_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=4, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fc547911550>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fc654e25e50>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f8c132c00a0>  parameter: {'filter'...ss 'numpy.uint8'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f8d20809dc0>}>
 args = (), kw = {}
 cupy_result = (array([[23, 27, 36, 28, 53],
        [ 0,  0,  0,  0,  0],
@@ -4864,9 +3119,9 @@ E              [32, 30, 35, 33, 43],
 E              [26, 31, 44, 32, 61]], dtype=uint8)
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_488_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=3, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_488_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=3, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fc547907100>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fc654e25e50>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f8c132ba220>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f8d20809dc0>}>
 args = (), kw = {}
 cupy_result = (array([[32.00449826, 37.68575782, 60.8028936 , 38.48790895, 39.21631239],
        [34.60326543, 32.2532409 , 33.257219...9, 51.41878991, 42.0040045 , 51.31070106],
@@ -5023,9 +3278,9 @@ E              [19.537204, 43.529837, 62.151861, 50.872889, 72.574665],
 E              [29.909488, 36.178354, 46.34963 , 49.948601, 54.161936]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_490_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=4, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_490_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=4, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fc54791f340>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7fc654e25e50>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f8c13ab71f0>  parameter: {'filter'... 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function rms_pyfunc at 0x7f8d20809dc0>}>
 args = (), kw = {}
 cupy_result = (array([[21.27808861, 29.80163272, 37.25897052, 32.87956485, 40.18680146],
        [ 0.        ,  0.        ,  0.      ... ,  0.        ,  0.        ,  0.        ],
@@ -5182,9 +3437,9 @@ E              [36.303403, 34.455314, 40.066132, 37.533243, 49.792072],
 E              [31.441124, 37.686712, 51.654176, 39.594527, 70.437684]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_652_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...3b6a250>, <function lt_pyfunc at 0x7fc653c2d790>), ksize=3, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_652_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...f408300>, <function lt_pyfunc at 0x7f8d1f4cc700>), ksize=3, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fc5475e13d0>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7fc653c2d790>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f8c137a7520>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 3, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7f8d1f4cc700>}>
 args = (), kw = {}
 cupy_result = (array([[5., 3., 2., 4., 3.],
        [1., 5., 1., 5., 6.],
@@ -5351,9 +3606,9 @@ E              [4., 4., 1., 2., 3.],
 E              [0., 0., 0., 3., 2.]])
 
 cupy/testing/_array.py:24: AssertionError
-_ TestGenericFilter.test_filter[_param_654_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...3b6a250>, <function lt_pyfunc at 0x7fc653c2d790>), ksize=4, mode='mirror', shape=(4, 5)}] _
+_ TestGenericFilter.test_filter[_param_654_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...f408300>, <function lt_pyfunc at 0x7f8d1f4cc700>), ksize=4, mode='mirror', shape=(4, 5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7fc546dd65b0>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7fc653c2d790>}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_filters.TestGenericFilter object at 0x7f8c127d9700>  parameter: {'filter'...s 'numpy.float64'>, 'ksize': 4, 'mode': 'mirror', 'shape': (4, 5), 'function': <function lt_pyfunc at 0x7f8d1f4cc700>}>
 args = (), kw = {}
 cupy_result = (array([[ 5., 10., 10.,  3.,  9.],
        [ 0.,  0.,  0.,  0.,  0.],
@@ -5522,9 +3777,9 @@ E              [ 4.,  5.,  9.,  1.,  6.]])
 cupy/testing/_array.py:24: AssertionError
 _ TestMeasurementsSelect.test_measurements_select[_param_70_{enable_cub=True, index=1, labels=50, op='extrema', shape=(512,)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_measurements.TestMeasurementsSelect object at 0x7fc5344389a0>  parameter: {'enable_cub': True, 'index': 1, 'labels': 50, 'op': 'extrema', 'shape': (512,)}>
-args = (), kw = {'dtype': <class 'numpy.float32'>}
-dtype = <class 'numpy.float32'>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_measurements.TestMeasurementsSelect object at 0x7f8c004d79a0>  parameter: {'enable_cub': True, 'index': 1, 'labels': 50, 'op': 'extrema', 'shape': (512,)}>
+args = (), kw = {'dtype': <class 'numpy.float64'>}
+dtype = <class 'numpy.float64'>
 
     @_wraps_partial(impl, name)
     def test_func(self, *args, **kw):
@@ -5574,25 +3829,30 @@ E        y: array([103])
 
 cupy/testing/_array.py:24: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float32'>
-_ TestFFTConvolve_param_12_{mode='full', size1=(3, 4, 10), size2=3}.test_correlate_fft _
-cupy/testing/_helper.py:825: in test_func
-    impl(self, *args, **kw)
+dtype is <class 'numpy.float64'>
+_ TestMeasurementsSelect.test_measurements_select[_param_214_{enable_cub=False, index=1, labels=50, op='extrema', shape=(512,)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_measurements.TestMeasurementsSelect object at 0x7f8c03196850>  parameter: {'enable_cub': False, 'index': 1, 'labels': 50, 'op': 'extrema', 'shape': (512,)}>
+args = (), kw = {'dtype': <class 'numpy.float64'>}
+dtype = <class 'numpy.float64'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 cupy/testing/_helper.py:343: in test_func
     check_func(cupy_r, numpy_r)
 cupy/testing/_helper.py:495: in check_func
     _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-actual = array([[[-2.55734085e+02, -4.12401611e+02, -5.82110718e+02,
-         -5.98984558e+02, -4.93566132e+02, -5.58749817e+02..., -5.37425270e+01,  2.76517797e+00,
-         -3.85170517e+01,  8.76324081e+01,  1.00348091e+02]]],
-      dtype=float32)
-desired = array([[[  7.8674293,  45.3722   ,  60.898335 ,  54.842022 ,
-          48.07059  ,  42.814228 ,  52.615826 ,  48.42525...42563  , 126.12969  , 119.81335  ,
-         143.07594  , 136.70508  ,  97.919945 ,  38.007053 ]]],
-      dtype=float32)
-rtol = 0.001, atol = 0.001, err_msg = '', verbose = True
+actual = array([103]), desired = array([103]), rtol = 1e-07, atol = 0
+err_msg = '', verbose = True
 
     def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
                         verbose=True):
@@ -5614,21 +3874,17 @@ rtol = 0.001, atol = 0.001, err_msg = '', verbose = True
             cupy.asnumpy(actual), cupy.asnumpy(desired),
             rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
 E       AssertionError: 
-E       Not equal to tolerance rtol=0.001, atol=0.001
+E       Not equal to tolerance rtol=1e-07, atol=0
 E       
-E       Mismatched elements: 359 / 360 (99.7%)
-E       Max absolute difference: 2496.187
-E       Max relative difference: 65.765884
-E        x: array([[[-2.557341e+02, -4.124016e+02, -5.821107e+02, -5.989846e+02,
-E                -4.935661e+02, -5.587498e+02, -4.499716e+02, -7.117945e+02,
-E                -7.355958e+02, -6.395406e+02, -4.031465e+02, -1.384109e+02],...
-E        y: array([[[  7.867429,  45.3722  ,  60.898335,  54.842022,  48.07059 ,
-E                 42.814228,  52.615826,  48.42525 ,  76.05639 ,  77.71094 ,
-E                 35.934895,   4.535131],...
+E       Mismatched elements: 1 / 1 (100%)
+E       Max absolute difference: 28
+E       Max relative difference: 0.27184466
+E        x: array([75])
+E        y: array([103])
 
 cupy/testing/_array.py:24: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float32'>
+dtype is <class 'numpy.float64'>
 =============================== warnings summary ===============================
 tests/cupy_tests/core_tests/fusion_tests/test_array.py: 1 warning
 tests/cupy_tests/math_tests/test_sumprod.py: 19 warnings
@@ -5704,7 +3960,7 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axi
     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 
 tests/cupy_tests/math_tests/test_sumprod.py: 32 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy/tests/cupy_tests/math_tests/test_sumprod.py:800: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.EZ6GstZq31/cupy/tests/cupy_tests/math_tests/test_sumprod.py:800: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_all2
@@ -5718,7 +3974,7 @@ tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py::TestStats::tes
     return umr_sum(a, axis, dtype, out, keepdims, initial, where)
 
 tests/cupy_tests/statistics_tests/test_meanvar.py: 28 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.EZ6GstZq31/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_4_{axis=0, keepdims=True, overwrite_input=True, shape=(3, 4, 5)}::test_nanmedian
@@ -5810,7 +4066,7 @@ tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::te
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_235_{cval=-inf, mode='constant', order=0, output=float64, prefilter=True, shift=0.1}]
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_238_{cval=-inf, mode='constant', order=1, output=float64, prefilter=True, shift=0.1}]
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_241_{cval=-inf, mode='constant', order=3, output=float64, prefilter=True, shift=0.1}]
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy/tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py:533: RuntimeWarning: invalid value encountered in remainder
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.EZ6GstZq31/cupy/tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py:533: RuntimeWarning: invalid value encountered in remainder
     float_out = self._shift(xp, scp, a.astype(xp.float64)) % 1
 
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py: 14 warnings
@@ -5840,74 +4096,32 @@ tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param
     res *= (1 - noise / lVar)
 
 -- Docs: https://docs.pytest.org/en/stable/warnings.html
-- generated html file: file:///home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.weqgDSkmCK/cupy/_output/report.html -
+- generated html file: file:///home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.EZ6GstZq31/cupy/_output/report.html -
 =========================== short test summary info ============================
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_0_{dtype=float64, scale_shape=(), shape=(4, 3, 2), shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_1_{dtype=float64, scale_shape=(), shape=(4, 3, 2), shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_2_{dtype=float64, scale_shape=(), shape=(3, 2), shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_3_{dtype=float64, scale_shape=(), shape=(3, 2), shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_4_{dtype=float64, scale_shape=(), shape=None, shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_5_{dtype=float64, scale_shape=(), shape=None, shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_6_{dtype=float64, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_7_{dtype=float64, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_8_{dtype=float64, scale_shape=(3, 2), shape=(3, 2), shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_9_{dtype=float64, scale_shape=(3, 2), shape=(3, 2), shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_10_{dtype=float64, scale_shape=(3, 2), shape=None, shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_11_{dtype=float64, scale_shape=(3, 2), shape=None, shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_12_{dtype=float32, scale_shape=(), shape=(4, 3, 2), shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_13_{dtype=float32, scale_shape=(), shape=(4, 3, 2), shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_14_{dtype=float32, scale_shape=(), shape=(3, 2), shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_15_{dtype=float32, scale_shape=(), shape=(3, 2), shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_16_{dtype=float32, scale_shape=(), shape=None, shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_17_{dtype=float32, scale_shape=(), shape=None, shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_18_{dtype=float32, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_19_{dtype=float32, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_20_{dtype=float32, scale_shape=(3, 2), shape=(3, 2), shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_21_{dtype=float32, scale_shape=(3, 2), shape=(3, 2), shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_22_{dtype=float32, scale_shape=(3, 2), shape=None, shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_23_{dtype=float32, scale_shape=(3, 2), shape=None, shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_24_{dtype=float16, scale_shape=(), shape=(4, 3, 2), shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_25_{dtype=float16, scale_shape=(), shape=(4, 3, 2), shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_26_{dtype=float16, scale_shape=(), shape=(3, 2), shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_27_{dtype=float16, scale_shape=(), shape=(3, 2), shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_28_{dtype=float16, scale_shape=(), shape=None, shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_29_{dtype=float16, scale_shape=(), shape=None, shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_30_{dtype=float16, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_31_{dtype=float16, scale_shape=(3, 2), shape=(4, 3, 2), shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_32_{dtype=float16, scale_shape=(3, 2), shape=(3, 2), shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_33_{dtype=float16, scale_shape=(3, 2), shape=(3, 2), shape_shape=(3, 2)}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_34_{dtype=float16, scale_shape=(3, 2), shape=None, shape_shape=()}::test_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsGamma_param_35_{dtype=float16, scale_shape=(3, 2), shape=None, shape_shape=(3, 2)}::test_gamma_generator
+FAILED tests/cupy_tests/creation_tests/test_from_data.py::TestFromData::test_array_from_list_of_numpy_scalar
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsPoisson_param_0_{lam_shape=(), shape=(4, 3, 2)}::test_poisson_generator
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsPoisson_param_1_{lam_shape=(), shape=(3, 2)}::test_poisson_generator
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsPoisson_param_2_{lam_shape=(), shape=None}::test_poisson_generator
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsPoisson_param_3_{lam_shape=(3, 2), shape=(4, 3, 2)}::test_poisson_generator
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsPoisson_param_4_{lam_shape=(3, 2), shape=(3, 2)}::test_poisson_generator
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsPoisson_param_5_{lam_shape=(3, 2), shape=None}::test_poisson_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsStandardGamma_param_0_{shape=(4, 3, 2), shape_shape=()}::test_standard_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsStandardGamma_param_1_{shape=(4, 3, 2), shape_shape=(3, 2)}::test_standard_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsStandardGamma_param_2_{shape=(3, 2), shape_shape=()}::test_standard_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsStandardGamma_param_3_{shape=(3, 2), shape_shape=(3, 2)}::test_standard_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsStandardGamma_param_4_{shape=None, shape_shape=()}::test_standard_gamma_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsStandardGamma_param_5_{shape=None, shape_shape=(3, 2)}::test_standard_gamma_generator
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsPoissonInvalid::test_none_lam_generator
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsStandardGammaInvalid::test_none_shape_generator
 FAILED tests/cupyx_tests/test_scatter.py::TestScatter::test_scatter_add - Ass...
 FAILED tests/cupyx_tests/jit_tests/test_raw.py::TestRaw::test_atomic_add - Ru...
-FAILED tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py::TestHfftn_param_25_{axes=(0, 1, 2), norm='backward', s=None, shape=(3, 5, 20)}::test_ihfftn
-FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_0_{shapes=((4, 4), (4,)), trans=0}::test_lu_solve
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_156_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=3, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_158_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=4, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_160_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=3, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_162_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=4, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_324_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...3b6a250>, <function lt_pyfunc at 0x7fc653c2d790>), ksize=3, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_326_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...3b6a250>, <function lt_pyfunc at 0x7fc653c2d790>), ksize=4, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_484_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=3, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_486_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=4, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_488_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=3, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_490_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7fc654e1dac0>, <function rms_pyfunc at 0x7fc654e25e50>), ksize=4, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_652_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...3b6a250>, <function lt_pyfunc at 0x7fc653c2d790>), ksize=3, mode='mirror', shape=(4, 5)}]
-FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_654_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...3b6a250>, <function lt_pyfunc at 0x7fc653c2d790>), ksize=4, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_1_{shapes=((4, 4), (4,)), trans=1}::test_lu_solve
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_156_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=3, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_158_{dtype=uint8, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=4, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_160_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=3, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_162_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=4, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_324_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...f408300>, <function lt_pyfunc at 0x7f8d1f4cc700>), ksize=3, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_326_{dtype=float64, filter='generic_filter', footprint=False, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...f408300>, <function lt_pyfunc at 0x7f8d1f4cc700>), ksize=4, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_484_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=3, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_486_{dtype=uint8, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=4, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_488_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=3, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_490_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core.raw.RawKernel object at 0x7f8d1f441c40>, <function rms_pyfunc at 0x7f8d20809dc0>), ksize=4, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_652_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...f408300>, <function lt_pyfunc at 0x7f8d1f4cc700>), ksize=3, mode='mirror', shape=(4, 5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_filters.py::TestGenericFilter::test_filter[_param_654_{dtype=float64, filter='generic_filter', footprint=True, func_or_kernel=(<cupy._core._reduction.ReductionKernel object a...f408300>, <function lt_pyfunc at 0x7f8d1f4cc700>), ksize=4, mode='mirror', shape=(4, 5)}]
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py::TestMeasurementsSelect::test_measurements_select[_param_70_{enable_cub=True, index=1, labels=50, op='extrema', shape=(512,)}]
-FAILED tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestFFTConvolve_param_12_{mode='full', size1=(3, 4, 10), size2=3}::test_correlate_fft
-= 68 failed, 64094 passed, 7389 skipped, 65 deselected, 517 xfailed, 272 warnings in 26776.62s (7:26:16) =
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py::TestMeasurementsSelect::test_measurements_select[_param_214_{enable_cub=False, index=1, labels=50, op='extrema', shape=(512,)}]
+= 26 failed, 64094 passed, 7412 skipped, 65 deselected, 559 xfailed, 272 warnings in 26431.06s (7:20:31) =
