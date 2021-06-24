@@ -1,7 +1,7 @@
-master: 77a5d0b Merge pull request #5391 from kmaehashi/update-packages
+master: 827dfba Merge pull request #5397 from kmaehashi/bump-v10.0.0a2
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
 collected 72244 items / 71 deselected / 12 skipped / 72161 selected
 
@@ -126,7 +126,7 @@ sssssssssss                                                              [  8%]
 tests/cupy_tests/core_tests/test_ndarray_owndata.py ...                  [  8%]
 tests/cupy_tests/core_tests/test_ndarray_reduction.py .................. [  8%]
 ........................................................................ [  8%]
-........................................................................ [  8%]
+..........................................F.F.F.F.F.F.F................. [  8%]
 ................................                                         [  8%]
 tests/cupy_tests/core_tests/test_ndarray_scatter.py .................... [  8%]
 ........................................................................ [  8%]
@@ -690,10 +690,10 @@ tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py .................... [ 37%]
 ........................................................................ [ 51%]
 ........................................................................ [ 51%]
 ........................................................................ [ 51%]
+........................................F............................... [ 51%]
 ........................................................................ [ 51%]
 ........................................................................ [ 51%]
-........................................................................ [ 51%]
-FF....................................................................   [ 51%]
+......................................................................   [ 51%]
 tests/cupyx_tests/scipy_tests/fft_tests/test_helper.py .                 [ 51%]
 tests/cupyx_tests/scipy_tests/fftpack_tests/test_fftpack.py ............ [ 51%]
 ........................................................................ [ 51%]
@@ -1276,6 +1276,912 @@ E        x: array([13744632839234567870, 13744632839234567870], dtype=uint64)
 E        y: array([0, 0], dtype=uint64)
 
 cupy/testing/_array.py:91: AssertionError
+_ TestCubReduction_param_8_{backend='block', order='C', shape=(10,)}.test_cub_min _
+
+self = <<cupy_tests.core_tests.test_ndarray_reduction.TestCubReduction_param_8_{backend='block', order='C', shape=(10,)} testMethod=test_cub_min>  parameter: {'backend': 'block', 'order': 'C', 'shape': (10,)}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/__init__.py'>
+dtype = <class 'numpy.int16'>, axis = (0,)
+
+    @testing.for_contiguous_axes()
+    @testing.for_all_dtypes(no_bool=True)
+    @testing.numpy_cupy_allclose(rtol=1E-5)
+    def test_cub_min(self, xp, dtype, axis):
+        a = testing.shaped_random(self.shape, xp, dtype, order=self.order)
+    
+        if xp is numpy:
+            return a.min(axis=axis)
+    
+        # xp is cupy, first ensure we really use CUB
+        ret = cupy.empty(())  # Cython checks return type, need to fool it
+        if self.backend == 'device':
+            func_name = 'cupy._core._routines_statistics.cub.'
+            if len(axis) == len(self.shape):
+                func_name += 'device_reduce'
+            else:
+                func_name += 'device_segmented_reduce'
+            with testing.AssertFunctionIsCalled(func_name, return_value=ret):
+                a.min(axis=axis)
+        elif self.backend == 'block':
+            # this is the only function we can mock; the rest is cdef'd
+            func_name = 'cupy._core._cub_reduction.'
+            func_name += '_SimpleCubReductionKernel_get_cached_function'
+            func = _cub_reduction._SimpleCubReductionKernel_get_cached_function
+            if len(axis) == len(self.shape):
+                times_called = 2  # two passes
+            else:
+                times_called = 1  # one pass
+            with testing.AssertFunctionIsCalled(
+                    func_name, wraps=func, times_called=times_called):
+>               a.min(axis=axis)
+
+tests/cupy_tests/core_tests/test_ndarray_reduction.py:381: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/_core/core.pyx:848: in cupy._core.core.ndarray.min
+    cpdef ndarray min(self, axis=None, out=None, keepdims=False):
+cupy/_core/core.pyx:856: in cupy._core.core.ndarray.min
+    return _statistics._ndarray_min(self, axis, out, None, keepdims)
+cupy/_core/_routines_statistics.pyx:59: in cupy._core._routines_statistics._ndarray_min
+    return _amin(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+cupy/_core/_reduction.pyx:560: in cupy._core._reduction._SimpleReductionKernel.__call__
+    return self._call(
+cupy/_core/_reduction.pyx:346: in cupy._core._reduction._AbstractReductionKernel._call
+    cub_success = _cub_reduction._try_to_call_cub_reduction(
+cupy/_core/_cub_reduction.pyx:700: in cupy._core._cub_reduction._try_to_call_cub_reduction
+    _launch_cub(
+cupy/_core/_cub_reduction.pyx:536: in cupy._core._cub_reduction._launch_cub
+    _cub_two_pass_launch(
+cupy/_core/_cub_reduction.pyx:505: in cupy._core._cub_reduction._cub_two_pass_launch
+    func = _SimpleCubReductionKernel_get_cached_function(
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1081: in __call__
+    return self._mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1085: in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1155: in _execute_mock_call
+    return self._mock_wraps(*args, **kwargs)
+cupy/_util.pyx:59: in cupy._util.memoize.decorator.ret
+    result = f(*args, **kwargs)
+cupy/_core/_cub_reduction.pyx:243: in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+    return _create_cub_reduction_function(
+cupy/_core/_cub_reduction.pyx:228: in cupy._core._cub_reduction._create_cub_reduction_function
+    module = compile_with_cache(
+cupy/_core/core.pyx:2001: in cupy._core.core.compile_with_cache
+    return cuda.compile_with_cache(
+cupy/cuda/compiler.py:428: in compile_with_cache
+    return _compile_with_cache_hip(
+cupy/cuda/compiler.py:838: in _compile_with_cache_hip
+    temp_path = tf.name
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tempfile._TemporaryFileWrapper object at 0x7fa399c07f10>, exc = None
+value = None, tb = None
+
+    def __exit__(self, exc, value, tb):
+>       result = self.file.__exit__(exc, value, tb)
+E       AssertionError: Only cupy raises error
+E       
+E       Traceback (most recent call last):
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E           result = impl(self, *args, **kw)
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/cupy_tests/core_tests/test_ndarray_reduction.py", line 381, in test_cub_min
+E           a.min(axis=axis)
+E         File "cupy/_core/core.pyx", line 848, in cupy._core.core.ndarray.min
+E           cpdef ndarray min(self, axis=None, out=None, keepdims=False):
+E         File "cupy/_core/core.pyx", line 856, in cupy._core.core.ndarray.min
+E           return _statistics._ndarray_min(self, axis, out, None, keepdims)
+E         File "cupy/_core/_routines_statistics.pyx", line 59, in cupy._core._routines_statistics._ndarray_min
+E           return _amin(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+E         File "cupy/_core/_reduction.pyx", line 560, in cupy._core._reduction._SimpleReductionKernel.__call__
+E           return self._call(
+E         File "cupy/_core/_reduction.pyx", line 346, in cupy._core._reduction._AbstractReductionKernel._call
+E           cub_success = _cub_reduction._try_to_call_cub_reduction(
+E         File "cupy/_core/_cub_reduction.pyx", line 700, in cupy._core._cub_reduction._try_to_call_cub_reduction
+E           _launch_cub(
+E         File "cupy/_core/_cub_reduction.pyx", line 536, in cupy._core._cub_reduction._launch_cub
+E           _cub_two_pass_launch(
+E         File "cupy/_core/_cub_reduction.pyx", line 505, in cupy._core._cub_reduction._cub_two_pass_launch
+E           func = _SimpleCubReductionKernel_get_cached_function(
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1081, in __call__
+E           return self._mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1085, in _mock_call
+E           return self._execute_mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1155, in _execute_mock_call
+E           return self._mock_wraps(*args, **kwargs)
+E         File "cupy/_util.pyx", line 59, in cupy._util.memoize.decorator.ret
+E           result = f(*args, **kwargs)
+E         File "cupy/_core/_cub_reduction.pyx", line 243, in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+E           return _create_cub_reduction_function(
+E         File "cupy/_core/_cub_reduction.pyx", line 228, in cupy._core._cub_reduction._create_cub_reduction_function
+E           module = compile_with_cache(
+E         File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
+E           return cuda.compile_with_cache(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
+E           return _compile_with_cache_hip(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
+E           temp_path = tf.name
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
+E           result = self.file.__exit__(exc, value, tb)
+E       OSError: [Errno 28] No space left on device
+
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py:491: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.int16'>
+axis is (0,) , ndim is 1 , shape is (10,) , order is C
+_ TestCubReduction_param_9_{backend='block', order='C', shape=(10, 20)}.test_cub_max _
+
+self = <<cupy_tests.core_tests.test_ndarray_reduction.TestCubReduction_param_9_{backend='block', order='C', shape=(10, 20)} testMethod=test_cub_max>  parameter: {'backend': 'block', 'order': 'C', 'shape': (10, 20)}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/__init__.py'>
+dtype = <class 'numpy.float64'>, axis = (1,)
+
+    @testing.for_contiguous_axes()
+    @testing.for_all_dtypes(no_bool=True)
+    @testing.numpy_cupy_allclose(rtol=1E-5)
+    def test_cub_max(self, xp, dtype, axis):
+        a = testing.shaped_random(self.shape, xp, dtype, order=self.order)
+    
+        if xp is numpy:
+            return a.max(axis=axis)
+    
+        # xp is cupy, first ensure we really use CUB
+        ret = cupy.empty(())  # Cython checks return type, need to fool it
+        if self.backend == 'device':
+            func_name = 'cupy._core._routines_statistics.cub.'
+            if len(axis) == len(self.shape):
+                func_name += 'device_reduce'
+            else:
+                func_name += 'device_segmented_reduce'
+            with testing.AssertFunctionIsCalled(func_name, return_value=ret):
+                a.max(axis=axis)
+        elif self.backend == 'block':
+            # this is the only function we can mock; the rest is cdef'd
+            func_name = 'cupy._core._cub_reduction.'
+            func_name += '_SimpleCubReductionKernel_get_cached_function'
+            func = _cub_reduction._SimpleCubReductionKernel_get_cached_function
+            if len(axis) == len(self.shape):
+                times_called = 2  # two passes
+            else:
+                times_called = 1  # one pass
+            with testing.AssertFunctionIsCalled(
+                    func_name, wraps=func, times_called=times_called):
+>               a.max(axis=axis)
+
+tests/cupy_tests/core_tests/test_ndarray_reduction.py:421: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/_core/core.pyx:819: in cupy._core.core.ndarray.max
+    cpdef ndarray max(self, axis=None, out=None, keepdims=False):
+cupy/_core/core.pyx:827: in cupy._core.core.ndarray.max
+    return _statistics._ndarray_max(self, axis, out, None, keepdims)
+cupy/_core/_routines_statistics.pyx:41: in cupy._core._routines_statistics._ndarray_max
+    return _amax(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+cupy/_core/_reduction.pyx:560: in cupy._core._reduction._SimpleReductionKernel.__call__
+    return self._call(
+cupy/_core/_reduction.pyx:346: in cupy._core._reduction._AbstractReductionKernel._call
+    cub_success = _cub_reduction._try_to_call_cub_reduction(
+cupy/_core/_cub_reduction.pyx:700: in cupy._core._cub_reduction._try_to_call_cub_reduction
+    _launch_cub(
+cupy/_core/_cub_reduction.pyx:550: in cupy._core._cub_reduction._launch_cub
+    func = _SimpleCubReductionKernel_get_cached_function(
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1081: in __call__
+    return self._mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1085: in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1155: in _execute_mock_call
+    return self._mock_wraps(*args, **kwargs)
+cupy/_util.pyx:59: in cupy._util.memoize.decorator.ret
+    result = f(*args, **kwargs)
+cupy/_core/_cub_reduction.pyx:243: in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+    return _create_cub_reduction_function(
+cupy/_core/_cub_reduction.pyx:228: in cupy._core._cub_reduction._create_cub_reduction_function
+    module = compile_with_cache(
+cupy/_core/core.pyx:2001: in cupy._core.core.compile_with_cache
+    return cuda.compile_with_cache(
+cupy/cuda/compiler.py:428: in compile_with_cache
+    return _compile_with_cache_hip(
+cupy/cuda/compiler.py:838: in _compile_with_cache_hip
+    temp_path = tf.name
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tempfile._TemporaryFileWrapper object at 0x7fa3913c6520>, exc = None
+value = None, tb = None
+
+    def __exit__(self, exc, value, tb):
+>       result = self.file.__exit__(exc, value, tb)
+E       AssertionError: Only cupy raises error
+E       
+E       Traceback (most recent call last):
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E           result = impl(self, *args, **kw)
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/cupy_tests/core_tests/test_ndarray_reduction.py", line 421, in test_cub_max
+E           a.max(axis=axis)
+E         File "cupy/_core/core.pyx", line 819, in cupy._core.core.ndarray.max
+E           cpdef ndarray max(self, axis=None, out=None, keepdims=False):
+E         File "cupy/_core/core.pyx", line 827, in cupy._core.core.ndarray.max
+E           return _statistics._ndarray_max(self, axis, out, None, keepdims)
+E         File "cupy/_core/_routines_statistics.pyx", line 41, in cupy._core._routines_statistics._ndarray_max
+E           return _amax(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+E         File "cupy/_core/_reduction.pyx", line 560, in cupy._core._reduction._SimpleReductionKernel.__call__
+E           return self._call(
+E         File "cupy/_core/_reduction.pyx", line 346, in cupy._core._reduction._AbstractReductionKernel._call
+E           cub_success = _cub_reduction._try_to_call_cub_reduction(
+E         File "cupy/_core/_cub_reduction.pyx", line 700, in cupy._core._cub_reduction._try_to_call_cub_reduction
+E           _launch_cub(
+E         File "cupy/_core/_cub_reduction.pyx", line 550, in cupy._core._cub_reduction._launch_cub
+E           func = _SimpleCubReductionKernel_get_cached_function(
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1081, in __call__
+E           return self._mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1085, in _mock_call
+E           return self._execute_mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1155, in _execute_mock_call
+E           return self._mock_wraps(*args, **kwargs)
+E         File "cupy/_util.pyx", line 59, in cupy._util.memoize.decorator.ret
+E           result = f(*args, **kwargs)
+E         File "cupy/_core/_cub_reduction.pyx", line 243, in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+E           return _create_cub_reduction_function(
+E         File "cupy/_core/_cub_reduction.pyx", line 228, in cupy._core._cub_reduction._create_cub_reduction_function
+E           module = compile_with_cache(
+E         File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
+E           return cuda.compile_with_cache(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
+E           return _compile_with_cache_hip(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
+E           temp_path = tf.name
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
+E           result = self.file.__exit__(exc, value, tb)
+E       OSError: [Errno 28] No space left on device
+
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py:491: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+axis is (1,) , ndim is 2 , shape is (10, 20) , order is C
+_ TestCubReduction_param_9_{backend='block', order='C', shape=(10, 20)}.test_cub_min _
+
+self = <<cupy_tests.core_tests.test_ndarray_reduction.TestCubReduction_param_9_{backend='block', order='C', shape=(10, 20)} testMethod=test_cub_min>  parameter: {'backend': 'block', 'order': 'C', 'shape': (10, 20)}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/__init__.py'>
+dtype = <class 'numpy.int16'>, axis = (0, 1)
+
+    @testing.for_contiguous_axes()
+    @testing.for_all_dtypes(no_bool=True)
+    @testing.numpy_cupy_allclose(rtol=1E-5)
+    def test_cub_min(self, xp, dtype, axis):
+        a = testing.shaped_random(self.shape, xp, dtype, order=self.order)
+    
+        if xp is numpy:
+            return a.min(axis=axis)
+    
+        # xp is cupy, first ensure we really use CUB
+        ret = cupy.empty(())  # Cython checks return type, need to fool it
+        if self.backend == 'device':
+            func_name = 'cupy._core._routines_statistics.cub.'
+            if len(axis) == len(self.shape):
+                func_name += 'device_reduce'
+            else:
+                func_name += 'device_segmented_reduce'
+            with testing.AssertFunctionIsCalled(func_name, return_value=ret):
+                a.min(axis=axis)
+        elif self.backend == 'block':
+            # this is the only function we can mock; the rest is cdef'd
+            func_name = 'cupy._core._cub_reduction.'
+            func_name += '_SimpleCubReductionKernel_get_cached_function'
+            func = _cub_reduction._SimpleCubReductionKernel_get_cached_function
+            if len(axis) == len(self.shape):
+                times_called = 2  # two passes
+            else:
+                times_called = 1  # one pass
+            with testing.AssertFunctionIsCalled(
+                    func_name, wraps=func, times_called=times_called):
+>               a.min(axis=axis)
+
+tests/cupy_tests/core_tests/test_ndarray_reduction.py:381: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/_core/core.pyx:848: in cupy._core.core.ndarray.min
+    cpdef ndarray min(self, axis=None, out=None, keepdims=False):
+cupy/_core/core.pyx:856: in cupy._core.core.ndarray.min
+    return _statistics._ndarray_min(self, axis, out, None, keepdims)
+cupy/_core/_routines_statistics.pyx:59: in cupy._core._routines_statistics._ndarray_min
+    return _amin(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+cupy/_core/_reduction.pyx:560: in cupy._core._reduction._SimpleReductionKernel.__call__
+    return self._call(
+cupy/_core/_reduction.pyx:346: in cupy._core._reduction._AbstractReductionKernel._call
+    cub_success = _cub_reduction._try_to_call_cub_reduction(
+cupy/_core/_cub_reduction.pyx:700: in cupy._core._cub_reduction._try_to_call_cub_reduction
+    _launch_cub(
+cupy/_core/_cub_reduction.pyx:536: in cupy._core._cub_reduction._launch_cub
+    _cub_two_pass_launch(
+cupy/_core/_cub_reduction.pyx:505: in cupy._core._cub_reduction._cub_two_pass_launch
+    func = _SimpleCubReductionKernel_get_cached_function(
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1081: in __call__
+    return self._mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1085: in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1155: in _execute_mock_call
+    return self._mock_wraps(*args, **kwargs)
+cupy/_util.pyx:59: in cupy._util.memoize.decorator.ret
+    result = f(*args, **kwargs)
+cupy/_core/_cub_reduction.pyx:243: in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+    return _create_cub_reduction_function(
+cupy/_core/_cub_reduction.pyx:228: in cupy._core._cub_reduction._create_cub_reduction_function
+    module = compile_with_cache(
+cupy/_core/core.pyx:2001: in cupy._core.core.compile_with_cache
+    return cuda.compile_with_cache(
+cupy/cuda/compiler.py:428: in compile_with_cache
+    return _compile_with_cache_hip(
+cupy/cuda/compiler.py:838: in _compile_with_cache_hip
+    temp_path = tf.name
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tempfile._TemporaryFileWrapper object at 0x7fa388d050a0>, exc = None
+value = None, tb = None
+
+    def __exit__(self, exc, value, tb):
+>       result = self.file.__exit__(exc, value, tb)
+E       AssertionError: Only cupy raises error
+E       
+E       Traceback (most recent call last):
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E           result = impl(self, *args, **kw)
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/cupy_tests/core_tests/test_ndarray_reduction.py", line 381, in test_cub_min
+E           a.min(axis=axis)
+E         File "cupy/_core/core.pyx", line 848, in cupy._core.core.ndarray.min
+E           cpdef ndarray min(self, axis=None, out=None, keepdims=False):
+E         File "cupy/_core/core.pyx", line 856, in cupy._core.core.ndarray.min
+E           return _statistics._ndarray_min(self, axis, out, None, keepdims)
+E         File "cupy/_core/_routines_statistics.pyx", line 59, in cupy._core._routines_statistics._ndarray_min
+E           return _amin(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+E         File "cupy/_core/_reduction.pyx", line 560, in cupy._core._reduction._SimpleReductionKernel.__call__
+E           return self._call(
+E         File "cupy/_core/_reduction.pyx", line 346, in cupy._core._reduction._AbstractReductionKernel._call
+E           cub_success = _cub_reduction._try_to_call_cub_reduction(
+E         File "cupy/_core/_cub_reduction.pyx", line 700, in cupy._core._cub_reduction._try_to_call_cub_reduction
+E           _launch_cub(
+E         File "cupy/_core/_cub_reduction.pyx", line 536, in cupy._core._cub_reduction._launch_cub
+E           _cub_two_pass_launch(
+E         File "cupy/_core/_cub_reduction.pyx", line 505, in cupy._core._cub_reduction._cub_two_pass_launch
+E           func = _SimpleCubReductionKernel_get_cached_function(
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1081, in __call__
+E           return self._mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1085, in _mock_call
+E           return self._execute_mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1155, in _execute_mock_call
+E           return self._mock_wraps(*args, **kwargs)
+E         File "cupy/_util.pyx", line 59, in cupy._util.memoize.decorator.ret
+E           result = f(*args, **kwargs)
+E         File "cupy/_core/_cub_reduction.pyx", line 243, in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+E           return _create_cub_reduction_function(
+E         File "cupy/_core/_cub_reduction.pyx", line 228, in cupy._core._cub_reduction._create_cub_reduction_function
+E           module = compile_with_cache(
+E         File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
+E           return cuda.compile_with_cache(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
+E           return _compile_with_cache_hip(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
+E           temp_path = tf.name
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
+E           result = self.file.__exit__(exc, value, tb)
+E       OSError: [Errno 28] No space left on device
+
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py:491: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.int16'>
+axis is (0, 1) , ndim is 2 , shape is (10, 20) , order is C
+_ TestCubReduction_param_10_{backend='block', order='C', shape=(10, 20, 30)}.test_cub_max _
+
+self = <<cupy_tests.core_tests.test_ndarray_reduction.TestCubReduction_param_10_{backend='block', order='C', shape=(10, 20, 30)} testMethod=test_cub_max>  parameter: {'backend': 'block', 'order': 'C', 'shape': (10, 20, 30)}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/__init__.py'>
+dtype = <class 'numpy.float64'>, axis = (0, 1, 2)
+
+    @testing.for_contiguous_axes()
+    @testing.for_all_dtypes(no_bool=True)
+    @testing.numpy_cupy_allclose(rtol=1E-5)
+    def test_cub_max(self, xp, dtype, axis):
+        a = testing.shaped_random(self.shape, xp, dtype, order=self.order)
+    
+        if xp is numpy:
+            return a.max(axis=axis)
+    
+        # xp is cupy, first ensure we really use CUB
+        ret = cupy.empty(())  # Cython checks return type, need to fool it
+        if self.backend == 'device':
+            func_name = 'cupy._core._routines_statistics.cub.'
+            if len(axis) == len(self.shape):
+                func_name += 'device_reduce'
+            else:
+                func_name += 'device_segmented_reduce'
+            with testing.AssertFunctionIsCalled(func_name, return_value=ret):
+                a.max(axis=axis)
+        elif self.backend == 'block':
+            # this is the only function we can mock; the rest is cdef'd
+            func_name = 'cupy._core._cub_reduction.'
+            func_name += '_SimpleCubReductionKernel_get_cached_function'
+            func = _cub_reduction._SimpleCubReductionKernel_get_cached_function
+            if len(axis) == len(self.shape):
+                times_called = 2  # two passes
+            else:
+                times_called = 1  # one pass
+            with testing.AssertFunctionIsCalled(
+                    func_name, wraps=func, times_called=times_called):
+>               a.max(axis=axis)
+
+tests/cupy_tests/core_tests/test_ndarray_reduction.py:421: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/_core/core.pyx:819: in cupy._core.core.ndarray.max
+    cpdef ndarray max(self, axis=None, out=None, keepdims=False):
+cupy/_core/core.pyx:827: in cupy._core.core.ndarray.max
+    return _statistics._ndarray_max(self, axis, out, None, keepdims)
+cupy/_core/_routines_statistics.pyx:41: in cupy._core._routines_statistics._ndarray_max
+    return _amax(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+cupy/_core/_reduction.pyx:560: in cupy._core._reduction._SimpleReductionKernel.__call__
+    return self._call(
+cupy/_core/_reduction.pyx:346: in cupy._core._reduction._AbstractReductionKernel._call
+    cub_success = _cub_reduction._try_to_call_cub_reduction(
+cupy/_core/_cub_reduction.pyx:700: in cupy._core._cub_reduction._try_to_call_cub_reduction
+    _launch_cub(
+cupy/_core/_cub_reduction.pyx:536: in cupy._core._cub_reduction._launch_cub
+    _cub_two_pass_launch(
+cupy/_core/_cub_reduction.pyx:471: in cupy._core._cub_reduction._cub_two_pass_launch
+    func = _SimpleCubReductionKernel_get_cached_function(
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1081: in __call__
+    return self._mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1085: in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1155: in _execute_mock_call
+    return self._mock_wraps(*args, **kwargs)
+cupy/_util.pyx:59: in cupy._util.memoize.decorator.ret
+    result = f(*args, **kwargs)
+cupy/_core/_cub_reduction.pyx:243: in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+    return _create_cub_reduction_function(
+cupy/_core/_cub_reduction.pyx:228: in cupy._core._cub_reduction._create_cub_reduction_function
+    module = compile_with_cache(
+cupy/_core/core.pyx:2001: in cupy._core.core.compile_with_cache
+    return cuda.compile_with_cache(
+cupy/cuda/compiler.py:428: in compile_with_cache
+    return _compile_with_cache_hip(
+cupy/cuda/compiler.py:838: in _compile_with_cache_hip
+    temp_path = tf.name
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tempfile._TemporaryFileWrapper object at 0x7f9959578b80>, exc = None
+value = None, tb = None
+
+    def __exit__(self, exc, value, tb):
+>       result = self.file.__exit__(exc, value, tb)
+E       AssertionError: Only cupy raises error
+E       
+E       Traceback (most recent call last):
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E           result = impl(self, *args, **kw)
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/cupy_tests/core_tests/test_ndarray_reduction.py", line 421, in test_cub_max
+E           a.max(axis=axis)
+E         File "cupy/_core/core.pyx", line 819, in cupy._core.core.ndarray.max
+E           cpdef ndarray max(self, axis=None, out=None, keepdims=False):
+E         File "cupy/_core/core.pyx", line 827, in cupy._core.core.ndarray.max
+E           return _statistics._ndarray_max(self, axis, out, None, keepdims)
+E         File "cupy/_core/_routines_statistics.pyx", line 41, in cupy._core._routines_statistics._ndarray_max
+E           return _amax(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+E         File "cupy/_core/_reduction.pyx", line 560, in cupy._core._reduction._SimpleReductionKernel.__call__
+E           return self._call(
+E         File "cupy/_core/_reduction.pyx", line 346, in cupy._core._reduction._AbstractReductionKernel._call
+E           cub_success = _cub_reduction._try_to_call_cub_reduction(
+E         File "cupy/_core/_cub_reduction.pyx", line 700, in cupy._core._cub_reduction._try_to_call_cub_reduction
+E           _launch_cub(
+E         File "cupy/_core/_cub_reduction.pyx", line 536, in cupy._core._cub_reduction._launch_cub
+E           _cub_two_pass_launch(
+E         File "cupy/_core/_cub_reduction.pyx", line 471, in cupy._core._cub_reduction._cub_two_pass_launch
+E           func = _SimpleCubReductionKernel_get_cached_function(
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1081, in __call__
+E           return self._mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1085, in _mock_call
+E           return self._execute_mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1155, in _execute_mock_call
+E           return self._mock_wraps(*args, **kwargs)
+E         File "cupy/_util.pyx", line 59, in cupy._util.memoize.decorator.ret
+E           result = f(*args, **kwargs)
+E         File "cupy/_core/_cub_reduction.pyx", line 243, in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+E           return _create_cub_reduction_function(
+E         File "cupy/_core/_cub_reduction.pyx", line 228, in cupy._core._cub_reduction._create_cub_reduction_function
+E           module = compile_with_cache(
+E         File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
+E           return cuda.compile_with_cache(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
+E           return _compile_with_cache_hip(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
+E           temp_path = tf.name
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
+E           result = self.file.__exit__(exc, value, tb)
+E       OSError: [Errno 28] No space left on device
+
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py:491: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+axis is (0, 1, 2) , ndim is 3 , shape is (10, 20, 30) , order is C
+_ TestCubReduction_param_10_{backend='block', order='C', shape=(10, 20, 30)}.test_cub_min _
+
+self = <<cupy_tests.core_tests.test_ndarray_reduction.TestCubReduction_param_10_{backend='block', order='C', shape=(10, 20, 30)} testMethod=test_cub_min>  parameter: {'backend': 'block', 'order': 'C', 'shape': (10, 20, 30)}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/__init__.py'>
+dtype = <class 'numpy.float64'>, axis = (0, 1, 2)
+
+    @testing.for_contiguous_axes()
+    @testing.for_all_dtypes(no_bool=True)
+    @testing.numpy_cupy_allclose(rtol=1E-5)
+    def test_cub_min(self, xp, dtype, axis):
+        a = testing.shaped_random(self.shape, xp, dtype, order=self.order)
+    
+        if xp is numpy:
+            return a.min(axis=axis)
+    
+        # xp is cupy, first ensure we really use CUB
+        ret = cupy.empty(())  # Cython checks return type, need to fool it
+        if self.backend == 'device':
+            func_name = 'cupy._core._routines_statistics.cub.'
+            if len(axis) == len(self.shape):
+                func_name += 'device_reduce'
+            else:
+                func_name += 'device_segmented_reduce'
+            with testing.AssertFunctionIsCalled(func_name, return_value=ret):
+                a.min(axis=axis)
+        elif self.backend == 'block':
+            # this is the only function we can mock; the rest is cdef'd
+            func_name = 'cupy._core._cub_reduction.'
+            func_name += '_SimpleCubReductionKernel_get_cached_function'
+            func = _cub_reduction._SimpleCubReductionKernel_get_cached_function
+            if len(axis) == len(self.shape):
+                times_called = 2  # two passes
+            else:
+                times_called = 1  # one pass
+            with testing.AssertFunctionIsCalled(
+                    func_name, wraps=func, times_called=times_called):
+>               a.min(axis=axis)
+
+tests/cupy_tests/core_tests/test_ndarray_reduction.py:381: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/_core/core.pyx:848: in cupy._core.core.ndarray.min
+    cpdef ndarray min(self, axis=None, out=None, keepdims=False):
+cupy/_core/core.pyx:856: in cupy._core.core.ndarray.min
+    return _statistics._ndarray_min(self, axis, out, None, keepdims)
+cupy/_core/_routines_statistics.pyx:59: in cupy._core._routines_statistics._ndarray_min
+    return _amin(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+cupy/_core/_reduction.pyx:560: in cupy._core._reduction._SimpleReductionKernel.__call__
+    return self._call(
+cupy/_core/_reduction.pyx:346: in cupy._core._reduction._AbstractReductionKernel._call
+    cub_success = _cub_reduction._try_to_call_cub_reduction(
+cupy/_core/_cub_reduction.pyx:700: in cupy._core._cub_reduction._try_to_call_cub_reduction
+    _launch_cub(
+cupy/_core/_cub_reduction.pyx:536: in cupy._core._cub_reduction._launch_cub
+    _cub_two_pass_launch(
+cupy/_core/_cub_reduction.pyx:471: in cupy._core._cub_reduction._cub_two_pass_launch
+    func = _SimpleCubReductionKernel_get_cached_function(
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1081: in __call__
+    return self._mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1085: in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1155: in _execute_mock_call
+    return self._mock_wraps(*args, **kwargs)
+cupy/_util.pyx:59: in cupy._util.memoize.decorator.ret
+    result = f(*args, **kwargs)
+cupy/_core/_cub_reduction.pyx:243: in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+    return _create_cub_reduction_function(
+cupy/_core/_cub_reduction.pyx:228: in cupy._core._cub_reduction._create_cub_reduction_function
+    module = compile_with_cache(
+cupy/_core/core.pyx:2001: in cupy._core.core.compile_with_cache
+    return cuda.compile_with_cache(
+cupy/cuda/compiler.py:428: in compile_with_cache
+    return _compile_with_cache_hip(
+cupy/cuda/compiler.py:838: in _compile_with_cache_hip
+    temp_path = tf.name
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tempfile._TemporaryFileWrapper object at 0x7fa3889485e0>, exc = None
+value = None, tb = None
+
+    def __exit__(self, exc, value, tb):
+>       result = self.file.__exit__(exc, value, tb)
+E       AssertionError: Only cupy raises error
+E       
+E       Traceback (most recent call last):
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E           result = impl(self, *args, **kw)
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/cupy_tests/core_tests/test_ndarray_reduction.py", line 381, in test_cub_min
+E           a.min(axis=axis)
+E         File "cupy/_core/core.pyx", line 848, in cupy._core.core.ndarray.min
+E           cpdef ndarray min(self, axis=None, out=None, keepdims=False):
+E         File "cupy/_core/core.pyx", line 856, in cupy._core.core.ndarray.min
+E           return _statistics._ndarray_min(self, axis, out, None, keepdims)
+E         File "cupy/_core/_routines_statistics.pyx", line 59, in cupy._core._routines_statistics._ndarray_min
+E           return _amin(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+E         File "cupy/_core/_reduction.pyx", line 560, in cupy._core._reduction._SimpleReductionKernel.__call__
+E           return self._call(
+E         File "cupy/_core/_reduction.pyx", line 346, in cupy._core._reduction._AbstractReductionKernel._call
+E           cub_success = _cub_reduction._try_to_call_cub_reduction(
+E         File "cupy/_core/_cub_reduction.pyx", line 700, in cupy._core._cub_reduction._try_to_call_cub_reduction
+E           _launch_cub(
+E         File "cupy/_core/_cub_reduction.pyx", line 536, in cupy._core._cub_reduction._launch_cub
+E           _cub_two_pass_launch(
+E         File "cupy/_core/_cub_reduction.pyx", line 471, in cupy._core._cub_reduction._cub_two_pass_launch
+E           func = _SimpleCubReductionKernel_get_cached_function(
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1081, in __call__
+E           return self._mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1085, in _mock_call
+E           return self._execute_mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1155, in _execute_mock_call
+E           return self._mock_wraps(*args, **kwargs)
+E         File "cupy/_util.pyx", line 59, in cupy._util.memoize.decorator.ret
+E           result = f(*args, **kwargs)
+E         File "cupy/_core/_cub_reduction.pyx", line 243, in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+E           return _create_cub_reduction_function(
+E         File "cupy/_core/_cub_reduction.pyx", line 228, in cupy._core._cub_reduction._create_cub_reduction_function
+E           module = compile_with_cache(
+E         File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
+E           return cuda.compile_with_cache(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
+E           return _compile_with_cache_hip(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
+E           temp_path = tf.name
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
+E           result = self.file.__exit__(exc, value, tb)
+E       OSError: [Errno 28] No space left on device
+
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py:491: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+axis is (0, 1, 2) , ndim is 3 , shape is (10, 20, 30) , order is C
+_ TestCubReduction_param_11_{backend='block', order='C', shape=(10, 20, 30, 40)}.test_cub_max _
+
+self = <<cupy_tests.core_tests.test_ndarray_reduction.TestCubReduction_param_11_{backend='block', order='C', shape=(10, 20, 30, 40)} testMethod=test_cub_max>  parameter: {'backend': 'block', 'order': 'C', 'shape': (10, 20, 30, 40)}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/__init__.py'>
+dtype = <class 'numpy.float64'>, axis = (0, 1, 2, 3)
+
+    @testing.for_contiguous_axes()
+    @testing.for_all_dtypes(no_bool=True)
+    @testing.numpy_cupy_allclose(rtol=1E-5)
+    def test_cub_max(self, xp, dtype, axis):
+        a = testing.shaped_random(self.shape, xp, dtype, order=self.order)
+    
+        if xp is numpy:
+            return a.max(axis=axis)
+    
+        # xp is cupy, first ensure we really use CUB
+        ret = cupy.empty(())  # Cython checks return type, need to fool it
+        if self.backend == 'device':
+            func_name = 'cupy._core._routines_statistics.cub.'
+            if len(axis) == len(self.shape):
+                func_name += 'device_reduce'
+            else:
+                func_name += 'device_segmented_reduce'
+            with testing.AssertFunctionIsCalled(func_name, return_value=ret):
+                a.max(axis=axis)
+        elif self.backend == 'block':
+            # this is the only function we can mock; the rest is cdef'd
+            func_name = 'cupy._core._cub_reduction.'
+            func_name += '_SimpleCubReductionKernel_get_cached_function'
+            func = _cub_reduction._SimpleCubReductionKernel_get_cached_function
+            if len(axis) == len(self.shape):
+                times_called = 2  # two passes
+            else:
+                times_called = 1  # one pass
+            with testing.AssertFunctionIsCalled(
+                    func_name, wraps=func, times_called=times_called):
+>               a.max(axis=axis)
+
+tests/cupy_tests/core_tests/test_ndarray_reduction.py:421: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/_core/core.pyx:819: in cupy._core.core.ndarray.max
+    cpdef ndarray max(self, axis=None, out=None, keepdims=False):
+cupy/_core/core.pyx:827: in cupy._core.core.ndarray.max
+    return _statistics._ndarray_max(self, axis, out, None, keepdims)
+cupy/_core/_routines_statistics.pyx:41: in cupy._core._routines_statistics._ndarray_max
+    return _amax(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+cupy/_core/_reduction.pyx:560: in cupy._core._reduction._SimpleReductionKernel.__call__
+    return self._call(
+cupy/_core/_reduction.pyx:346: in cupy._core._reduction._AbstractReductionKernel._call
+    cub_success = _cub_reduction._try_to_call_cub_reduction(
+cupy/_core/_cub_reduction.pyx:700: in cupy._core._cub_reduction._try_to_call_cub_reduction
+    _launch_cub(
+cupy/_core/_cub_reduction.pyx:536: in cupy._core._cub_reduction._launch_cub
+    _cub_two_pass_launch(
+cupy/_core/_cub_reduction.pyx:471: in cupy._core._cub_reduction._cub_two_pass_launch
+    func = _SimpleCubReductionKernel_get_cached_function(
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1081: in __call__
+    return self._mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1085: in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1155: in _execute_mock_call
+    return self._mock_wraps(*args, **kwargs)
+cupy/_util.pyx:59: in cupy._util.memoize.decorator.ret
+    result = f(*args, **kwargs)
+cupy/_core/_cub_reduction.pyx:243: in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+    return _create_cub_reduction_function(
+cupy/_core/_cub_reduction.pyx:228: in cupy._core._cub_reduction._create_cub_reduction_function
+    module = compile_with_cache(
+cupy/_core/core.pyx:2001: in cupy._core.core.compile_with_cache
+    return cuda.compile_with_cache(
+cupy/cuda/compiler.py:428: in compile_with_cache
+    return _compile_with_cache_hip(
+cupy/cuda/compiler.py:838: in _compile_with_cache_hip
+    temp_path = tf.name
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tempfile._TemporaryFileWrapper object at 0x7fa399acf370>, exc = None
+value = None, tb = None
+
+    def __exit__(self, exc, value, tb):
+>       result = self.file.__exit__(exc, value, tb)
+E       AssertionError: Only cupy raises error
+E       
+E       Traceback (most recent call last):
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E           result = impl(self, *args, **kw)
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/cupy_tests/core_tests/test_ndarray_reduction.py", line 421, in test_cub_max
+E           a.max(axis=axis)
+E         File "cupy/_core/core.pyx", line 819, in cupy._core.core.ndarray.max
+E           cpdef ndarray max(self, axis=None, out=None, keepdims=False):
+E         File "cupy/_core/core.pyx", line 827, in cupy._core.core.ndarray.max
+E           return _statistics._ndarray_max(self, axis, out, None, keepdims)
+E         File "cupy/_core/_routines_statistics.pyx", line 41, in cupy._core._routines_statistics._ndarray_max
+E           return _amax(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+E         File "cupy/_core/_reduction.pyx", line 560, in cupy._core._reduction._SimpleReductionKernel.__call__
+E           return self._call(
+E         File "cupy/_core/_reduction.pyx", line 346, in cupy._core._reduction._AbstractReductionKernel._call
+E           cub_success = _cub_reduction._try_to_call_cub_reduction(
+E         File "cupy/_core/_cub_reduction.pyx", line 700, in cupy._core._cub_reduction._try_to_call_cub_reduction
+E           _launch_cub(
+E         File "cupy/_core/_cub_reduction.pyx", line 536, in cupy._core._cub_reduction._launch_cub
+E           _cub_two_pass_launch(
+E         File "cupy/_core/_cub_reduction.pyx", line 471, in cupy._core._cub_reduction._cub_two_pass_launch
+E           func = _SimpleCubReductionKernel_get_cached_function(
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1081, in __call__
+E           return self._mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1085, in _mock_call
+E           return self._execute_mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1155, in _execute_mock_call
+E           return self._mock_wraps(*args, **kwargs)
+E         File "cupy/_util.pyx", line 59, in cupy._util.memoize.decorator.ret
+E           result = f(*args, **kwargs)
+E         File "cupy/_core/_cub_reduction.pyx", line 243, in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+E           return _create_cub_reduction_function(
+E         File "cupy/_core/_cub_reduction.pyx", line 228, in cupy._core._cub_reduction._create_cub_reduction_function
+E           module = compile_with_cache(
+E         File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
+E           return cuda.compile_with_cache(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
+E           return _compile_with_cache_hip(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
+E           temp_path = tf.name
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
+E           result = self.file.__exit__(exc, value, tb)
+E       OSError: [Errno 28] No space left on device
+
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py:491: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+axis is (0, 1, 2, 3) , ndim is 4 , shape is (10, 20, 30, 40) , order is C
+_ TestCubReduction_param_11_{backend='block', order='C', shape=(10, 20, 30, 40)}.test_cub_min _
+
+self = <<cupy_tests.core_tests.test_ndarray_reduction.TestCubReduction_param_11_{backend='block', order='C', shape=(10, 20, 30, 40)} testMethod=test_cub_min>  parameter: {'backend': 'block', 'order': 'C', 'shape': (10, 20, 30, 40)}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/__init__.py'>
+dtype = <class 'numpy.float64'>, axis = (0, 1, 2, 3)
+
+    @testing.for_contiguous_axes()
+    @testing.for_all_dtypes(no_bool=True)
+    @testing.numpy_cupy_allclose(rtol=1E-5)
+    def test_cub_min(self, xp, dtype, axis):
+        a = testing.shaped_random(self.shape, xp, dtype, order=self.order)
+    
+        if xp is numpy:
+            return a.min(axis=axis)
+    
+        # xp is cupy, first ensure we really use CUB
+        ret = cupy.empty(())  # Cython checks return type, need to fool it
+        if self.backend == 'device':
+            func_name = 'cupy._core._routines_statistics.cub.'
+            if len(axis) == len(self.shape):
+                func_name += 'device_reduce'
+            else:
+                func_name += 'device_segmented_reduce'
+            with testing.AssertFunctionIsCalled(func_name, return_value=ret):
+                a.min(axis=axis)
+        elif self.backend == 'block':
+            # this is the only function we can mock; the rest is cdef'd
+            func_name = 'cupy._core._cub_reduction.'
+            func_name += '_SimpleCubReductionKernel_get_cached_function'
+            func = _cub_reduction._SimpleCubReductionKernel_get_cached_function
+            if len(axis) == len(self.shape):
+                times_called = 2  # two passes
+            else:
+                times_called = 1  # one pass
+            with testing.AssertFunctionIsCalled(
+                    func_name, wraps=func, times_called=times_called):
+>               a.min(axis=axis)
+
+tests/cupy_tests/core_tests/test_ndarray_reduction.py:381: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/_core/core.pyx:848: in cupy._core.core.ndarray.min
+    cpdef ndarray min(self, axis=None, out=None, keepdims=False):
+cupy/_core/core.pyx:856: in cupy._core.core.ndarray.min
+    return _statistics._ndarray_min(self, axis, out, None, keepdims)
+cupy/_core/_routines_statistics.pyx:59: in cupy._core._routines_statistics._ndarray_min
+    return _amin(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+cupy/_core/_reduction.pyx:560: in cupy._core._reduction._SimpleReductionKernel.__call__
+    return self._call(
+cupy/_core/_reduction.pyx:346: in cupy._core._reduction._AbstractReductionKernel._call
+    cub_success = _cub_reduction._try_to_call_cub_reduction(
+cupy/_core/_cub_reduction.pyx:700: in cupy._core._cub_reduction._try_to_call_cub_reduction
+    _launch_cub(
+cupy/_core/_cub_reduction.pyx:536: in cupy._core._cub_reduction._launch_cub
+    _cub_two_pass_launch(
+cupy/_core/_cub_reduction.pyx:471: in cupy._core._cub_reduction._cub_two_pass_launch
+    func = _SimpleCubReductionKernel_get_cached_function(
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1081: in __call__
+    return self._mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1085: in _mock_call
+    return self._execute_mock_call(*args, **kwargs)
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py:1155: in _execute_mock_call
+    return self._mock_wraps(*args, **kwargs)
+cupy/_util.pyx:59: in cupy._util.memoize.decorator.ret
+    result = f(*args, **kwargs)
+cupy/_core/_cub_reduction.pyx:243: in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+    return _create_cub_reduction_function(
+cupy/_core/_cub_reduction.pyx:228: in cupy._core._cub_reduction._create_cub_reduction_function
+    module = compile_with_cache(
+cupy/_core/core.pyx:2001: in cupy._core.core.compile_with_cache
+    return cuda.compile_with_cache(
+cupy/cuda/compiler.py:428: in compile_with_cache
+    return _compile_with_cache_hip(
+cupy/cuda/compiler.py:838: in _compile_with_cache_hip
+    temp_path = tf.name
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+self = <tempfile._TemporaryFileWrapper object at 0x7fa399b22e20>, exc = None
+value = None, tb = None
+
+    def __exit__(self, exc, value, tb):
+>       result = self.file.__exit__(exc, value, tb)
+E       AssertionError: Only cupy raises error
+E       
+E       Traceback (most recent call last):
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E           result = impl(self, *args, **kw)
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/cupy_tests/core_tests/test_ndarray_reduction.py", line 381, in test_cub_min
+E           a.min(axis=axis)
+E         File "cupy/_core/core.pyx", line 848, in cupy._core.core.ndarray.min
+E           cpdef ndarray min(self, axis=None, out=None, keepdims=False):
+E         File "cupy/_core/core.pyx", line 856, in cupy._core.core.ndarray.min
+E           return _statistics._ndarray_min(self, axis, out, None, keepdims)
+E         File "cupy/_core/_routines_statistics.pyx", line 59, in cupy._core._routines_statistics._ndarray_min
+E           return _amin(self, axis=axis, out=out, dtype=dtype, keepdims=keepdims)
+E         File "cupy/_core/_reduction.pyx", line 560, in cupy._core._reduction._SimpleReductionKernel.__call__
+E           return self._call(
+E         File "cupy/_core/_reduction.pyx", line 346, in cupy._core._reduction._AbstractReductionKernel._call
+E           cub_success = _cub_reduction._try_to_call_cub_reduction(
+E         File "cupy/_core/_cub_reduction.pyx", line 700, in cupy._core._cub_reduction._try_to_call_cub_reduction
+E           _launch_cub(
+E         File "cupy/_core/_cub_reduction.pyx", line 536, in cupy._core._cub_reduction._launch_cub
+E           _cub_two_pass_launch(
+E         File "cupy/_core/_cub_reduction.pyx", line 471, in cupy._core._cub_reduction._cub_two_pass_launch
+E           func = _SimpleCubReductionKernel_get_cached_function(
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1081, in __call__
+E           return self._mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1085, in _mock_call
+E           return self._execute_mock_call(*args, **kwargs)
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/mock.py", line 1155, in _execute_mock_call
+E           return self._mock_wraps(*args, **kwargs)
+E         File "cupy/_util.pyx", line 59, in cupy._util.memoize.decorator.ret
+E           result = f(*args, **kwargs)
+E         File "cupy/_core/_cub_reduction.pyx", line 243, in cupy._core._cub_reduction._SimpleCubReductionKernel_get_cached_function
+E           return _create_cub_reduction_function(
+E         File "cupy/_core/_cub_reduction.pyx", line 228, in cupy._core._cub_reduction._create_cub_reduction_function
+E           module = compile_with_cache(
+E         File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
+E           return cuda.compile_with_cache(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
+E           return _compile_with_cache_hip(
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
+E           temp_path = tf.name
+E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
+E           result = self.file.__exit__(exc, value, tb)
+E       OSError: [Errno 28] No space left on device
+
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py:491: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+axis is (0, 1, 2, 3) , ndim is 4 , shape is (10, 20, 30, 40) , order is C
 ___________ TestDistributionsPoissonInvalid.test_none_lam_generator ____________
 
 self = <cupy_tests.random_tests.test_distributions.TestDistributionsPoissonInvalid testMethod=test_none_lam_generator>
@@ -1391,32 +2297,35 @@ E        y: array([0., 3., 0.], dtype=float16)
 cupy/testing/_array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 dtype is e
-_ TestHfftn_param_24_{axes=(0, 1, 2), norm=None, s=None, shape=(3, 5, 20)}.test_ihfftn _
+_ TestHfft2_param_20_{axes=None, norm=None, s=None, shape=(2, 3, 10)}.test_ihfft2 _
 
-self = <<cupyx_tests.scipy_tests.fft_tests.test_fft.TestHfftn_param_24_{axes=(0, 1, 2), norm=None, s=None, shape=(3, 5, 20)} testMethod=test_ihfftn>  parameter: {'shape': (3, 5, 20), 's': None, 'axes': (0, 1, 2), 'norm': None}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupy/__init__.py'>
-dtype = <class 'numpy.float32'>
+self = <<cupyx_tests.scipy_tests.fft_tests.test_fft.TestHfft2_param_20_{axes=None, norm=None, s=None, shape=(2, 3, 10)} testMethod=test_ihfft2>  parameter: {'shape': (2, 3, 10), 's': None, 'axes': None, 'norm': None}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/__init__.py'>
+dtype = <class 'numpy.int16'>
 
     @testing.for_all_dtypes(no_complex=True)
     @testing.numpy_cupy_allclose(rtol=1e-4, atol=1e-7, accept_error=ValueError,
                                  contiguous_check=False)
-    def test_ihfftn(self, xp, dtype):
+    def test_ihfft2(self, xp, dtype):
         x = testing.shaped_random(self.shape, xp, dtype)
         x_orig = x.copy()
-        out = _fft_module(xp).ihfftn(x, s=self.s, axes=self.axes,
+        out = _fft_module(xp).ihfft2(x, s=self.s, axes=self.axes,
                                      norm=self.norm)
 >       testing.assert_array_equal(x, x_orig)
 
-tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py:1756: 
+tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py:1685: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-x = array([[[5.488135  , 7.1518936 , 6.0276337 , 5.448832  , 4.236548  ,
-         6.458941  , 4.375872  , 8.91773   , 9.63... , 1.8984791 , 5.1131897 ,
-         2.2431703 , 0.9784449 , 8.621915  , 9.729195  , 9.608347  ]]],
-      dtype=float32)
-y = array([[[-3.12510891e+01,  4.26768303e+01,  1.42382832e+01,
-         -2.04548645e+01,  1.18619766e+02,  9.14664173e+00...         2.24317026e+00,  9.78444874e-01,  8.62191486e+00,
-          9.72919464e+00,  9.60834694e+00]]], dtype=float32)
+x = array([[[-26428,   6686, -20663, -16360, -16600, -26384, -15834, -16334,
+          -4924,  29892],
+        [ 16335, -1...  3],
+        [     5,      4,      9,      1,      2,      1,      6,      2,
+              4,      2]]], dtype=int16)
+y = array([[[5, 7, 6, 5, 4, 6, 4, 8, 9, 3],
+        [7, 5, 5, 9, 0, 0, 0, 8, 7, 8],
+        [9, 7, 4, 7, 1, 6, 1, 9, 5, 4]...4, 5, 0, 6, 6, 6, 9, 6],
+        [3, 4, 6, 0, 6, 6, 2, 1, 3, 3],
+        [5, 4, 9, 1, 2, 1, 6, 2, 4, 2]]], dtype=int16)
 err_msg = '', verbose = True, strides_check = False
 
     def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
@@ -1439,11 +2348,11 @@ err_msg = '', verbose = True, strides_check = False
 E       AssertionError: Only cupy raises error
 E       
 E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/testing/_helper.py", line 47, in _call_func
 E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py", line 1756, in test_ihfftn
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py", line 1685, in test_ihfft2
 E           testing.assert_array_equal(x, x_orig)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupy/testing/_array.py", line 91, in assert_array_equal
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/testing/_array.py", line 91, in assert_array_equal
 E           numpy.testing.assert_array_equal(
 E         File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/testing/_private/utils.py", line 930, in assert_array_equal
 E           assert_array_compare(operator.__eq__, x, y, err_msg=err_msg,
@@ -1452,100 +2361,25 @@ E           raise AssertionError(msg)
 E       AssertionError: 
 E       Arrays are not equal
 E       
-E       Mismatched elements: 74 / 300 (24.7%)
-E       Max absolute difference: 114.38322
-E       Max relative difference: 31.370865
-E        x: array([[[5.488135, 7.151894, 6.027634, 5.448832, 4.236548, 6.458941,
-E                4.375872, 8.91773 , 9.636627, 3.834415, 7.91725 , 5.288949,
-E                5.680446, 9.255966, 0.710361, 0.871293, 0.202184, 8.326199,...
-E        y: array([[[-3.125109e+01,  4.267683e+01,  1.423828e+01, -2.045486e+01,
-E                 1.186198e+02,  9.146642e+00, -6.226250e+01,  9.510055e+00,
-E                 3.373123e+01,  3.586354e+01,  7.902655e+01, -6.156910e+00,...
+E       Mismatched elements: 31 / 60 (51.7%)
+E       Max absolute difference: 29889
+E       Max relative difference: 9963.
+E        x: array([[[-26428,   6686, -20663, -16360, -16600, -26384, -15834, -16334,
+E                 -4924,  29892],
+E               [ 16335, -16406, -19862, -19969,  -1899,  16400,      0,      0,...
+E        y: array([[[5, 7, 6, 5, 4, 6, 4, 8, 9, 3],
+E               [7, 5, 5, 9, 0, 0, 0, 8, 7, 8],
+E               [9, 7, 4, 7, 1, 6, 1, 9, 5, 4]],...
 
 cupy/testing/_array.py:91: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is <class 'numpy.float32'>
-_ TestHfftn_param_24_{axes=(0, 1, 2), norm=None, s=None, shape=(3, 5, 20)}.test_ihfftn_backend _
-
-self = <<cupyx_tests.scipy_tests.fft_tests.test_fft.TestHfftn_param_24_{axes=(0, 1, 2), norm=None, s=None, shape=(3, 5, 20)} testMethod=test_ihfftn_backend>  parameter: {'shape': (3, 5, 20), 's': None, 'axes': (0, 1, 2), 'norm': None}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupy/__init__.py'>
-dtype = <class 'numpy.uint8'>
-
-    @testing.for_all_dtypes(no_complex=True)
-    @testing.numpy_cupy_allclose(rtol=1e-4, atol=1e-7, accept_error=ValueError,
-                                 contiguous_check=False)
-    def test_ihfftn_backend(self, xp, dtype):
-        x = testing.shaped_random(self.shape, xp, dtype)
-        x_orig = x.copy()
-        backend = 'scipy' if xp is np else cp_fft
-        with scipy_fft.set_backend(backend):
-            out = scipy_fft.ihfftn(x, s=self.s, axes=self.axes, norm=self.norm)
->       testing.assert_array_equal(x, x_orig)
-
-tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py:1768: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-x = array([[[5, 7, 6, 5, 4, 6, 4, 8, 9, 3, 7, 5, 5, 9, 0, 0, 0, 8, 7, 8],
-        [9, 7, 4, 7, 1, 6, 1, 9, 5, 4, 2, 7, 4, ... 8, 3, 9, 2, 9, 9, 7, 6, 8],
-        [2, 8, 6, 0, 3, 1, 9, 4, 4, 6, 3, 1, 8, 1, 5, 2, 0, 8, 9, 9]]],
-      dtype=uint8)
-y = array([[[213,  38,  57,  97, 177, 240,  51,  64, 254,  23, 139, 134,
-         126, 214,  54,  64, 194,  60, 197,  88],...186,  41,  80,  65,  67,  67, 192,  37,  11, 124,  10,
-           2, 194,  65, 192, 144,   9, 235, 223]]], dtype=uint8)
-err_msg = '', verbose = True, strides_check = False
-
-    def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
-        """Raises an AssertionError if two array_like objects are not equal.
-    
-        Args:
-             x(numpy.ndarray or cupy.ndarray): The actual object to check.
-             y(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             strides_check(bool): If ``True``, consistency of strides is also
-                 checked.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting values
-                 are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_array_equal`
-        """
->       numpy.testing.assert_array_equal(
-            cupy.asnumpy(x), cupy.asnumpy(y), err_msg=err_msg,
-            verbose=verbose)
-E       AssertionError: Only cupy raises error
-E       
-E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupy/testing/_helper.py", line 47, in _call_func
-E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py", line 1768, in test_ihfftn_backend
-E           testing.assert_array_equal(x, x_orig)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupy/testing/_array.py", line 91, in assert_array_equal
-E           numpy.testing.assert_array_equal(
-E         File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/testing/_private/utils.py", line 930, in assert_array_equal
-E           assert_array_compare(operator.__eq__, x, y, err_msg=err_msg,
-E         File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/testing/_private/utils.py", line 840, in assert_array_compare
-E           raise AssertionError(msg)
-E       AssertionError: 
-E       Arrays are not equal
-E       
-E       Mismatched elements: 299 / 300 (99.7%)
-E       Max absolute difference: 255
-E       Max relative difference: 50.6
-E        x: array([[[5, 7, 6, 5, 4, 6, 4, 8, 9, 3, 7, 5, 5, 9, 0, 0, 0, 8, 7, 8],
-E               [9, 7, 4, 7, 1, 6, 1, 9, 5, 4, 2, 7, 4, 5, 0, 6, 6, 6, 9, 6],
-E               [3, 4, 6, 0, 6, 6, 2, 1, 3, 3, 5, 4, 9, 1, 2, 1, 6, 2, 4, 2],...
-E        y: array([[[213,  38,  57,  97, 177, 240,  51,  64, 254,  23, 139, 134,
-E                126, 214,  54,  64, 194,  60, 197,  88],
-E               [ 60, 129,  80, 192, 174, 194, 196, 178, 128, 132,  35, 192,...
-
-cupy/testing/_array.py:91: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.uint8'>
+dtype is <class 'numpy.int16'>
 ______ TestLUSolve_param_0_{shapes=((4, 4), (4,)), trans=0}.test_lu_solve ______
 
 self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_0_{shapes=((4, 4), (4,)), trans=0} testMethod=test_lu_solve>  parameter: {'shapes': ((4, 4), (4,)), 'trans': 0}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupy/__init__.py'>
-scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupyx/scipy/__init__.py'>
-dtype = <class 'numpy.complex128'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/__init__.py'>
+scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupyx/scipy/__init__.py'>
+dtype = <class 'numpy.float32'>
 
     @testing.for_dtypes('fdFD')
     @testing.numpy_cupy_allclose(atol=1e-5, scipy_name='scp')
@@ -1559,11 +2393,11 @@ dtype = <class 'numpy.complex128'>
 tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py:133: 
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-lu_and_piv = (array([[  4.23654799 +9.78618342j,   6.45894113 +7.99158564j,
-          4.37587211 +4.61479362j,   8.91773001 +7.8052...214985 -0.27429572j,
-          0.24577831 +0.45542352j, -10.51566175 +8.30910642j]]), array([1, 2, 2, 3], dtype=int32))
-b = array([ 0.33598809-0.05543445j,  0.16491818+0.38266951j,
-       -0.22301027-0.13307946j,  0.54701537-0.34111555j])
+lu_and_piv = (array([[ 9.636627  ,  3.8344152 ,  7.91725   ,  5.288949  ],
+       [ 0.58946407,  6.995716  , -3.956574  , -2.246352...,
+       [ 0.43962973,  0.6823059 ,  0.83048815,  4.776696  ]],
+      dtype=float32), array([2, 3, 2, 3], dtype=int32))
+b = array([ 0.5098284 ,  0.25080842, -0.34704718,  0.5484196 ], dtype=float32)
 trans = 0, overwrite_b = False, check_finite = True
 
     def lu_solve(lu_and_piv, b, trans=0, overwrite_b=False, check_finite=True):
@@ -1662,22 +2496,22 @@ trans = 0, overwrite_b = False, check_finite = True
 E           AssertionError: Only cupy raises error
 E           
 E           Traceback (most recent call last):
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/testing/_helper.py", line 47, in _call_func
 E               result = impl(self, *args, **kw)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
 E               return scp.linalg.lu_solve(lu, b, trans=self.trans)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
 E               raise ValueError('illegal value in %d-th argument of '
-E           ValueError: illegal value in 1904661248-th argument of internal getrs (lu_solve)
+E           ValueError: illegal value in 1409886463-th argument of internal getrs (lu_solve)
 
 cupyx/scipy/linalg/decomp_lu.py:344: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is D
+dtype is f
 _____ TestLUSolve_param_4_{shapes=((5, 5), (5, 2)), trans=1}.test_lu_solve _____
 
 self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_4_{shapes=((5, 5), (5, 2)), trans=1} testMethod=test_lu_solve>  parameter: {'shapes': ((5, 5), (5, 2)), 'trans': 1}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupy/__init__.py'>
-scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupyx/scipy/__init__.py'>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/__init__.py'>
+scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupyx/scipy/__init__.py'>
 dtype = <class 'numpy.complex64'>
 
     @testing.for_dtypes('fdFD')
@@ -1798,11 +2632,11 @@ trans = 1, overwrite_b = False, check_finite = True
 E           AssertionError: Only cupy raises error
 E           
 E           Traceback (most recent call last):
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupy/testing/_helper.py", line 47, in _call_func
 E               result = impl(self, *args, **kw)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
 E               return scp.linalg.lu_solve(lu, b, trans=self.trans)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
 E               raise ValueError('illegal value in %d-th argument of '
 E           ValueError: illegal value in 1857101312-th argument of internal getrs (lu_solve)
 
@@ -1811,7 +2645,7 @@ cupyx/scipy/linalg/decomp_lu.py:344: AssertionError
 dtype is F
 _ TestMapCoordinatesHalfInteger.test_map_coordinates_float[_param_46_{mode='grid-constant', order=4}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7f7365f5d220>  parameter: {'mode': 'grid-constant', 'order': 4}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7f9793d47a90>  parameter: {'mode': 'grid-constant', 'order': 4}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -1867,7 +2701,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestMapCoordinatesHalfInteger.test_map_coordinates_float[_param_47_{mode='grid-constant', order=5}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7f7365e78c40>  parameter: {'mode': 'grid-constant', 'order': 5}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7f97939f05b0>  parameter: {'mode': 'grid-constant', 'order': 5}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -1923,7 +2757,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_4_{grid_mode=False, mode='constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735d1f1640>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978af27190>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -1997,7 +2831,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_5_{grid_mode=False, mode='constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735d022370>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978ae1f790>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2071,7 +2905,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_16_{grid_mode=False, mode='mirror', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735d0cc640>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978af5e9d0>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2145,7 +2979,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_17_{grid_mode=False, mode='mirror', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735d106520>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978ae1f160>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2219,7 +3053,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_22_{grid_mode=False, mode='wrap', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735d0e0580>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978a970370>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2293,7 +3127,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_23_{grid_mode=False, mode='wrap', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735cfaad60>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978adc1880>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2367,7 +3201,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_46_{grid_mode=False, mode='grid-constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735d0f3d90>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978ae0c070>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2441,7 +3275,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_47_{grid_mode=False, mode='grid-constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735ce33fa0>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978a8d03d0>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2515,7 +3349,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_52_{grid_mode=True, mode='constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735d0285b0>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978a904730>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2591,7 +3425,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_53_{grid_mode=True, mode='constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735cb2c4c0>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978a96c220>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2667,7 +3501,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_64_{grid_mode=True, mode='mirror', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735d019550>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978a96d640>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2743,7 +3577,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_65_{grid_mode=True, mode='mirror', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735d00d640>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978a7012b0>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2819,7 +3653,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_70_{grid_mode=True, mode='wrap', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735ce4d310>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978a8d3700>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2895,7 +3729,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_71_{grid_mode=True, mode='wrap', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735c9f4490>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978a3f5340>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2971,7 +3805,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_94_{grid_mode=True, mode='grid-constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735c8f3af0>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978a939910>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -3047,7 +3881,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_95_{grid_mode=True, mode='grid-constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f735cb2c6a0>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f978a8e5d00>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -3137,10 +3971,10 @@ tests/example_tests/example_test.py:12: in run_example
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 input = None, capture_output = False, timeout = None, check = True
-popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/example_tests/../../examples/custom_struct/builtin_vectors.py'),)
+popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/example_tests/../../examples/custom_struct/builtin_vectors.py'),)
 kwargs = {'stderr': -2, 'stdout': -1}
-process = <subprocess.Popen object at 0x7f734996f9d0>
-stdout = b'Traceback (most recent call last):\n  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/te...e. Here we allow only arrays of size one so that users do not\nTypeError: Unsupported type <class \'numpy.ndarray\'>\n'
+process = <subprocess.Popen object at 0x7f9777773e50>
+stdout = b'Traceback (most recent call last):\n  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/te...e. Here we allow only arrays of size one so that users do not\nTypeError: Unsupported type <class \'numpy.ndarray\'>\n'
 stderr = None, retcode = 1
 
     def run(*popenargs,
@@ -3209,15 +4043,15 @@ stderr = None, retcode = 1
             if check and retcode:
 >               raise CalledProcessError(retcode, process.args,
                                          output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/example_tests/../../examples/custom_struct/builtin_vectors.py')' returned non-zero exit status 1.
+E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/example_tests/../../examples/custom_struct/builtin_vectors.py')' returned non-zero exit status 1.
 
 /home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:512: CalledProcessError
 ----------------------------- Captured stdout call -----------------------------
 Original error message:
 Traceback (most recent call last):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/example_tests/../../examples/custom_struct/builtin_vectors.py", line 48, in <module>
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/example_tests/../../examples/custom_struct/builtin_vectors.py", line 48, in <module>
     sys.exit(main())
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/example_tests/../../examples/custom_struct/builtin_vectors.py", line 40, in main
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/example_tests/../../examples/custom_struct/builtin_vectors.py", line 40, in main
     kernel((1,), (N,), args)
   File "cupy/_core/raw.pyx", line 89, in cupy._core.raw.RawKernel.__call__
     self.kernel(
@@ -3245,9 +4079,9 @@ tests/example_tests/example_test.py:12: in run_example
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 input = None, capture_output = False, timeout = None, check = True
-popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/example_tests/../../examples/custom_struct/complex_struct.py'),)
+popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/example_tests/../../examples/custom_struct/complex_struct.py'),)
 kwargs = {'stderr': -2, 'stdout': -1}
-process = <subprocess.Popen object at 0x7f73d06d09d0>
+process = <subprocess.Popen object at 0x7f9777773d00>
 stdout = b'Overall structure itemsize: 80 bytes\nStructure members itemsize: [16  1 16  2 24]\nStructure members offsets: [ 0 1...e. Here we allow only arrays of size one so that users do not\nTypeError: Unsupported type <class \'numpy.ndarray\'>\n'
 stderr = None, retcode = 1
 
@@ -3317,7 +4151,7 @@ stderr = None, retcode = 1
             if check and retcode:
 >               raise CalledProcessError(retcode, process.args,
                                          output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/example_tests/../../examples/custom_struct/complex_struct.py')' returned non-zero exit status 1.
+E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/example_tests/../../examples/custom_struct/complex_struct.py')' returned non-zero exit status 1.
 
 /home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:512: CalledProcessError
 ----------------------------- Captured stdout call -----------------------------
@@ -3328,9 +4162,9 @@ Structure members offsets: [ 0 16 24 40 48]
 Complex structure value:
   [((0, 1, 2, 3), (4,), (5., 6.), (7,), (8, 9, 10))]
 Traceback (most recent call last):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/example_tests/../../examples/custom_struct/complex_struct.py", line 132, in <module>
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/example_tests/../../examples/custom_struct/complex_struct.py", line 132, in <module>
     sys.exit(main())
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/example_tests/../../examples/custom_struct/complex_struct.py", line 122, in main
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/example_tests/../../examples/custom_struct/complex_struct.py", line 122, in main
     kernel((1,), (N,), (s, out))
   File "cupy/_core/raw.pyx", line 89, in cupy._core.raw.RawKernel.__call__
     self.kernel(
@@ -3358,10 +4192,10 @@ tests/example_tests/example_test.py:12: in run_example
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
 input = None, capture_output = False, timeout = None, check = True
-popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/example_tests/../../examples/custom_struct/packed_matrix.py'),)
+popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/example_tests/../../examples/custom_struct/packed_matrix.py'),)
 kwargs = {'stderr': -2, 'stdout': -1}
-process = <subprocess.Popen object at 0x7f73d08aa4c0>
-stdout = b'Traceback (most recent call last):\n  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/te...e. Here we allow only arrays of size one so that users do not\nTypeError: Unsupported type <class \'numpy.ndarray\'>\n'
+process = <subprocess.Popen object at 0x7f9777704bb0>
+stdout = b'Traceback (most recent call last):\n  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/te...e. Here we allow only arrays of size one so that users do not\nTypeError: Unsupported type <class \'numpy.ndarray\'>\n'
 stderr = None, retcode = 1
 
     def run(*popenargs,
@@ -3430,15 +4264,15 @@ stderr = None, retcode = 1
             if check and retcode:
 >               raise CalledProcessError(retcode, process.args,
                                          output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/example_tests/../../examples/custom_struct/packed_matrix.py')' returned non-zero exit status 1.
+E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/example_tests/../../examples/custom_struct/packed_matrix.py')' returned non-zero exit status 1.
 
 /home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:512: CalledProcessError
 ----------------------------- Captured stdout call -----------------------------
 Original error message:
 Traceback (most recent call last):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/example_tests/../../examples/custom_struct/packed_matrix.py", line 91, in <module>
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/example_tests/../../examples/custom_struct/packed_matrix.py", line 91, in <module>
     sys.exit(main())
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/example_tests/../../examples/custom_struct/packed_matrix.py", line 81, in main
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/example_tests/../../examples/custom_struct/packed_matrix.py", line 81, in main
     kernel((1,), (N,), args)
   File "cupy/_core/raw.pyx", line 89, in cupy._core.raw.RawKernel.__call__
     self.kernel(
@@ -3525,7 +4359,7 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axi
     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 
 tests/cupy_tests/math_tests/test_sumprod.py: 32 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/cupy_tests/math_tests/test_sumprod.py:800: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/cupy_tests/math_tests/test_sumprod.py:800: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_all2
@@ -3539,7 +4373,7 @@ tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py::TestStats::tes
     return umr_sum(a, axis, dtype, out, keepdims, initial, where)
 
 tests/cupy_tests/statistics_tests/test_meanvar.py: 28 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_4_{axis=0, keepdims=True, overwrite_input=True, shape=(3, 4, 5)}::test_nanmedian
@@ -3631,7 +4465,7 @@ tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::te
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_235_{cval=-inf, mode='constant', order=0, output=float64, prefilter=True, shift=0.1}]
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_238_{cval=-inf, mode='constant', order=1, output=float64, prefilter=True, shift=0.1}]
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_241_{cval=-inf, mode='constant', order=3, output=float64, prefilter=True, shift=0.1}]
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py:533: RuntimeWarning: invalid value encountered in remainder
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py:533: RuntimeWarning: invalid value encountered in remainder
     float_out = self._shift(xp, scp, a.astype(xp.float64)) % 1
 
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py: 14 warnings
@@ -3661,14 +4495,20 @@ tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param
     res *= (1 - noise / lVar)
 
 -- Docs: https://docs.pytest.org/en/stable/warnings.html
-- generated html file: file:///home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.1vu4EsSRwM/cupy/_output/report.html -
+- generated html file: file:///home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HKQjbygaWB/cupy/_output/report.html -
 =========================== short test summary info ============================
 FAILED tests/cupy_tests/core_tests/test_ndarray.py::TestNdarrayCopy::test_copy_multi_device_with_stream
+FAILED tests/cupy_tests/core_tests/test_ndarray_reduction.py::TestCubReduction_param_8_{backend='block', order='C', shape=(10,)}::test_cub_min
+FAILED tests/cupy_tests/core_tests/test_ndarray_reduction.py::TestCubReduction_param_9_{backend='block', order='C', shape=(10, 20)}::test_cub_max
+FAILED tests/cupy_tests/core_tests/test_ndarray_reduction.py::TestCubReduction_param_9_{backend='block', order='C', shape=(10, 20)}::test_cub_min
+FAILED tests/cupy_tests/core_tests/test_ndarray_reduction.py::TestCubReduction_param_10_{backend='block', order='C', shape=(10, 20, 30)}::test_cub_max
+FAILED tests/cupy_tests/core_tests/test_ndarray_reduction.py::TestCubReduction_param_10_{backend='block', order='C', shape=(10, 20, 30)}::test_cub_min
+FAILED tests/cupy_tests/core_tests/test_ndarray_reduction.py::TestCubReduction_param_11_{backend='block', order='C', shape=(10, 20, 30, 40)}::test_cub_max
+FAILED tests/cupy_tests/core_tests/test_ndarray_reduction.py::TestCubReduction_param_11_{backend='block', order='C', shape=(10, 20, 30, 40)}::test_cub_min
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsPoissonInvalid::test_none_lam_generator
 FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsStandardGammaInvalid::test_none_shape_generator
 FAILED tests/cupyx_tests/test_scatter.py::TestScatter::test_scatter_add - Ass...
-FAILED tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py::TestHfftn_param_24_{axes=(0, 1, 2), norm=None, s=None, shape=(3, 5, 20)}::test_ihfftn
-FAILED tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py::TestHfftn_param_24_{axes=(0, 1, 2), norm=None, s=None, shape=(3, 5, 20)}::test_ihfftn_backend
+FAILED tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py::TestHfft2_param_20_{axes=None, norm=None, s=None, shape=(2, 3, 10)}::test_ihfft2
 FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_0_{shapes=((4, 4), (4,)), trans=0}::test_lu_solve
 FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_4_{shapes=((5, 5), (5, 2)), trans=1}::test_lu_solve
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestMapCoordinatesHalfInteger::test_map_coordinates_float[_param_46_{mode='grid-constant', order=4}]
@@ -3700,4 +4540,4 @@ XPASS tests/cupy_tests/math_tests/test_misc.py::TestConvolve_param_2_{mode='full
 XPASS tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_0_{mode='valid'}::test_correlate_diff_types ROCm/HIP may have a bug
 XPASS tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_1_{mode='full'}::test_correlate_diff_types ROCm/HIP may have a bug
 XPASS tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_2_{mode='same'}::test_correlate_diff_types ROCm/HIP may have a bug
-= 29 failed, 64179 passed, 7412 skipped, 71 deselected, 557 xfailed, 8 xpassed, 272 warnings in 26342.18s (7:19:02) =
+= 35 failed, 64173 passed, 7412 skipped, 71 deselected, 557 xfailed, 8 xpassed, 272 warnings in 26398.39s (7:19:58) =
