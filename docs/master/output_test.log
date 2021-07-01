@@ -1,9 +1,9 @@
-master: f09e85f Merge pull request #5407 from kmaehashi/pytest-xfail-strict
+master: ef422ca Merge pull request #5337 from takagi/test-nan_to_num
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
-collected 72253 items / 71 deselected / 12 skipped / 72170 selected
+collected 72255 items / 71 deselected / 12 skipped / 72172 selected
 
 tests/cupy_tests/test_cublas.py ........................................ [  0%]
 ........................................................................ [  0%]
@@ -444,7 +444,7 @@ tests/cupy_tests/math_tests/test_matmul.py ............................. [ 30%]
 ................................................                         [ 31%]
 tests/cupy_tests/math_tests/test_misc.py ............................... [ 31%]
 ............................................F..F..F..................... [ 31%]
-............................                                             [ 31%]
+..............................                                           [ 31%]
 tests/cupy_tests/math_tests/test_rational.py ....                        [ 31%]
 tests/cupy_tests/math_tests/test_rounding.py ........................... [ 31%]
 ..........................................                               [ 31%]
@@ -693,7 +693,7 @@ tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py .................... [ 37%]
 ........................................................................ [ 51%]
 ........................................................................ [ 51%]
 ........................................................................ [ 51%]
-......................................................................   [ 51%]
+.....F................................................................   [ 51%]
 tests/cupyx_tests/scipy_tests/fft_tests/test_helper.py .                 [ 51%]
 tests/cupyx_tests/scipy_tests/fftpack_tests/test_fftpack.py ............ [ 51%]
 ........................................................................ [ 51%]
@@ -710,7 +710,7 @@ tests/cupyx_tests/scipy_tests/fftpack_tests/test_fftpack.py ............ [ 51%]
 ........................................................................ [ 53%]
 .........................                                                [ 53%]
 tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py ........... [ 53%]
-.............................................F.....                      [ 53%]
+...................................................                      [ 53%]
 tests/cupyx_tests/scipy_tests/linalg_tests/test_solve_triangular.py .... [ 53%]
 ........................................................................ [ 53%]
 ........................................................................ [ 53%]
@@ -1179,59 +1179,2460 @@ tests/cupyx_tests/scipy_tests/signal_tests/test_bsplines.py ............ [ 98%]
                                                                          [ 98%]
 tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py ......... [ 98%]
 ........................................................................ [ 98%]
-......................................................xxxxxxxxx......... [ 98%]
+....................................................F.xxxxxxxxx......... [ 98%]
 ...........................xxxxxxxxxxxx................................. [ 98%]
-...Fatal Python error: Aborted
+...FFF......xxx..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x.. [ 98%]
+x.x..................................................................... [ 99%]
+........................................................................ [ 99%]
+........................................................................ [ 99%]
+........................................................................ [ 99%]
+........................................................................ [ 99%]
+..................ssssssssssssssssss                                     [ 99%]
+tests/cupyx_tests/scipy_tests/sparse_tests/csgraph_tests/test_traversal.py s [ 99%]
+ssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss [ 99%]
+sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss  [ 99%]
+tests/cupyx_tests/scipy_tests/special_tests/test_bessel.py ............  [ 99%]
+tests/cupyx_tests/scipy_tests/special_tests/test_convex_analysis.py .... [ 99%]
+.                                                                        [ 99%]
+tests/cupyx_tests/scipy_tests/special_tests/test_digamma.py .....        [ 99%]
+tests/cupyx_tests/scipy_tests/special_tests/test_erf.py ............     [ 99%]
+tests/cupyx_tests/scipy_tests/special_tests/test_gamma.py ....           [ 99%]
+tests/cupyx_tests/scipy_tests/special_tests/test_gammaln.py ....         [ 99%]
+tests/cupyx_tests/scipy_tests/special_tests/test_polygamma.py ....       [ 99%]
+tests/cupyx_tests/scipy_tests/special_tests/test_statistics.py ..        [ 99%]
+tests/cupyx_tests/scipy_tests/special_tests/test_zeta.py ....            [ 99%]
+tests/cupyx_tests/scipy_tests/stats_tests/test_distributions.py ........ [ 99%]
+........................................................................ [ 99%]
+........................................................................ [ 99%]
+                                                                         [ 99%]
+tests/cupyx_tests/tools_tests/test_install_library.py ......             [ 99%]
+tests/example_tests/test_custom_struct.py FFF                            [ 99%]
+tests/example_tests/test_finance.py ...                                  [ 99%]
+tests/example_tests/test_gemm.py .                                       [ 99%]
+tests/example_tests/test_gmm.py ss                                       [ 99%]
+tests/example_tests/test_kmeans.py sss                                   [ 99%]
+tests/install_tests/test_build.py sx.                                    [ 99%]
+tests/install_tests/test_utils.py ..                                     [100%]
 
-Thread 0x00007f43c0b70080 (most recent call first):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/cupy/fft/_fft.py", line 154 in _exec_fft
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/cupy/fft/_fft.py", line 207 in _fft_c2c
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/cupy/fft/_fft.py", line 247 in _fft
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/cupyx/scipy/fft/_fft.py", line 511 in irfftn
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/cupyx/scipy/signal/_signaltools_core.py", line 150 in _freq_domain_conv
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/cupyx/scipy/signal/signaltools.py", line 180 in fftconvolve
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/cupyx/scipy/signal/signaltools.py", line 125 in _correlate
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/cupyx/scipy/signal/signaltools.py", line 55 in convolve
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py", line 60 in _filter
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py", line 86 in test_convolve_fft
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/cupy/testing/_helper.py", line 47 in _call_func
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/cupy/testing/_helper.py", line 72 in _call_func_cupy
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/cupy/testing/_helper.py", line 96 in _call_func_numpy_cupy
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/cupy/testing/_helper.py", line 264 in test_func
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.4KId2PoUmV/cupy/cupy/testing/_helper.py", line 825 in test_func
-  File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/case.py", line 633 in _callTestMethod
-  File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/case.py", line 676 in run
-  File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/case.py", line 736 in __call__
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/unittest.py", line 321 in runtest
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/runner.py", line 162 in pytest_runtest_call
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/callers.py", line 187 in _multicall
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/manager.py", line 84 in <lambda>
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/manager.py", line 93 in _hookexec
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/hooks.py", line 286 in __call__
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/runner.py", line 255 in <lambda>
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/runner.py", line 311 in from_call
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/runner.py", line 254 in call_runtest_hook
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/runner.py", line 215 in call_and_report
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/runner.py", line 126 in runtestprotocol
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/runner.py", line 109 in pytest_runtest_protocol
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/callers.py", line 187 in _multicall
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/manager.py", line 84 in <lambda>
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/manager.py", line 93 in _hookexec
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/hooks.py", line 286 in __call__
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/main.py", line 348 in pytest_runtestloop
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/callers.py", line 187 in _multicall
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/manager.py", line 84 in <lambda>
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/manager.py", line 93 in _hookexec
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/hooks.py", line 286 in __call__
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/main.py", line 323 in _main
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/main.py", line 269 in wrap_session
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/main.py", line 316 in pytest_cmdline_main
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/callers.py", line 187 in _multicall
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/manager.py", line 84 in <lambda>
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/manager.py", line 93 in _hookexec
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pluggy/hooks.py", line 286 in __call__
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/config/__init__.py", line 162 in main
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/_pytest/config/__init__.py", line 185 in console_main
-  File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/pytest/__main__.py", line 5 in <module>
-  File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/runpy.py", line 87 in _run_code
-  File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/runpy.py", line 194 in _run_module_as_main
+=================================== FAILURES ===================================
+___________________ TestNewDLPackConversion.test_conversion ____________________
+
+self = <cupy_tests.core_tests.test_dlpack.TestNewDLPackConversion testMethod=test_conversion>
+dtype = <class 'numpy.float64'>
+
+    @testing.for_all_dtypes(no_bool=True)
+    def test_conversion(self, dtype):
+        allowed_streams = ['null', True]
+        if not cuda.runtime.is_hip:
+            allowed_streams.append('ptds')
+    
+        # stream order is automatically established via DLPack protocol
+        for src in allowed_streams:
+            src_s = self._get_stream(src)
+            for dst in allowed_streams:
+                dst_s = self._get_stream(dst)
+                with src_s:
+                    orig_array = _gen_array(dtype)
+                with dst_s:
+                    out_array = cupy.from_dlpack(orig_array)
+>                   testing.assert_array_equal(orig_array, out_array)
+
+tests/cupy_tests/core_tests/test_dlpack.py:64: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = array([[0.58085928, 0.28388555, 0.89899872],
+       [0.51390812, 0.47469279, 0.09445448]])
+y = array([[0.58085928, 0.28388555, 0.89899872],
+       [0.51390812, 0.47469279, 0.09445448]])
+err_msg = '', verbose = True, strides_check = False
+
+    def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
+        """Raises an AssertionError if two array_like objects are not equal.
+    
+        Args:
+             x(numpy.ndarray or cupy.ndarray): The actual object to check.
+             y(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             strides_check(bool): If ``True``, consistency of strides is also
+                 checked.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting values
+                 are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_array_equal`
+        """
+>       numpy.testing.assert_array_equal(
+            cupy.asnumpy(x), cupy.asnumpy(y), err_msg=err_msg,
+            verbose=verbose)
+E       AssertionError: 
+E       Arrays are not equal
+E       
+E       Mismatched elements: 6 / 6 (100%)
+E       Max absolute difference: 2.1839532
+E       Max relative difference: 23.12175367
+E        x: array([[ 0.477392,  1.214306,  0.225128],
+E              [-0.075602,  0.923201,  2.278408]])
+E        y: array([[0.580859, 0.283886, 0.898999],
+E              [0.513908, 0.474693, 0.094454]])
+
+cupy/testing/_array.py:91: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+______________ TestNdarrayCopy.test_copy_multi_device_with_stream ______________
+
+self = <cupy_tests.core_tests.test_ndarray.TestNdarrayCopy testMethod=test_copy_multi_device_with_stream>
+
+    @testing.multi_gpu(2)
+    def test_copy_multi_device_with_stream(self):
+        # Kernel that takes long enough then finally writes values.
+        kern = cupy.RawKernel(
+            _test_copy_multi_device_with_stream_src, 'wait_and_write')
+    
+        # Allocates a memory and launches the kernel on a device with its
+        # stream.
+        with cuda.Device(0):
+            # Keep this stream alive over the D2D copy below for HIP
+            with cuda.Stream() as s1:  # NOQA
+                a = cupy.zeros((2,), dtype=numpy.uint64)
+                kern((1,), (1,), a)
+    
+        # D2D copy to another device with another stream should get the
+        # original values of the memory before the kernel on the first device
+        # finally makes the write.
+        with cuda.Device(1):
+            with cuda.Stream():
+                b = a.copy()
+>               testing.assert_array_equal(
+                    b, numpy.array([0, 0], dtype=numpy.uint64))
+
+tests/cupy_tests/core_tests/test_ndarray.py:218: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = array([13744632839234567870, 13744632839234567870], dtype=uint64)
+y = array([0, 0], dtype=uint64), err_msg = '', verbose = True
+strides_check = False
+
+    def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
+        """Raises an AssertionError if two array_like objects are not equal.
+    
+        Args:
+             x(numpy.ndarray or cupy.ndarray): The actual object to check.
+             y(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             strides_check(bool): If ``True``, consistency of strides is also
+                 checked.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting values
+                 are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_array_equal`
+        """
+>       numpy.testing.assert_array_equal(
+            cupy.asnumpy(x), cupy.asnumpy(y), err_msg=err_msg,
+            verbose=verbose)
+E       AssertionError: 
+E       Arrays are not equal
+E       
+E       Mismatched elements: 2 / 2 (100%)
+E       Max absolute difference: 13744632839234567870
+E       Max relative difference: inf
+E        x: array([13744632839234567870, 13744632839234567870], dtype=uint64)
+E        y: array([0, 0], dtype=uint64)
+
+cupy/testing/_array.py:91: AssertionError
+____________________ TestArrayBoolOp.test_bool_one_element _____________________
+[XPASS(strict)] ROCm/HIP may have a bug
+___________________________ TestIX_.test_ix_ndarray ____________________________
+[XPASS(strict)] HIP may have a bug
+_________ TestConvolve_param_0_{mode='valid'}.test_convolve_diff_types _________
+[XPASS(strict)] HIP/ROCm may have a bug with larger `b`
+_________ TestConvolve_param_1_{mode='same'}.test_convolve_diff_types __________
+[XPASS(strict)] HIP/ROCm may have a bug with larger `b`
+_________ TestConvolve_param_2_{mode='full'}.test_convolve_diff_types __________
+[XPASS(strict)] HIP/ROCm may have a bug with larger `b`
+___________ TestDistributionsPoissonInvalid.test_none_lam_generator ____________
+
+self = <cupy_tests.random_tests.test_distributions.TestDistributionsPoissonInvalid testMethod=test_none_lam_generator>
+
+    def test_none_lam_generator(self):
+        with self.assertRaises(TypeError):
+>           cupy.random.default_rng(0).poisson(None)
+
+tests/cupy_tests/random_tests/test_distributions.py:565: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
+        """Construct a new Generator with the default BitGenerator (XORWOW).
+    
+        Args:
+            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
+                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
+                ``int`` or ``array_like[ints]`` or None is passed, then it will be
+                passed to :class:`numpy.random.SeedSequence` to detive the initial
+                :class:`BitGenerator` state. One may also pass in a `SeedSequence
+                instance. Adiditionally, when passed :class:`BitGenerator`, it will
+                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
+                it will be returned unaltered.
+    
+        Returns:
+            Generator: The initialized generator object.
+        """  # NOQA, list of types need to be in one line for sphinx
+        if runtime.is_hip:
+>           raise RuntimeError('Generator API not supported in HIP,'
+                               ' please use the legacy one.')
+E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
+
+cupy/random/__init__.py:36: RuntimeError
+_______ TestDistributionsStandardGammaInvalid.test_none_shape_generator ________
+
+self = <cupy_tests.random_tests.test_distributions.TestDistributionsStandardGammaInvalid testMethod=test_none_shape_generator>
+
+    def test_none_shape_generator(self):
+        with self.assertRaises(TypeError):
+>           cupy.random.default_rng(0).standard_gamma(None)
+
+tests/cupy_tests/random_tests/test_distributions.py:682: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
+        """Construct a new Generator with the default BitGenerator (XORWOW).
+    
+        Args:
+            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
+                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
+                ``int`` or ``array_like[ints]`` or None is passed, then it will be
+                passed to :class:`numpy.random.SeedSequence` to detive the initial
+                :class:`BitGenerator` state. One may also pass in a `SeedSequence
+                instance. Adiditionally, when passed :class:`BitGenerator`, it will
+                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
+                it will be returned unaltered.
+    
+        Returns:
+            Generator: The initialized generator object.
+        """  # NOQA, list of types need to be in one line for sphinx
+        if runtime.is_hip:
+>           raise RuntimeError('Generator API not supported in HIP,'
+                               ' please use the legacy one.')
+E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
+
+cupy/random/__init__.py:36: RuntimeError
+________ TestCorrelate_param_0_{mode='valid'}.test_correlate_diff_types ________
+[XPASS(strict)] ROCm/HIP may have a bug
+________ TestCorrelate_param_1_{mode='full'}.test_correlate_diff_types _________
+[XPASS(strict)] ROCm/HIP may have a bug
+________ TestCorrelate_param_2_{mode='same'}.test_correlate_diff_types _________
+[XPASS(strict)] ROCm/HIP may have a bug
+_________________________ TestScatter.test_scatter_add _________________________
+
+self = <cupyx_tests.test_scatter.TestScatter testMethod=test_scatter_add>
+dtype = <class 'numpy.float16'>
+
+    @testing.for_dtypes('iILQefd')
+    def test_scatter_add(self, dtype):
+        a = cupy.zeros((3,), dtype=dtype)
+        i = cupy.array([1, 1], numpy.int32)
+        v = cupy.array([2., 1.], dtype=dtype)
+        cupyx.scatter_add(a, i, v)
+>       testing.assert_array_equal(a, cupy.array([0, 3, 0], dtype=dtype))
+
+tests/cupyx_tests/test_scatter.py:19: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = array([0.e+00, 2.e-07, 0.e+00], dtype=float16)
+y = array([0., 3., 0.], dtype=float16), err_msg = '', verbose = True
+strides_check = False
+
+    def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
+        """Raises an AssertionError if two array_like objects are not equal.
+    
+        Args:
+             x(numpy.ndarray or cupy.ndarray): The actual object to check.
+             y(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             strides_check(bool): If ``True``, consistency of strides is also
+                 checked.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting values
+                 are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_array_equal`
+        """
+>       numpy.testing.assert_array_equal(
+            cupy.asnumpy(x), cupy.asnumpy(y), err_msg=err_msg,
+            verbose=verbose)
+E       AssertionError: 
+E       Arrays are not equal
+E       
+E       Mismatched elements: 1 / 3 (33.3%)
+E       Max absolute difference: 3.
+E       Max relative difference: 1.
+E        x: array([0.e+00, 2.e-07, 0.e+00], dtype=float16)
+E        y: array([0., 3., 0.], dtype=float16)
+
+cupy/testing/_array.py:91: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is e
+_ TestHfftn_param_25_{axes=(0, 1, 2), norm='backward', s=None, shape=(3, 5, 20)}.test_ihfftn_backend _
+
+self = <<cupyx_tests.scipy_tests.fft_tests.test_fft.TestHfftn_param_25_{axes=(0, 1, 2), norm='backward', s=None, shape=(3, 5, 20)} testMethod=test_ihfftn_backend>  parameter: {'shape': (3, 5, 20), 's': None, 'axes': (0, 1, 2), 'norm': 'backward'}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/cupy/__init__.py'>
+dtype = <class 'numpy.uint8'>
+
+    @testing.for_all_dtypes(no_complex=True)
+    @testing.numpy_cupy_allclose(rtol=1e-4, atol=1e-7, accept_error=ValueError,
+                                 contiguous_check=False)
+    def test_ihfftn_backend(self, xp, dtype):
+        x = testing.shaped_random(self.shape, xp, dtype)
+        x_orig = x.copy()
+        backend = 'scipy' if xp is np else cp_fft
+        with scipy_fft.set_backend(backend):
+            out = scipy_fft.ihfftn(x, s=self.s, axes=self.axes, norm=self.norm)
+>       testing.assert_array_equal(x, x_orig)
+
+tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py:1768: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+x = array([[[ 77, 225,  41,   4, 251, 182,  62, 192, 249, 186, 248,  37,
+         104,   7,  68,  64, 213,  38,  57,  97],... 77,  99, 128, 153,  89, 221, 191, 120, 219,  15, 254,
+          65,  20,  15, 192, 164,  91, 141,  12]]], dtype=uint8)
+y = array([[[5, 7, 6, 5, 4, 6, 4, 8, 9, 3, 7, 5, 5, 9, 0, 0, 0, 8, 7, 8],
+        [9, 7, 4, 7, 1, 6, 1, 9, 5, 4, 2, 7, 4, ... 8, 3, 9, 2, 9, 9, 7, 6, 8],
+        [2, 8, 6, 0, 3, 1, 9, 4, 4, 6, 3, 1, 8, 1, 5, 2, 0, 8, 9, 9]]],
+      dtype=uint8)
+err_msg = '', verbose = True, strides_check = False
+
+    def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
+        """Raises an AssertionError if two array_like objects are not equal.
+    
+        Args:
+             x(numpy.ndarray or cupy.ndarray): The actual object to check.
+             y(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             strides_check(bool): If ``True``, consistency of strides is also
+                 checked.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting values
+                 are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_array_equal`
+        """
+>       numpy.testing.assert_array_equal(
+            cupy.asnumpy(x), cupy.asnumpy(y), err_msg=err_msg,
+            verbose=verbose)
+E       AssertionError: Only cupy raises error
+E       
+E       Traceback (most recent call last):
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E           result = impl(self, *args, **kw)
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py", line 1768, in test_ihfftn_backend
+E           testing.assert_array_equal(x, x_orig)
+E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/cupy/testing/_array.py", line 91, in assert_array_equal
+E           numpy.testing.assert_array_equal(
+E         File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/testing/_private/utils.py", line 930, in assert_array_equal
+E           assert_array_compare(operator.__eq__, x, y, err_msg=err_msg,
+E         File "/home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/testing/_private/utils.py", line 840, in assert_array_compare
+E           raise AssertionError(msg)
+E       AssertionError: 
+E       Arrays are not equal
+E       
+E       Mismatched elements: 299 / 300 (99.7%)
+E       Max absolute difference: 255
+E       Max relative difference: 253.
+E        x: array([[[ 77, 225,  41,   4, 251, 182,  62, 192, 249, 186, 248,  37,
+E                104,   7,  68,  64, 213,  38,  57,  97],
+E               [177, 240,  51,  64, 254,  23, 139, 134, 126, 214,  54, 192,...
+E        y: array([[[5, 7, 6, 5, 4, 6, 4, 8, 9, 3, 7, 5, 5, 9, 0, 0, 0, 8, 7, 8],
+E               [9, 7, 4, 7, 1, 6, 1, 9, 5, 4, 2, 7, 4, 5, 0, 6, 6, 6, 9, 6],
+E               [3, 4, 6, 0, 6, 6, 2, 1, 3, 3, 5, 4, 9, 1, 2, 1, 6, 2, 4, 2],...
+
+cupy/testing/_array.py:91: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.uint8'>
+_ TestMapCoordinatesHalfInteger.test_map_coordinates_float[_param_46_{mode='grid-constant', order=4}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7f23563586a0>  parameter: {'mode': 'grid-constant', 'order': 4}>
+args = (), kw = {'dtype': <class 'numpy.float64'>}
+dtype = <class 'numpy.float64'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([229.76997843, 598.96953239])
+desired = array([3.06993892, 8.        ]), rtol = 1e-07, atol = 0.0001
+err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=0.0001
+E       
+E       Mismatched elements: 2 / 2 (100%)
+E       Max absolute difference: 590.96953239
+E       Max relative difference: 73.87119155
+E        x: array([229.769978, 598.969532])
+E        y: array([3.069939, 8.      ])
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+_ TestMapCoordinatesHalfInteger.test_map_coordinates_float[_param_47_{mode='grid-constant', order=5}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7f235625d340>  parameter: {'mode': 'grid-constant', 'order': 5}>
+args = (), kw = {'dtype': <class 'numpy.float64'>}
+dtype = <class 'numpy.float64'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([ 78.42728447, 201.97560613])
+desired = array([3.12122783, 8.        ]), rtol = 1e-07, atol = 0.0001
+err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=0.0001
+E       
+E       Mismatched elements: 2 / 2 (100%)
+E       Max absolute difference: 193.97560613
+E       Max relative difference: 24.24695077
+E        x: array([ 78.427284, 201.975606])
+E        y: array([3.121228, 8.      ])
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_4_{grid_mode=False, mode='constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d5b7190>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float32'>}
+dtype = <class 'numpy.float32'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[-9.26215027e-04],
+        [-7.12910551e-05],
+        [-1.04548770e-03],
+        [ 6.02170185e-04],
+        [ ...   [-1.58413204e-05],
+        [-2.26292832e-05],
+        [-1.52809316e-05],
+        [-2.62873400e-05]]], dtype=float32)
+desired = array([[[-1.91677706e-16],
+        [ 6.02007280e-16],
+        [ 7.39644969e-18],
+        [ 9.42839520e-17],
+        [-...   [ 2.49078413e-18],
+        [-6.86374620e-18],
+        [-2.01807717e-17],
+        [-1.36889723e-17]]], dtype=float32)
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 95 / 100 (95%)
+E       Max absolute difference: 0.00124037
+E       Max relative difference: 1.6367563e+14
+E        x: array([[[-9.262150e-04],
+E               [-7.129106e-05],
+E               [-1.045488e-03],...
+E        y: array([[[-1.916777e-16],
+E               [ 6.020073e-16],
+E               [ 7.396450e-18],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float32'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_5_{grid_mode=False, mode='constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d5ce280>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float32'>}
+dtype = <class 'numpy.float32'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[-6.23873319e-04],
+        [-6.52701594e-04],
+        [-5.34185849e-04],
+        [-7.05319864e-04],
+        [-...   [-2.50156190e-05],
+        [ 9.55036171e-07],
+        [-1.27298597e-06],
+        [-4.17136789e-06]]], dtype=float32)
+desired = array([[[ 2.1000416e-16],
+        [-7.7505151e-16],
+        [-6.6172874e-17],
+        [-6.5140899e-16],
+        [ 7.95...       [-1.5922411e-17],
+        [ 3.1236140e-17],
+        [-5.3157008e-17],
+        [-1.3124647e-17]]], dtype=float32)
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 85 / 100 (85%)
+E       Max absolute difference: 0.00084527
+E       Max relative difference: 1.881553e+13
+E        x: array([[[-6.238733e-04],
+E               [-6.527016e-04],
+E               [-5.341858e-04],...
+E        y: array([[[ 2.100042e-16],
+E               [-7.750515e-16],
+E               [-6.617287e-17],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float32'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_16_{grid_mode=False, mode='mirror', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d5c6670>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float32'>}
+dtype = <class 'numpy.float32'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[-9.26215027e-04],
+        [-7.12910551e-05],
+        [-1.04548770e-03],
+        [ 6.02170185e-04],
+        [ ...   [-1.58413204e-05],
+        [-2.26292832e-05],
+        [-1.52809316e-05],
+        [-2.62873400e-05]]], dtype=float32)
+desired = array([[[-1.91677706e-16],
+        [ 6.02007280e-16],
+        [ 7.39644969e-18],
+        [ 9.42839520e-17],
+        [-...   [ 2.49078413e-18],
+        [-6.86374620e-18],
+        [-2.01807717e-17],
+        [-1.36889723e-17]]], dtype=float32)
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 95 / 100 (95%)
+E       Max absolute difference: 0.00124037
+E       Max relative difference: 1.6367563e+14
+E        x: array([[[-9.262150e-04],
+E               [-7.129106e-05],
+E               [-1.045488e-03],...
+E        y: array([[[-1.916777e-16],
+E               [ 6.020073e-16],
+E               [ 7.396450e-18],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float32'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_17_{grid_mode=False, mode='mirror', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d37aa60>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float32'>}
+dtype = <class 'numpy.float32'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[-6.23873319e-04],
+        [-6.52701594e-04],
+        [-5.34185849e-04],
+        [-7.05319864e-04],
+        [-...   [-2.50156190e-05],
+        [ 9.55036171e-07],
+        [-1.27298597e-06],
+        [-4.17136789e-06]]], dtype=float32)
+desired = array([[[ 2.1000416e-16],
+        [-7.7505151e-16],
+        [-6.6172874e-17],
+        [-6.5140899e-16],
+        [ 7.95...       [-1.5922411e-17],
+        [ 3.1236140e-17],
+        [-5.3157008e-17],
+        [-1.3124647e-17]]], dtype=float32)
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 85 / 100 (85%)
+E       Max absolute difference: 0.00084527
+E       Max relative difference: 1.881553e+13
+E        x: array([[[-6.238733e-04],
+E               [-6.527016e-04],
+E               [-5.341858e-04],...
+E        y: array([[[ 2.100042e-16],
+E               [-7.750515e-16],
+E               [-6.617287e-17],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float32'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_22_{grid_mode=False, mode='wrap', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d476310>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float32'>}
+dtype = <class 'numpy.float32'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[-9.26215027e-04],
+        [-7.12910551e-05],
+        [-1.04548770e-03],
+        [ 6.02170185e-04],
+        [ ...   [-1.58413204e-05],
+        [-2.26292832e-05],
+        [-1.52809316e-05],
+        [-2.62873400e-05]]], dtype=float32)
+desired = array([[[-1.91677706e-16],
+        [ 6.02007280e-16],
+        [ 7.39644969e-18],
+        [ 9.42839520e-17],
+        [-...   [ 2.49078413e-18],
+        [-6.86374620e-18],
+        [-2.01807717e-17],
+        [-1.36889723e-17]]], dtype=float32)
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 95 / 100 (95%)
+E       Max absolute difference: 0.00124037
+E       Max relative difference: 1.6367563e+14
+E        x: array([[[-9.262150e-04],
+E               [-7.129106e-05],
+E               [-1.045488e-03],...
+E        y: array([[[-1.916777e-16],
+E               [ 6.020073e-16],
+E               [ 7.396450e-18],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float32'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_23_{grid_mode=False, mode='wrap', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d49a250>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float32'>}
+dtype = <class 'numpy.float32'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[-6.23873319e-04],
+        [-6.52701594e-04],
+        [-5.34185849e-04],
+        [-7.05319864e-04],
+        [-...   [-2.50156190e-05],
+        [ 9.55036171e-07],
+        [-1.27298597e-06],
+        [-4.17136789e-06]]], dtype=float32)
+desired = array([[[ 2.1000416e-16],
+        [-7.7505151e-16],
+        [-6.6172874e-17],
+        [-6.5140899e-16],
+        [ 7.95...       [-1.5922411e-17],
+        [ 3.1236140e-17],
+        [-5.3157008e-17],
+        [-1.3124647e-17]]], dtype=float32)
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 85 / 100 (85%)
+E       Max absolute difference: 0.00084527
+E       Max relative difference: 1.881553e+13
+E        x: array([[[-6.238733e-04],
+E               [-6.527016e-04],
+E               [-5.341858e-04],...
+E        y: array([[[ 2.100042e-16],
+E               [-7.750515e-16],
+E               [-6.617287e-17],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float32'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_46_{grid_mode=False, mode='grid-constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d45c8e0>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float32'>}
+dtype = <class 'numpy.float32'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[-1.6466675e-04],
+        [-3.1765160e-06],
+        [-2.8256103e-04],
+        [ 1.0465207e-04],
+        [-5.02...       [-1.4928388e-06],
+        [-5.8970027e-06],
+        [-2.4932410e-06],
+        [-3.5395026e-06]]], dtype=float32)
+desired = array([[[-8.12850668e-17],
+        [-9.62678620e-17],
+        [-7.64445911e-17],
+        [ 6.90388762e-17],
+        [-...   [-1.31306278e-18],
+        [-2.34584224e-18],
+        [-1.16198641e-18],
+        [-3.16820747e-19]]], dtype=float32)
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 75 / 100 (75%)
+E       Max absolute difference: 0.00034115
+E       Max relative difference: 2.5044335e+14
+E        x: array([[[-1.646668e-04],
+E               [-3.176516e-06],
+E               [-2.825610e-04],...
+E        y: array([[[-8.128507e-17],
+E               [-9.626786e-17],
+E               [-7.644459e-17],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float32'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_47_{grid_mode=False, mode='grid-constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d498bb0>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float32'>}
+dtype = <class 'numpy.float32'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[ 1.46576144e-06],
+        [-1.07652804e-05],
+        [ 1.48250510e-05],
+        [-2.88788979e-05],
+        [-...   [ 3.59045725e-06],
+        [ 3.90473633e-06],
+        [ 2.02454498e-06],
+        [ 1.08106917e-06]]], dtype=float32)
+desired = array([[[-5.28892732e-17],
+        [-4.68497761e-17],
+        [-1.70810335e-16],
+        [-1.91986781e-16],
+        [-...   [-3.94138989e-18],
+        [-8.65396191e-18],
+        [ 1.07858407e-18],
+        [-2.29544853e-18]]], dtype=float32)
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 40 / 100 (40%)
+E       Max absolute difference: 0.00011814
+E       Max relative difference: 9.6834375e+13
+E        x: array([[[ 1.465761e-06],
+E               [-1.076528e-05],
+E               [ 1.482505e-05],...
+E        y: array([[[-5.288927e-17],
+E               [-4.684978e-17],
+E               [-1.708103e-16],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float32'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_52_{grid_mode=True, mode='constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d37af40>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float64'>}
+dtype = <class 'numpy.float64'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[   0.        ],
+        [   0.        ],
+        [   0.        ],
+        [   0.        ],
+        [   0.    ... [   0.        ],
+        [   0.        ],
+        [   0.        ],
+        [   0.        ],
+        [   0.        ]]])
+desired = array([[[ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ ...000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00]]])
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 64 / 100 (64%)
+E       Max absolute difference: 2336.52632552
+E       Max relative difference: 629887.8879561
+E        x: array([[[   0.      ],
+E               [   0.      ],
+E               [   0.      ],...
+E        y: array([[[ 0.000000e+00],
+E               [ 0.000000e+00],
+E               [ 0.000000e+00],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_53_{grid_mode=True, mode='constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d36c730>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float64'>}
+dtype = <class 'numpy.float64'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ ...000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00]]])
+desired = array([[[ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ ...000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00],
+        [ 0.00000000e+00]]])
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 64 / 100 (64%)
+E       Max absolute difference: 233.83963068
+E       Max relative difference: 148867.79248851
+E        x: array([[[ 0.000000e+00],
+E               [ 0.000000e+00],
+E               [ 0.000000e+00],...
+E        y: array([[[ 0.000000e+00],
+E               [ 0.000000e+00],
+E               [ 0.000000e+00],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_64_{grid_mode=True, mode='mirror', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d3c4a00>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float64'>}
+dtype = <class 'numpy.float64'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[  48.82195577],
+        [  48.82195577],
+        [ 290.39318135],
+        [ 337.78017528],
+        [ 112.1240... [ -53.24969236],
+        [ -21.88859247],
+        [  44.15090669],
+        [  53.29762289],
+        [  53.29762289]]])
+desired = array([[[ 8.54663183e-03],
+        [ 8.54663183e-03],
+        [ 5.30645857e-02],
+        [ 6.15797757e-02],
+        [ ...126e-03],
+        [-5.57818230e-04],
+        [ 2.89445841e-04],
+        [ 8.46143247e-05],
+        [ 8.46143247e-05]]])
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 100 / 100 (100%)
+E       Max absolute difference: 2336.52632552
+E       Max relative difference: 629887.88795612
+E        x: array([[[  48.821956],
+E               [  48.821956],
+E               [ 290.393181],...
+E        y: array([[[ 8.546632e-03],
+E               [ 8.546632e-03],
+E               [ 5.306459e-02],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_65_{grid_mode=True, mode='mirror', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d39fc40>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float64'>}
+dtype = <class 'numpy.float64'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[ 4.71685805e+00],
+        [ 4.71685805e+00],
+        [ 2.76221015e+01],
+        [ 3.32433453e+01],
+        [ ...958e+00],
+        [-1.62349834e+00],
+        [ 1.50933488e+01],
+        [ 1.97919669e+01],
+        [ 1.97919669e+01]]])
+desired = array([[[ 8.60075856e-03],
+        [ 8.60075856e-03],
+        [ 5.25533883e-02],
+        [ 6.23449044e-02],
+        [ ...600e-03],
+        [-8.00397905e-04],
+        [ 4.16976616e-04],
+        [ 1.32949066e-04],
+        [ 1.32949066e-04]]])
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 100 / 100 (100%)
+E       Max absolute difference: 233.83963068
+E       Max relative difference: 148867.79248854
+E        x: array([[[ 4.716858e+00],
+E               [ 4.716858e+00],
+E               [ 2.762210e+01],...
+E        y: array([[[ 8.600759e-03],
+E               [ 8.600759e-03],
+E               [ 5.255339e-02],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_70_{grid_mode=True, mode='wrap', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d44aa00>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float64'>}
+dtype = <class 'numpy.float64'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[  53.29762289],
+        [  51.0107262 ],
+        [ 303.41199632],
+        [ 352.92342892],
+        [ 117.1507... [ -50.96485228],
+        [ -20.9493958 ],
+        [  42.25647769],
+        [  51.0107262 ],
+        [  48.82195577]]])
+desired = array([[[ 8.46143247e-05],
+        [ 8.50392545e-04],
+        [ 5.27994291e-03],
+        [ 6.12720698e-03],
+        [ ...636e-02],
+        [-5.60619571e-03],
+        [ 2.90899427e-03],
+        [ 8.50392545e-04],
+        [ 8.54663183e-03]]])
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 100 / 100 (100%)
+E       Max absolute difference: 2336.52632552
+E       Max relative difference: 629887.8879561
+E        x: array([[[  53.297623],
+E               [  51.010726],
+E               [ 303.411996],...
+E        y: array([[[ 8.461432e-05],
+E               [ 8.503925e-04],
+E               [ 5.279943e-03],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_71_{grid_mode=True, mode='wrap', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234cd46400>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float64'>}
+dtype = <class 'numpy.float64'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[ 1.97919669e+01],
+        [ 9.66208561e+00],
+        [ 5.65815436e+01],
+        [ 6.80961870e+01],
+        [ ...577e+00],
+        [-7.92562963e-01],
+        [ 7.36830399e+00],
+        [ 9.66208561e+00],
+        [ 4.71685805e+00]]])
+desired = array([[[ 1.32949066e-04],
+        [ 1.06932821e-03],
+        [ 6.53393769e-03],
+        [ 7.75131221e-03],
+        [ ...718e-02],
+        [-6.43771396e-03],
+        [ 3.35380211e-03],
+        [ 1.06932821e-03],
+        [ 8.60075856e-03]]])
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 100 / 100 (100%)
+E       Max absolute difference: 233.83963068
+E       Max relative difference: 148867.79248851
+E        x: array([[[ 1.979197e+01],
+E               [ 9.662086e+00],
+E               [ 5.658154e+01],...
+E        y: array([[[ 1.329491e-04],
+E               [ 1.069328e-03],
+E               [ 6.533938e-03],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_94_{grid_mode=True, mode='grid-constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d3d76d0>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float64'>}
+dtype = <class 'numpy.float64'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[ 5.63055219e+01],
+        [-1.22528405e+02],
+        [-3.83476709e+02],
+        [-3.83476709e+02],
+        [-...021e+00],
+        [ 4.40535983e+00],
+        [-2.69124172e+00],
+        [-1.59183812e+00],
+        [ 9.72456581e-01]]])
+desired = array([[[ 1.27949283e-02],
+        [-2.43606830e-02],
+        [-7.91692940e-02],
+        [-7.91692940e-02],
+        [-...333e-03],
+        [ 9.13158865e-04],
+        [-5.54269262e-04],
+        [-3.27391850e-04],
+        [ 1.99955080e-04]]])
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 100 / 100 (100%)
+E       Max absolute difference: 2611.23242921
+E       Max relative difference: 5747.85704324
+E        x: array([[[ 5.630552e+01],
+E               [-1.225284e+02],
+E               [-3.834767e+02],...
+E        y: array([[[ 1.279493e-02],
+E               [-2.436068e-02],
+E               [-7.916929e-02],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+_ TestZoomOutputSize1.test_zoom_output_size1[_param_95_{grid_mode=True, mode='grid-constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
+
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f234d3e4340>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+args = (), kw = {'dtype': <class 'numpy.float64'>}
+dtype = <class 'numpy.float64'>
+
+    @_wraps_partial(impl, name)
+    def test_func(self, *args, **kw):
+        for dtype in dtypes:
+            try:
+                kw[name] = numpy.dtype(dtype).type
+>               impl(self, *args, **kw)
+
+cupy/testing/_helper.py:825: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[ 4.16965077e+00],
+        [-1.18699209e+01],
+        [-3.36177788e+01],
+        [-3.36177788e+01],
+        [-...671e-01],
+        [ 6.07624141e-01],
+        [-3.96545295e-01],
+        [-2.61764771e-01],
+        [ 1.70742628e-01]]])
+desired = array([[[ 1.44354197e-02],
+        [-2.67893098e-02],
+        [-8.45564959e-02],
+        [-8.45564959e-02],
+        [-...699e-03],
+        [ 1.49724992e-03],
+        [-9.55056276e-04],
+        [-6.25982935e-04],
+        [ 4.07383783e-04]]])
+rtol = 1e-07, atol = 1e-05, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-07, atol=1e-05
+E       
+E       Mismatched elements: 100 / 100 (100%)
+E       Max absolute difference: 270.54779997
+E       Max relative difference: 678.67662434
+E        x: array([[[ 4.169651e+00],
+E               [-1.186992e+01],
+E               [-3.361778e+01],...
+E        y: array([[[ 1.443542e-02],
+E               [-2.678931e-02],
+E               [-8.455650e-02],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float64'>
+_ TestFFTConvolve_param_12_{mode='full', size1=(3, 4, 10), size2=3}.test_correlate_fft _
+cupy/testing/_helper.py:825: in test_func
+    impl(self, *args, **kw)
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[ -67.023415  ,  -34.65665   ,    2.4082286 ,    4.3990836 ,
+           30.08667   ,  -31.448006  ,  -59.45321...1.743101  ,    4.0651793 ,
+          -59.686687  ,  -25.866457  ,  -49.65274   ,  -31.778236  ]]],
+      dtype=float32)
+desired = array([[[  7.8674293,  45.3722   ,  60.898335 ,  54.842022 ,
+          48.07059  ,  42.814228 ,  52.615826 ,  48.42525...42563  , 126.12969  , 119.81335  ,
+         143.07594  , 136.70508  ,  97.919945 ,  38.007053 ]]],
+      dtype=float32)
+rtol = 0.001, atol = 0.001, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=0.001, atol=0.001
+E       
+E       Mismatched elements: 360 / 360 (100%)
+E       Max absolute difference: 750.6533
+E       Max relative difference: 10.774607
+E        x: array([[[ -67.023415,  -34.65665 ,    2.408229,    4.399084,
+E                  30.08667 ,  -31.448006,  -59.453213,  -71.971054,
+E                 -90.94983 ,  -76.126305,  -63.273396,  -44.329117],...
+E        y: array([[[  7.867429,  45.3722  ,  60.898335,  54.842022,  48.07059 ,
+E                 42.814228,  52.615826,  48.42525 ,  76.05639 ,  77.71094 ,
+E                 35.934895,   4.535131],...
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.float32'>
+_ TestFFTConvolve_param_44_{mode='valid', size1=(3, 4, 10), size2=3}.test_convolve_fft _
+cupy/testing/_helper.py:825: in test_func
+    impl(self, *args, **kw)
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[-111,   40,   28,  -83,  -20,   58,   47, -108],
+        [  88,   34,  -34,   17,    4,    3,  -29,  -81]]], dtype=int8)
+desired = array([[[-120,  -49,   32,   -7,  -73,   64,   74, -107],
+        [ -58,  -13, -125,   43,  -48,   69,  -99,  -58]]], dtype=int8)
+rtol = 1e-08, atol = 1e-08, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-08, atol=1e-08
+E       
+E       Mismatched elements: 16 / 16 (100%)
+E       Max absolute difference: 110
+E       Max relative difference: 10.85714286
+E        x: array([[[-111,   40,   28,  -83,  -20,   58,   47, -108],
+E               [  88,   34,  -34,   17,    4,    3,  -29,  -81]]], dtype=int8)
+E        y: array([[[-120,  -49,   32,   -7,  -73,   64,   74, -107],
+E               [ -58,  -13, -125,   43,  -48,   69,  -99,  -58]]], dtype=int8)
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.int8'>
+_ TestFFTConvolve_param_44_{mode='valid', size1=(3, 4, 10), size2=3}.test_correlate_fft _
+cupy/testing/_helper.py:825: in test_func
+    impl(self, *args, **kw)
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[-104,   17,   16,  118,   24,   71,  120,  -55],
+        [ -71,  -99,  -45,    7,  -86,  -77,   91,   13]]], dtype=int8)
+desired = array([[[ 117,  -46,   34,   21,  -26,  -28,  -95,  101],
+        [ -62,   -5,   31,  -49, -114,   93, -116,  -39]]], dtype=int8)
+rtol = 1e-08, atol = 1e-08, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-08, atol=1e-08
+E       
+E       Mismatched elements: 16 / 16 (100%)
+E       Max absolute difference: 100
+E       Max relative difference: 18.8
+E        x: array([[[-104,   17,   16,  118,   24,   71,  120,  -55],
+E               [ -71,  -99,  -45,    7,  -86,  -77,   91,   13]]], dtype=int8)
+E        y: array([[[ 117,  -46,   34,   21,  -26,  -28,  -95,  101],
+E               [ -62,   -5,   31,  -49, -114,   93, -116,  -39]]], dtype=int8)
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.int8'>
+_ TestFFTConvolve_param_44_{mode='valid', size1=(3, 4, 10), size2=3}.test_fftconvolve _
+cupy/testing/_helper.py:825: in test_func
+    impl(self, *args, **kw)
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+actual = array([[[4241., 2600., 2844., 4781., 1516., 1338., 1071., 3220.],
+        [1624., 1826., 1246., 1809., 1796., 1795., 5603., 1967.]]])
+desired = array([[[648., 719., 544., 505., 439., 576., 586., 661.],
+        [710., 755., 643., 555., 464., 581., 669., 710.]]])
+rtol = 1e-08, atol = 1e-08, err_msg = '', verbose = True
+
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
+    
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
+    
+        .. seealso:: :func:`numpy.testing.assert_allclose`
+    
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=1e-08, atol=1e-08
+E       
+E       Mismatched elements: 16 / 16 (100%)
+E       Max absolute difference: 4934.
+E       Max relative difference: 8.46732673
+E        x: array([[[4241., 2600., 2844., 4781., 1516., 1338., 1071., 3220.],
+E               [1624., 1826., 1246., 1809., 1796., 1795., 5603., 1967.]]])
+E        y: array([[[648., 719., 544., 505., 439., 576., 586., 661.],
+E               [710., 755., 643., 555., 464., 581., 669., 710.]]])
+
+cupy/testing/_array.py:24: AssertionError
+----------------------------- Captured stdout call -----------------------------
+dtype is <class 'numpy.int8'>
+____________________ TestCustomStruct.test_builtin_vectors _____________________
+
+self = <example_tests.test_custom_struct.TestCustomStruct testMethod=test_builtin_vectors>
+
+    def test_builtin_vectors(self):
+>       output = example_test.run_example('custom_struct/builtin_vectors.py')
+
+tests/example_tests/test_custom_struct.py:10: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/example_tests/example_test.py:12: in run_example
+    return subprocess.check_output(
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:411: in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = False, timeout = None, check = True
+popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/example_tests/../../examples/custom_struct/builtin_vectors.py'),)
+kwargs = {'stderr': -2, 'stdout': -1}
+process = <subprocess.Popen object at 0x7f2fd207ec40>
+stdout = b'Traceback (most recent call last):\n  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/te...e. Here we allow only arrays of size one so that users do not\nTypeError: Unsupported type <class \'numpy.ndarray\'>\n'
+stderr = None, retcode = 1
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout is given, and the process takes too long, a TimeoutExpired
+        exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/example_tests/../../examples/custom_struct/builtin_vectors.py')' returned non-zero exit status 1.
+
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:512: CalledProcessError
+----------------------------- Captured stdout call -----------------------------
+Original error message:
+Traceback (most recent call last):
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/example_tests/../../examples/custom_struct/builtin_vectors.py", line 48, in <module>
+    sys.exit(main())
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/example_tests/../../examples/custom_struct/builtin_vectors.py", line 40, in main
+    kernel((1,), (N,), args)
+  File "cupy/_core/raw.pyx", line 89, in cupy._core.raw.RawKernel.__call__
+    self.kernel(
+  File "cupy/cuda/function.pyx", line 201, in cupy.cuda.function.Function.__call__
+    format(grid0, grid1, grid2, max_grid_size))
+  File "cupy/cuda/function.pyx", line 155, in cupy.cuda.function._launch
+    if itemsize == 8:
+  File "cupy/cuda/function.pyx", line 123, in cupy.cuda.function._pointer
+    # value. Here we allow only arrays of size one so that users do not
+TypeError: Unsupported type <class 'numpy.ndarray'>
+
+_____________________ TestCustomStruct.test_complex_struct _____________________
+
+self = <example_tests.test_custom_struct.TestCustomStruct testMethod=test_complex_struct>
+
+    def test_complex_struct(self):
+>       output = example_test.run_example('custom_struct/complex_struct.py')
+
+tests/example_tests/test_custom_struct.py:25: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/example_tests/example_test.py:12: in run_example
+    return subprocess.check_output(
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:411: in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = False, timeout = None, check = True
+popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/example_tests/../../examples/custom_struct/complex_struct.py'),)
+kwargs = {'stderr': -2, 'stdout': -1}
+process = <subprocess.Popen object at 0x7f23c03403a0>
+stdout = b'Overall structure itemsize: 80 bytes\nStructure members itemsize: [16  1 16  2 24]\nStructure members offsets: [ 0 1...e. Here we allow only arrays of size one so that users do not\nTypeError: Unsupported type <class \'numpy.ndarray\'>\n'
+stderr = None, retcode = 1
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout is given, and the process takes too long, a TimeoutExpired
+        exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/example_tests/../../examples/custom_struct/complex_struct.py')' returned non-zero exit status 1.
+
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:512: CalledProcessError
+----------------------------- Captured stdout call -----------------------------
+Original error message:
+Overall structure itemsize: 80 bytes
+Structure members itemsize: [16  1 16  2 24]
+Structure members offsets: [ 0 16 24 40 48]
+Complex structure value:
+  [((0, 1, 2, 3), (4,), (5., 6.), (7,), (8, 9, 10))]
+Traceback (most recent call last):
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/example_tests/../../examples/custom_struct/complex_struct.py", line 132, in <module>
+    sys.exit(main())
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/example_tests/../../examples/custom_struct/complex_struct.py", line 122, in main
+    kernel((1,), (N,), (s, out))
+  File "cupy/_core/raw.pyx", line 89, in cupy._core.raw.RawKernel.__call__
+    self.kernel(
+  File "cupy/cuda/function.pyx", line 201, in cupy.cuda.function.Function.__call__
+    format(grid0, grid1, grid2, max_grid_size))
+  File "cupy/cuda/function.pyx", line 155, in cupy.cuda.function._launch
+    if itemsize == 8:
+  File "cupy/cuda/function.pyx", line 123, in cupy.cuda.function._pointer
+    # value. Here we allow only arrays of size one so that users do not
+TypeError: Unsupported type <class 'numpy.ndarray'>
+
+_____________________ TestCustomStruct.test_packed_matrix ______________________
+
+self = <example_tests.test_custom_struct.TestCustomStruct testMethod=test_packed_matrix>
+
+    def test_packed_matrix(self):
+>       output = example_test.run_example('custom_struct/packed_matrix.py')
+
+tests/example_tests/test_custom_struct.py:17: 
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+tests/example_tests/example_test.py:12: in run_example
+    return subprocess.check_output(
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:411: in check_output
+    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
+
+input = None, capture_output = False, timeout = None, check = True
+popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/example_tests/../../examples/custom_struct/packed_matrix.py'),)
+kwargs = {'stderr': -2, 'stdout': -1}
+process = <subprocess.Popen object at 0x7f2fd207e580>
+stdout = b'Traceback (most recent call last):\n  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/te...e. Here we allow only arrays of size one so that users do not\nTypeError: Unsupported type <class \'numpy.ndarray\'>\n'
+stderr = None, retcode = 1
+
+    def run(*popenargs,
+            input=None, capture_output=False, timeout=None, check=False, **kwargs):
+        """Run command with arguments and return a CompletedProcess instance.
+    
+        The returned instance will have attributes args, returncode, stdout and
+        stderr. By default, stdout and stderr are not captured, and those attributes
+        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them.
+    
+        If check is True and the exit code was non-zero, it raises a
+        CalledProcessError. The CalledProcessError object will have the return code
+        in the returncode attribute, and output & stderr attributes if those streams
+        were captured.
+    
+        If timeout is given, and the process takes too long, a TimeoutExpired
+        exception will be raised.
+    
+        There is an optional argument "input", allowing you to
+        pass bytes or a string to the subprocess's stdin.  If you use this argument
+        you may not also use the Popen constructor's "stdin" argument, as
+        it will be used internally.
+    
+        By default, all communication is in bytes, and therefore any "input" should
+        be bytes, and the stdout and stderr will be bytes. If in text mode, any
+        "input" should be a string, and stdout and stderr will be strings decoded
+        according to locale encoding, or by "encoding" if set. Text mode is
+        triggered by setting any of text, encoding, errors or universal_newlines.
+    
+        The other arguments are the same as for the Popen constructor.
+        """
+        if input is not None:
+            if kwargs.get('stdin') is not None:
+                raise ValueError('stdin and input arguments may not both be used.')
+            kwargs['stdin'] = PIPE
+    
+        if capture_output:
+            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
+                raise ValueError('stdout and stderr arguments may not be used '
+                                 'with capture_output.')
+            kwargs['stdout'] = PIPE
+            kwargs['stderr'] = PIPE
+    
+        with Popen(*popenargs, **kwargs) as process:
+            try:
+                stdout, stderr = process.communicate(input, timeout=timeout)
+            except TimeoutExpired as exc:
+                process.kill()
+                if _mswindows:
+                    # Windows accumulates the output in a single blocking
+                    # read() call run on child threads, with the timeout
+                    # being done in a join() on those threads.  communicate()
+                    # _after_ kill() is required to collect that and add it
+                    # to the exception.
+                    exc.stdout, exc.stderr = process.communicate()
+                else:
+                    # POSIX _communicate already populated the output so
+                    # far into the TimeoutExpired exception.
+                    process.wait()
+                raise
+            except:  # Including KeyboardInterrupt, communicate handled that.
+                process.kill()
+                # We don't call process.wait() as .__exit__ does that for us.
+                raise
+            retcode = process.poll()
+            if check and retcode:
+>               raise CalledProcessError(retcode, process.args,
+                                         output=stdout, stderr=stderr)
+E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/example_tests/../../examples/custom_struct/packed_matrix.py')' returned non-zero exit status 1.
+
+/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:512: CalledProcessError
+----------------------------- Captured stdout call -----------------------------
+Original error message:
+Traceback (most recent call last):
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/example_tests/../../examples/custom_struct/packed_matrix.py", line 91, in <module>
+    sys.exit(main())
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/example_tests/../../examples/custom_struct/packed_matrix.py", line 81, in main
+    kernel((1,), (N,), args)
+  File "cupy/_core/raw.pyx", line 89, in cupy._core.raw.RawKernel.__call__
+    self.kernel(
+  File "cupy/cuda/function.pyx", line 201, in cupy.cuda.function.Function.__call__
+    format(grid0, grid1, grid2, max_grid_size))
+  File "cupy/cuda/function.pyx", line 155, in cupy.cuda.function._launch
+    if itemsize == 8:
+  File "cupy/cuda/function.pyx", line 123, in cupy.cuda.function._pointer
+    # value. Here we allow only arrays of size one so that users do not
+TypeError: Unsupported type <class 'numpy.ndarray'>
+
+=============================== warnings summary ===============================
+tests/cupy_tests/core_tests/fusion_tests/test_array.py: 1 warning
+tests/cupy_tests/math_tests/test_sumprod.py: 19 warnings
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/_methods.py:51: RuntimeWarning: overflow encountered in reduce
+    return umr_prod(a, axis, dtype, out, keepdims, initial, where)
+
+tests/cupy_tests/core_tests/fusion_tests/test_routines.py::TestFusionNumericalReduction_param_1_{func='prod'}::test_reduction
+tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_11_{axis=0, func='nanprod', keepdims=True, shape=(20, 30, 40), transpose_axes=False}::test_nansum_all
+tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_11_{axis=0, func='nanprod', keepdims=True, shape=(20, 30, 40), transpose_axes=False}::test_nansum_axis_transposed
+tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axis=0, func='nanprod', keepdims=False, shape=(20, 30, 40), transpose_axes=False}::test_nansum_all
+tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axis=0, func='nanprod', keepdims=False, shape=(20, 30, 40), transpose_axes=False}::test_nansum_axis_transposed
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/fromnumeric.py:87: RuntimeWarning: overflow encountered in reduce
+    return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyval_param_0_{type_l='poly1d', type_r='ndarray'}::test_polyval
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyval_param_3_{type_l='ndarray', type_r='ndarray'}::test_polyval
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyvalDtypesCombination::test_polyval_diff_types_array_array
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/lib/polynomial.py:734: RuntimeWarning: overflow encountered in multiply
+    y = y * x + p[i]
+
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyval_param_1_{type_l='poly1d', type_r='numpy_scalar'}::test_polyval
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyval_param_4_{type_l='ndarray', type_r='numpy_scalar'}::test_polyval
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyvalDtypesCombination::test_polyval_diff_types_array_scalar
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/lib/polynomial.py:734: RuntimeWarning: overflow encountered in half_scalars
+    y = y * x + p[i]
+
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyval_param_1_{type_l='poly1d', type_r='numpy_scalar'}::test_polyval
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyval_param_4_{type_l='ndarray', type_r='numpy_scalar'}::test_polyval
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyvalDtypesCombination::test_polyval_diff_types_array_scalar
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/lib/polynomial.py:734: RuntimeWarning: overflow encountered in byte_scalars
+    y = y * x + p[i]
+
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyval_param_1_{type_l='poly1d', type_r='numpy_scalar'}::test_polyval
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyval_param_4_{type_l='ndarray', type_r='numpy_scalar'}::test_polyval
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyvalDtypesCombination::test_polyval_diff_types_array_scalar
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/lib/polynomial.py:734: RuntimeWarning: overflow encountered in short_scalars
+    y = y * x + p[i]
+
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyval_param_1_{type_l='poly1d', type_r='numpy_scalar'}::test_polyval
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyval_param_4_{type_l='ndarray', type_r='numpy_scalar'}::test_polyval
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyvalDtypesCombination::test_polyval_diff_types_array_scalar
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/lib/polynomial.py:734: RuntimeWarning: overflow encountered in ubyte_scalars
+    y = y * x + p[i]
+
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyval_param_1_{type_l='poly1d', type_r='numpy_scalar'}::test_polyval
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyval_param_4_{type_l='ndarray', type_r='numpy_scalar'}::test_polyval
+tests/cupy_tests/lib_tests/test_polynomial.py::TestPolyvalDtypesCombination::test_polyval_diff_types_array_scalar
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/lib/polynomial.py:734: RuntimeWarning: overflow encountered in ushort_scalars
+    y = y * x + p[i]
+
+tests/cupy_tests/linalg_tests/test_norms.py: 14 warnings
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/linalg/linalg.py:2568: RuntimeWarning: divide by zero encountered in power
+    absx **= ord
+
+tests/cupy_tests/linalg_tests/test_norms.py: 14 warnings
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/linalg/linalg.py:2568: RuntimeWarning: divide by zero encountered in reciprocal
+    absx **= ord
+
+tests/cupy_tests/math_tests/test_misc.py::TestMisc::test_nan_to_num_inf
+tests/cupy_tests/math_tests/test_misc.py::TestMisc::test_nan_to_num_inf_nan
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/numeric.py:2276: RuntimeWarning: overflow encountered in absolute
+    return less_equal(abs(x-y), atol + rtol * abs(y))
+
+tests/cupy_tests/math_tests/test_sumprod.py: 15 warnings
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/_methods.py:51: RuntimeWarning: invalid value encountered in reduce
+    return umr_prod(a, axis, dtype, out, keepdims, initial, where)
+
+tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_11_{axis=0, func='nanprod', keepdims=True, shape=(20, 30, 40), transpose_axes=False}::test_nansum_all
+tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_11_{axis=0, func='nanprod', keepdims=True, shape=(20, 30, 40), transpose_axes=False}::test_nansum_axis_transposed
+tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axis=0, func='nanprod', keepdims=False, shape=(20, 30, 40), transpose_axes=False}::test_nansum_all
+tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axis=0, func='nanprod', keepdims=False, shape=(20, 30, 40), transpose_axes=False}::test_nansum_axis_transposed
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/fromnumeric.py:87: RuntimeWarning: invalid value encountered in reduce
+    return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
+
+tests/cupy_tests/math_tests/test_sumprod.py: 32 warnings
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/cupy_tests/math_tests/test_sumprod.py:800: RuntimeWarning: invalid value encountered in true_divide
+    a = a / a
+
+tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_all2
+tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_all_transposed2
+tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_axes2
+tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_axes4
+tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_axis_transposed2
+tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py::TestStats::test_only_input[_param_2_{op='variance'}]
+tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py::TestStats::test_only_input[_param_3_{op='standard_deviation'}]
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/_methods.py:47: RuntimeWarning: overflow encountered in reduce
+    return umr_sum(a, axis, dtype, out, keepdims, initial, where)
+
+tests/cupy_tests/statistics_tests/test_meanvar.py: 32 warnings
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
+    a = a / a
+
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_4_{axis=0, keepdims=True, overwrite_input=True, shape=(3, 4, 5)}::test_nanmedian
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_5_{axis=0, keepdims=True, overwrite_input=False, shape=(3, 4, 5)}::test_nanmedian
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_6_{axis=0, keepdims=False, overwrite_input=True, shape=(3, 4, 5)}::test_nanmedian
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_7_{axis=0, keepdims=False, overwrite_input=False, shape=(3, 4, 5)}::test_nanmedian
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_8_{axis=1, keepdims=True, overwrite_input=True, shape=(3, 4, 5)}::test_nanmedian
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_9_{axis=1, keepdims=True, overwrite_input=False, shape=(3, 4, 5)}::test_nanmedian
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_10_{axis=1, keepdims=False, overwrite_input=True, shape=(3, 4, 5)}::test_nanmedian
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_11_{axis=1, keepdims=False, overwrite_input=False, shape=(3, 4, 5)}::test_nanmedian
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/lib/nanfunctions.py:1113: RuntimeWarning: All-NaN slice encountered
+    r, k = function_base._ureduce(a, func=_nanmedian, axis=axis, out=out,
+
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_1_{func='mean', params=((0,), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_2_{func='mean', params=((0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_3_{func='mean', params=((0, 0), 1)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_4_{func='mean', params=((0, 0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_5_{func='mean', params=((0, 0, 0), (0, 2))}::test_external_mean_zero_len
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3372: RuntimeWarning: Mean of empty slice.
+    return _methods._mean(a, axis=axis, dtype=dtype,
+
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_1_{func='mean', params=((0,), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_2_{func='mean', params=((0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_4_{func='mean', params=((0, 0, 0), None)}::test_external_mean_zero_len
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in double_scalars
+    ret = ret.dtype.type(ret / rcount)
+
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_1_{func='mean', params=((0,), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_2_{func='mean', params=((0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_4_{func='mean', params=((0, 0, 0), None)}::test_external_mean_zero_len
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/_methods.py:170: RuntimeWarning: invalid value encountered in true_divide
+    ret = ret.dtype.type(ret / rcount)
+
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_1_{func='mean', params=((0,), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_2_{func='mean', params=((0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_4_{func='mean', params=((0, 0, 0), None)}::test_external_mean_zero_len
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/_methods.py:168: RuntimeWarning: invalid value encountered in true_divide
+    ret = arr.dtype.type(ret / rcount)
+
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_7_{func='std', params=((0,), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_8_{func='std', params=((0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_9_{func='std', params=((0, 0), 1)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_10_{func='std', params=((0, 0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_11_{func='std', params=((0, 0, 0), (0, 2))}::test_external_mean_zero_len
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/_methods.py:233: RuntimeWarning: Degrees of freedom <= 0 for slice
+    ret = _var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_7_{func='std', params=((0,), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_8_{func='std', params=((0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_10_{func='std', params=((0, 0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_13_{func='var', params=((0,), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_14_{func='var', params=((0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_16_{func='var', params=((0, 0, 0), None)}::test_external_mean_zero_len
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/_methods.py:194: RuntimeWarning: invalid value encountered in true_divide
+    arrmean = um.true_divide(
+
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_7_{func='std', params=((0,), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_8_{func='std', params=((0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_10_{func='std', params=((0, 0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_13_{func='var', params=((0,), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_14_{func='var', params=((0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_16_{func='var', params=((0, 0, 0), None)}::test_external_mean_zero_len
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/_methods.py:226: RuntimeWarning: invalid value encountered in double_scalars
+    ret = ret.dtype.type(ret / rcount)
+
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_7_{func='std', params=((0,), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_8_{func='std', params=((0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_10_{func='std', params=((0, 0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_13_{func='var', params=((0,), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_14_{func='var', params=((0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_16_{func='var', params=((0, 0, 0), None)}::test_external_mean_zero_len
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/_methods.py:226: RuntimeWarning: invalid value encountered in true_divide
+    ret = ret.dtype.type(ret / rcount)
+
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_13_{func='var', params=((0,), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_14_{func='var', params=((0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_15_{func='var', params=((0, 0), 1)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_16_{func='var', params=((0, 0, 0), None)}::test_external_mean_zero_len
+tests/cupy_tests/statistics_tests/test_meanvar.py::TestProductZeroLength_param_17_{func='var', params=((0, 0, 0), (0, 2))}::test_external_mean_zero_len
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/numpy/core/fromnumeric.py:3621: RuntimeWarning: Degrees of freedom <= 0 for slice
+    return _methods._var(a, axis=axis, dtype=dtype, out=out, ddof=ddof,
+
+tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_217_{cval=nan, mode='constant', order=0, output=float64, prefilter=True, shift=0.1}]
+tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_220_{cval=nan, mode='constant', order=1, output=float64, prefilter=True, shift=0.1}]
+tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_223_{cval=nan, mode='constant', order=3, output=float64, prefilter=True, shift=0.1}]
+tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_226_{cval=inf, mode='constant', order=0, output=float64, prefilter=True, shift=0.1}]
+tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_229_{cval=inf, mode='constant', order=1, output=float64, prefilter=True, shift=0.1}]
+tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_232_{cval=inf, mode='constant', order=3, output=float64, prefilter=True, shift=0.1}]
+tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_235_{cval=-inf, mode='constant', order=0, output=float64, prefilter=True, shift=0.1}]
+tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_238_{cval=-inf, mode='constant', order=1, output=float64, prefilter=True, shift=0.1}]
+tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_241_{cval=-inf, mode='constant', order=3, output=float64, prefilter=True, shift=0.1}]
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py:533: RuntimeWarning: invalid value encountered in remainder
+    float_out = self._shift(xp, scp, a.astype(xp.float64)) % 1
+
+tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py: 14 warnings
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/scipy/ndimage/measurements.py:684: RuntimeWarning: invalid value encountered in true_divide
+    return sum / numpy.asanyarray(count).astype(numpy.float64)
+
+tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py: 28 warnings
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/scipy/ndimage/measurements.py:736: RuntimeWarning: invalid value encountered in true_divide
+    return sum_c_sq / np.asanyarray(count).astype(float)
+
+tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param_0_{im=(10,), mysize=3, noise=False}::test_wiener
+tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param_1_{im=(10,), mysize=3, noise=True}::test_wiener
+tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param_2_{im=(10,), mysize=4, noise=False}::test_wiener
+tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param_3_{im=(10,), mysize=4, noise=True}::test_wiener
+tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param_4_{im=(10,), mysize=(3, 4, 5), noise=False}::test_wiener
+tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param_5_{im=(10,), mysize=(3, 4, 5), noise=True}::test_wiener
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/scipy/signal/signaltools.py:1598: RuntimeWarning: divide by zero encountered in true_divide
+    res *= (1 - noise / lVar)
+
+tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param_0_{im=(10,), mysize=3, noise=False}::test_wiener
+tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param_1_{im=(10,), mysize=3, noise=True}::test_wiener
+tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param_2_{im=(10,), mysize=4, noise=False}::test_wiener
+tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param_3_{im=(10,), mysize=4, noise=True}::test_wiener
+tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param_4_{im=(10,), mysize=(3, 4, 5), noise=False}::test_wiener
+tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param_5_{im=(10,), mysize=(3, 4, 5), noise=True}::test_wiener
+  /home/kmaeh/.pyenv/versions/rocm-ci/lib/python3.8/site-packages/scipy/signal/signaltools.py:1598: RuntimeWarning: invalid value encountered in multiply
+    res *= (1 - noise / lVar)
+
+-- Docs: https://docs.pytest.org/en/stable/warnings.html
+- generated html file: file:///home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.3ou9S2SKUu/cupy/_output/report.html -
+=========================== short test summary info ============================
+FAILED tests/cupy_tests/core_tests/test_dlpack.py::TestNewDLPackConversion::test_conversion
+FAILED tests/cupy_tests/core_tests/test_ndarray.py::TestNdarrayCopy::test_copy_multi_device_with_stream
+FAILED tests/cupy_tests/core_tests/test_ndarray_unary_op.py::TestArrayBoolOp::test_bool_one_element
+FAILED tests/cupy_tests/indexing_tests/test_generate.py::TestIX_::test_ix_ndarray
+FAILED tests/cupy_tests/math_tests/test_misc.py::TestConvolve_param_0_{mode='valid'}::test_convolve_diff_types
+FAILED tests/cupy_tests/math_tests/test_misc.py::TestConvolve_param_1_{mode='same'}::test_convolve_diff_types
+FAILED tests/cupy_tests/math_tests/test_misc.py::TestConvolve_param_2_{mode='full'}::test_convolve_diff_types
+FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsPoissonInvalid::test_none_lam_generator
+FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsStandardGammaInvalid::test_none_shape_generator
+FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_0_{mode='valid'}::test_correlate_diff_types
+FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_1_{mode='full'}::test_correlate_diff_types
+FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_2_{mode='same'}::test_correlate_diff_types
+FAILED tests/cupyx_tests/test_scatter.py::TestScatter::test_scatter_add - Ass...
+FAILED tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py::TestHfftn_param_25_{axes=(0, 1, 2), norm='backward', s=None, shape=(3, 5, 20)}::test_ihfftn_backend
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestMapCoordinatesHalfInteger::test_map_coordinates_float[_param_46_{mode='grid-constant', order=4}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestMapCoordinatesHalfInteger::test_map_coordinates_float[_param_47_{mode='grid-constant', order=5}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_4_{grid_mode=False, mode='constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_5_{grid_mode=False, mode='constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_16_{grid_mode=False, mode='mirror', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_17_{grid_mode=False, mode='mirror', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_22_{grid_mode=False, mode='wrap', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_23_{grid_mode=False, mode='wrap', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_46_{grid_mode=False, mode='grid-constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_47_{grid_mode=False, mode='grid-constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_52_{grid_mode=True, mode='constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_53_{grid_mode=True, mode='constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_64_{grid_mode=True, mode='mirror', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_65_{grid_mode=True, mode='mirror', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_70_{grid_mode=True, mode='wrap', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_71_{grid_mode=True, mode='wrap', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_94_{grid_mode=True, mode='grid-constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_95_{grid_mode=True, mode='grid-constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
+FAILED tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestFFTConvolve_param_12_{mode='full', size1=(3, 4, 10), size2=3}::test_correlate_fft
+FAILED tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestFFTConvolve_param_44_{mode='valid', size1=(3, 4, 10), size2=3}::test_convolve_fft
+FAILED tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestFFTConvolve_param_44_{mode='valid', size1=(3, 4, 10), size2=3}::test_correlate_fft
+FAILED tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestFFTConvolve_param_44_{mode='valid', size1=(3, 4, 10), size2=3}::test_fftconvolve
+FAILED tests/example_tests/test_custom_struct.py::TestCustomStruct::test_builtin_vectors
+FAILED tests/example_tests/test_custom_struct.py::TestCustomStruct::test_complex_struct
+FAILED tests/example_tests/test_custom_struct.py::TestCustomStruct::test_packed_matrix
+= 39 failed, 64161 passed, 7439 skipped, 71 deselected, 557 xfailed, 276 warnings in 26584.31s (7:23:04) =
