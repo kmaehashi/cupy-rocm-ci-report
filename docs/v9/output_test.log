@@ -1,7 +1,7 @@
-v9: 92b3c2b Merge pull request #5405 from asi1024/bp-5383-v9-jit_atomic_hip
+v9: 9285d0f Merge pull request #5422 from asi1024/bp-5361-v9-fix_jit_funcs
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.hRYIPA5gn1/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
 collected 71817 items / 71 deselected / 12 skipped / 71734 selected
 
@@ -435,8 +435,8 @@ tests/cupy_tests/math_tests/test_arithmetic.py ......................... [ 19%]
 tests/cupy_tests/math_tests/test_explog.py .........                     [ 31%]
 tests/cupy_tests/math_tests/test_floating.py .......                     [ 31%]
 tests/cupy_tests/math_tests/test_hyperbolic.py ......                    [ 31%]
-tests/cupy_tests/math_tests/test_matmul.py ................FF......FF..F [ 31%]
-F..F.................................................................... [ 31%]
+tests/cupy_tests/math_tests/test_matmul.py ............................. [ 31%]
+........................................................................ [ 31%]
 ........................................................................ [ 31%]
 ........................................................................ [ 31%]
 ................................................                         [ 31%]
@@ -458,7 +458,7 @@ tests/cupy_tests/math_tests/test_sumprod.py ............................ [ 31%]
 ........................................................................ [ 32%]
 ........................................................................ [ 32%]
 ..............................................................           [ 32%]
-tests/cupy_tests/math_tests/test_trigonometric.py ..........sssss        [ 32%]
+tests/cupy_tests/math_tests/test_trigonometric.py ...............        [ 32%]
 tests/cupy_tests/math_tests/test_window.py ............................. [ 32%]
 .....                                                                    [ 32%]
 tests/cupy_tests/misc_tests/test_memory_ranges.py ................       [ 32%]
@@ -704,7 +704,7 @@ tests/cupyx_tests/scipy_tests/fftpack_tests/test_fftpack.py ............ [ 51%]
 ........................................................................ [ 52%]
 .........................                                                [ 52%]
 tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py ........... [ 52%]
-.............................................F.F..F                      [ 52%]
+..............................................F....                      [ 52%]
 tests/cupyx_tests/scipy_tests/linalg_tests/test_solve_triangular.py .... [ 52%]
 ........................................................................ [ 53%]
 ........................................................................ [ 53%]
@@ -1175,7 +1175,7 @@ tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py ......... [ 98%]
 ........................................................................ [ 98%]
 ......................................................xxxxxxxxx......... [ 98%]
 ...........................xxxxxxxxxxxx................................. [ 98%]
-...F........xxx..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x.. [ 98%]
+............xxx..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x.. [ 98%]
 x.x..................................................................... [ 99%]
 ........................................................................ [ 99%]
 ........................................................................ [ 99%]
@@ -1212,594 +1212,6 @@ ____________________ TestArrayBoolOp.test_bool_one_element _____________________
 [XPASS(strict)] ROCm/HIP may have a bug
 ___________________________ TestIX_.test_ix_ndarray ____________________________
 [XPASS(strict)] HIP may have a bug
-________ TestMatmul_param_8_{shape_pair=((2,), (2,))}.test_cupy_matmul _________
-cupy/testing/_helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/_helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/_helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/_helper.py:495: in check_func
-    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array(1, dtype=int32), desired = 2, rtol = 0.001, atol = 0.001
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=0.001, atol=0.001
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 1
-E       Max relative difference: 0.5
-E        x: array(1, dtype=int32)
-E        y: array(2, dtype=int32)
-
-cupy/testing/_array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype2 is <class 'numpy.bool_'>
-dtype1 is <class 'numpy.int32'>
------------------------------ Captured stderr call -----------------------------
-Traceback (most recent call last):
-  File "cupy/_core/_reduction.pyx", line 776, in cupy._core._reduction.ReductionKernel._get_function
-    return _ReductionKernel_get_cached_function(
-  File "cupy/_util.pyx", line 59, in cupy._util.memoize.decorator.ret
-    result = f(*args, **kwargs)
-  File "cupy/_core/_reduction.pyx", line 804, in cupy._core._reduction._ReductionKernel_get_cached_function
-    return _create_reduction_function(
-  File "cupy/_core/_reduction.pyx", line 123, in cupy._core._reduction._create_reduction_function
-    module = compile_with_cache(module_code, options)
-  File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
-    return cuda.compile_with_cache(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
-    return _compile_with_cache_hip(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
-    temp_path = tf.name
-  File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
-    result = self.file.__exit__(exc, value, tb)
-OSError: [Errno 28] No space left on device
-______ TestMatmul_param_8_{shape_pair=((2,), (2,))}.test_operator_matmul _______
-cupy/testing/_helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/_helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/_helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/_helper.py:495: in check_func
-    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array(0, dtype=int32), desired = 2, rtol = 0.001, atol = 0.001
-err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=0.001, atol=0.001
-E       
-E       Mismatched elements: 1 / 1 (100%)
-E       Max absolute difference: 2
-E       Max relative difference: 1.
-E        x: array(0, dtype=int32)
-E        y: array(2, dtype=int32)
-
-cupy/testing/_array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype2 is <class 'numpy.bool_'>
-dtype1 is <class 'numpy.int32'>
------------------------------ Captured stderr call -----------------------------
-Traceback (most recent call last):
-  File "cupy/_core/_reduction.pyx", line 776, in cupy._core._reduction.ReductionKernel._get_function
-    return _ReductionKernel_get_cached_function(
-  File "cupy/_util.pyx", line 59, in cupy._util.memoize.decorator.ret
-    result = f(*args, **kwargs)
-  File "cupy/_core/_reduction.pyx", line 804, in cupy._core._reduction._ReductionKernel_get_cached_function
-    return _create_reduction_function(
-  File "cupy/_core/_reduction.pyx", line 123, in cupy._core._reduction._create_reduction_function
-    module = compile_with_cache(module_code, options)
-  File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
-    return cuda.compile_with_cache(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
-    return _compile_with_cache_hip(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
-    temp_path = tf.name
-  File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
-    result = self.file.__exit__(exc, value, tb)
-OSError: [Errno 28] No space left on device
-____ TestMatmul_param_12_{shape_pair=((5, 3, 2), (2, 4))}.test_cupy_matmul _____
-
-self = <<cupy_tests.math_tests.test_matmul.TestMatmul_param_12_{shape_pair=((5, 3, 2), (2, 4))} testMethod=test_cupy_matmul>  parameter: {'shape_pair': ((5, 3, 2), (2, 4))}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/__init__.py'>
-dtype1 = <class 'numpy.float64'>, dtype2 = <class 'numpy.int8'>
-
-    @testing.for_all_dtypes(name='dtype1')
-    @testing.for_all_dtypes(name='dtype2')
-    @testing.numpy_cupy_allclose(rtol=1e-3, atol=1e-3)  # required for uint8
-    def test_cupy_matmul(self, xp, dtype1, dtype2):
-        x1 = testing.shaped_arange(self.shape_pair[0], xp, dtype1)
-        x2 = testing.shaped_arange(self.shape_pair[1], xp, dtype2)
->       return xp.matmul(x1, x2)
-
-tests/cupy_tests/math_tests/test_matmul.py:75: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-cupy/linalg/_product.py:42: in matmul
-    return _gu_func_matmul(x1, x2, out=out, axes=axes)
-cupy/_core/_gufuncs.py:444: in __call__
-    self._apply_func_to_inputs(0, dimsizess, loop_output_dims, args, outs)
-cupy/_core/_gufuncs.py:225: in _apply_func_to_inputs
-    fouts = self._func(*args)
-cupy/_core/_routines_linalg.pyx:686: in cupy._core._routines_linalg.matmul
-    cpdef ndarray matmul(ndarray a, ndarray b, ndarray out=None):
-cupy/_core/_routines_linalg.pyx:764: in cupy._core._routines_linalg.matmul
-    b = ascontiguousarray(b, dtype)
-cupy/_core/core.pyx:2430: in cupy._core.core.ascontiguousarray
-    elementwise_copy(a, newarray)
-cupy/_core/_kernel.pyx:1104: in cupy._core._kernel.ufunc.__call__
-    kern = self._get_ufunc_kernel(dev_id, op, arginfos)
-cupy/_core/_kernel.pyx:1127: in cupy._core._kernel.ufunc._get_ufunc_kernel
-    kern = _get_ufunc_kernel(
-cupy/_core/_kernel.pyx:901: in cupy._core._kernel._get_ufunc_kernel
-    return _get_simple_elementwise_kernel(
-cupy/_core/_kernel.pyx:61: in cupy._core._kernel._get_simple_elementwise_kernel
-    module = compile_with_cache(module_code, options)
-cupy/_core/core.pyx:2001: in cupy._core.core.compile_with_cache
-    return cuda.compile_with_cache(
-cupy/cuda/compiler.py:428: in compile_with_cache
-    return _compile_with_cache_hip(
-cupy/cuda/compiler.py:838: in _compile_with_cache_hip
-    temp_path = tf.name
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <tempfile._TemporaryFileWrapper object at 0x7fcc20435f10>, exc = None
-value = None, tb = None
-
-    def __exit__(self, exc, value, tb):
->       result = self.file.__exit__(exc, value, tb)
-E       AssertionError: Only cupy raises error
-E       
-E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/testing/_helper.py", line 47, in _call_func
-E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/tests/cupy_tests/math_tests/test_matmul.py", line 75, in test_cupy_matmul
-E           return xp.matmul(x1, x2)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/linalg/_product.py", line 42, in matmul
-E           return _gu_func_matmul(x1, x2, out=out, axes=axes)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/_core/_gufuncs.py", line 444, in __call__
-E           self._apply_func_to_inputs(0, dimsizess, loop_output_dims, args, outs)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/_core/_gufuncs.py", line 225, in _apply_func_to_inputs
-E           fouts = self._func(*args)
-E         File "cupy/_core/_routines_linalg.pyx", line 686, in cupy._core._routines_linalg.matmul
-E           cpdef ndarray matmul(ndarray a, ndarray b, ndarray out=None):
-E         File "cupy/_core/_routines_linalg.pyx", line 764, in cupy._core._routines_linalg.matmul
-E           b = ascontiguousarray(b, dtype)
-E         File "cupy/_core/core.pyx", line 2430, in cupy._core.core.ascontiguousarray
-E           elementwise_copy(a, newarray)
-E         File "cupy/_core/_kernel.pyx", line 1104, in cupy._core._kernel.ufunc.__call__
-E           kern = self._get_ufunc_kernel(dev_id, op, arginfos)
-E         File "cupy/_core/_kernel.pyx", line 1127, in cupy._core._kernel.ufunc._get_ufunc_kernel
-E           kern = _get_ufunc_kernel(
-E         File "cupy/_core/_kernel.pyx", line 901, in cupy._core._kernel._get_ufunc_kernel
-E           return _get_simple_elementwise_kernel(
-E         File "cupy/_core/_kernel.pyx", line 61, in cupy._core._kernel._get_simple_elementwise_kernel
-E           module = compile_with_cache(module_code, options)
-E         File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
-E           return cuda.compile_with_cache(
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
-E           return _compile_with_cache_hip(
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
-E           temp_path = tf.name
-E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
-E           result = self.file.__exit__(exc, value, tb)
-E       OSError: [Errno 28] No space left on device
-
-/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py:491: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype2 is <class 'numpy.int8'>
-dtype1 is <class 'numpy.float64'>
-__ TestMatmul_param_12_{shape_pair=((5, 3, 2), (2, 4))}.test_operator_matmul ___
-
-self = <<cupy_tests.math_tests.test_matmul.TestMatmul_param_12_{shape_pair=((5, 3, 2), (2, 4))} testMethod=test_operator_matmul>  parameter: {'shape_pair': ((5, 3, 2), (2, 4))}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/__init__.py'>
-dtype1 = <class 'numpy.float64'>, dtype2 = <class 'numpy.int8'>
-
-    @testing.for_all_dtypes(name='dtype1')
-    @testing.for_all_dtypes(name='dtype2')
-    @testing.numpy_cupy_allclose(rtol=1e-3, atol=1e-3)  # required for uint8
-    def test_operator_matmul(self, xp, dtype1, dtype2):
-        x1 = testing.shaped_arange(self.shape_pair[0], xp, dtype1)
-        x2 = testing.shaped_arange(self.shape_pair[1], xp, dtype2)
->       return operator.matmul(x1, x2)
-
-tests/cupy_tests/math_tests/test_matmul.py:67: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-cupy/_core/core.pyx:1096: in cupy._core.core.ndarray.__matmul__
-    return cupy.linalg._product.matmul(x, y)
-cupy/linalg/_product.py:42: in matmul
-    return _gu_func_matmul(x1, x2, out=out, axes=axes)
-cupy/_core/_gufuncs.py:444: in __call__
-    self._apply_func_to_inputs(0, dimsizess, loop_output_dims, args, outs)
-cupy/_core/_gufuncs.py:225: in _apply_func_to_inputs
-    fouts = self._func(*args)
-cupy/_core/_routines_linalg.pyx:686: in cupy._core._routines_linalg.matmul
-    cpdef ndarray matmul(ndarray a, ndarray b, ndarray out=None):
-cupy/_core/_routines_linalg.pyx:764: in cupy._core._routines_linalg.matmul
-    b = ascontiguousarray(b, dtype)
-cupy/_core/core.pyx:2430: in cupy._core.core.ascontiguousarray
-    elementwise_copy(a, newarray)
-cupy/_core/_kernel.pyx:1104: in cupy._core._kernel.ufunc.__call__
-    kern = self._get_ufunc_kernel(dev_id, op, arginfos)
-cupy/_core/_kernel.pyx:1127: in cupy._core._kernel.ufunc._get_ufunc_kernel
-    kern = _get_ufunc_kernel(
-cupy/_core/_kernel.pyx:901: in cupy._core._kernel._get_ufunc_kernel
-    return _get_simple_elementwise_kernel(
-cupy/_core/_kernel.pyx:61: in cupy._core._kernel._get_simple_elementwise_kernel
-    module = compile_with_cache(module_code, options)
-cupy/_core/core.pyx:2001: in cupy._core.core.compile_with_cache
-    return cuda.compile_with_cache(
-cupy/cuda/compiler.py:428: in compile_with_cache
-    return _compile_with_cache_hip(
-cupy/cuda/compiler.py:838: in _compile_with_cache_hip
-    temp_path = tf.name
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <tempfile._TemporaryFileWrapper object at 0x7fcc20034580>, exc = None
-value = None, tb = None
-
-    def __exit__(self, exc, value, tb):
->       result = self.file.__exit__(exc, value, tb)
-E       AssertionError: Only cupy raises error
-E       
-E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/testing/_helper.py", line 47, in _call_func
-E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/tests/cupy_tests/math_tests/test_matmul.py", line 67, in test_operator_matmul
-E           return operator.matmul(x1, x2)
-E         File "cupy/_core/core.pyx", line 1096, in cupy._core.core.ndarray.__matmul__
-E           return cupy.linalg._product.matmul(x, y)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/linalg/_product.py", line 42, in matmul
-E           return _gu_func_matmul(x1, x2, out=out, axes=axes)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/_core/_gufuncs.py", line 444, in __call__
-E           self._apply_func_to_inputs(0, dimsizess, loop_output_dims, args, outs)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/_core/_gufuncs.py", line 225, in _apply_func_to_inputs
-E           fouts = self._func(*args)
-E         File "cupy/_core/_routines_linalg.pyx", line 686, in cupy._core._routines_linalg.matmul
-E           cpdef ndarray matmul(ndarray a, ndarray b, ndarray out=None):
-E         File "cupy/_core/_routines_linalg.pyx", line 764, in cupy._core._routines_linalg.matmul
-E           b = ascontiguousarray(b, dtype)
-E         File "cupy/_core/core.pyx", line 2430, in cupy._core.core.ascontiguousarray
-E           elementwise_copy(a, newarray)
-E         File "cupy/_core/_kernel.pyx", line 1104, in cupy._core._kernel.ufunc.__call__
-E           kern = self._get_ufunc_kernel(dev_id, op, arginfos)
-E         File "cupy/_core/_kernel.pyx", line 1127, in cupy._core._kernel.ufunc._get_ufunc_kernel
-E           kern = _get_ufunc_kernel(
-E         File "cupy/_core/_kernel.pyx", line 901, in cupy._core._kernel._get_ufunc_kernel
-E           return _get_simple_elementwise_kernel(
-E         File "cupy/_core/_kernel.pyx", line 61, in cupy._core._kernel._get_simple_elementwise_kernel
-E           module = compile_with_cache(module_code, options)
-E         File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
-E           return cuda.compile_with_cache(
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
-E           return _compile_with_cache_hip(
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
-E           temp_path = tf.name
-E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
-E           result = self.file.__exit__(exc, value, tb)
-E       OSError: [Errno 28] No space left on device
-
-/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py:491: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype2 is <class 'numpy.int8'>
-dtype1 is <class 'numpy.float64'>
-____ TestMatmul_param_14_{shape_pair=((3, 2), (5, 2, 4))}.test_cupy_matmul _____
-
-self = <<cupy_tests.math_tests.test_matmul.TestMatmul_param_14_{shape_pair=((3, 2), (5, 2, 4))} testMethod=test_cupy_matmul>  parameter: {'shape_pair': ((3, 2), (5, 2, 4))}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/__init__.py'>
-dtype1 = <class 'numpy.float32'>, dtype2 = <class 'numpy.complex64'>
-
-    @testing.for_all_dtypes(name='dtype1')
-    @testing.for_all_dtypes(name='dtype2')
-    @testing.numpy_cupy_allclose(rtol=1e-3, atol=1e-3)  # required for uint8
-    def test_cupy_matmul(self, xp, dtype1, dtype2):
-        x1 = testing.shaped_arange(self.shape_pair[0], xp, dtype1)
-        x2 = testing.shaped_arange(self.shape_pair[1], xp, dtype2)
->       return xp.matmul(x1, x2)
-
-tests/cupy_tests/math_tests/test_matmul.py:75: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-cupy/linalg/_product.py:42: in matmul
-    return _gu_func_matmul(x1, x2, out=out, axes=axes)
-cupy/_core/_gufuncs.py:444: in __call__
-    self._apply_func_to_inputs(0, dimsizess, loop_output_dims, args, outs)
-cupy/_core/_gufuncs.py:225: in _apply_func_to_inputs
-    fouts = self._func(*args)
-cupy/_core/_routines_linalg.pyx:686: in cupy._core._routines_linalg.matmul
-    cpdef ndarray matmul(ndarray a, ndarray b, ndarray out=None):
-cupy/_core/_routines_linalg.pyx:763: in cupy._core._routines_linalg.matmul
-    a = ascontiguousarray(a, dtype)
-cupy/_core/core.pyx:2430: in cupy._core.core.ascontiguousarray
-    elementwise_copy(a, newarray)
-cupy/_core/_kernel.pyx:1104: in cupy._core._kernel.ufunc.__call__
-    kern = self._get_ufunc_kernel(dev_id, op, arginfos)
-cupy/_core/_kernel.pyx:1127: in cupy._core._kernel.ufunc._get_ufunc_kernel
-    kern = _get_ufunc_kernel(
-cupy/_core/_kernel.pyx:901: in cupy._core._kernel._get_ufunc_kernel
-    return _get_simple_elementwise_kernel(
-cupy/_core/_kernel.pyx:61: in cupy._core._kernel._get_simple_elementwise_kernel
-    module = compile_with_cache(module_code, options)
-cupy/_core/core.pyx:2001: in cupy._core.core.compile_with_cache
-    return cuda.compile_with_cache(
-cupy/cuda/compiler.py:428: in compile_with_cache
-    return _compile_with_cache_hip(
-cupy/cuda/compiler.py:838: in _compile_with_cache_hip
-    temp_path = tf.name
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <tempfile._TemporaryFileWrapper object at 0x7fcc1fd95880>, exc = None
-value = None, tb = None
-
-    def __exit__(self, exc, value, tb):
->       result = self.file.__exit__(exc, value, tb)
-E       AssertionError: Only cupy raises error
-E       
-E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/testing/_helper.py", line 47, in _call_func
-E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/tests/cupy_tests/math_tests/test_matmul.py", line 75, in test_cupy_matmul
-E           return xp.matmul(x1, x2)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/linalg/_product.py", line 42, in matmul
-E           return _gu_func_matmul(x1, x2, out=out, axes=axes)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/_core/_gufuncs.py", line 444, in __call__
-E           self._apply_func_to_inputs(0, dimsizess, loop_output_dims, args, outs)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/_core/_gufuncs.py", line 225, in _apply_func_to_inputs
-E           fouts = self._func(*args)
-E         File "cupy/_core/_routines_linalg.pyx", line 686, in cupy._core._routines_linalg.matmul
-E           cpdef ndarray matmul(ndarray a, ndarray b, ndarray out=None):
-E         File "cupy/_core/_routines_linalg.pyx", line 763, in cupy._core._routines_linalg.matmul
-E           a = ascontiguousarray(a, dtype)
-E         File "cupy/_core/core.pyx", line 2430, in cupy._core.core.ascontiguousarray
-E           elementwise_copy(a, newarray)
-E         File "cupy/_core/_kernel.pyx", line 1104, in cupy._core._kernel.ufunc.__call__
-E           kern = self._get_ufunc_kernel(dev_id, op, arginfos)
-E         File "cupy/_core/_kernel.pyx", line 1127, in cupy._core._kernel.ufunc._get_ufunc_kernel
-E           kern = _get_ufunc_kernel(
-E         File "cupy/_core/_kernel.pyx", line 901, in cupy._core._kernel._get_ufunc_kernel
-E           return _get_simple_elementwise_kernel(
-E         File "cupy/_core/_kernel.pyx", line 61, in cupy._core._kernel._get_simple_elementwise_kernel
-E           module = compile_with_cache(module_code, options)
-E         File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
-E           return cuda.compile_with_cache(
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
-E           return _compile_with_cache_hip(
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
-E           temp_path = tf.name
-E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
-E           result = self.file.__exit__(exc, value, tb)
-E       OSError: [Errno 28] No space left on device
-
-/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py:491: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype2 is <class 'numpy.complex64'>
-dtype1 is <class 'numpy.float32'>
-__ TestMatmul_param_14_{shape_pair=((3, 2), (5, 2, 4))}.test_operator_matmul ___
-
-self = <<cupy_tests.math_tests.test_matmul.TestMatmul_param_14_{shape_pair=((3, 2), (5, 2, 4))} testMethod=test_operator_matmul>  parameter: {'shape_pair': ((3, 2), (5, 2, 4))}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/__init__.py'>
-dtype1 = <class 'numpy.float32'>, dtype2 = <class 'numpy.complex64'>
-
-    @testing.for_all_dtypes(name='dtype1')
-    @testing.for_all_dtypes(name='dtype2')
-    @testing.numpy_cupy_allclose(rtol=1e-3, atol=1e-3)  # required for uint8
-    def test_operator_matmul(self, xp, dtype1, dtype2):
-        x1 = testing.shaped_arange(self.shape_pair[0], xp, dtype1)
-        x2 = testing.shaped_arange(self.shape_pair[1], xp, dtype2)
->       return operator.matmul(x1, x2)
-
-tests/cupy_tests/math_tests/test_matmul.py:67: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-cupy/_core/core.pyx:1096: in cupy._core.core.ndarray.__matmul__
-    return cupy.linalg._product.matmul(x, y)
-cupy/linalg/_product.py:42: in matmul
-    return _gu_func_matmul(x1, x2, out=out, axes=axes)
-cupy/_core/_gufuncs.py:444: in __call__
-    self._apply_func_to_inputs(0, dimsizess, loop_output_dims, args, outs)
-cupy/_core/_gufuncs.py:225: in _apply_func_to_inputs
-    fouts = self._func(*args)
-cupy/_core/_routines_linalg.pyx:686: in cupy._core._routines_linalg.matmul
-    cpdef ndarray matmul(ndarray a, ndarray b, ndarray out=None):
-cupy/_core/_routines_linalg.pyx:763: in cupy._core._routines_linalg.matmul
-    a = ascontiguousarray(a, dtype)
-cupy/_core/core.pyx:2430: in cupy._core.core.ascontiguousarray
-    elementwise_copy(a, newarray)
-cupy/_core/_kernel.pyx:1104: in cupy._core._kernel.ufunc.__call__
-    kern = self._get_ufunc_kernel(dev_id, op, arginfos)
-cupy/_core/_kernel.pyx:1127: in cupy._core._kernel.ufunc._get_ufunc_kernel
-    kern = _get_ufunc_kernel(
-cupy/_core/_kernel.pyx:901: in cupy._core._kernel._get_ufunc_kernel
-    return _get_simple_elementwise_kernel(
-cupy/_core/_kernel.pyx:61: in cupy._core._kernel._get_simple_elementwise_kernel
-    module = compile_with_cache(module_code, options)
-cupy/_core/core.pyx:2001: in cupy._core.core.compile_with_cache
-    return cuda.compile_with_cache(
-cupy/cuda/compiler.py:428: in compile_with_cache
-    return _compile_with_cache_hip(
-cupy/cuda/compiler.py:838: in _compile_with_cache_hip
-    temp_path = tf.name
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <tempfile._TemporaryFileWrapper object at 0x7fcc1fdd00d0>, exc = None
-value = None, tb = None
-
-    def __exit__(self, exc, value, tb):
->       result = self.file.__exit__(exc, value, tb)
-E       AssertionError: Only cupy raises error
-E       
-E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/testing/_helper.py", line 47, in _call_func
-E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/tests/cupy_tests/math_tests/test_matmul.py", line 67, in test_operator_matmul
-E           return operator.matmul(x1, x2)
-E         File "cupy/_core/core.pyx", line 1096, in cupy._core.core.ndarray.__matmul__
-E           return cupy.linalg._product.matmul(x, y)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/linalg/_product.py", line 42, in matmul
-E           return _gu_func_matmul(x1, x2, out=out, axes=axes)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/_core/_gufuncs.py", line 444, in __call__
-E           self._apply_func_to_inputs(0, dimsizess, loop_output_dims, args, outs)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/_core/_gufuncs.py", line 225, in _apply_func_to_inputs
-E           fouts = self._func(*args)
-E         File "cupy/_core/_routines_linalg.pyx", line 686, in cupy._core._routines_linalg.matmul
-E           cpdef ndarray matmul(ndarray a, ndarray b, ndarray out=None):
-E         File "cupy/_core/_routines_linalg.pyx", line 763, in cupy._core._routines_linalg.matmul
-E           a = ascontiguousarray(a, dtype)
-E         File "cupy/_core/core.pyx", line 2430, in cupy._core.core.ascontiguousarray
-E           elementwise_copy(a, newarray)
-E         File "cupy/_core/_kernel.pyx", line 1104, in cupy._core._kernel.ufunc.__call__
-E           kern = self._get_ufunc_kernel(dev_id, op, arginfos)
-E         File "cupy/_core/_kernel.pyx", line 1127, in cupy._core._kernel.ufunc._get_ufunc_kernel
-E           kern = _get_ufunc_kernel(
-E         File "cupy/_core/_kernel.pyx", line 901, in cupy._core._kernel._get_ufunc_kernel
-E           return _get_simple_elementwise_kernel(
-E         File "cupy/_core/_kernel.pyx", line 61, in cupy._core._kernel._get_simple_elementwise_kernel
-E           module = compile_with_cache(module_code, options)
-E         File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
-E           return cuda.compile_with_cache(
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
-E           return _compile_with_cache_hip(
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
-E           temp_path = tf.name
-E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
-E           result = self.file.__exit__(exc, value, tb)
-E       OSError: [Errno 28] No space left on device
-
-/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py:491: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype2 is <class 'numpy.complex64'>
-dtype1 is <class 'numpy.float32'>
-___ TestMatmul_param_16_{shape_pair=((5, 3, 2), (1, 2, 4))}.test_cupy_matmul ___
-
-self = <<cupy_tests.math_tests.test_matmul.TestMatmul_param_16_{shape_pair=((5, 3, 2), (1, 2, 4))} testMethod=test_cupy_matmul>  parameter: {'shape_pair': ((5, 3, 2), (1, 2, 4))}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/__init__.py'>
-dtype1 = <class 'numpy.float64'>, dtype2 = <class 'numpy.int8'>
-
-    @testing.for_all_dtypes(name='dtype1')
-    @testing.for_all_dtypes(name='dtype2')
-    @testing.numpy_cupy_allclose(rtol=1e-3, atol=1e-3)  # required for uint8
-    def test_cupy_matmul(self, xp, dtype1, dtype2):
-        x1 = testing.shaped_arange(self.shape_pair[0], xp, dtype1)
-        x2 = testing.shaped_arange(self.shape_pair[1], xp, dtype2)
->       return xp.matmul(x1, x2)
-
-tests/cupy_tests/math_tests/test_matmul.py:75: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-cupy/linalg/_product.py:42: in matmul
-    return _gu_func_matmul(x1, x2, out=out, axes=axes)
-cupy/_core/_gufuncs.py:444: in __call__
-    self._apply_func_to_inputs(0, dimsizess, loop_output_dims, args, outs)
-cupy/_core/_gufuncs.py:225: in _apply_func_to_inputs
-    fouts = self._func(*args)
-cupy/_core/_routines_linalg.pyx:686: in cupy._core._routines_linalg.matmul
-    cpdef ndarray matmul(ndarray a, ndarray b, ndarray out=None):
-cupy/_core/_routines_linalg.pyx:764: in cupy._core._routines_linalg.matmul
-    b = ascontiguousarray(b, dtype)
-cupy/_core/core.pyx:2430: in cupy._core.core.ascontiguousarray
-    elementwise_copy(a, newarray)
-cupy/_core/_kernel.pyx:1104: in cupy._core._kernel.ufunc.__call__
-    kern = self._get_ufunc_kernel(dev_id, op, arginfos)
-cupy/_core/_kernel.pyx:1127: in cupy._core._kernel.ufunc._get_ufunc_kernel
-    kern = _get_ufunc_kernel(
-cupy/_core/_kernel.pyx:901: in cupy._core._kernel._get_ufunc_kernel
-    return _get_simple_elementwise_kernel(
-cupy/_core/_kernel.pyx:61: in cupy._core._kernel._get_simple_elementwise_kernel
-    module = compile_with_cache(module_code, options)
-cupy/_core/core.pyx:2001: in cupy._core.core.compile_with_cache
-    return cuda.compile_with_cache(
-cupy/cuda/compiler.py:428: in compile_with_cache
-    return _compile_with_cache_hip(
-cupy/cuda/compiler.py:838: in _compile_with_cache_hip
-    temp_path = tf.name
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-self = <tempfile._TemporaryFileWrapper object at 0x7fcc2003c460>, exc = None
-value = None, tb = None
-
-    def __exit__(self, exc, value, tb):
->       result = self.file.__exit__(exc, value, tb)
-E       AssertionError: Only cupy raises error
-E       
-E       Traceback (most recent call last):
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/testing/_helper.py", line 47, in _call_func
-E           result = impl(self, *args, **kw)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/tests/cupy_tests/math_tests/test_matmul.py", line 75, in test_cupy_matmul
-E           return xp.matmul(x1, x2)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/linalg/_product.py", line 42, in matmul
-E           return _gu_func_matmul(x1, x2, out=out, axes=axes)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/_core/_gufuncs.py", line 444, in __call__
-E           self._apply_func_to_inputs(0, dimsizess, loop_output_dims, args, outs)
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/_core/_gufuncs.py", line 225, in _apply_func_to_inputs
-E           fouts = self._func(*args)
-E         File "cupy/_core/_routines_linalg.pyx", line 686, in cupy._core._routines_linalg.matmul
-E           cpdef ndarray matmul(ndarray a, ndarray b, ndarray out=None):
-E         File "cupy/_core/_routines_linalg.pyx", line 764, in cupy._core._routines_linalg.matmul
-E           b = ascontiguousarray(b, dtype)
-E         File "cupy/_core/core.pyx", line 2430, in cupy._core.core.ascontiguousarray
-E           elementwise_copy(a, newarray)
-E         File "cupy/_core/_kernel.pyx", line 1104, in cupy._core._kernel.ufunc.__call__
-E           kern = self._get_ufunc_kernel(dev_id, op, arginfos)
-E         File "cupy/_core/_kernel.pyx", line 1127, in cupy._core._kernel.ufunc._get_ufunc_kernel
-E           kern = _get_ufunc_kernel(
-E         File "cupy/_core/_kernel.pyx", line 901, in cupy._core._kernel._get_ufunc_kernel
-E           return _get_simple_elementwise_kernel(
-E         File "cupy/_core/_kernel.pyx", line 61, in cupy._core._kernel._get_simple_elementwise_kernel
-E           module = compile_with_cache(module_code, options)
-E         File "cupy/_core/core.pyx", line 2001, in cupy._core.core.compile_with_cache
-E           return cuda.compile_with_cache(
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 428, in compile_with_cache
-E           return _compile_with_cache_hip(
-E         File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/cuda/compiler.py", line 838, in _compile_with_cache_hip
-E           temp_path = tf.name
-E         File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py", line 491, in __exit__
-E           result = self.file.__exit__(exc, value, tb)
-E       OSError: [Errno 28] No space left on device
-
-/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/tempfile.py:491: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype2 is <class 'numpy.int8'>
-dtype1 is <class 'numpy.float64'>
 _________ TestConvolve_param_0_{mode='valid'}.test_convolve_diff_types _________
 [XPASS(strict)] HIP/ROCm may have a bug with larger `b`
 _________ TestConvolve_param_1_{mode='same'}.test_convolve_diff_types __________
@@ -1955,7 +1367,7 @@ cupyx/jit/_compile.py:175: in _transpile_function
     exc.reraise(source)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = _JitCompileError(TypeError('`atomicAdd` does not support float16 input.'), <_ast.Call object at 0x7fcc3e1ca2e0>)
+self = _JitCompileError(TypeError('`atomicAdd` does not support float16 input.'), <_ast.Call object at 0x7f72ac73b490>)
 pycode = '  @jit.rawkernel()\n  def f(x, index, out):\n      tid = jit.blockDim.x * jit.blockIdx.x + jit.threadIdx.x\n>     jit.atomic_add(out, index[tid], x[tid])\n'
 
     def reraise(self, pycode):
@@ -1975,11 +1387,11 @@ E       >     jit.atomic_add(out, index[tid], x[tid])
 cupyx/jit/_compile.py:42: TypeError
 ----------------------------- Captured stdout call -----------------------------
 dtype is e
-______ TestLUSolve_param_0_{shapes=((4, 4), (4,)), trans=0}.test_lu_solve ______
+______ TestLUSolve_param_1_{shapes=((4, 4), (4,)), trans=1}.test_lu_solve ______
 
-self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_0_{shapes=((4, 4), (4,)), trans=0} testMethod=test_lu_solve>  parameter: {'shapes': ((4, 4), (4,)), 'trans': 0}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/__init__.py'>
-scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupyx/scipy/__init__.py'>
+self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_1_{shapes=((4, 4), (4,)), trans=1} testMethod=test_lu_solve>  parameter: {'shapes': ((4, 4), (4,)), 'trans': 1}>
+xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.hRYIPA5gn1/cupy/cupy/__init__.py'>
+scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.hRYIPA5gn1/cupy/cupyx/scipy/__init__.py'>
 dtype = <class 'numpy.float32'>
 
     @testing.for_dtypes('fdFD')
@@ -1998,8 +1410,9 @@ lu_and_piv = (array([[ 9.636627  ,  3.8344152 ,  7.91725   ,  5.288949  ],
        [ 0.58946407,  6.995716  , -3.956574  , -2.246352...,
        [ 0.43962973,  0.6823059 ,  0.83048815,  4.776696  ]],
       dtype=float32), array([2, 3, 2, 3], dtype=int32))
-b = array([ 0.5098284 ,  0.25080842, -0.34704718,  0.5484196 ], dtype=float32)
-trans = 0, overwrite_b = False, check_finite = True
+b = array([ 1.0000000e+00,  0.0000000e+00, -3.5134796e-08,  5.9604645e-08],
+      dtype=float32)
+trans = 1, overwrite_b = False, check_finite = True
 
     def lu_solve(lu_and_piv, b, trans=0, overwrite_b=False, check_finite=True):
         """Solve an equation system, ``a * x = b``, given the LU factorization of ``a``
@@ -2097,289 +1510,20 @@ trans = 0, overwrite_b = False, check_finite = True
 E           AssertionError: Only cupy raises error
 E           
 E           Traceback (most recent call last):
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/testing/_helper.py", line 47, in _call_func
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.hRYIPA5gn1/cupy/cupy/testing/_helper.py", line 47, in _call_func
 E               result = impl(self, *args, **kw)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.hRYIPA5gn1/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
 E               return scp.linalg.lu_solve(lu, b, trans=self.trans)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
-E               raise ValueError('illegal value in %d-th argument of '
-E           ValueError: illegal value in 1409886382-th argument of internal getrs (lu_solve)
-
-cupyx/scipy/linalg/decomp_lu.py:344: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is f
-______ TestLUSolve_param_2_{shapes=((4, 4), (4,)), trans=2}.test_lu_solve ______
-
-self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_2_{shapes=((4, 4), (4,)), trans=2} testMethod=test_lu_solve>  parameter: {'shapes': ((4, 4), (4,)), 'trans': 2}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/__init__.py'>
-scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupyx/scipy/__init__.py'>
-dtype = <class 'numpy.complex64'>
-
-    @testing.for_dtypes('fdFD')
-    @testing.numpy_cupy_allclose(atol=1e-5, scipy_name='scp')
-    def test_lu_solve(self, xp, scp, dtype):
-        a_shape, b_shape = self.shapes
-        A = testing.shaped_random(a_shape, xp, dtype=dtype)
-        b = testing.shaped_random(b_shape, xp, dtype=dtype)
-        lu = scp.linalg.lu_factor(A)
->       return scp.linalg.lu_solve(lu, b, trans=self.trans)
-
-tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py:133: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-lu_and_piv = (array([[  4.236548   +9.786183j  ,   6.458941   +7.9915857j ,
-          4.375872   +4.614794j  ,   8.91773    +7.8052...        0.24577832 +0.45542353j, -10.515661   +8.309107j  ]],
-      dtype=complex64), array([1, 2, 2, 3], dtype=int32))
-b = array([ 0.09829968+0.4916759j , -0.14942524+0.7482697j ,
-       -0.04251102-0.22521436j, -0.027464  -0.19323091j], dtype=complex64)
-trans = 2, overwrite_b = False, check_finite = True
-
-    def lu_solve(lu_and_piv, b, trans=0, overwrite_b=False, check_finite=True):
-        """Solve an equation system, ``a * x = b``, given the LU factorization of ``a``
-    
-        Args:
-            lu_and_piv (tuple): LU factorization of matrix ``a`` (``(M, M)``)
-                together with pivot indices.
-            b (cupy.ndarray): The matrix with dimension ``(M,)`` or
-                ``(M, N)``.
-            trans ({0, 1, 2}): Type of system to solve:
-    
-                ========  =========
-                trans     system
-                ========  =========
-                0         a x  = b
-                1         a^T x = b
-                2         a^H x = b
-                ========  =========
-            overwrite_b (bool): Allow overwriting data in b (may enhance
-                performance)
-            check_finite (bool): Whether to check that the input matrices contain
-                only finite numbers. Disabling may give a performance gain, but may
-                result in problems (crashes, non-termination) if the inputs do
-                contain infinities or NaNs.
-    
-        Returns:
-            cupy.ndarray:
-                The matrix with dimension ``(M,)`` or ``(M, N)``.
-    
-        .. seealso:: :func:`scipy.linalg.lu_solve`
-        """
-    
-        (lu, ipiv) = lu_and_piv
-    
-        _util._assert_cupy_array(lu)
-        _util._assert_rank2(lu)
-        _util._assert_nd_squareness(lu)
-    
-        m = lu.shape[0]
-        if m != b.shape[0]:
-            raise ValueError('incompatible dimensions.')
-    
-        dtype = lu.dtype
-        if dtype.char == 'f':
-            getrs = cusolver.sgetrs
-        elif dtype.char == 'd':
-            getrs = cusolver.dgetrs
-        elif dtype.char == 'F':
-            getrs = cusolver.cgetrs
-        elif dtype.char == 'D':
-            getrs = cusolver.zgetrs
-        else:
-            msg = 'Only float32, float64, complex64 and complex128 are supported.'
-            raise NotImplementedError(msg)
-    
-        if trans == 0:
-            trans = cublas.CUBLAS_OP_N
-        elif trans == 1:
-            trans = cublas.CUBLAS_OP_T
-        elif trans == 2:
-            trans = cublas.CUBLAS_OP_C
-        else:
-            raise ValueError('unknown trans')
-    
-        lu = lu.astype(dtype, order='F', copy=False)
-        ipiv = ipiv.astype(ipiv.dtype, order='F', copy=True)
-        # cuSolver uses 1-origin while SciPy uses 0-origin
-        ipiv += 1
-        b = b.astype(dtype, order='F', copy=(not overwrite_b))
-    
-        if check_finite:
-            if lu.dtype.kind == 'f' and not cupy.isfinite(lu).all():
-                raise ValueError(
-                    'array must not contain infs or NaNs.\n'
-                    'Note that when a singular matrix is given, unlike '
-                    'scipy.linalg.lu_factor, cupyx.scipy.linalg.lu_factor '
-                    'returns an array containing NaN.')
-            if b.dtype.kind == 'f' and not cupy.isfinite(b).all():
-                raise ValueError(
-                    'array must not contain infs or NaNs')
-    
-        n = 1 if b.ndim == 1 else b.shape[1]
-        cusolver_handle = device.get_cusolver_handle()
-        dev_info = cupy.empty(1, dtype=numpy.int32)
-    
-        # solve for the inverse
-        getrs(cusolver_handle,
-              trans,
-              m, n, lu.data.ptr, m, ipiv.data.ptr, b.data.ptr,
-              m, dev_info.data.ptr)
-    
-        if dev_info[0] < 0:
->           raise ValueError('illegal value in %d-th argument of '
-                             'internal getrs (lu_solve)' % -dev_info[0])
-E           AssertionError: Only cupy raises error
-E           
-E           Traceback (most recent call last):
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/testing/_helper.py", line 47, in _call_func
-E               result = impl(self, *args, **kw)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
-E               return scp.linalg.lu_solve(lu, b, trans=self.trans)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
+E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.hRYIPA5gn1/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
 E               raise ValueError('illegal value in %d-th argument of '
 E           ValueError: illegal value in 1409886464-th argument of internal getrs (lu_solve)
 
 cupyx/scipy/linalg/decomp_lu.py:344: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-dtype is F
-_____ TestLUSolve_param_5_{shapes=((5, 5), (5, 2)), trans=2}.test_lu_solve _____
-
-self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_5_{shapes=((5, 5), (5, 2)), trans=2} testMethod=test_lu_solve>  parameter: {'shapes': ((5, 5), (5, 2)), 'trans': 2}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/__init__.py'>
-scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupyx/scipy/__init__.py'>
-dtype = <class 'numpy.complex64'>
-
-    @testing.for_dtypes('fdFD')
-    @testing.numpy_cupy_allclose(atol=1e-5, scipy_name='scp')
-    def test_lu_solve(self, xp, scp, dtype):
-        a_shape, b_shape = self.shapes
-        A = testing.shaped_random(a_shape, xp, dtype=dtype)
-        b = testing.shaped_random(b_shape, xp, dtype=dtype)
-        lu = scp.linalg.lu_factor(A)
->       return scp.linalg.lu_solve(lu, b, trans=self.trans)
-
-tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py:133: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-lu_and_piv = (array([[ 9.786183   +6.7063785j ,  7.9915857  +2.1038256j ,
-         4.614794   +1.289263j  ,  7.8052917  +3.1542835j... , -0.1953073  +0.38294038j,
-         1.4816577  +3.005199j  ]], dtype=complex64), array([4, 1, 4, 3, 4], dtype=int32))
-b = array([[ 1.3340689 +0.14706904j,  0.63873684+0.9301306j ],
-       [-0.01678619-1.9822356j ,  2.2719011 -0.60252565j],
-...59350985j, -0.64952475-1.666017j  ],
-       [-1.6877671 -1.427124j  ,  2.19591   -0.78355455j]],
-      dtype=complex64)
-trans = 2, overwrite_b = False, check_finite = True
-
-    def lu_solve(lu_and_piv, b, trans=0, overwrite_b=False, check_finite=True):
-        """Solve an equation system, ``a * x = b``, given the LU factorization of ``a``
-    
-        Args:
-            lu_and_piv (tuple): LU factorization of matrix ``a`` (``(M, M)``)
-                together with pivot indices.
-            b (cupy.ndarray): The matrix with dimension ``(M,)`` or
-                ``(M, N)``.
-            trans ({0, 1, 2}): Type of system to solve:
-    
-                ========  =========
-                trans     system
-                ========  =========
-                0         a x  = b
-                1         a^T x = b
-                2         a^H x = b
-                ========  =========
-            overwrite_b (bool): Allow overwriting data in b (may enhance
-                performance)
-            check_finite (bool): Whether to check that the input matrices contain
-                only finite numbers. Disabling may give a performance gain, but may
-                result in problems (crashes, non-termination) if the inputs do
-                contain infinities or NaNs.
-    
-        Returns:
-            cupy.ndarray:
-                The matrix with dimension ``(M,)`` or ``(M, N)``.
-    
-        .. seealso:: :func:`scipy.linalg.lu_solve`
-        """
-    
-        (lu, ipiv) = lu_and_piv
-    
-        _util._assert_cupy_array(lu)
-        _util._assert_rank2(lu)
-        _util._assert_nd_squareness(lu)
-    
-        m = lu.shape[0]
-        if m != b.shape[0]:
-            raise ValueError('incompatible dimensions.')
-    
-        dtype = lu.dtype
-        if dtype.char == 'f':
-            getrs = cusolver.sgetrs
-        elif dtype.char == 'd':
-            getrs = cusolver.dgetrs
-        elif dtype.char == 'F':
-            getrs = cusolver.cgetrs
-        elif dtype.char == 'D':
-            getrs = cusolver.zgetrs
-        else:
-            msg = 'Only float32, float64, complex64 and complex128 are supported.'
-            raise NotImplementedError(msg)
-    
-        if trans == 0:
-            trans = cublas.CUBLAS_OP_N
-        elif trans == 1:
-            trans = cublas.CUBLAS_OP_T
-        elif trans == 2:
-            trans = cublas.CUBLAS_OP_C
-        else:
-            raise ValueError('unknown trans')
-    
-        lu = lu.astype(dtype, order='F', copy=False)
-        ipiv = ipiv.astype(ipiv.dtype, order='F', copy=True)
-        # cuSolver uses 1-origin while SciPy uses 0-origin
-        ipiv += 1
-        b = b.astype(dtype, order='F', copy=(not overwrite_b))
-    
-        if check_finite:
-            if lu.dtype.kind == 'f' and not cupy.isfinite(lu).all():
-                raise ValueError(
-                    'array must not contain infs or NaNs.\n'
-                    'Note that when a singular matrix is given, unlike '
-                    'scipy.linalg.lu_factor, cupyx.scipy.linalg.lu_factor '
-                    'returns an array containing NaN.')
-            if b.dtype.kind == 'f' and not cupy.isfinite(b).all():
-                raise ValueError(
-                    'array must not contain infs or NaNs')
-    
-        n = 1 if b.ndim == 1 else b.shape[1]
-        cusolver_handle = device.get_cusolver_handle()
-        dev_info = cupy.empty(1, dtype=numpy.int32)
-    
-        # solve for the inverse
-        getrs(cusolver_handle,
-              trans,
-              m, n, lu.data.ptr, m, ipiv.data.ptr, b.data.ptr,
-              m, dev_info.data.ptr)
-    
-        if dev_info[0] < 0:
->           raise ValueError('illegal value in %d-th argument of '
-                             'internal getrs (lu_solve)' % -dev_info[0])
-E           AssertionError: Only cupy raises error
-E           
-E           Traceback (most recent call last):
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupy/testing/_helper.py", line 47, in _call_func
-E               result = impl(self, *args, **kw)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
-E               return scp.linalg.lu_solve(lu, b, trans=self.trans)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
-E               raise ValueError('illegal value in %d-th argument of '
-E           ValueError: illegal value in 1857101197-th argument of internal getrs (lu_solve)
-
-cupyx/scipy/linalg/decomp_lu.py:344: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is F
+dtype is f
 _ TestMapCoordinatesHalfInteger.test_map_coordinates_float[_param_46_{mode='grid-constant', order=4}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7fcbd803d7f0>  parameter: {'mode': 'grid-constant', 'order': 4}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7f7245aeb2e0>  parameter: {'mode': 'grid-constant', 'order': 4}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2435,7 +1579,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestMapCoordinatesHalfInteger.test_map_coordinates_float[_param_47_{mode='grid-constant', order=5}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7fcbd7b72970>  parameter: {'mode': 'grid-constant', 'order': 5}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7f72457b4910>  parameter: {'mode': 'grid-constant', 'order': 5}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2491,7 +1635,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_4_{grid_mode=False, mode='constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbcf0121c0>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723cd3c2e0>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2565,7 +1709,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_5_{grid_mode=False, mode='constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbcee42970>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723cc03040>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2639,7 +1783,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_16_{grid_mode=False, mode='mirror', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbceec54c0>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723cc0b910>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2713,7 +1857,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_17_{grid_mode=False, mode='mirror', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbcee42100>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723cc038e0>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2787,7 +1931,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_22_{grid_mode=False, mode='wrap', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbceb067f0>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723cbb7af0>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2861,7 +2005,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_23_{grid_mode=False, mode='wrap', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbceed3310>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723cc41550>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2935,7 +2079,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_46_{grid_mode=False, mode='grid-constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbd2dc6a90>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723c68a1f0>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -3009,7 +2153,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_47_{grid_mode=False, mode='grid-constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcce63d5c10>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723c4e4be0>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -3083,7 +2227,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_52_{grid_mode=True, mode='constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbd3643190>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723cab1580>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -3159,7 +2303,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_53_{grid_mode=True, mode='constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcce5a778e0>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723c6ca910>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -3235,7 +2379,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_64_{grid_mode=True, mode='mirror', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbce9229d0>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723caaf490>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -3311,7 +2455,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_65_{grid_mode=True, mode='mirror', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbd3c68280>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723c4e7a00>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -3387,7 +2531,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_70_{grid_mode=True, mode='wrap', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbcee48400>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723c4db580>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -3463,7 +2607,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_71_{grid_mode=True, mode='wrap', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbcff5c040>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723c44f130>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -3539,7 +2683,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_94_{grid_mode=True, mode='grid-constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbd01baaf0>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723c6d4970>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -3615,7 +2759,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_95_{grid_mode=True, mode='grid-constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7fcbceec3400>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f723c6ca5b0>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -3689,62 +2833,6 @@ E               [-8.455650e-02],...
 cupy/testing/_array.py:24: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 dtype is <class 'numpy.float64'>
-_ TestFFTConvolve_param_44_{mode='valid', size1=(3, 4, 10), size2=3}.test_convolve_fft _
-cupy/testing/_helper.py:825: in test_func
-    impl(self, *args, **kw)
-cupy/testing/_helper.py:343: in test_func
-    check_func(cupy_r, numpy_r)
-cupy/testing/_helper.py:495: in check_func
-    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-actual = array([[[414.35706, 437.88647, 282.6456 , 316.35214, 296.0906 ,
-         404.48633, 349.4565 , 394.17007],
-        [444.82996, 482.03882, 368.92664, 344.9607 , 290.47983,
-         398.92465, 420.16165, 434.4182 ]]], dtype=float32)
-desired = array([[[800.5107 , 862.97485, 683.19934, 644.7456 , 573.72375,
-         714.88525, 728.84973, 808.5652 ],
-        [879.7415 , 920.5145 , 785.2407 , 688.98376, 587.2645 ,
-         719.43756, 815.77496, 851.23706]]], dtype=float32)
-rtol = 0.001, atol = 0.001, err_msg = '', verbose = True
-
-    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
-                        verbose=True):
-        """Raises an AssertionError if objects are not equal up to desired tolerance.
-    
-        Args:
-             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
-             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             rtol(float): Relative tolerance.
-             atol(float): Absolute tolerance.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting
-                 values are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_allclose`
-    
-        """  # NOQA
->       numpy.testing.assert_allclose(
-            cupy.asnumpy(actual), cupy.asnumpy(desired),
-            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
-E       AssertionError: 
-E       Not equal to tolerance rtol=0.001, atol=0.001
-E       
-E       Mismatched elements: 16 / 16 (100%)
-E       Max absolute difference: 438.4757
-E       Max relative difference: 0.5862912
-E        x: array([[[414.35706, 437.88647, 282.6456 , 316.35214, 296.0906 ,
-E                404.48633, 349.4565 , 394.17007],
-E               [444.82996, 482.03882, 368.92664, 344.9607 , 290.47983,
-E                398.92465, 420.16165, 434.4182 ]]], dtype=float32)
-E        y: array([[[800.5107 , 862.97485, 683.19934, 644.7456 , 573.72375,
-E                714.88525, 728.84973, 808.5652 ],
-E               [879.7415 , 920.5145 , 785.2407 , 688.98376, 587.2645 ,
-E                719.43756, 815.77496, 851.23706]]], dtype=float32)
-
-cupy/testing/_array.py:24: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is <class 'numpy.float32'>
 =============================== warnings summary ===============================
 tests/cupy_tests/core_tests/fusion_tests/test_array.py: 1 warning
 tests/cupy_tests/math_tests/test_sumprod.py: 19 warnings
@@ -3820,7 +2908,7 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axi
     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 
 tests/cupy_tests/math_tests/test_sumprod.py: 32 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/tests/cupy_tests/math_tests/test_sumprod.py:800: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.hRYIPA5gn1/cupy/tests/cupy_tests/math_tests/test_sumprod.py:800: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_all2
@@ -3834,7 +2922,7 @@ tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py::TestStats::tes
     return umr_sum(a, axis, dtype, out, keepdims, initial, where)
 
 tests/cupy_tests/statistics_tests/test_meanvar.py: 28 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.hRYIPA5gn1/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_4_{axis=0, keepdims=True, overwrite_input=True, shape=(3, 4, 5)}::test_nanmedian
@@ -3926,7 +3014,7 @@ tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::te
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_235_{cval=-inf, mode='constant', order=0, output=float64, prefilter=True, shift=0.1}]
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_238_{cval=-inf, mode='constant', order=1, output=float64, prefilter=True, shift=0.1}]
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_241_{cval=-inf, mode='constant', order=3, output=float64, prefilter=True, shift=0.1}]
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py:533: RuntimeWarning: invalid value encountered in remainder
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.hRYIPA5gn1/cupy/tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py:533: RuntimeWarning: invalid value encountered in remainder
     float_out = self._shift(xp, scp, a.astype(xp.float64)) % 1
 
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py: 14 warnings
@@ -3956,17 +3044,10 @@ tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param
     res *= (1 - noise / lVar)
 
 -- Docs: https://docs.pytest.org/en/stable/warnings.html
-- generated html file: file:///home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.iR5aCdmxK9/cupy/_output/report.html -
+- generated html file: file:///home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.hRYIPA5gn1/cupy/_output/report.html -
 =========================== short test summary info ============================
 FAILED tests/cupy_tests/core_tests/test_ndarray_unary_op.py::TestArrayBoolOp::test_bool_one_element
 FAILED tests/cupy_tests/indexing_tests/test_generate.py::TestIX_::test_ix_ndarray
-FAILED tests/cupy_tests/math_tests/test_matmul.py::TestMatmul_param_8_{shape_pair=((2,), (2,))}::test_cupy_matmul
-FAILED tests/cupy_tests/math_tests/test_matmul.py::TestMatmul_param_8_{shape_pair=((2,), (2,))}::test_operator_matmul
-FAILED tests/cupy_tests/math_tests/test_matmul.py::TestMatmul_param_12_{shape_pair=((5, 3, 2), (2, 4))}::test_cupy_matmul
-FAILED tests/cupy_tests/math_tests/test_matmul.py::TestMatmul_param_12_{shape_pair=((5, 3, 2), (2, 4))}::test_operator_matmul
-FAILED tests/cupy_tests/math_tests/test_matmul.py::TestMatmul_param_14_{shape_pair=((3, 2), (5, 2, 4))}::test_cupy_matmul
-FAILED tests/cupy_tests/math_tests/test_matmul.py::TestMatmul_param_14_{shape_pair=((3, 2), (5, 2, 4))}::test_operator_matmul
-FAILED tests/cupy_tests/math_tests/test_matmul.py::TestMatmul_param_16_{shape_pair=((5, 3, 2), (1, 2, 4))}::test_cupy_matmul
 FAILED tests/cupy_tests/math_tests/test_misc.py::TestConvolve_param_0_{mode='valid'}::test_convolve_diff_types
 FAILED tests/cupy_tests/math_tests/test_misc.py::TestConvolve_param_1_{mode='same'}::test_convolve_diff_types
 FAILED tests/cupy_tests/math_tests/test_misc.py::TestConvolve_param_2_{mode='full'}::test_convolve_diff_types
@@ -3977,9 +3058,7 @@ FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_para
 FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_2_{mode='same'}::test_correlate_diff_types
 FAILED tests/cupyx_tests/test_scatter.py::TestScatter::test_scatter_add - Ass...
 FAILED tests/cupyx_tests/jit_tests/test_raw.py::TestRaw::test_atomic_add - Ty...
-FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_0_{shapes=((4, 4), (4,)), trans=0}::test_lu_solve
-FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_2_{shapes=((4, 4), (4,)), trans=2}::test_lu_solve
-FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_5_{shapes=((5, 5), (5, 2)), trans=2}::test_lu_solve
+FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_1_{shapes=((4, 4), (4,)), trans=1}::test_lu_solve
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestMapCoordinatesHalfInteger::test_map_coordinates_float[_param_46_{mode='grid-constant', order=4}]
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestMapCoordinatesHalfInteger::test_map_coordinates_float[_param_47_{mode='grid-constant', order=5}]
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_4_{grid_mode=False, mode='constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
@@ -3998,5 +3077,4 @@ FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZo
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_71_{grid_mode=True, mode='wrap', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_94_{grid_mode=True, mode='grid-constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_95_{grid_mode=True, mode='grid-constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
-FAILED tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestFFTConvolve_param_44_{mode='valid', size1=(3, 4, 10), size2=3}::test_convolve_fft
-= 41 failed, 63748 passed, 7412 skipped, 71 deselected, 557 xfailed, 272 warnings in 26913.77s (7:28:33) =
+= 31 failed, 63763 passed, 7407 skipped, 71 deselected, 557 xfailed, 272 warnings in 26336.17s (7:18:56) =
