@@ -16,7 +16,7 @@ _run_test() {
     }
 
     pushd "${WORKDIR}"
-    git clone --branch ${BRANCH} --depth 1 --recursive https://github.com/cupy/cupy.git
+    git clone --quiet --branch ${BRANCH} --depth 1 --recursive https://github.com/cupy/cupy.git
     CURRENT_COMMIT="$(git -C cupy rev-parse HEAD)"
     popd
 
@@ -29,8 +29,8 @@ _run_test() {
     fi
 
     pushd "${WORKDIR}"
-    git clone --depth 1 --branch gh-pages git@github.com:kmaehashi/cupy-rocm-ci-report.git
-    srun -t 10:00:00 "${CURRENT_DIR}/test_runner.sh" "${BRANCH}"
+    git clone --quiet --depth 1 --branch gh-pages git@github.com:kmaehashi/cupy-rocm-ci-report.git
+    srun -p MI100 -t 10:00:00 "${CURRENT_DIR}/test_runner.sh" "${BRANCH}"
     # srun -p MI100 "${CURRENT_DIR}/test_runner.sh"
     popd
 
