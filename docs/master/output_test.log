@@ -1,4 +1,4 @@
-master: e2c321f Merge pull request #5485 from leofang/fix_dlpack_test
+master: 1f2600f Merge pull request #5491 from kmaehashi/update-rtd-config
 Traceback (most recent call last):
   File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/runpy.py", line 194, in _run_module_as_main
     return _run_code(code, main_globals, None,
@@ -47,7 +47,7 @@ Traceback (most recent call last):
 OSError: [Errno 28] No space left on device
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.t4bHVb1Diu/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.El7VdMV0DF/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
-collected 9 items / 203 errors
-!!!!!!!!!!!!!!!!!! Interrupted: 203 errors during collection !!!!!!!!!!!!!!!!!!!
+collected 0 items / 208 errors
+!!!!!!!!!!!!!!!!!! Interrupted: 208 errors during collection !!!!!!!!!!!!!!!!!!!
