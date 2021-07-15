@@ -1,7 +1,7 @@
-v9: 6cdd7e6 Merge pull request #5475 from leofang/v9_hip_housekeeping
+v9: 218f0a6 Merge pull request #5507 from leofang/v9_cusparse_fix
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.atPys49s4X/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.SzviMCwxMF/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
 collected 61463 items / 7 errors / 67 deselected / 12 skipped / 61377 selected
 
@@ -138,7 +138,7 @@ cupy_backends/cuda/api/runtime.pyx:289: in cupy_backends.cuda.api.runtime.getDev
 cupy_backends/cuda/api/runtime.pyx:261: in cupy_backends.cuda.api.runtime.check_status
     raise CUDARuntimeError(status)
 E   cupy_backends.cuda.api.runtime.CUDARuntimeError: hipErrorNoDevice: hipErrorNoDevice
-- generated html file: file:///home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.atPys49s4X/cupy/_output/report.html -
+- generated html file: file:///home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.SzviMCwxMF/cupy/_output/report.html -
 =========================== short test summary info ============================
 ERROR tests/cupy_tests/core_tests/test_core.py - cupy_backends.cuda.api.runti...
 ERROR tests/cupy_tests/core_tests/test_raw.py - cupy_backends.cuda.api.runtim...
@@ -148,4 +148,4 @@ ERROR tests/cupy_tests/indexing_tests/test_iterate.py - cupy_backends.cuda.ap...
 ERROR tests/cupy_tests/random_tests/test_generator.py - cupy_backends.cuda.ap...
 ERROR tests/cupyx_tests/scipy_tests/fft_tests/test_fft.py - cupy_backends.cud...
 !!!!!!!!!!!!!!!!!!! Interrupted: 7 errors during collection !!!!!!!!!!!!!!!!!!!!
-================ 12 skipped, 67 deselected, 7 errors in 23.34s =================
+================ 12 skipped, 67 deselected, 7 errors in 23.62s =================
