@@ -1,9 +1,9 @@
-v9: d4c692b Merge pull request #5547 from chainer-ci/bp-5546-v9-fix-cc-issue
+v9: 94d4666 Merge pull request #5549 from chainer-ci/bp-5539-v9-ufunc-cast-bool-input
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
-collected 71895 items / 71 deselected / 12 skipped / 71812 selected
+collected 71897 items / 71 deselected / 12 skipped / 71814 selected
 
 tests/cupy_tests/test_cublas.py ........................................ [  0%]
 ........................................................................ [  0%]
@@ -113,9 +113,9 @@ tests/cupy_tests/core_tests/test_ndarray_copy_and_view.py .............. [  7%]
 .........................sssssss                                         [  8%]
 tests/cupy_tests/core_tests/test_ndarray_cuda_array_interface.py sssssss [  8%]
 sssssssssssssssssssssssssssssssssssssssssssssssss                        [  8%]
-tests/cupy_tests/core_tests/test_ndarray_elementwise_op.py ............. [  8%]
-........................................................................ [  8%]
-.................................................................        [  8%]
+tests/cupy_tests/core_tests/test_ndarray_elementwise_op.py .F........... [  8%]
+........................................F............................... [  8%]
+...................................................................      [  8%]
 tests/cupy_tests/core_tests/test_ndarray_get.py ............             [  8%]
 tests/cupy_tests/core_tests/test_ndarray_indexing.py xxxx..........x...x [  8%]
 ........x..........x.............................                        [  8%]
@@ -400,7 +400,7 @@ tests/cupy_tests/math_tests/test_arithmetic.py ......................... [ 19%]
 ........................................................................ [ 27%]
 ........................................................................ [ 27%]
 ........................................................................ [ 27%]
-........................................................................ [ 27%]
+........................................................................ [ 28%]
 ........................................................................ [ 28%]
 ........................................................................ [ 28%]
 ........................................................................ [ 28%]
@@ -509,7 +509,7 @@ tests/cupy_tests/sorting_tests/test_count.py ....                        [ 35%]
 tests/cupy_tests/sorting_tests/test_search.py ssssssss........ssssssss.. [ 35%]
 ........................................................................ [ 35%]
 ........................................................................ [ 35%]
-....................................................................     [ 35%]
+....................................................................     [ 36%]
 tests/cupy_tests/sorting_tests/test_sort.py ............................ [ 36%]
 ........................................................................ [ 36%]
 ..........................................................x...........   [ 36%]
@@ -705,7 +705,7 @@ tests/cupyx_tests/scipy_tests/fftpack_tests/test_fftpack.py ............ [ 51%]
 ........................................................................ [ 52%]
 .........................                                                [ 52%]
 tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py ........... [ 52%]
-..............................................FF..F                      [ 52%]
+...................................................                      [ 52%]
 tests/cupyx_tests/scipy_tests/linalg_tests/test_solve_triangular.py .... [ 52%]
 ........................................................................ [ 53%]
 ........................................................................ [ 53%]
@@ -1009,8 +1009,8 @@ tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py ...... [ 64%]
 ...........ssssssssssssssssssssssssssssssssssssssssssssssss              [ 82%]
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py ....... [ 82%]
 ........................................................................ [ 82%]
-.................................................................FFFFFFF [ 82%]
-FFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFFF............. [ 82%]
+........................................................................ [ 82%]
+........................................................................ [ 82%]
 ........................................................................ [ 82%]
 ........................................................................ [ 83%]
 ........................................................................ [ 83%]
@@ -1143,7 +1143,7 @@ s....s....s....s........................................................ [ 95%]
 ..........................................s....s....s....s....s....s.... [ 95%]
 s....s....s....s....s....s......s....s....s....s....s....s....s....s.... [ 95%]
 s....s....s....s........................................................ [ 95%]
-......s....s....s....s....s....s....s....s....s....s....s....s......s... [ 95%]
+......s....s....s....s....s....s....s....s....s....s....s....s......s... [ 96%]
 .s....s....s....s....s....s....s....s....s....s....s.................... [ 96%]
 ..........................................s....s....s....s....s....s.... [ 96%]
 s....s....s....s....s....s......s....s....s....s....s....s....s....s.... [ 96%]
@@ -1174,24 +1174,26 @@ tests/cupyx_tests/scipy_tests/signal_tests/test_bsplines.py ............ [ 98%]
                                                                          [ 98%]
 tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py ......... [ 98%]
 ........................................................................ [ 98%]
-...................................................Fatal Python error: Aborted
+......................................................xxxxxxxxx......... [ 98%]
+...........................xxxxxxxxxxxx................................. [ 98%]
+...Fatal Python error: Aborted
 
-Thread 0x00007efe6bb35080 (most recent call first):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/cupy/fft/_fft.py", line 154 in _exec_fft
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/cupy/fft/_fft.py", line 207 in _fft_c2c
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/cupy/fft/_fft.py", line 247 in _fft
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/cupyx/scipy/fft/_fft.py", line 510 in irfftn
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/cupyx/scipy/signal/_signaltools_core.py", line 150 in _freq_domain_conv
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/cupyx/scipy/signal/signaltools.py", line 180 in fftconvolve
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/cupyx/scipy/signal/signaltools.py", line 125 in _correlate
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/cupyx/scipy/signal/signaltools.py", line 55 in convolve
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py", line 60 in _filter
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py", line 86 in test_convolve_fft
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/cupy/testing/_helper.py", line 47 in _call_func
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/cupy/testing/_helper.py", line 72 in _call_func_cupy
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/cupy/testing/_helper.py", line 96 in _call_func_numpy_cupy
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/cupy/testing/_helper.py", line 264 in test_func
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.m5vpGCXHv6/cupy/cupy/testing/_helper.py", line 825 in test_func
+Thread 0x00007f24a72de080 (most recent call first):
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/cupy/fft/_fft.py", line 154 in _exec_fft
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/cupy/fft/_fft.py", line 207 in _fft_c2c
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/cupy/fft/_fft.py", line 247 in _fft
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/cupyx/scipy/fft/_fft.py", line 510 in irfftn
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/cupyx/scipy/signal/_signaltools_core.py", line 150 in _freq_domain_conv
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/cupyx/scipy/signal/signaltools.py", line 180 in fftconvolve
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/cupyx/scipy/signal/signaltools.py", line 125 in _correlate
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/cupyx/scipy/signal/signaltools.py", line 55 in convolve
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py", line 60 in _filter
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py", line 86 in test_convolve_fft
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/cupy/testing/_helper.py", line 47 in _call_func
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/cupy/testing/_helper.py", line 72 in _call_func_cupy
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/cupy/testing/_helper.py", line 96 in _call_func_numpy_cupy
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/cupy/testing/_helper.py", line 264 in test_func
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.OOkvZuedbH/cupy/cupy/testing/_helper.py", line 825 in test_func
   File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/case.py", line 633 in _callTestMethod
   File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/case.py", line 676 in run
   File "/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/unittest/case.py", line 736 in __call__
