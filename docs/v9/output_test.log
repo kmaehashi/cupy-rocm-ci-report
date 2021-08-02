@@ -1,7 +1,7 @@
-v9: 005be6c Merge pull request #5566 from chainer-ci/bp-5558-v9-code_fix_solver
+v9: 38ff9c7 Merge pull request #5584 from chainer-ci/bp-5579-v9-broadcast-checks
 ============================= test session starts ==============================
 platform linux -- Python 3.8.7, pytest-6.2.2, py-1.10.0, pluggy-0.13.1
-rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy, configfile: setup.cfg
+rootdir: /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HrpZypRcea/cupy, configfile: setup.cfg
 plugins: html-3.1.1, metadata-1.11.0
 collected 71897 items / 71 deselected / 12 skipped / 71814 selected
 
@@ -130,7 +130,7 @@ tests/cupy_tests/core_tests/test_ndarray_scatter.py .................... [  8%]
 ........................................................................ [  8%]
 ...............................................................          [  8%]
 tests/cupy_tests/core_tests/test_ndarray_ufunc.py .........              [  8%]
-tests/cupy_tests/core_tests/test_ndarray_unary_op.py .......F..........s [  8%]
+tests/cupy_tests/core_tests/test_ndarray_unary_op.py ..................s [  8%]
 ...                                                                      [  8%]
 tests/cupy_tests/core_tests/test_raw.py .ss.........sss..s.s.s........ss [  9%]
 .........sss..s.s.s........ss.........sss..s.s.s......ssssssssssssssssss [  9%]
@@ -235,7 +235,7 @@ s..s.s..s.s..s.s..s.s..s.s..s.s..s.s..s.s..s.s..s.s..s.s..s.s..s.s..s.s. [ 14%]
 tests/cupy_tests/functional_tests/test_piecewise.py .............        [ 14%]
 tests/cupy_tests/functional_tests/test_vectorize.py .................... [ 14%]
 ................................                                         [ 14%]
-tests/cupy_tests/indexing_tests/test_generate.py .......F............... [ 14%]
+tests/cupy_tests/indexing_tests/test_generate.py ....................... [ 14%]
 ...............                                                          [ 14%]
 tests/cupy_tests/indexing_tests/test_indexing.py ....................... [ 14%]
 .........................                                                [ 15%]
@@ -488,7 +488,7 @@ x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x.x......................... [ 33%]
 ......................................................................x. [ 34%]
 x.x.x.x.x............................x.x.x.x.x.x........................ [ 34%]
 ........................................................................ [ 34%]
-.........................................F.F.                            [ 34%]
+.........................................x.x.                            [ 34%]
 tests/cupy_tests/random_tests/test_generator.py ........................ [ 34%]
 ........................................................................ [ 34%]
 ........................................................................ [ 35%]
@@ -543,7 +543,7 @@ tests/cupyx_tests/test_pinned_array.py ................................. [ 37%]
 .......................................                                  [ 37%]
 tests/cupyx_tests/test_rsqrt.py .                                        [ 37%]
 tests/cupyx_tests/test_runtime.py s.                                     [ 37%]
-tests/cupyx_tests/test_scatter.py F..                                    [ 37%]
+tests/cupyx_tests/test_scatter.py ...                                    [ 37%]
 tests/cupyx_tests/test_time.py .........                                 [ 37%]
 tests/cupyx_tests/fallback_mode_tests/test_fallback.py ................. [ 37%]
 ........................................................................ [ 37%]
@@ -705,7 +705,7 @@ tests/cupyx_tests/scipy_tests/fftpack_tests/test_fftpack.py ............ [ 51%]
 ........................................................................ [ 52%]
 .........................                                                [ 52%]
 tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py ........... [ 52%]
-.................................................F.                      [ 52%]
+...................................................                      [ 52%]
 tests/cupyx_tests/scipy_tests/linalg_tests/test_solve_triangular.py .... [ 52%]
 ........................................................................ [ 53%]
 ........................................................................ [ 53%]
@@ -1174,7 +1174,7 @@ tests/cupyx_tests/scipy_tests/signal_tests/test_bsplines.py ............ [ 98%]
                                                                          [ 98%]
 tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py ......... [ 98%]
 ........................................................................ [ 98%]
-......................................................xxxxxxxxx......... [ 98%]
+...................................................F..xxxxxxxxx......... [ 98%]
 ...........................xxxxxxxxxxxx................................. [ 98%]
 ............xxx..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x..x.x.. [ 98%]
 x.x..................................................................... [ 99%]
@@ -1201,8 +1201,8 @@ tests/cupyx_tests/scipy_tests/stats_tests/test_distributions.py ........ [ 99%]
 ........................................................................ [ 99%]
                                                                          [ 99%]
 tests/cupyx_tests/tools_tests/test_install_library.py ......             [ 99%]
-tests/example_tests/test_finance.py FFF                                  [ 99%]
-tests/example_tests/test_gemm.py F                                       [ 99%]
+tests/example_tests/test_finance.py ...                                  [ 99%]
+tests/example_tests/test_gemm.py .                                       [ 99%]
 tests/example_tests/test_gmm.py ss                                       [ 99%]
 tests/example_tests/test_kmeans.py sss                                   [ 99%]
 tests/install_tests/test_build.py sx.                                    [ 99%]
@@ -1321,137 +1321,18 @@ E              [9., 3., 9.]])
 cupy/testing/_array.py:24: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 x_type is <class 'numpy.float64'>
-____________________ TestArrayBoolOp.test_bool_one_element _____________________
-[XPASS(strict)] ROCm/HIP may have a bug
-___________________________ TestIX_.test_ix_ndarray ____________________________
-[XPASS(strict)] HIP may have a bug
 _________ TestConvolve_param_0_{mode='valid'}.test_convolve_diff_types _________
 [XPASS(strict)] HIP/ROCm may have a bug with larger `b`
 _________ TestConvolve_param_1_{mode='same'}.test_convolve_diff_types __________
 [XPASS(strict)] HIP/ROCm may have a bug with larger `b`
 _________ TestConvolve_param_2_{mode='full'}.test_convolve_diff_types __________
 [XPASS(strict)] HIP/ROCm may have a bug with larger `b`
-___________ TestDistributionsPoissonInvalid.test_none_lam_generator ____________
-
-self = <cupy_tests.random_tests.test_distributions.TestDistributionsPoissonInvalid testMethod=test_none_lam_generator>
-
-    def test_none_lam_generator(self):
-        with self.assertRaises(TypeError):
->           cupy.random.default_rng(0).poisson(None)
-
-tests/cupy_tests/random_tests/test_distributions.py:565: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
-_______ TestDistributionsStandardGammaInvalid.test_none_shape_generator ________
-
-self = <cupy_tests.random_tests.test_distributions.TestDistributionsStandardGammaInvalid testMethod=test_none_shape_generator>
-
-    def test_none_shape_generator(self):
-        with self.assertRaises(TypeError):
->           cupy.random.default_rng(0).standard_gamma(None)
-
-tests/cupy_tests/random_tests/test_distributions.py:682: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-    def default_rng(seed=None):  # NOQA  avoid redefinition of seed
-        """Construct a new Generator with the default BitGenerator (XORWOW).
-    
-        Args:
-            seed (None, int, array_like[ints], numpy.random.SeedSequence, cupy.random.BitGenerator, cupy.random.Generator, optional):
-                A seed to initialize the :class:`cupy.random.BitGenerator`. If an
-                ``int`` or ``array_like[ints]`` or None is passed, then it will be
-                passed to :class:`numpy.random.SeedSequence` to detive the initial
-                :class:`BitGenerator` state. One may also pass in a `SeedSequence
-                instance. Adiditionally, when passed :class:`BitGenerator`, it will
-                be wrapped by :class:`Generator`. If passed a :class:`Generator`,
-                it will be returned unaltered.
-    
-        Returns:
-            Generator: The initialized generator object.
-        """  # NOQA, list of types need to be in one line for sphinx
-        if runtime.is_hip:
->           raise RuntimeError('Generator API not supported in HIP,'
-                               ' please use the legacy one.')
-E           RuntimeError: Generator API not supported in HIP, please use the legacy one.
-
-cupy/random/__init__.py:36: RuntimeError
 ________ TestCorrelate_param_0_{mode='valid'}.test_correlate_diff_types ________
 [XPASS(strict)] ROCm/HIP may have a bug
 ________ TestCorrelate_param_1_{mode='full'}.test_correlate_diff_types _________
 [XPASS(strict)] ROCm/HIP may have a bug
 ________ TestCorrelate_param_2_{mode='same'}.test_correlate_diff_types _________
 [XPASS(strict)] ROCm/HIP may have a bug
-_________________________ TestScatter.test_scatter_add _________________________
-
-self = <cupyx_tests.test_scatter.TestScatter testMethod=test_scatter_add>
-dtype = <class 'numpy.float16'>
-
-    @testing.for_dtypes('iILQefd')
-    def test_scatter_add(self, dtype):
-        a = cupy.zeros((3,), dtype=dtype)
-        i = cupy.array([1, 1], numpy.int32)
-        v = cupy.array([2., 1.], dtype=dtype)
-        cupyx.scatter_add(a, i, v)
->       testing.assert_array_equal(a, cupy.array([0, 3, 0], dtype=dtype))
-
-tests/cupyx_tests/test_scatter.py:19: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-x = array([0.e+00, 2.e-07, 0.e+00], dtype=float16)
-y = array([0., 3., 0.], dtype=float16), err_msg = '', verbose = True
-strides_check = False
-
-    def assert_array_equal(x, y, err_msg='', verbose=True, strides_check=False):
-        """Raises an AssertionError if two array_like objects are not equal.
-    
-        Args:
-             x(numpy.ndarray or cupy.ndarray): The actual object to check.
-             y(numpy.ndarray or cupy.ndarray): The desired, expected object.
-             strides_check(bool): If ``True``, consistency of strides is also
-                 checked.
-             err_msg(str): The error message to be printed in case of failure.
-             verbose(bool): If ``True``, the conflicting values
-                 are appended to the error message.
-    
-        .. seealso:: :func:`numpy.testing.assert_array_equal`
-        """
->       numpy.testing.assert_array_equal(
-            cupy.asnumpy(x), cupy.asnumpy(y), err_msg=err_msg,
-            verbose=verbose)
-E       AssertionError: 
-E       Arrays are not equal
-E       
-E       Mismatched elements: 1 / 3 (33.3%)
-E       Max absolute difference: 3.
-E       Max relative difference: 1.
-E        x: array([0.e+00, 2.e-07, 0.e+00], dtype=float16)
-E        y: array([0., 3., 0.], dtype=float16)
-
-cupy/testing/_array.py:91: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is e
 ___________________________ TestRaw.test_atomic_add ____________________________
 
 self = <cupyx_tests.jit_tests.test_raw.TestRaw testMethod=test_atomic_add>
@@ -1480,7 +1361,7 @@ cupyx/jit/_compile.py:175: in _transpile_function
     exc.reraise(source)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-self = _JitCompileError(TypeError('`atomicAdd` does not support float16 input.'), <_ast.Call object at 0x7f06ebbcb4f0>)
+self = _JitCompileError(TypeError('`atomicAdd` does not support float16 input.'), <_ast.Call object at 0x7f7d0f1c36d0>)
 pycode = '  @jit.rawkernel()\n  def f(x, index, out):\n      tid = jit.blockDim.x * jit.blockIdx.x + jit.threadIdx.x\n>     jit.atomic_add(out, index[tid], x[tid])\n'
 
     def reraise(self, pycode):
@@ -1500,145 +1381,9 @@ E       >     jit.atomic_add(out, index[tid], x[tid])
 cupyx/jit/_compile.py:42: TypeError
 ----------------------------- Captured stdout call -----------------------------
 dtype is e
-_____ TestLUSolve_param_4_{shapes=((5, 5), (5, 2)), trans=1}.test_lu_solve _____
-
-self = <<cupyx_tests.scipy_tests.linalg_tests.test_decomp_lu.TestLUSolve_param_4_{shapes=((5, 5), (5, 2)), trans=1} testMethod=test_lu_solve>  parameter: {'shapes': ((5, 5), (5, 2)), 'trans': 1}>
-xp = <module 'cupy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/cupy/__init__.py'>
-scp = <module 'cupyx.scipy' from '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/cupyx/scipy/__init__.py'>
-dtype = <class 'numpy.complex64'>
-
-    @testing.for_dtypes('fdFD')
-    @testing.numpy_cupy_allclose(atol=1e-5, scipy_name='scp')
-    def test_lu_solve(self, xp, scp, dtype):
-        a_shape, b_shape = self.shapes
-        A = testing.shaped_random(a_shape, xp, dtype=dtype)
-        b = testing.shaped_random(b_shape, xp, dtype=dtype)
-        lu = scp.linalg.lu_factor(A)
->       return scp.linalg.lu_solve(lu, b, trans=self.trans)
-
-tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py:133: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-lu_and_piv = (array([[ 9.786183   +6.7063785j ,  7.9915857  +2.1038256j ,
-         4.614794   +1.289263j  ,  7.8052917  +3.1542835j... , -0.1953073  +0.38294038j,
-         1.4816577  +3.005199j  ]], dtype=complex64), array([4, 1, 4, 3, 4], dtype=int32))
-b = array([[-0.12906706+0.83930093j, -0.4556416 +0.47542247j],
-       [-1.6380517 +0.28560114j, -1.3639436 -0.01759141j],
-...5160456j ,  0.17068669-1.2632399j ],
-       [-0.42293376-0.24016505j, -1.34513   -0.06091501j]],
-      dtype=complex64)
-trans = 1, overwrite_b = False, check_finite = True
-
-    def lu_solve(lu_and_piv, b, trans=0, overwrite_b=False, check_finite=True):
-        """Solve an equation system, ``a * x = b``, given the LU factorization of ``a``
-    
-        Args:
-            lu_and_piv (tuple): LU factorization of matrix ``a`` (``(M, M)``)
-                together with pivot indices.
-            b (cupy.ndarray): The matrix with dimension ``(M,)`` or
-                ``(M, N)``.
-            trans ({0, 1, 2}): Type of system to solve:
-    
-                ========  =========
-                trans     system
-                ========  =========
-                0         a x  = b
-                1         a^T x = b
-                2         a^H x = b
-                ========  =========
-            overwrite_b (bool): Allow overwriting data in b (may enhance
-                performance)
-            check_finite (bool): Whether to check that the input matrices contain
-                only finite numbers. Disabling may give a performance gain, but may
-                result in problems (crashes, non-termination) if the inputs do
-                contain infinities or NaNs.
-    
-        Returns:
-            cupy.ndarray:
-                The matrix with dimension ``(M,)`` or ``(M, N)``.
-    
-        .. seealso:: :func:`scipy.linalg.lu_solve`
-        """
-    
-        (lu, ipiv) = lu_and_piv
-    
-        _util._assert_cupy_array(lu)
-        _util._assert_rank2(lu)
-        _util._assert_nd_squareness(lu)
-    
-        m = lu.shape[0]
-        if m != b.shape[0]:
-            raise ValueError('incompatible dimensions.')
-    
-        dtype = lu.dtype
-        if dtype.char == 'f':
-            getrs = cusolver.sgetrs
-        elif dtype.char == 'd':
-            getrs = cusolver.dgetrs
-        elif dtype.char == 'F':
-            getrs = cusolver.cgetrs
-        elif dtype.char == 'D':
-            getrs = cusolver.zgetrs
-        else:
-            msg = 'Only float32, float64, complex64 and complex128 are supported.'
-            raise NotImplementedError(msg)
-    
-        if trans == 0:
-            trans = cublas.CUBLAS_OP_N
-        elif trans == 1:
-            trans = cublas.CUBLAS_OP_T
-        elif trans == 2:
-            trans = cublas.CUBLAS_OP_C
-        else:
-            raise ValueError('unknown trans')
-    
-        lu = lu.astype(dtype, order='F', copy=False)
-        ipiv = ipiv.astype(ipiv.dtype, order='F', copy=True)
-        # cuSolver uses 1-origin while SciPy uses 0-origin
-        ipiv += 1
-        b = b.astype(dtype, order='F', copy=(not overwrite_b))
-    
-        if check_finite:
-            if lu.dtype.kind == 'f' and not cupy.isfinite(lu).all():
-                raise ValueError(
-                    'array must not contain infs or NaNs.\n'
-                    'Note that when a singular matrix is given, unlike '
-                    'scipy.linalg.lu_factor, cupyx.scipy.linalg.lu_factor '
-                    'returns an array containing NaN.')
-            if b.dtype.kind == 'f' and not cupy.isfinite(b).all():
-                raise ValueError(
-                    'array must not contain infs or NaNs')
-    
-        n = 1 if b.ndim == 1 else b.shape[1]
-        cusolver_handle = device.get_cusolver_handle()
-        dev_info = cupy.empty(1, dtype=numpy.int32)
-    
-        # solve for the inverse
-        getrs(cusolver_handle,
-              trans,
-              m, n, lu.data.ptr, m, ipiv.data.ptr, b.data.ptr,
-              m, dev_info.data.ptr)
-    
-        if dev_info[0] < 0:
->           raise ValueError('illegal value in %d-th argument of '
-                             'internal getrs (lu_solve)' % -dev_info[0])
-E           AssertionError: Only cupy raises error
-E           
-E           Traceback (most recent call last):
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/cupy/testing/_helper.py", line 47, in _call_func
-E               result = impl(self, *args, **kw)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py", line 133, in test_lu_solve
-E               return scp.linalg.lu_solve(lu, b, trans=self.trans)
-E             File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/cupyx/scipy/linalg/decomp_lu.py", line 344, in lu_solve
-E               raise ValueError('illegal value in %d-th argument of '
-E           ValueError: illegal value in 1857101197-th argument of internal getrs (lu_solve)
-
-cupyx/scipy/linalg/decomp_lu.py:344: AssertionError
------------------------------ Captured stdout call -----------------------------
-dtype is F
 _ TestMapCoordinatesHalfInteger.test_map_coordinates_float[_param_46_{mode='grid-constant', order=4}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7f06846b60a0>  parameter: {'mode': 'grid-constant', 'order': 4}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7f7ca6e45130>  parameter: {'mode': 'grid-constant', 'order': 4}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -1694,7 +1439,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestMapCoordinatesHalfInteger.test_map_coordinates_float[_param_47_{mode='grid-constant', order=5}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7f068432a970>  parameter: {'mode': 'grid-constant', 'order': 5}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestMapCoordinatesHalfInteger object at 0x7f7ca6c213d0>  parameter: {'mode': 'grid-constant', 'order': 5}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -1750,7 +1495,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_4_{grid_mode=False, mode='constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b84f3d0>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9df348b0>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -1824,7 +1569,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_5_{grid_mode=False, mode='constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b687940>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9dbfc850>  parameter: {'grid_mode': False, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -1898,7 +1643,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_16_{grid_mode=False, mode='mirror', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b70e040>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9df48100>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -1972,7 +1717,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_17_{grid_mode=False, mode='mirror', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b6871c0>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9da56220>  parameter: {'grid_mode': False, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2046,7 +1791,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_22_{grid_mode=False, mode='wrap', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b2528e0>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9db1c2b0>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2120,7 +1865,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_23_{grid_mode=False, mode='wrap', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b71c340>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9de200d0>  parameter: {'grid_mode': False, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2194,7 +1939,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_46_{grid_mode=False, mode='grid-constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b73e700>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9de09a90>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2268,7 +2013,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_47_{grid_mode=False, mode='grid-constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b61d3d0>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9d909250>  parameter: {'grid_mode': False, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float32'>}
 dtype = <class 'numpy.float32'>
 
@@ -2342,7 +2087,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float32'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_52_{grid_mode=True, mode='constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b193130>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9da56dc0>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2418,7 +2163,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_53_{grid_mode=True, mode='constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b1951c0>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9db2b3a0>  parameter: {'grid_mode': True, 'mode': 'constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2494,7 +2239,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_64_{grid_mode=True, mode='mirror', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b636e80>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9d8d74f0>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2570,7 +2315,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_65_{grid_mode=True, mode='mirror', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b61d280>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9de39700>  parameter: {'grid_mode': True, 'mode': 'mirror', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2646,7 +2391,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_70_{grid_mode=True, mode='wrap', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b2467c0>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9d6de9a0>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2722,7 +2467,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_71_{grid_mode=True, mode='wrap', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b176a60>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9de209a0>  parameter: {'grid_mode': True, 'mode': 'wrap', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2798,7 +2543,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_94_{grid_mode=True, mode='grid-constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067afdc640>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9d3d5160>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 4, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2874,7 +2619,7 @@ cupy/testing/_array.py:24: AssertionError
 dtype is <class 'numpy.float64'>
 _ TestZoomOutputSize1.test_zoom_output_size1[_param_95_{grid_mode=True, mode='grid-constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}] _
 
-self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f067b3414c0>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
+self = <<cupyx_tests.scipy_tests.ndimage_tests.test_interpolation.TestZoomOutputSize1 object at 0x7f7c9d1eb3d0>  parameter: {'grid_mode': True, 'mode': 'grid-constant', 'order': 5, 'shape': (5, 5, 2), 'zoom': (2, 2, 0.5)}>
 args = (), kw = {'dtype': <class 'numpy.float64'>}
 dtype = <class 'numpy.float64'>
 
@@ -2948,523 +2693,59 @@ E               [-8.455650e-02],...
 cupy/testing/_array.py:24: AssertionError
 ----------------------------- Captured stdout call -----------------------------
 dtype is <class 'numpy.float64'>
-_____________________ TestBlackScholes.test_black_scholes ______________________
-
-self = <example_tests.test_finance.TestBlackScholes testMethod=test_black_scholes>
-
-    def test_black_scholes(self):
->       output = example_test.run_example(
-            'finance/black_scholes.py', '--n-options', '10')
-
-tests/example_tests/test_finance.py:17: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-tests/example_tests/example_test.py:12: in run_example
-    return subprocess.check_output(
-/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:411: in check_output
-    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
+_ TestFFTConvolve_param_12_{mode='full', size1=(3, 4, 10), size2=3}.test_convolve_fft _
+cupy/testing/_helper.py:825: in test_func
+    impl(self, *args, **kw)
+cupy/testing/_helper.py:343: in test_func
+    check_func(cupy_r, numpy_r)
+cupy/testing/_helper.py:495: in check_func
+    _array.assert_allclose(c, n, rtol1, atol1, err_msg, verbose)
 _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
 
-input = None, capture_output = False, timeout = None, check = True
-popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/finance/black_scholes.py', '--n-options', '10'),)
-kwargs = {'stderr': -2, 'stdout': -1}
-process = <subprocess.Popen object at 0x7f0667feaee0>
-stdout = b'initializing...\nTraceback (most recent call last):\n  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.r...ressions=name_expressions, method=method)\nUnboundLocalError: local variable \'method\' referenced before assignment\n'
-stderr = None, retcode = 1
+actual = array([[[ 1.4742e+01, -3.6625e+01, -1.1856e+02, -1.6375e+02,
+         -1.7525e+02, -1.6012e+02, -1.1756e+02, -8.4875e+...450e+02, -1.3538e+02, -1.5112e+02,
+         -1.7500e+02, -1.6212e+02, -1.3900e+02, -8.2875e+01]]],
+      dtype=float16)
+desired = array([[[ 30.12 ,  78.5  , 117.3  , 116.1  ,  98.56 ,  98.6  ,  95.75 ,
+         119.1  , 143.   , 143.6  ,  85.5  ,  ... ,  68.8  ,  60.4  ,  38.7  ,  61.03 ,  47.47 ,
+          68.94 ,  60.25 ,  72.94 ,  56.97 ,   9.93 ]]], dtype=float16)
+rtol = 0.001, atol = 0.001, err_msg = '', verbose = True
 
-    def run(*popenargs,
-            input=None, capture_output=False, timeout=None, check=False, **kwargs):
-        """Run command with arguments and return a CompletedProcess instance.
+    def assert_allclose(actual, desired, rtol=1e-7, atol=0, err_msg='',
+                        verbose=True):
+        """Raises an AssertionError if objects are not equal up to desired tolerance.
     
-        The returned instance will have attributes args, returncode, stdout and
-        stderr. By default, stdout and stderr are not captured, and those attributes
-        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them.
+        Args:
+             actual(numpy.ndarray or cupy.ndarray): The actual object to check.
+             desired(numpy.ndarray or cupy.ndarray): The desired, expected object.
+             rtol(float): Relative tolerance.
+             atol(float): Absolute tolerance.
+             err_msg(str): The error message to be printed in case of failure.
+             verbose(bool): If ``True``, the conflicting
+                 values are appended to the error message.
     
-        If check is True and the exit code was non-zero, it raises a
-        CalledProcessError. The CalledProcessError object will have the return code
-        in the returncode attribute, and output & stderr attributes if those streams
-        were captured.
+        .. seealso:: :func:`numpy.testing.assert_allclose`
     
-        If timeout is given, and the process takes too long, a TimeoutExpired
-        exception will be raised.
-    
-        There is an optional argument "input", allowing you to
-        pass bytes or a string to the subprocess's stdin.  If you use this argument
-        you may not also use the Popen constructor's "stdin" argument, as
-        it will be used internally.
-    
-        By default, all communication is in bytes, and therefore any "input" should
-        be bytes, and the stdout and stderr will be bytes. If in text mode, any
-        "input" should be a string, and stdout and stderr will be strings decoded
-        according to locale encoding, or by "encoding" if set. Text mode is
-        triggered by setting any of text, encoding, errors or universal_newlines.
-    
-        The other arguments are the same as for the Popen constructor.
-        """
-        if input is not None:
-            if kwargs.get('stdin') is not None:
-                raise ValueError('stdin and input arguments may not both be used.')
-            kwargs['stdin'] = PIPE
-    
-        if capture_output:
-            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
-                raise ValueError('stdout and stderr arguments may not be used '
-                                 'with capture_output.')
-            kwargs['stdout'] = PIPE
-            kwargs['stderr'] = PIPE
-    
-        with Popen(*popenargs, **kwargs) as process:
-            try:
-                stdout, stderr = process.communicate(input, timeout=timeout)
-            except TimeoutExpired as exc:
-                process.kill()
-                if _mswindows:
-                    # Windows accumulates the output in a single blocking
-                    # read() call run on child threads, with the timeout
-                    # being done in a join() on those threads.  communicate()
-                    # _after_ kill() is required to collect that and add it
-                    # to the exception.
-                    exc.stdout, exc.stderr = process.communicate()
-                else:
-                    # POSIX _communicate already populated the output so
-                    # far into the TimeoutExpired exception.
-                    process.wait()
-                raise
-            except:  # Including KeyboardInterrupt, communicate handled that.
-                process.kill()
-                # We don't call process.wait() as .__exit__ does that for us.
-                raise
-            retcode = process.poll()
-            if check and retcode:
->               raise CalledProcessError(retcode, process.args,
-                                         output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/finance/black_scholes.py', '--n-options', '10')' returned non-zero exit status 1.
+        """  # NOQA
+>       numpy.testing.assert_allclose(
+            cupy.asnumpy(actual), cupy.asnumpy(desired),
+            rtol=rtol, atol=atol, err_msg=err_msg, verbose=verbose)
+E       AssertionError: 
+E       Not equal to tolerance rtol=0.001, atol=0.001
+E       
+E       Mismatched elements: 360 / 360 (100%)
+E       Max absolute difference: 438.5
+E       Max relative difference: 10.516
+E        x: array([[[ 1.4742e+01, -3.6625e+01, -1.1856e+02, -1.6375e+02,
+E                -1.7525e+02, -1.6012e+02, -1.1756e+02, -8.4875e+01,
+E                -8.5000e+01, -1.4062e+02, -1.6100e+02, -6.3312e+01],...
+E        y: array([[[ 30.12 ,  78.5  , 117.3  , 116.1  ,  98.56 ,  98.6  ,  95.75 ,
+E                119.1  , 143.   , 143.6  ,  85.5  ,  23.11 ],
+E               [ 73.4  , 147.9  , 215.4  , 224.8  , 189.5  , 154.   ,  90.2  ,...
 
-/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:512: CalledProcessError
+cupy/testing/_array.py:24: AssertionError
 ----------------------------- Captured stdout call -----------------------------
-Original error message:
-initializing...
-Traceback (most recent call last):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/finance/black_scholes.py", line 105, in <module>
-    stock_price_gpu = rand_range(5, 30)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/finance/black_scholes.py", line 101, in rand_range
-    samples = cupy.random.rand(args.n_options)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/random/_sample.py", line 44, in rand
-    return random_sample(size=size, dtype=dtype)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/random/_sample.py", line 156, in random_sample
-    return rs.random_sample(size=size, dtype=dtype)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/random/_generator.py", line 619, in random_sample
-    RandomState._mod1_kernel(out)
-  File "cupy/_core/_kernel.pyx", line 841, in cupy._core._kernel.ElementwiseKernel.__call__
-    kern = self._get_elementwise_kernel(dev_id, arginfos, type_map)
-  File "cupy/_core/_kernel.pyx", line 866, in cupy._core._kernel.ElementwiseKernel._get_elementwise_kernel
-    kern = _get_elementwise_kernel(
-  File "cupy/_util.pyx", line 59, in cupy._util.memoize.decorator.ret
-    result = f(*args, **kwargs)
-  File "cupy/_core/_kernel.pyx", line 653, in cupy._core._kernel._get_elementwise_kernel
-    return _get_simple_elementwise_kernel(
-  File "cupy/_core/_kernel.pyx", line 61, in cupy._core._kernel._get_simple_elementwise_kernel
-    module = compile_with_cache(module_code, options)
-  File "cupy/_core/core.pyx", line 2084, in cupy._core.core.compile_with_cache
-    #else
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 450, in compile_with_cache
-    return _compile_with_cache_hip(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 850, in _compile_with_cache_hip
-    binary, mapping = compile_using_nvrtc(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 292, in compile_using_nvrtc
-    return _compile(source, options, cu_path,
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 273, in _compile
-    name_expressions=name_expressions, method=method)
-UnboundLocalError: local variable 'method' referenced before assignment
-
-_______________________ TestMonteCarlo.test_monte_carlo ________________________
-
-self = <example_tests.test_finance.TestMonteCarlo testMethod=test_monte_carlo>
-
-    def test_monte_carlo(self):
->       output = example_test.run_example(
-            'finance/monte_carlo.py', '--n-options', '10',
-            '--n-samples-per-thread', '10',
-            '--n-threads-per-option', '10')
-
-tests/example_tests/test_finance.py:31: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-tests/example_tests/example_test.py:12: in run_example
-    return subprocess.check_output(
-/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:411: in check_output
-    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-input = None, capture_output = False, timeout = None, check = True
-popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/...tests/example_tests/../../examples/finance/monte_carlo.py', '--n-options', '10', '--n-samples-per-thread', '10', ...),)
-kwargs = {'stderr': -2, 'stdout': -1}
-process = <subprocess.Popen object at 0x7f06ee8d63d0>
-stdout = b'initializing...\nTraceback (most recent call last):\n  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.r...ressions=name_expressions, method=method)\nUnboundLocalError: local variable \'method\' referenced before assignment\n'
-stderr = None, retcode = 1
-
-    def run(*popenargs,
-            input=None, capture_output=False, timeout=None, check=False, **kwargs):
-        """Run command with arguments and return a CompletedProcess instance.
-    
-        The returned instance will have attributes args, returncode, stdout and
-        stderr. By default, stdout and stderr are not captured, and those attributes
-        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them.
-    
-        If check is True and the exit code was non-zero, it raises a
-        CalledProcessError. The CalledProcessError object will have the return code
-        in the returncode attribute, and output & stderr attributes if those streams
-        were captured.
-    
-        If timeout is given, and the process takes too long, a TimeoutExpired
-        exception will be raised.
-    
-        There is an optional argument "input", allowing you to
-        pass bytes or a string to the subprocess's stdin.  If you use this argument
-        you may not also use the Popen constructor's "stdin" argument, as
-        it will be used internally.
-    
-        By default, all communication is in bytes, and therefore any "input" should
-        be bytes, and the stdout and stderr will be bytes. If in text mode, any
-        "input" should be a string, and stdout and stderr will be strings decoded
-        according to locale encoding, or by "encoding" if set. Text mode is
-        triggered by setting any of text, encoding, errors or universal_newlines.
-    
-        The other arguments are the same as for the Popen constructor.
-        """
-        if input is not None:
-            if kwargs.get('stdin') is not None:
-                raise ValueError('stdin and input arguments may not both be used.')
-            kwargs['stdin'] = PIPE
-    
-        if capture_output:
-            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
-                raise ValueError('stdout and stderr arguments may not be used '
-                                 'with capture_output.')
-            kwargs['stdout'] = PIPE
-            kwargs['stderr'] = PIPE
-    
-        with Popen(*popenargs, **kwargs) as process:
-            try:
-                stdout, stderr = process.communicate(input, timeout=timeout)
-            except TimeoutExpired as exc:
-                process.kill()
-                if _mswindows:
-                    # Windows accumulates the output in a single blocking
-                    # read() call run on child threads, with the timeout
-                    # being done in a join() on those threads.  communicate()
-                    # _after_ kill() is required to collect that and add it
-                    # to the exception.
-                    exc.stdout, exc.stderr = process.communicate()
-                else:
-                    # POSIX _communicate already populated the output so
-                    # far into the TimeoutExpired exception.
-                    process.wait()
-                raise
-            except:  # Including KeyboardInterrupt, communicate handled that.
-                process.kill()
-                # We don't call process.wait() as .__exit__ does that for us.
-                raise
-            retcode = process.poll()
-            if check and retcode:
->               raise CalledProcessError(retcode, process.args,
-                                         output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/finance/monte_carlo.py', '--n-options', '10', '--n-samples-per-thread', '10', '--n-threads-per-option', '10')' returned non-zero exit status 1.
-
-/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:512: CalledProcessError
------------------------------ Captured stdout call -----------------------------
-Original error message:
-initializing...
-Traceback (most recent call last):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/finance/monte_carlo.py", line 161, in <module>
-    sys.exit(main())
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/finance/monte_carlo.py", line 127, in main
-    stock_price = rand_range(5, 30)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/finance/monte_carlo.py", line 123, in rand_range
-    samples = cupy.random.rand(args.n_options)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/random/_sample.py", line 44, in rand
-    return random_sample(size=size, dtype=dtype)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/random/_sample.py", line 156, in random_sample
-    return rs.random_sample(size=size, dtype=dtype)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/random/_generator.py", line 619, in random_sample
-    RandomState._mod1_kernel(out)
-  File "cupy/_core/_kernel.pyx", line 841, in cupy._core._kernel.ElementwiseKernel.__call__
-    kern = self._get_elementwise_kernel(dev_id, arginfos, type_map)
-  File "cupy/_core/_kernel.pyx", line 866, in cupy._core._kernel.ElementwiseKernel._get_elementwise_kernel
-    kern = _get_elementwise_kernel(
-  File "cupy/_util.pyx", line 59, in cupy._util.memoize.decorator.ret
-    result = f(*args, **kwargs)
-  File "cupy/_core/_kernel.pyx", line 653, in cupy._core._kernel._get_elementwise_kernel
-    return _get_simple_elementwise_kernel(
-  File "cupy/_core/_kernel.pyx", line 61, in cupy._core._kernel._get_simple_elementwise_kernel
-    module = compile_with_cache(module_code, options)
-  File "cupy/_core/core.pyx", line 2084, in cupy._core.core.compile_with_cache
-    #else
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 450, in compile_with_cache
-    return _compile_with_cache_hip(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 850, in _compile_with_cache_hip
-    binary, mapping = compile_using_nvrtc(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 292, in compile_using_nvrtc
-    return _compile(source, options, cu_path,
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 273, in _compile
-    name_expressions=name_expressions, method=method)
-UnboundLocalError: local variable 'method' referenced before assignment
-
-_____________ TestMonteCarloWithMultiGPU.test_monte_carlo_multigpu _____________
-
-self = <example_tests.test_finance.TestMonteCarloWithMultiGPU testMethod=test_monte_carlo_multigpu>
-
-    @testing.multi_gpu(2)
-    def test_monte_carlo_multigpu(self):
->       output = example_test.run_example(
-            'finance/monte_carlo_multigpu.py', '--gpus', '0', '1',
-            '--n-options', '10',
-            '--n-samples-per-thread', '10',
-            '--n-threads-per-option', '10')
-
-tests/example_tests/test_finance.py:49: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-tests/example_tests/example_test.py:12: in run_example
-    return subprocess.check_output(
-/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:411: in check_output
-    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-input = None, capture_output = False, timeout = None, check = True
-popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/finance/monte_carlo_multigpu.py', '--gpus', '0', '1', '--n-options', ...),)
-kwargs = {'stderr': -2, 'stdout': -1}
-process = <subprocess.Popen object at 0x7f06eeab3820>
-stdout = b'initializing...\nstart computation\n    # of gpus: 2\n    # of options: 10\n    # of samples per option: 200\nTraceb...ressions=name_expressions, method=method)\nUnboundLocalError: local variable \'method\' referenced before assignment\n'
-stderr = None, retcode = 1
-
-    def run(*popenargs,
-            input=None, capture_output=False, timeout=None, check=False, **kwargs):
-        """Run command with arguments and return a CompletedProcess instance.
-    
-        The returned instance will have attributes args, returncode, stdout and
-        stderr. By default, stdout and stderr are not captured, and those attributes
-        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them.
-    
-        If check is True and the exit code was non-zero, it raises a
-        CalledProcessError. The CalledProcessError object will have the return code
-        in the returncode attribute, and output & stderr attributes if those streams
-        were captured.
-    
-        If timeout is given, and the process takes too long, a TimeoutExpired
-        exception will be raised.
-    
-        There is an optional argument "input", allowing you to
-        pass bytes or a string to the subprocess's stdin.  If you use this argument
-        you may not also use the Popen constructor's "stdin" argument, as
-        it will be used internally.
-    
-        By default, all communication is in bytes, and therefore any "input" should
-        be bytes, and the stdout and stderr will be bytes. If in text mode, any
-        "input" should be a string, and stdout and stderr will be strings decoded
-        according to locale encoding, or by "encoding" if set. Text mode is
-        triggered by setting any of text, encoding, errors or universal_newlines.
-    
-        The other arguments are the same as for the Popen constructor.
-        """
-        if input is not None:
-            if kwargs.get('stdin') is not None:
-                raise ValueError('stdin and input arguments may not both be used.')
-            kwargs['stdin'] = PIPE
-    
-        if capture_output:
-            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
-                raise ValueError('stdout and stderr arguments may not be used '
-                                 'with capture_output.')
-            kwargs['stdout'] = PIPE
-            kwargs['stderr'] = PIPE
-    
-        with Popen(*popenargs, **kwargs) as process:
-            try:
-                stdout, stderr = process.communicate(input, timeout=timeout)
-            except TimeoutExpired as exc:
-                process.kill()
-                if _mswindows:
-                    # Windows accumulates the output in a single blocking
-                    # read() call run on child threads, with the timeout
-                    # being done in a join() on those threads.  communicate()
-                    # _after_ kill() is required to collect that and add it
-                    # to the exception.
-                    exc.stdout, exc.stderr = process.communicate()
-                else:
-                    # POSIX _communicate already populated the output so
-                    # far into the TimeoutExpired exception.
-                    process.wait()
-                raise
-            except:  # Including KeyboardInterrupt, communicate handled that.
-                process.kill()
-                # We don't call process.wait() as .__exit__ does that for us.
-                raise
-            retcode = process.poll()
-            if check and retcode:
->               raise CalledProcessError(retcode, process.args,
-                                         output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/finance/monte_carlo_multigpu.py', '--gpus', '0', '1', '--n-options', '10', '--n-samples-per-thread', '10', '--n-threads-per-option', '10')' returned non-zero exit status 1.
-
-/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:512: CalledProcessError
------------------------------ Captured stdout call -----------------------------
-Original error message:
-initializing...
-start computation
-    # of gpus: 2
-    # of options: 10
-    # of samples per option: 200
-Traceback (most recent call last):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/finance/monte_carlo_multigpu.py", line 74, in <module>
-    monte_carlo_kernel(
-  File "cupy/_core/_kernel.pyx", line 841, in cupy._core._kernel.ElementwiseKernel.__call__
-    kern = self._get_elementwise_kernel(dev_id, arginfos, type_map)
-  File "cupy/_core/_kernel.pyx", line 866, in cupy._core._kernel.ElementwiseKernel._get_elementwise_kernel
-    kern = _get_elementwise_kernel(
-  File "cupy/_util.pyx", line 59, in cupy._util.memoize.decorator.ret
-    result = f(*args, **kwargs)
-  File "cupy/_core/_kernel.pyx", line 653, in cupy._core._kernel._get_elementwise_kernel
-    return _get_simple_elementwise_kernel(
-  File "cupy/_core/_kernel.pyx", line 61, in cupy._core._kernel._get_simple_elementwise_kernel
-    module = compile_with_cache(module_code, options)
-  File "cupy/_core/core.pyx", line 2084, in cupy._core.core.compile_with_cache
-    #else
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 450, in compile_with_cache
-    return _compile_with_cache_hip(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 850, in _compile_with_cache_hip
-    binary, mapping = compile_using_nvrtc(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 292, in compile_using_nvrtc
-    return _compile(source, options, cu_path,
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 273, in _compile
-    name_expressions=name_expressions, method=method)
-UnboundLocalError: local variable 'method' referenced before assignment
-
-_____________________________ TestGEMM.test_sgemm ______________________________
-
-self = <example_tests.test_gemm.TestGEMM testMethod=test_sgemm>
-
-    def test_sgemm(self):
->       example_test.run_example('gemm/sgemm.py')
-
-tests/example_tests/test_gemm.py:9: 
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-tests/example_tests/example_test.py:12: in run_example
-    return subprocess.check_output(
-/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:411: in check_output
-    return run(*popenargs, stdout=PIPE, timeout=timeout, check=True,
-_ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ _ 
-
-input = None, capture_output = False, timeout = None, check = True
-popenargs = (('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/gemm/sgemm.py'),)
-kwargs = {'stderr': -2, 'stdout': -1}
-process = <subprocess.Popen object at 0x7f06ee8d6d00>
-stdout = b'm=1022 n=1254 k=1930\nstart benchmarking\n\nTraceback (most recent call last):\n  File "/home/kmaeh/Development/cupy...ressions=name_expressions, method=method)\nUnboundLocalError: local variable \'method\' referenced before assignment\n'
-stderr = None, retcode = 1
-
-    def run(*popenargs,
-            input=None, capture_output=False, timeout=None, check=False, **kwargs):
-        """Run command with arguments and return a CompletedProcess instance.
-    
-        The returned instance will have attributes args, returncode, stdout and
-        stderr. By default, stdout and stderr are not captured, and those attributes
-        will be None. Pass stdout=PIPE and/or stderr=PIPE in order to capture them.
-    
-        If check is True and the exit code was non-zero, it raises a
-        CalledProcessError. The CalledProcessError object will have the return code
-        in the returncode attribute, and output & stderr attributes if those streams
-        were captured.
-    
-        If timeout is given, and the process takes too long, a TimeoutExpired
-        exception will be raised.
-    
-        There is an optional argument "input", allowing you to
-        pass bytes or a string to the subprocess's stdin.  If you use this argument
-        you may not also use the Popen constructor's "stdin" argument, as
-        it will be used internally.
-    
-        By default, all communication is in bytes, and therefore any "input" should
-        be bytes, and the stdout and stderr will be bytes. If in text mode, any
-        "input" should be a string, and stdout and stderr will be strings decoded
-        according to locale encoding, or by "encoding" if set. Text mode is
-        triggered by setting any of text, encoding, errors or universal_newlines.
-    
-        The other arguments are the same as for the Popen constructor.
-        """
-        if input is not None:
-            if kwargs.get('stdin') is not None:
-                raise ValueError('stdin and input arguments may not both be used.')
-            kwargs['stdin'] = PIPE
-    
-        if capture_output:
-            if kwargs.get('stdout') is not None or kwargs.get('stderr') is not None:
-                raise ValueError('stdout and stderr arguments may not be used '
-                                 'with capture_output.')
-            kwargs['stdout'] = PIPE
-            kwargs['stderr'] = PIPE
-    
-        with Popen(*popenargs, **kwargs) as process:
-            try:
-                stdout, stderr = process.communicate(input, timeout=timeout)
-            except TimeoutExpired as exc:
-                process.kill()
-                if _mswindows:
-                    # Windows accumulates the output in a single blocking
-                    # read() call run on child threads, with the timeout
-                    # being done in a join() on those threads.  communicate()
-                    # _after_ kill() is required to collect that and add it
-                    # to the exception.
-                    exc.stdout, exc.stderr = process.communicate()
-                else:
-                    # POSIX _communicate already populated the output so
-                    # far into the TimeoutExpired exception.
-                    process.wait()
-                raise
-            except:  # Including KeyboardInterrupt, communicate handled that.
-                process.kill()
-                # We don't call process.wait() as .__exit__ does that for us.
-                raise
-            retcode = process.poll()
-            if check and retcode:
->               raise CalledProcessError(retcode, process.args,
-                                         output=stdout, stderr=stderr)
-E               subprocess.CalledProcessError: Command '('/home/kmaeh/.pyenv/versions/rocm-ci/bin/python', '/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/gemm/sgemm.py')' returned non-zero exit status 1.
-
-/home/kmaeh/.pyenv/versions/3.8.7/lib/python3.8/subprocess.py:512: CalledProcessError
------------------------------ Captured stdout call -----------------------------
-Original error message:
-m=1022 n=1254 k=1930
-start benchmarking
-
-Traceback (most recent call last):
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/gemm/sgemm.py", line 89, in <module>
-    main()
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/example_tests/../../examples/gemm/sgemm.py", line 65, in main
-    A = cp.random.uniform(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/random/_distributions.py", line 843, in uniform
-    return rs.uniform(low, high, size=size, dtype=dtype)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/random/_generator.py", line 919, in uniform
-    rand = self.random_sample(size=size, dtype=dtype)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/random/_generator.py", line 619, in random_sample
-    RandomState._mod1_kernel(out)
-  File "cupy/_core/_kernel.pyx", line 841, in cupy._core._kernel.ElementwiseKernel.__call__
-    kern = self._get_elementwise_kernel(dev_id, arginfos, type_map)
-  File "cupy/_core/_kernel.pyx", line 866, in cupy._core._kernel.ElementwiseKernel._get_elementwise_kernel
-    kern = _get_elementwise_kernel(
-  File "cupy/_util.pyx", line 59, in cupy._util.memoize.decorator.ret
-    result = f(*args, **kwargs)
-  File "cupy/_core/_kernel.pyx", line 653, in cupy._core._kernel._get_elementwise_kernel
-    return _get_simple_elementwise_kernel(
-  File "cupy/_core/_kernel.pyx", line 61, in cupy._core._kernel._get_simple_elementwise_kernel
-    module = compile_with_cache(module_code, options)
-  File "cupy/_core/core.pyx", line 2084, in cupy._core.core.compile_with_cache
-    #else
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 450, in compile_with_cache
-    return _compile_with_cache_hip(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 850, in _compile_with_cache_hip
-    binary, mapping = compile_using_nvrtc(
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 292, in compile_using_nvrtc
-    return _compile(source, options, cu_path,
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.Oaroyan4av/cupy/cupy/cuda/compiler.py", line 273, in _compile
-    name_expressions=name_expressions, method=method)
-UnboundLocalError: local variable 'method' referenced before assignment
-
+dtype is <class 'numpy.float16'>
 =============================== warnings summary ===============================
 tests/cupy_tests/core_tests/fusion_tests/test_array.py: 1 warning
 tests/cupy_tests/math_tests/test_sumprod.py: 19 warnings
@@ -3540,7 +2821,7 @@ tests/cupy_tests/math_tests/test_sumprod.py::TestNansumNanprodLong_param_15_{axi
     return ufunc.reduce(obj, axis, dtype, out, **passkwargs)
 
 tests/cupy_tests/math_tests/test_sumprod.py: 32 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/cupy_tests/math_tests/test_sumprod.py:800: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HrpZypRcea/cupy/tests/cupy_tests/math_tests/test_sumprod.py:800: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/math_tests/test_sumprod.py::TestSumprod::test_sum_all2
@@ -3554,7 +2835,7 @@ tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py::TestStats::tes
     return umr_sum(a, axis, dtype, out, keepdims, initial, where)
 
 tests/cupy_tests/statistics_tests/test_meanvar.py: 32 warnings
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HrpZypRcea/cupy/tests/cupy_tests/statistics_tests/test_meanvar.py:114: RuntimeWarning: invalid value encountered in true_divide
     a = a / a
 
 tests/cupy_tests/statistics_tests/test_meanvar.py::TestNanMedian_param_4_{axis=0, keepdims=True, overwrite_input=True, shape=(3, 4, 5)}::test_nanmedian
@@ -3646,7 +2927,7 @@ tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::te
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_235_{cval=-inf, mode='constant', order=0, output=float64, prefilter=True, shift=0.1}]
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_238_{cval=-inf, mode='constant', order=1, output=float64, prefilter=True, shift=0.1}]
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestShift::test_shift_int[_param_241_{cval=-inf, mode='constant', order=3, output=float64, prefilter=True, shift=0.1}]
-  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py:533: RuntimeWarning: invalid value encountered in remainder
+  /home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HrpZypRcea/cupy/tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py:533: RuntimeWarning: invalid value encountered in remainder
     float_out = self._shift(xp, scp, a.astype(xp.float64)) % 1
 
 tests/cupyx_tests/scipy_tests/ndimage_tests/test_measurements.py: 14 warnings
@@ -3676,23 +2957,17 @@ tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestWiener_param
     res *= (1 - noise / lVar)
 
 -- Docs: https://docs.pytest.org/en/stable/warnings.html
-- generated html file: file:///home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.rUJxYIoHKv/cupy/_output/report.html -
+- generated html file: file:///home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.HrpZypRcea/cupy/_output/report.html -
 =========================== short test summary info ============================
 FAILED tests/cupy_tests/core_tests/test_ndarray_elementwise_op.py::TestArrayElementwiseOp::test_add_array_boolarray
 FAILED tests/cupy_tests/core_tests/test_ndarray_elementwise_op.py::TestArrayElementwiseOp::test_iadd_array_boolarray
-FAILED tests/cupy_tests/core_tests/test_ndarray_unary_op.py::TestArrayBoolOp::test_bool_one_element
-FAILED tests/cupy_tests/indexing_tests/test_generate.py::TestIX_::test_ix_ndarray
 FAILED tests/cupy_tests/math_tests/test_misc.py::TestConvolve_param_0_{mode='valid'}::test_convolve_diff_types
 FAILED tests/cupy_tests/math_tests/test_misc.py::TestConvolve_param_1_{mode='same'}::test_convolve_diff_types
 FAILED tests/cupy_tests/math_tests/test_misc.py::TestConvolve_param_2_{mode='full'}::test_convolve_diff_types
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsPoissonInvalid::test_none_lam_generator
-FAILED tests/cupy_tests/random_tests/test_distributions.py::TestDistributionsStandardGammaInvalid::test_none_shape_generator
 FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_0_{mode='valid'}::test_correlate_diff_types
 FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_1_{mode='full'}::test_correlate_diff_types
 FAILED tests/cupy_tests/statistics_tests/test_correlation.py::TestCorrelate_param_2_{mode='same'}::test_correlate_diff_types
-FAILED tests/cupyx_tests/test_scatter.py::TestScatter::test_scatter_add - Ass...
 FAILED tests/cupyx_tests/jit_tests/test_raw.py::TestRaw::test_atomic_add - Ty...
-FAILED tests/cupyx_tests/scipy_tests/linalg_tests/test_decomp_lu.py::TestLUSolve_param_4_{shapes=((5, 5), (5, 2)), trans=1}::test_lu_solve
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestMapCoordinatesHalfInteger::test_map_coordinates_float[_param_46_{mode='grid-constant', order=4}]
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestMapCoordinatesHalfInteger::test_map_coordinates_float[_param_47_{mode='grid-constant', order=5}]
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_4_{grid_mode=False, mode='constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
@@ -3711,8 +2986,5 @@ FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZo
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_71_{grid_mode=True, mode='wrap', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_94_{grid_mode=True, mode='grid-constant', order=4, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
 FAILED tests/cupyx_tests/scipy_tests/ndimage_tests/test_interpolation.py::TestZoomOutputSize1::test_zoom_output_size1[_param_95_{grid_mode=True, mode='grid-constant', order=5, shape=(5, 5, 2), zoom=(2, 2, 0.5)}]
-FAILED tests/example_tests/test_finance.py::TestBlackScholes::test_black_scholes
-FAILED tests/example_tests/test_finance.py::TestMonteCarlo::test_monte_carlo
-FAILED tests/example_tests/test_finance.py::TestMonteCarloWithMultiGPU::test_monte_carlo_multigpu
-FAILED tests/example_tests/test_gemm.py::TestGEMM::test_sgemm - subprocess.Ca...
-= 37 failed, 63847 passed, 7397 skipped, 71 deselected, 557 xfailed, 276 warnings in 27348.44s (7:35:48) =
+FAILED tests/cupyx_tests/scipy_tests/signal_tests/test_signaltools.py::TestFFTConvolve_param_12_{mode='full', size1=(3, 4, 10), size2=3}::test_convolve_fft
+= 28 failed, 63854 passed, 7397 skipped, 71 deselected, 559 xfailed, 276 warnings in 26986.81s (7:29:46) =
