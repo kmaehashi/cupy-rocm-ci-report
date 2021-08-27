@@ -3,10 +3,10 @@ Options: {'package_name': 'cupy', 'long_description': None, 'wheel_libs': [], 'w
 Traceback (most recent call last):
   File "setup.py", line 118, in <module>
     ext_modules = cupy_setup_build.get_ext_modules()
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.aaD9MmkQ7L/cupy/cupy_setup_build.py", line 984, in get_ext_modules
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.pvddsdeEEo/cupy/cupy_setup_build.py", line 984, in get_ext_modules
     extensions = make_extensions(arg_options, compiler, use_cython)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.aaD9MmkQ7L/cupy/cupy_setup_build.py", line 667, in make_extensions
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.pvddsdeEEo/cupy/cupy_setup_build.py", line 667, in make_extensions
     settings = build.get_compiler_setting(use_hip)
-  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.aaD9MmkQ7L/cupy/install/build.py", line 209, in get_compiler_setting
+  File "/home/kmaeh/Development/cupy-rocm-ci-report/tools/tmp.pvddsdeEEo/cupy/install/build.py", line 209, in get_compiler_setting
     raise Exception('Please install hipCUB and retry')
 Exception: Please install hipCUB and retry
