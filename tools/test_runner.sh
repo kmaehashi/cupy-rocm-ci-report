@@ -3,13 +3,14 @@
 set -ue
 
 BRANCH=$1
-GPU_MODEL=$(~/CuPy_Team/rocm/detect-target)
+TOOLS_DIR="$(dirname $0)"
+GPU_MODEL=$("${TOOLS_DIR}/detect-target")
 
 echo "Host: $(hostname) [${GPU_MODEL}]"
 echo "Workdir: $(pwd)"
 
 echo "Sourcing env vars"
-. ~/CuPy_Team/rocm-4.2.0/profile
+. "${TOOLS_DIR}/profile"
 
 echo "Setting up Python env"
 pyenv local rocm-ci
