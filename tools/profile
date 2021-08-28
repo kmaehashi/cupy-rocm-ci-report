@@ -3,3 +3,6 @@ export PATH="${ROCM_HOME}/bin:${PATH}"
 export LD_LIBRARY_PATH="${ROCM_HOME}/lib:${LD_LIBRARY_PATH:-}"
 export CPATH="${ROCM_HOME}/include:${CPATH:-}"
 export LDFLAGS="-L${ROCM_HOME}/lib ${LDFLAGS:-}"
+
+# workaround for ROCm 4.3 bug
+export LLVM_PATH="${ROCM_HOME}/llvm"
