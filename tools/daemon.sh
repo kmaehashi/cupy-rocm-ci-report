@@ -4,11 +4,13 @@ set -u
 
 BRANCH=$1
 
+SCRATCH_DIR="/global/scratch/kmaeh/cupy-rocm-ci-work"
 CURRENT_DIR="$(cd $(dirname "$0"); pwd)"
 LAST_TESTED_COMMIT=""
 
 _run_test() {
-    WORKDIR="$(mktemp -d -p "${CURRENT_DIR}")"
+    mkdir -p "${SCRATCH_DIR}"
+    WORKDIR="$(mktemp -d -p "${SCRATCH_DIR}")"
     trap _clean_workdir EXIT
     _clean_workdir() {
       echo "Cleaning up the work dir: ${WORKDIR}"
