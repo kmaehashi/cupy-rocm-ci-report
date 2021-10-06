@@ -25,6 +25,7 @@ echo "${BRANCH}: ${COMMIT_INFO}" > _output/output_build.log
 echo "${BRANCH}: ${COMMIT_INFO}" > _output/output_test.log
 CUPY_NUM_BUILD_JOBS=64 python setup.py develop &>> _output/output_build.log || echo "Build failed."
 echo "Running Test..."
+python -c 'import cupy; cupy.show_config(_full=True)' &>> _output/output_test.log
 python -m pytest -m "not slow" -rfEX --html _output/report.html --self-contained-html tests &>> _output/output_test.log || echo "Test failed."
 TEST_SUMMARY="$(cat _output/output_test.log | tail -n 1)"
 popd
