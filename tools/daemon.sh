@@ -4,8 +4,9 @@ set -u
 
 BRANCH=$1
 
-SCRATCH_DIR="/global/scratch/kmaeh/cupy-rocm-ci-work"
 CURRENT_DIR="$(cd $(dirname "$0"); pwd)"
+#SCRATCH_DIR="/global/scratch/kmaeh/cupy-rocm-ci-work"
+SCRATCH_DIR="${CURRENT_DIR}"
 LAST_TESTED_COMMIT=""
 
 _run_test() {
@@ -32,7 +33,7 @@ _run_test() {
 
     pushd "${WORKDIR}"
     git clone --quiet --depth 1 --branch gh-pages git@github.com:kmaehashi/cupy-rocm-ci-report.git
-    srun -p MI100 -t 10:00:00 "${CURRENT_DIR}/test_runner.sh" "${BRANCH}"
+    srun -p MI100 -t 16:00:00 "${CURRENT_DIR}/test_runner.sh" "${BRANCH}"
     # srun -p MI100 "${CURRENT_DIR}/test_runner.sh"
     popd
 
