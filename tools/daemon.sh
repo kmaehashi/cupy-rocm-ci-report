@@ -38,7 +38,8 @@ _run_test() {
     popd
 
     pushd "${WORKDIR}/cupy-rocm-ci-report"
-    git pull
+    git remote update origin
+    git rebase origin/gh-pages
     git push
     popd
 
