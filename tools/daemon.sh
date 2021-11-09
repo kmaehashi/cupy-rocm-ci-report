@@ -6,7 +6,7 @@ BRANCH=$1
 
 CURRENT_DIR="$(cd $(dirname "$0"); pwd)"
 #SCRATCH_DIR="/global/scratch/kmaeh/cupy-rocm-ci-work"
-SCRATCH_DIR="${CURRENT_DIR}"
+SCRATCH_DIR="${CURRENT_DIR}/scratch"
 LAST_TESTED_COMMIT=""
 
 _run_test() {
